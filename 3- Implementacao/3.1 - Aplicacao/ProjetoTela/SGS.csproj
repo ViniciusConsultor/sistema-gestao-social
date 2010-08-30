@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BACEDE70-8A4F-4D02-B1BE-5A8EDD76FB12}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjetoTela</RootNamespace>
+    <AssemblyName>ProjetoTela</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="App_Data\SGS.mdf" />
+    <Content Include="App_Data\SGS_log.ldf">
+      <DependentUpon>SGS.mdf</DependentUpon>
+    </Content>
+    <Content Include="Imagens\5[1].jpg" />
+    <Content Include="Imagens\Banner.jpg" />
+    <Content Include="Imagens\Banner_2.jpg" />
+    <Content Include="Imagens\Tela_Saida.JPG" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="ViewTelas\Alimentacao\AltAlimentacao.aspx" />
+    <Content Include="ViewTelas\Alimentacao\CadAlimentacao.aspx" />
+    <Content Include="ViewTelas\Alimentacao\ConAlimentacao.aspx" />
+    <Content Include="ViewTelas\Apresentacao.aspx" />
+    <Content Include="ViewTelas\Financas\AltFinancas.aspx" />
+    <Content Include="ViewTelas\Financas\ConFinancas.aspx" />
+    <Content Include="ViewTelas\Pessoa\AltPessoa.aspx" />
+    <Content Include="ViewTelas\Pessoa\CadPessoa.aspx" />
+    <Content Include="ViewTelas\Financas\Cad_Financas.aspx" />
+    <Content Include="ViewTelas\Cad_Visita.aspx" />
+    <Content Include="ViewTelas\Financas\CasaLar\AltCasaLar.aspx" />
+    <Content Include="ViewTelas\Financas\CasaLar\ConCasaLar.aspx" />
+    <Content Include="ViewTelas\Login\AltLogin.aspx" />
+    <Content Include="ViewTelas\Login\CadLogin.aspx" />
+    <Content Include="ViewTelas\Login\ConLogin.aspx" />
+    <Content Include="ViewTelas\Pessoa\ConPessoa.aspx" />
+    <Content Include="ViewTelas\PlanoOrcamentario\CadPlanoOrcamentario.aspx" />
+    <Content Include="ViewTelas\Relatorio\RelCasaLar.aspx" />
+    <Content Include="ViewTelas\Teste.aspx" />
+    <Content Include="ViewTelas\Login.aspx" />
+    <Content Include="ViewTelas\Financas\CasaLar\CadCasaLar.aspx" />
+    <Content Include="ViewTelas\Visita\AltVisita.aspx" />
+    <Content Include="ViewTelas\Visita\CadVisita.aspx" />
+    <Content Include="ViewTelas\Visita\ConVisita.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Master\SGS.Master.cs">
+      <DependentUpon>SGS.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\SGS.Master.designer.cs">
+      <DependentUpon>SGS.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Alimentacao\AltAlimentacao.aspx.cs">
+      <DependentUpon>AltAlimentacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Alimentacao\AltAlimentacao.aspx.designer.cs">
+      <DependentUpon>AltAlimentacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Alimentacao\CadAlimentacao.aspx.cs">
+      <DependentUpon>CadAlimentacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Alimentacao\CadAlimentacao.aspx.designer.cs">
+      <DependentUpon>CadAlimentacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Alimentacao\ConAlimentacao.aspx.cs">
+      <DependentUpon>ConAlimentacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Alimentacao\ConAlimentacao.aspx.designer.cs">
+      <DependentUpon>ConAlimentacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Apresentacao.aspx.cs">
+      <DependentUpon>Apresentacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Apresentacao.aspx.designer.cs">
+      <DependentUpon>Apresentacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\AltFinancas.aspx.cs">
+      <DependentUpon>AltFinancas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\AltFinancas.aspx.designer.cs">
+      <DependentUpon>AltFinancas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\ConFinancas.aspx.cs">
+      <DependentUpon>ConFinancas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\ConFinancas.aspx.designer.cs">
+      <DependentUpon>ConFinancas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Pessoa\AltPessoa.aspx.cs">
+      <DependentUpon>AltPessoa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Pessoa\AltPessoa.aspx.designer.cs">
+      <DependentUpon>AltPessoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Pessoa\CadPessoa.aspx.cs">
+      <DependentUpon>CadPessoa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Pessoa\CadPessoa.aspx.designer.cs">
+      <DependentUpon>CadPessoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\Cad_Financas.aspx.cs">
+      <DependentUpon>Cad_Financas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\Cad_Financas.aspx.designer.cs">
+      <DependentUpon>Cad_Financas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Cad_Visita.aspx.cs">
+      <DependentUpon>Cad_Visita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Cad_Visita.aspx.designer.cs">
+      <DependentUpon>Cad_Visita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\CasaLar\AltCasaLar.aspx.cs">
+      <DependentUpon>AltCasaLar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\CasaLar\AltCasaLar.aspx.designer.cs">
+      <DependentUpon>AltCasaLar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\CasaLar\ConCasaLar.aspx.cs">
+      <DependentUpon>ConCasaLar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\CasaLar\ConCasaLar.aspx.designer.cs">
+      <DependentUpon>ConCasaLar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Login\AltLogin.aspx.cs">
+      <DependentUpon>AltLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Login\AltLogin.aspx.designer.cs">
+      <DependentUpon>AltLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Login\CadLogin.aspx.cs">
+      <DependentUpon>CadLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Login\CadLogin.aspx.designer.cs">
+      <DependentUpon>CadLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Login\ConLogin.aspx.cs">
+      <DependentUpon>ConLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Login\ConLogin.aspx.designer.cs">
+      <DependentUpon>ConLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Pessoa\ConPessoa.aspx.cs">
+      <DependentUpon>ConPessoa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Pessoa\ConPessoa.aspx.designer.cs">
+      <DependentUpon>ConPessoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\PlanoOrcamentario\CadPlanoOrcamentario.aspx.cs">
+      <DependentUpon>CadPlanoOrcamentario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\PlanoOrcamentario\CadPlanoOrcamentario.aspx.designer.cs">
+      <DependentUpon>CadPlanoOrcamentario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Relatorio\RelCasaLar.aspx.cs">
+      <DependentUpon>RelCasaLar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Relatorio\RelCasaLar.aspx.designer.cs">
+      <DependentUpon>RelCasaLar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Teste.aspx.cs">
+      <DependentUpon>Teste.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Teste.aspx.designer.cs">
+      <DependentUpon>Teste.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\CasaLar\CadCasaLar.aspx.cs">
+      <DependentUpon>CadCasaLar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Financas\CasaLar\CadCasaLar.aspx.designer.cs">
+      <DependentUpon>CadCasaLar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Visita\AltVisita.aspx.cs">
+      <DependentUpon>AltVisita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Visita\AltVisita.aspx.designer.cs">
+      <DependentUpon>AltVisita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Visita\CadVisita.aspx.cs">
+      <DependentUpon>CadVisita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Visita\CadVisita.aspx.designer.cs">
+      <DependentUpon>CadVisita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewTelas\Visita\ConVisita.aspx.cs">
+      <DependentUpon>ConVisita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTelas\Visita\ConVisita.aspx.designer.cs">
+      <DependentUpon>ConVisita.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CamadaDados\" />
+    <Folder Include="Entidades\DTO\" />
+    <Folder Include="Negocio\" />
+    <Folder Include="Servicos\" />
+    <Folder Include="Validacoes\" />
+    <Folder Include="ViewRelatorios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master\SGS.Master" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49217</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
