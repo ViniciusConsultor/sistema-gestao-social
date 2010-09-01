@@ -13,5 +13,17 @@ namespace ProjetoTela
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SGS.CamadaDados.BaseConnection con = new SGS.CamadaDados.BaseConnection();
+
+            //con.Conectar();
+            SGS.CamadaDados.CasaLarDados casaLarDados = new SGS.CamadaDados.CasaLarDados();
+            
+            casaLarDados.SelecionarTodos();
+
+
+        }
     }
 }
