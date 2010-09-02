@@ -10,7 +10,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjetoTela</RootNamespace>
+    <RootNamespace>SGS</RootNamespace>
     <AssemblyName>ProjetoTela</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -69,30 +69,31 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="ViewTelas\Alimentacao\AltAlimentacao.aspx" />
-    <Content Include="ViewTelas\Alimentacao\CadAlimentacao.aspx" />
-    <Content Include="ViewTelas\Alimentacao\ConAlimentacao.aspx" />
-    <Content Include="ViewTelas\Apresentacao.aspx" />
-    <Content Include="ViewTelas\Financas\AltFinancas.aspx" />
-    <Content Include="ViewTelas\Financas\ConFinancas.aspx" />
-    <Content Include="ViewTelas\Pessoa\AltPessoa.aspx" />
-    <Content Include="ViewTelas\Pessoa\CadPessoa.aspx" />
-    <Content Include="ViewTelas\Financas\Cad_Financas.aspx" />
-    <Content Include="ViewTelas\Cad_Visita.aspx" />
-    <Content Include="ViewTelas\Financas\CasaLar\AltCasaLar.aspx" />
-    <Content Include="ViewTelas\Financas\CasaLar\ConCasaLar.aspx" />
-    <Content Include="ViewTelas\Login\AltLogin.aspx" />
-    <Content Include="ViewTelas\Login\CadLogin.aspx" />
-    <Content Include="ViewTelas\Login\ConLogin.aspx" />
-    <Content Include="ViewTelas\Pessoa\ConPessoa.aspx" />
-    <Content Include="ViewTelas\PlanoOrcamentario\CadPlanoOrcamentario.aspx" />
-    <Content Include="ViewTelas\Relatorio\RelCasaLar.aspx" />
-    <Content Include="ViewTelas\Teste.aspx" />
-    <Content Include="ViewTelas\Login.aspx" />
-    <Content Include="ViewTelas\Financas\CasaLar\CadCasaLar.aspx" />
-    <Content Include="ViewTelas\Visita\AltVisita.aspx" />
-    <Content Include="ViewTelas\Visita\CadVisita.aspx" />
-    <Content Include="ViewTelas\Visita\ConVisita.aspx" />
+    <Content Include="View\Alimentacao\AltAlimentacao.aspx" />
+    <Content Include="View\Alimentacao\CadAlimentacao.aspx" />
+    <Content Include="View\Alimentacao\ConAlimentacao.aspx" />
+    <Content Include="View\Apresentacao.aspx" />
+    <Content Include="View\CasaLar\ManterCasaLar.aspx" />
+    <Content Include="View\Financas\AltFinancas.aspx" />
+    <Content Include="View\Financas\ConFinancas.aspx" />
+    <Content Include="View\Pessoa\AltPessoa.aspx" />
+    <Content Include="View\Pessoa\CadPessoa.aspx" />
+    <Content Include="View\Financas\Cad_Financas.aspx" />
+    <Content Include="View\Cad_Visita.aspx" />
+    <Content Include="View\Financas\CasaLar\AltCasaLar.aspx" />
+    <Content Include="View\Financas\CasaLar\ConCasaLar.aspx" />
+    <Content Include="View\LoginUI\AltLogin.aspx" />
+    <Content Include="View\LoginUI\CadLogin.aspx" />
+    <Content Include="View\LoginUI\ConLogin.aspx" />
+    <Content Include="View\Pessoa\ConPessoa.aspx" />
+    <Content Include="View\PlanoOrcamentario\CadPlanoOrcamentario.aspx" />
+    <Content Include="View\Relatorio\RelCasaLar.aspx" />
+    <Content Include="View\Teste.aspx" />
+    <Content Include="View\LoginUI\Login.aspx" />
+    <Content Include="View\Financas\CasaLar\CadCasaLar.aspx" />
+    <Content Include="View\Visita\AltVisita.aspx" />
+    <Content Include="View\Visita\CadVisita.aspx" />
+    <Content Include="View\Visita\ConVisita.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -132,6 +133,7 @@
     </Compile>
     <Compile Include="CamadaDados\BaseConnection.cs" />
     <Compile Include="CamadaDados\CasaLarDados.cs" />
+    <Compile Include="CamadaDados\LoginDados.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,6 +141,8 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\DTO\SessaoDTO.cs" />
+    <Compile Include="Entidades\Login.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -151,6 +155,8 @@
       <DependentUpon>SGS.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\SGSService.cs" />
+    <Compile Include="Servicos\SGSServiceLogin.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,181 +164,188 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Alimentacao\AltAlimentacao.aspx.cs">
+    <Compile Include="View\Alimentacao\AltAlimentacao.aspx.cs">
       <DependentUpon>AltAlimentacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Alimentacao\AltAlimentacao.aspx.designer.cs">
+    <Compile Include="View\Alimentacao\AltAlimentacao.aspx.designer.cs">
       <DependentUpon>AltAlimentacao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Alimentacao\CadAlimentacao.aspx.cs">
+    <Compile Include="View\Alimentacao\CadAlimentacao.aspx.cs">
       <DependentUpon>CadAlimentacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Alimentacao\CadAlimentacao.aspx.designer.cs">
+    <Compile Include="View\Alimentacao\CadAlimentacao.aspx.designer.cs">
       <DependentUpon>CadAlimentacao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Alimentacao\ConAlimentacao.aspx.cs">
+    <Compile Include="View\Alimentacao\ConAlimentacao.aspx.cs">
       <DependentUpon>ConAlimentacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Alimentacao\ConAlimentacao.aspx.designer.cs">
+    <Compile Include="View\Alimentacao\ConAlimentacao.aspx.designer.cs">
       <DependentUpon>ConAlimentacao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Apresentacao.aspx.cs">
+    <Compile Include="View\Apresentacao.aspx.cs">
       <DependentUpon>Apresentacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Apresentacao.aspx.designer.cs">
+    <Compile Include="View\Apresentacao.aspx.designer.cs">
       <DependentUpon>Apresentacao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Financas\AltFinancas.aspx.cs">
+    <Compile Include="View\CasaLar\ManterCasaLar.aspx.cs">
+      <DependentUpon>ManterCasaLar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\CasaLar\ManterCasaLar.aspx.designer.cs">
+      <DependentUpon>ManterCasaLar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Financas\AltFinancas.aspx.cs">
       <DependentUpon>AltFinancas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Financas\AltFinancas.aspx.designer.cs">
+    <Compile Include="View\Financas\AltFinancas.aspx.designer.cs">
       <DependentUpon>AltFinancas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Financas\ConFinancas.aspx.cs">
+    <Compile Include="View\Financas\ConFinancas.aspx.cs">
       <DependentUpon>ConFinancas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Financas\ConFinancas.aspx.designer.cs">
+    <Compile Include="View\Financas\ConFinancas.aspx.designer.cs">
       <DependentUpon>ConFinancas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Pessoa\AltPessoa.aspx.cs">
+    <Compile Include="View\Pessoa\AltPessoa.aspx.cs">
       <DependentUpon>AltPessoa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Pessoa\AltPessoa.aspx.designer.cs">
+    <Compile Include="View\Pessoa\AltPessoa.aspx.designer.cs">
       <DependentUpon>AltPessoa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Pessoa\CadPessoa.aspx.cs">
+    <Compile Include="View\Pessoa\CadPessoa.aspx.cs">
       <DependentUpon>CadPessoa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Pessoa\CadPessoa.aspx.designer.cs">
+    <Compile Include="View\Pessoa\CadPessoa.aspx.designer.cs">
       <DependentUpon>CadPessoa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Financas\Cad_Financas.aspx.cs">
+    <Compile Include="View\Financas\Cad_Financas.aspx.cs">
       <DependentUpon>Cad_Financas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Financas\Cad_Financas.aspx.designer.cs">
+    <Compile Include="View\Financas\Cad_Financas.aspx.designer.cs">
       <DependentUpon>Cad_Financas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Cad_Visita.aspx.cs">
+    <Compile Include="View\Cad_Visita.aspx.cs">
       <DependentUpon>Cad_Visita.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Cad_Visita.aspx.designer.cs">
+    <Compile Include="View\Cad_Visita.aspx.designer.cs">
       <DependentUpon>Cad_Visita.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Financas\CasaLar\AltCasaLar.aspx.cs">
+    <Compile Include="View\Financas\CasaLar\AltCasaLar.aspx.cs">
       <DependentUpon>AltCasaLar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Financas\CasaLar\AltCasaLar.aspx.designer.cs">
+    <Compile Include="View\Financas\CasaLar\AltCasaLar.aspx.designer.cs">
       <DependentUpon>AltCasaLar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Financas\CasaLar\ConCasaLar.aspx.cs">
+    <Compile Include="View\Financas\CasaLar\ConCasaLar.aspx.cs">
       <DependentUpon>ConCasaLar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Financas\CasaLar\ConCasaLar.aspx.designer.cs">
+    <Compile Include="View\Financas\CasaLar\ConCasaLar.aspx.designer.cs">
       <DependentUpon>ConCasaLar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Login\AltLogin.aspx.cs">
+    <Compile Include="View\LoginUI\AltLogin.aspx.cs">
       <DependentUpon>AltLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Login\AltLogin.aspx.designer.cs">
+    <Compile Include="View\LoginUI\AltLogin.aspx.designer.cs">
       <DependentUpon>AltLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Login\CadLogin.aspx.cs">
+    <Compile Include="View\LoginUI\CadLogin.aspx.cs">
       <DependentUpon>CadLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Login\CadLogin.aspx.designer.cs">
+    <Compile Include="View\LoginUI\CadLogin.aspx.designer.cs">
       <DependentUpon>CadLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Login\ConLogin.aspx.cs">
+    <Compile Include="View\LoginUI\ConLogin.aspx.cs">
       <DependentUpon>ConLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Login\ConLogin.aspx.designer.cs">
+    <Compile Include="View\LoginUI\ConLogin.aspx.designer.cs">
       <DependentUpon>ConLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Pessoa\ConPessoa.aspx.cs">
+    <Compile Include="View\Pessoa\ConPessoa.aspx.cs">
       <DependentUpon>ConPessoa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Pessoa\ConPessoa.aspx.designer.cs">
+    <Compile Include="View\Pessoa\ConPessoa.aspx.designer.cs">
       <DependentUpon>ConPessoa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\PlanoOrcamentario\CadPlanoOrcamentario.aspx.cs">
+    <Compile Include="View\PlanoOrcamentario\CadPlanoOrcamentario.aspx.cs">
       <DependentUpon>CadPlanoOrcamentario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\PlanoOrcamentario\CadPlanoOrcamentario.aspx.designer.cs">
+    <Compile Include="View\PlanoOrcamentario\CadPlanoOrcamentario.aspx.designer.cs">
       <DependentUpon>CadPlanoOrcamentario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Relatorio\RelCasaLar.aspx.cs">
+    <Compile Include="View\Relatorio\RelCasaLar.aspx.cs">
       <DependentUpon>RelCasaLar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Relatorio\RelCasaLar.aspx.designer.cs">
+    <Compile Include="View\Relatorio\RelCasaLar.aspx.designer.cs">
       <DependentUpon>RelCasaLar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Teste.aspx.cs">
+    <Compile Include="View\Teste.aspx.cs">
       <DependentUpon>Teste.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Teste.aspx.designer.cs">
+    <Compile Include="View\Teste.aspx.designer.cs">
       <DependentUpon>Teste.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Login.aspx.cs">
+    <Compile Include="View\LoginUI\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Login.aspx.designer.cs">
+    <Compile Include="View\LoginUI\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Financas\CasaLar\CadCasaLar.aspx.cs">
+    <Compile Include="View\Financas\CasaLar\CadCasaLar.aspx.cs">
       <DependentUpon>CadCasaLar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Financas\CasaLar\CadCasaLar.aspx.designer.cs">
+    <Compile Include="View\Financas\CasaLar\CadCasaLar.aspx.designer.cs">
       <DependentUpon>CadCasaLar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Visita\AltVisita.aspx.cs">
+    <Compile Include="View\Visita\AltVisita.aspx.cs">
       <DependentUpon>AltVisita.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Visita\AltVisita.aspx.designer.cs">
+    <Compile Include="View\Visita\AltVisita.aspx.designer.cs">
       <DependentUpon>AltVisita.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Visita\CadVisita.aspx.cs">
+    <Compile Include="View\Visita\CadVisita.aspx.cs">
       <DependentUpon>CadVisita.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Visita\CadVisita.aspx.designer.cs">
+    <Compile Include="View\Visita\CadVisita.aspx.designer.cs">
       <DependentUpon>CadVisita.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewTelas\Visita\ConVisita.aspx.cs">
+    <Compile Include="View\Visita\ConVisita.aspx.cs">
       <DependentUpon>ConVisita.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewTelas\Visita\ConVisita.aspx.designer.cs">
+    <Compile Include="View\Visita\ConVisita.aspx.designer.cs">
       <DependentUpon>ConVisita.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entidades\DTO\" />
     <Folder Include="Negocio\" />
-    <Folder Include="Servicos\" />
     <Folder Include="Validacoes\" />
-    <Folder Include="ViewRelatorios\" />
+    <Folder Include="View\Escolar\" />
+    <Folder Include="View\Procedimentos\" />
+    <Folder Include="View\Profissional\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
