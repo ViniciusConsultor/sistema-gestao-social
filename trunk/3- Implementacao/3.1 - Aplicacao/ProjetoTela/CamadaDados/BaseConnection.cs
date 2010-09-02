@@ -1,6 +1,6 @@
 ﻿using System.Data.Sql;
 using System.Data.Common;
-
+using System.Data.SqlClient;
 
 namespace SGS.CamadaDados
 {
