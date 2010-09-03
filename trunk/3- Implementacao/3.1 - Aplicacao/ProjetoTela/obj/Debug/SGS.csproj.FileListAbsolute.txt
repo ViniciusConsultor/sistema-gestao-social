@@ -1,0 +1,10 @@
+C:\Users\Maycon\Desktop\PROJETO FINAL II\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\bin\ProjetoTela.dll
+C:\Users\Maycon\Desktop\PROJETO FINAL II\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\bin\ProjetoTela.pdb
+C:\Users\Maycon\Desktop\PROJETO FINAL II\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Maycon\Desktop\PROJETO FINAL II\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\obj\Debug\ProjetoTela.dll
+C:\Users\Maycon\Desktop\PROJETO FINAL II\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\obj\Debug\ProjetoTela.pdb
+C:\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\bin\ProjetoTela.dll
+C:\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\bin\ProjetoTela.pdb
+C:\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\obj\Debug\ResolveAssemblyReference.cache
+C:\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\obj\Debug\ProjetoTela.dll
+C:\SGS\3- Implementacao\3.1 - Aplicacao\ProjetoTela\obj\Debug\ProjetoTela.pdb
