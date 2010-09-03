@@ -1,0 +1,20 @@
+C:\Users\mpires\Desktop\MAYCON\FACULDADE\PROJETO_FINAL\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.dll
+C:\Users\mpires\Desktop\MAYCON\FACULDADE\PROJETO_FINAL\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.pdb
+C:\Users\mpires\Desktop\MAYCON\FACULDADE\PROJETO_FINAL\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\mpires\Desktop\MAYCON\FACULDADE\PROJETO_FINAL\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.dll
+C:\Users\mpires\Desktop\MAYCON\FACULDADE\PROJETO_FINAL\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.pdb
+F:\Projeto Final\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.dll
+F:\Projeto Final\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.pdb
+F:\Projeto Final\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ResolveAssemblyReference.cache
+F:\Projeto Final\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.dll
+F:\Projeto Final\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.pdb
+F:\Projeto Final\ANTES 29-05-2010\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.dll
+F:\Projeto Final\ANTES 29-05-2010\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.pdb
+F:\Projeto Final\ANTES 29-05-2010\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ResolveAssemblyReference.cache
+F:\Projeto Final\ANTES 29-05-2010\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.dll
+F:\Projeto Final\ANTES 29-05-2010\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.pdb
+C:\MAYCON\FACULDADE\Projeto Final\CD PROJETO FINAL I\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.dll
+C:\MAYCON\FACULDADE\Projeto Final\CD PROJETO FINAL I\PROJETO TELA\ProjetoTela\ProjetoTela\bin\ProjetoTela.pdb
+C:\MAYCON\FACULDADE\Projeto Final\CD PROJETO FINAL I\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ResolveAssemblyReference.cache
+C:\MAYCON\FACULDADE\Projeto Final\CD PROJETO FINAL I\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.dll
+C:\MAYCON\FACULDADE\Projeto Final\CD PROJETO FINAL I\PROJETO TELA\ProjetoTela\ProjetoTela\obj\Debug\ProjetoTela.pdb
