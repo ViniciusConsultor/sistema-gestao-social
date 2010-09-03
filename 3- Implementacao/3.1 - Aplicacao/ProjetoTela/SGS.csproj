@@ -80,8 +80,8 @@
     <Content Include="View\Pessoa\CadPessoa.aspx" />
     <Content Include="View\Financas\Cad_Financas.aspx" />
     <Content Include="View\Cad_Visita.aspx" />
-    <Content Include="View\Financas\CasaLar\AltCasaLar.aspx" />
-    <Content Include="View\Financas\CasaLar\ConCasaLar.aspx" />
+    <Content Include="View\CasaLar\AltCasaLar.aspx" />
+    <Content Include="View\CasaLar\ConCasaLar.aspx" />
     <Content Include="View\LoginUI\AltLogin.aspx" />
     <Content Include="View\LoginUI\CadLogin.aspx" />
     <Content Include="View\LoginUI\ConLogin.aspx" />
@@ -90,7 +90,7 @@
     <Content Include="View\Relatorio\RelCasaLar.aspx" />
     <Content Include="View\Teste.aspx" />
     <Content Include="View\LoginUI\Login.aspx" />
-    <Content Include="View\Financas\CasaLar\CadCasaLar.aspx" />
+    <Content Include="View\CasaLar\CadCasaLar.aspx" />
     <Content Include="View\Visita\AltVisita.aspx" />
     <Content Include="View\Visita\CadVisita.aspx" />
     <Content Include="View\Visita\ConVisita.aspx" />
@@ -242,18 +242,18 @@
     <Compile Include="View\Cad_Visita.aspx.designer.cs">
       <DependentUpon>Cad_Visita.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Financas\CasaLar\AltCasaLar.aspx.cs">
+    <Compile Include="View\CasaLar\AltCasaLar.aspx.cs">
       <DependentUpon>AltCasaLar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Financas\CasaLar\AltCasaLar.aspx.designer.cs">
+    <Compile Include="View\CasaLar\AltCasaLar.aspx.designer.cs">
       <DependentUpon>AltCasaLar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Financas\CasaLar\ConCasaLar.aspx.cs">
+    <Compile Include="View\CasaLar\ConCasaLar.aspx.cs">
       <DependentUpon>ConCasaLar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Financas\CasaLar\ConCasaLar.aspx.designer.cs">
+    <Compile Include="View\CasaLar\ConCasaLar.aspx.designer.cs">
       <DependentUpon>ConCasaLar.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\LoginUI\AltLogin.aspx.cs">
@@ -312,11 +312,11 @@
     <Compile Include="View\LoginUI\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Financas\CasaLar\CadCasaLar.aspx.cs">
+    <Compile Include="View\CasaLar\CadCasaLar.aspx.cs">
       <DependentUpon>CadCasaLar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Financas\CasaLar\CadCasaLar.aspx.designer.cs">
+    <Compile Include="View\CasaLar\CadCasaLar.aspx.designer.cs">
       <DependentUpon>CadCasaLar.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Visita\AltVisita.aspx.cs">
