@@ -13,17 +13,21 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Este método valida se um Login e Senha são válidos
         /// </summary>
-        /// <param name="umLogin"></param>
+        /// <param name="objLogin"></param>
         /// <returns></returns>
-        public Login ValidarLogin(Login umLogin)
+        public Login ValidarLogin(Login objLogin)
         {
-            SqlParameter parametroLogin = new SqlParameter("@login", umLogin.LoginUsuario);
+            SqlParameter parametroLogin2;
+            SqlParameter parametroLogin = new SqlParameter("@login", objLogin.LoginUsuario);
+            parametroLogin.ParameterName = "@login";
+
             parametroLogin.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroSenha = new SqlParameter("@senha", umLogin.Senha);
+            SqlParameter parametroSenha = new SqlParameter("@senha", objLogin.Senha);
             parametroSenha.DbType = System.Data.DbType.String;
 
             SqlDataReader dataReader;
+
             SqlCommand comando = new SqlCommand("select * from Login where Login = @login and Senha = @senha", base.Conectar());
             comando.Parameters.Add(parametroLogin);
             comando.Parameters.Add(parametroSenha);
@@ -32,14 +36,14 @@ namespace SGS.CamadaDados
 
             if (dataReader.Read())
             {
-                umLogin.CodigoLogin = Convert.ToInt32(dataReader["CodigoLogin"]);
-                umLogin.Pessoa_CodigoPessoa = Convert.ToInt32(dataReader["Pessoa_CodigoPessoa"]);
-                umLogin.Email = dataReader["Email"].ToString();
-                umLogin.Nome = dataReader["Nome"].ToString();
-                umLogin.Senha = dataReader["Senha"].ToString();
-                umLogin.Perfil = dataReader["Perfil"].ToString();
+                objLogin.CodigoLogin = Convert.ToInt32(dataReader["CodigoLogin"]);
+                objLogin.Pessoa_CodigoPessoa = Convert.ToInt32(dataReader["Pessoa_CodigoPessoa"]);
+                objLogin.Email = dataReader["Email"].ToString();
+                objLogin.Nome = dataReader["Nome"].ToString();
+                objLogin.Senha = dataReader["Senha"].ToString();
+                objLogin.Perfil = dataReader["Perfil"].ToString();
 
-                return umLogin;
+                return objLogin;
             }
             else
             {
