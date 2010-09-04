@@ -142,9 +142,14 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Alimentacao.cs" />
+    <Compile Include="Entidades\CasaLar.cs" />
+    <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
+    <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\Login.cs" />
+    <Compile Include="Entidades\Patricionador.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\Voluntario.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -17,9 +17,9 @@ namespace SGS.CamadaDados
         /// <returns></returns>
         public Login ValidarLogin(Login objLogin)
         {
-            SqlParameter parametroLogin2;
+          /// *** [Thiago] Comentei pois estava apresentando msg de alerta!!! ***  SqlParameter parametroLogin2;
             SqlParameter parametroLogin = new SqlParameter("@login", objLogin.LoginUsuario);
-            parametroLogin.ParameterName = "@login";
+            /// *** [Thiago] Comentei pois estava apresentando msg de alerta!!! *** parametroLogin.ParameterName = "@login";
 
             parametroLogin.DbType = System.Data.DbType.String;
 
