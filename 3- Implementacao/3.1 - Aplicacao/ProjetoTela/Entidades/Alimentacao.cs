@@ -20,5 +20,35 @@ namespace SGS.Entidades
             get { return _codAlimentacao; }
             set { _codAlimentacao = value; }
         }
+
+        public string diaSemana
+        {
+            get { return _diaSemana; }
+            set { _diaSemana = value; }
+        }
+
+        public string periodo
+        {
+            get { return _periodo; }
+            set { _periodo = value; }
+        }
+
+        public DateTime horario
+        {
+            get { return _horario; }
+            set { _horario = value; }
+        }
+
+        public string alimento
+        {
+            get { return _alimento; }
+            set { _alimento = value; }
+        }
+
+        public string porcaoAlimento
+        {
+            get { return _porcaoAlimento; }
+            set { _porcaoAlimento = value; }
+        }
     }
 }
