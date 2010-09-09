@@ -5,24 +5,24 @@ using System.Web;
 
 namespace SGS.Entidades
 {
-    
+    [Serializable]
     public class Login
     {
-        private int _codigoLogin;
-        private int _pessoa_CodigoPessoa;
+        private int? _codigoLogin;
+        private int? _pessoa_CodigoPessoa;
         private string _nome;
         private string _loginUsuario;
         private string _senha;
         private string _email;
         private string _perfil;
 
-        public int CodigoLogin
+        public int? CodigoLogin
         {
             get { return _codigoLogin; }
             set { _codigoLogin = value; }
         }
 
-        public int Pessoa_CodigoPessoa
+        public int? Pessoa_CodigoPessoa
         {
             get { return _pessoa_CodigoPessoa; }
             set { _pessoa_CodigoPessoa = value; }
