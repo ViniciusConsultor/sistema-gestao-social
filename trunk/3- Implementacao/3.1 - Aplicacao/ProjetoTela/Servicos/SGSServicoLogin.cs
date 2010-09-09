@@ -10,11 +10,34 @@ namespace SGS.Servicos
     public partial class SGSServico
     {
 
-        public Login ValidarLogin(Login umLogin)
+        public Login ValidarLogin(Login objLogin)
         {
-            LoginDados umLoginDados = new LoginDados();
+            LoginDados objLoginDados = new LoginDados();
             
-            return umLoginDados.ValidarLogin(umLogin);
+            return objLoginDados.ValidarLogin(objLogin);
+        }
+
+        public Login SalvarLogin(Login objLogin)
+        {
+            LoginDados objLoginDados = new LoginDados();
+
+            objLogin = objLoginDados.Salvar(objLogin);
+
+            return objLogin;
+        }
+
+        public Login ObterLogin(int codigoLogin)
+        {
+            LoginDados objLoginDados = new LoginDados();
+
+            return objLoginDados.ObterLogin(codigoLogin);
+        }
+
+        public bool ExcluirLogin(int codigoLogin)
+        {
+            LoginDados objLoginDados = new LoginDados();
+
+            return objLoginDados.ExcluirLogin(codigoLogin);
         }
 
     }
