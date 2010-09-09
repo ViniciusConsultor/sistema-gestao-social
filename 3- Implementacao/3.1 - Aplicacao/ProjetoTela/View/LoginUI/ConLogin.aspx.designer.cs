@@ -10,7 +10,7 @@
 namespace SGS.View {
     
     
-    public partial class LoginUI {
+    public partial class ConLogin {
         
         /// <summary>
         /// DropDownList1 control.
