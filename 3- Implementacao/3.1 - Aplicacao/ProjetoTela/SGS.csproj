@@ -76,6 +76,7 @@
     <Content Include="View\CasaLar\ManterCasaLar.aspx" />
     <Content Include="View\Financas\AltFinancas.aspx" />
     <Content Include="View\Financas\ConFinancas.aspx" />
+    <Content Include="View\LoginUI\ManterLogin.aspx" />
     <Content Include="View\Pessoa\AltPessoa.aspx" />
     <Content Include="View\Pessoa\CadPessoa.aspx" />
     <Content Include="View\Financas\Cad_Financas.aspx" />
@@ -218,6 +219,13 @@
     </Compile>
     <Compile Include="View\Financas\ConFinancas.aspx.designer.cs">
       <DependentUpon>ConFinancas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginUI\ManterLogin.aspx.cs">
+      <DependentUpon>ManterLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\LoginUI\ManterLogin.aspx.designer.cs">
+      <DependentUpon>ManterLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Pessoa\AltPessoa.aspx.cs">
       <DependentUpon>AltPessoa.aspx</DependentUpon>
