@@ -55,11 +55,11 @@ namespace SGS.CamadaDados
             leitorDados.Dispose();
         }
 
-        /// <summary>
-        /// Este método salvo o Login
-        /// </summary>
-        /// <param name="objLogin"></param>
-        /// <returns></returns>
+    /// <summary>
+    /// Este método salva o Login
+    /// </summary>
+    /// <param name="objLogin"></param>
+    /// <returns></returns>
         public Login Salvar(Login objLogin)
         {
             SqlCommand comando = new SqlCommand();
