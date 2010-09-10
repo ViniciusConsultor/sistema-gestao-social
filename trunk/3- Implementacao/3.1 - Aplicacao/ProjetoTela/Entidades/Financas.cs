@@ -7,16 +7,16 @@ namespace SGS.Entidades
 {
     public class Financas
     {
-        private int _codFinancas;
+        private int? _codFinancas;
         private DateTime _dataLancamento;
         private DateTime _dataCriacao;
         private string _tipoLancamento;
-        private float _valor;
+        private Decimal? _valor;
         private string _lancadoPor;
         private string _observacao;
 
 
-        public int codFinancas
+        public int? codFinancas
         {
             get { return _codFinancas; }
             set { _codFinancas = value; }
@@ -41,7 +41,7 @@ namespace SGS.Entidades
             set { _tipoLancamento = value; }
         }
 
-        public float valor
+        public Decimal? valor
         {
             get { return _valor; }
             set { _valor = value; }

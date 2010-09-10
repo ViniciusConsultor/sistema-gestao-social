@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="CamadaDados\BaseConnection.cs" />
     <Compile Include="CamadaDados\CasaLarDados.cs" />
+    <Compile Include="CamadaDados\FinancasDados.cs" />
     <Compile Include="CamadaDados\LoginDados.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
