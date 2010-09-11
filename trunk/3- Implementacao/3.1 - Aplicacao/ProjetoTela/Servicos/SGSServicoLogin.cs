@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using SGS.Entidades;
 using SGS.CamadaDados;
+using SGS.Entidades.DTO;
 
 namespace SGS.Servicos
 {
@@ -38,6 +39,18 @@ namespace SGS.Servicos
             LoginDados objLoginDados = new LoginDados();
 
             return objLoginDados.ExcluirLogin(codigoLogin);
+        }
+
+        /// <summary>
+        /// Consulta a tabela Login e retorna resultados de acordo com o preenchimento do filtro 
+        /// </summary>
+        public LoginDTO ConsultarLogin(LoginDTO objLoginDTO)
+        {
+            LoginDados objLoginDados = new LoginDados();
+            objLoginDTO.LoginLista = objLoginDados.ConsultarLogin(objLoginDTO);
+
+            return objLoginDTO;
+
         }
 
     }
