@@ -57,13 +57,11 @@
                             <asp:MenuItem Text="ADMINISTRAR" Value="Administrar">
                                 <asp:MenuItem Text="Login" Value="Login">
                                     <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/Telas/Login/ConLogin.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/LoginUI/ConsultarLogin.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
-                                        NavigateUrl="~/Telas/Login/CadLogin.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/LoginUI/ManterLogin.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Alterar" Value="Alterar" 
-                                        NavigateUrl="~/Telas/Login/AltLogin.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir" 
-                                        NavigateUrl="~/Telas/Login/AltLogin.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/LoginUI/ConsultarLogin.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="CASA LAR" Value="CasaLar">
