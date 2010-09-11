@@ -76,6 +76,7 @@
     <Content Include="View\CasaLar\ManterCasaLar.aspx" />
     <Content Include="View\Financas\AltFinancas.aspx" />
     <Content Include="View\Financas\ConFinancas.aspx" />
+    <Content Include="View\LoginUI\ConsultarLogin.aspx" />
     <Content Include="View\LoginUI\ManterLogin.aspx" />
     <Content Include="View\Pessoa\AltPessoa.aspx" />
     <Content Include="View\Pessoa\CadPessoa.aspx" />
@@ -148,7 +149,11 @@
     <Compile Include="Entidades\CasaLar.cs" />
     <Compile Include="Entidades\Contato.cs" />
     <Compile Include="Entidades\DadosBancarios.cs" />
+<<<<<<< .mine
+    <Compile Include="Entidades\DTO\LoginDTO.cs" />
+=======
     <Compile Include="Entidades\Desenvolvimento.cs" />
+>>>>>>> .r60
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Escolar.cs" />
     <Compile Include="Entidades\Financas.cs" />
@@ -228,6 +233,13 @@
     </Compile>
     <Compile Include="View\Financas\ConFinancas.aspx.designer.cs">
       <DependentUpon>ConFinancas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginUI\ConsultarLogin.aspx.cs">
+      <DependentUpon>ConsultarLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\LoginUI\ConsultarLogin.aspx.designer.cs">
+      <DependentUpon>ConsultarLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\LoginUI\ManterLogin.aspx.cs">
       <DependentUpon>ManterLogin.aspx</DependentUpon>
