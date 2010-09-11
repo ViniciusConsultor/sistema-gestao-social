@@ -36,7 +36,8 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status</td>
                 <td>
-                    <asp:TextBox ID="txtStatus" runat="server" CssClass="style8" MaxLength="15"></asp:TextBox>
+                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px">
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>
