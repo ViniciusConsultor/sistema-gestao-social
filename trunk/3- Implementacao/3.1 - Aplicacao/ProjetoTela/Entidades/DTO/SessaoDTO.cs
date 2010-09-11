@@ -6,7 +6,7 @@ using SGS.Entidades;
 
 namespace SGS.Entidades.DTO 
 {
-    public class SessaoDTO : Login
+    public class SessaoDTO 
     {
 
         #region Construtores
