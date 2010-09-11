@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ProjetoTela.Telas
+namespace SGS.View.Procedimentos
 {
-    public partial class Cad_Visita : System.Web.UI.Page
+    public partial class ManterProcedimentos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
