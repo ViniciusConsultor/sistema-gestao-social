@@ -149,11 +149,8 @@
     <Compile Include="Entidades\CasaLar.cs" />
     <Compile Include="Entidades\Contato.cs" />
     <Compile Include="Entidades\DadosBancarios.cs" />
-<<<<<<< .mine
-    <Compile Include="Entidades\DTO\LoginDTO.cs" />
-=======
     <Compile Include="Entidades\Desenvolvimento.cs" />
->>>>>>> .r60
+    <Compile Include="Entidades\DTO\LoginDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Escolar.cs" />
     <Compile Include="Entidades\Financas.cs" />
