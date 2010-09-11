@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using SGS.Entidades;
 using System.Data.SqlClient;
+using SGS.Entidades.DTO;
 
 namespace SGS.CamadaDados
 {
@@ -164,11 +165,15 @@ namespace SGS.CamadaDados
             return objLogin;
         }
 
+        /// <summary>
+        /// Exclui um Login pelo seu código
+        /// </summary>
         public bool ExcluirLogin(int codigoLogin)
         {
             bool execucao;
 
             SqlCommand comando = new SqlCommand("delete from Login where CodigoLogin = @codigoLogin", base.Conectar());
+
             SqlParameter parametroCodigoLogin = new SqlParameter("@codigoLogin", codigoLogin);
             parametroCodigoLogin.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoLogin);
@@ -177,6 +182,22 @@ namespace SGS.CamadaDados
             
             return execucao;
 
+        }
+
+        /// <summary>
+        /// Retorna uma lista de Login apartir dos dados informados no LoginDTO
+        /// </summary>
+        public List<Login> ConsultarLogin(LoginDTO objLoginDTO)
+        {
+            List<Login> loginLista = new List<Login>();
+            Login objLogin;
+
+            objLogin = this.ObterLogin(9);
+            loginLista.Add(objLogin);
+            //TODO: Maycon concluir desenvolvimento
+
+            return loginLista;
+            //return new List<Login>();
         }
 
     }
