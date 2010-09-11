@@ -30,27 +30,41 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Nome</td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtNome" runat="server" CssClass="style8" MaxLength="25"></asp:TextBox>
                 </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Status</td>
+                <td>
+                    <asp:TextBox ID="txtStatus" runat="server" CssClass="style8" MaxLength="15"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     CNPJ</td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtCNPJ" runat="server" Width="148px"></asp:TextBox>
                 </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Alvará</td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtAlvara" runat="server" CssClass="style8" MaxLength="10"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data fundação</td>
                 <td>
-                    <asp:TextBox ID="TextBox4" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtDataFundacao" runat="server" CssClass="style8" 
+                        MaxLength="10"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -140,7 +154,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Foto</td>
                 <td>
-                    <asp:FileUpload ID="FileUpload1" runat="server" Width="220px" 
+                    <asp:FileUpload ID="uploadFoto" runat="server" Width="220px" 
                         CssClass="style8" />
                 </td>
             </tr>
@@ -149,13 +163,14 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Qtd. Máximo Assistidos</td>
                 <td>
-                    <asp:TextBox ID="TextBox15" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtQtdMaximo" runat="server" CssClass="style8" MaxLength="4"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Qtd. Assistidos</td>
                 <td>
-                    <asp:TextBox ID="TextBox16" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtQtdAssistidos" runat="server" CssClass="style8" 
+                        MaxLength="4"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -163,22 +178,36 @@
                     class="style9">
                     Gestor</td>
                 <td>
-                    <asp:TextBox ID="TextBox17" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtGestor" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
                 <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
                     class="style9">
-                    Ramo atividade</td>
+                    E-mail Gestor </td>
                 <td>
-                    <asp:TextBox ID="TextBox6" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtEmailGestor" runat="server" CssClass="style8" 
+                        MaxLength="25"></asp:TextBox>
                 </td>
+            </tr>
+            <tr>
+                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
+                    class="style9">
+                    Telefone Gestor</td>
+                <td>
+                    <asp:TextBox ID="TelefoneGestor" runat="server" MaxLength="10" Width="148px"></asp:TextBox>
+                </td>
+                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
+                    class="style9">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     História</td>
                 <td colspan="3">
-                    <asp:TextBox ID="TextBox5" runat="server" Height="107px" TextMode="MultiLine" 
-                        Width="481px" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtHistoria" runat="server" Height="107px" TextMode="MultiLine" 
+                        Width="481px" CssClass="style8" MaxLength="255"></asp:TextBox>
                 </td>
             </tr>
             <tr>
