@@ -53,7 +53,7 @@
                         <DynamicMenuStyle BackColor="#B5C7DE" />
                         <DynamicSelectedStyle BackColor="#507CD1" />
                         <Items>
-                            <asp:MenuItem Text="HOME" Value="Home" NavigateUrl="~/Telas/Apresentacao.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="HOME" Value="Home" NavigateUrl="~/View/Apresentacao.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="ADMINISTRAR" Value="Administrar">
                                 <asp:MenuItem Text="Login" Value="Login">
                                     <asp:MenuItem Text="Consultar" Value="Consultar" 
@@ -95,6 +95,8 @@
                                     <asp:MenuItem Text="Excluir" Value="Excluir" 
                                         NavigateUrl="~/Telas/Visita/AltVisita.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/View/CasaLar/ConsultarCasaLar.aspx" Text="teste" 
+                                    Value="teste"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="PESSOA" Value="Pessoa">
                                 <asp:MenuItem Text="Pessoa" Value="Teste">
