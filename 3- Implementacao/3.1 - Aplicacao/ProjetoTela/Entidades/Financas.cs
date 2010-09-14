@@ -8,6 +8,7 @@ namespace SGS.Entidades
     public class Financas
     {
         private int? _codFinancas;
+        private int? _codCasaLar;
         private DateTime _dataLancamento;
         private DateTime _dataCriacao;
         private string _tipoLancamento;
@@ -16,7 +17,14 @@ namespace SGS.Entidades
         private string _observacao;
 
 
-        public int? codFinancas
+        public int? CodFinancas
+        {
+            get { return _codFinancas; }
+            set { _codFinancas = value; }
+
+        }
+
+        public int? CodigoCasaLar
         {
             get { return _codFinancas; }
             set { _codFinancas = value; }
