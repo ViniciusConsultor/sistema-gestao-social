@@ -8,11 +8,12 @@ namespace SGS.Entidades
     public class Visitacao
     {
         private int _codVisitacao;
+        private int _assistido_CodAssistido;
         private string _pessoaVisitante;
         private string _assistidoVisitado;
-        private DateTime _dataVisita;
-        private DateTime _horaInicioVisita;
-        private DateTime _horaFimVisita;
+        private DateTime? _dataVisita;
+        private DateTime? _horaInicioVisita;
+        private DateTime? _horaFimVisita;
         private string _motivoVisita;
         private string _feedBackVisita;
         private string _statusVisita;
@@ -22,6 +23,12 @@ namespace SGS.Entidades
         {
             get { return _codVisitacao; }
             set { _codVisitacao = value; }
+        }
+
+        public int assistido_CodAssistido
+        {
+            get { return _assistido_CodAssistido; }
+            set { _assistido_CodAssistido = value; }
         }
 
         public string pessoaVisitante
@@ -36,19 +43,19 @@ namespace SGS.Entidades
             set { _assistidoVisitado = value; }
         }
 
-        public DateTime dataVisita
+        public DateTime? dataVisita
         {
             get { return _dataVisita; }
             set { _dataVisita = value; }
         }
 
-        public DateTime horaInicioVisita
+        public DateTime? horaInicioVisita
         {
             get { return _horaInicioVisita; }
             set { _horaInicioVisita = value; }
         }
 
-        public DateTime horaFimVisita
+        public DateTime? horaFimVisita
         {
             get { return _horaFimVisita; }
             set { _horaFimVisita = value; }

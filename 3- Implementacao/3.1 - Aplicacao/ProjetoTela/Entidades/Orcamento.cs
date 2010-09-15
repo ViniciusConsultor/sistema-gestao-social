@@ -8,6 +8,7 @@ namespace SGS.Entidades
     public class Orcamento
     {
         private int _codOrcamento;
+        private int _casalar_CodCasaLar;
         private string _nomePlano;
         private string _statusPlano;
         private float _valorTotal;
@@ -15,18 +16,24 @@ namespace SGS.Entidades
         private float _valorDisponivel;
         private string _nomeGasto;
         private float _valorGasto;
-        private DateTime _dataGasto;
-        private int _qtdParcelas;
+        private DateTime? _dataGasto;
+        private int? _qtdParcelas;
         private float _gastoTotal;
         private float _mediaGastoMensal;
-        private DateTime _inicioVigencia;
-        private DateTime _fimVigencia;
+        private DateTime? _inicioVigencia;
+        private DateTime? _fimVigencia;
 
 
         public int codOrcamento
         {
             get { return _codOrcamento; }
             set { _codOrcamento = value; }
+        }
+
+        public int casalar_CodCasaLar
+        {
+            get { return _casalar_CodCasaLar; }
+            set { _casalar_CodCasaLar = value; }
         }
 
         public string nomePlano
@@ -71,13 +78,13 @@ namespace SGS.Entidades
             set { _valorGasto = value; }
         }
 
-        public DateTime dataGasto
+        public DateTime? dataGasto
         {
             get { return _dataGasto; }
             set { _dataGasto = value; }
         }
 
-        public int qtdParcelas
+        public int? qtdParcelas
         {
             get { return _qtdParcelas; }
             set { _qtdParcelas = value; }
@@ -95,13 +102,13 @@ namespace SGS.Entidades
             set { _mediaGastoMensal = value; }
         }
 
-        public DateTime inicioVigencia
+        public DateTime? inicioVigencia
         {
             get { return _inicioVigencia; }
             set { _inicioVigencia = value; }
         }
 
-        public DateTime fimVigencia
+        public DateTime? fimVigencia
         {
             get { return _fimVigencia; }
             set { _fimVigencia = value; }

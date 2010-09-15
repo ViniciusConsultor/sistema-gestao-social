@@ -8,7 +8,7 @@ namespace SGS.Entidades
     [Serializable]
     public class Login
     {
-        private int? _codigoLogin;
+        private int _codigoLogin;
         private int? _pessoa_CodigoPessoa;
         private string _nome;
         private string _loginUsuario;
@@ -16,7 +16,7 @@ namespace SGS.Entidades
         private string _email;
         private string _perfil;
 
-        public int? CodigoLogin
+        public int CodigoLogin
         {
             get { return _codigoLogin; }
             set { _codigoLogin = value; }

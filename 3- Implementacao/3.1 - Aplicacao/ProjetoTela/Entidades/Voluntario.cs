@@ -8,6 +8,7 @@ namespace SGS.Entidades
     public class Voluntario
     {
         private int _codVoluntario;
+        private int _pessoa_CodPessoa;
         private string _motivoVoluntariado;
         private string _tempoDisponivel;
         private string _especialidades;
@@ -21,6 +22,12 @@ namespace SGS.Entidades
         {
             get { return _codVoluntario; }
             set { _codVoluntario = value; }
+        }
+
+        public int pessoa_CodPessoa
+        {
+            get { return _pessoa_CodPessoa; }
+            set { _pessoa_CodPessoa = value; }
         }
 
         public string motivoVoluntariado

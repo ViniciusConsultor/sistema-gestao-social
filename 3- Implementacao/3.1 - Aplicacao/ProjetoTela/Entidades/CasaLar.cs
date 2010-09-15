@@ -8,18 +8,19 @@ namespace SGS.Entidades
     public class CasaLar
     {
         private int _codCasaLar;
+        private int _contato_CodContato;
         private string _nomeCasaLar;
-        private int _cnpj;
+        private int? _cnpj;
         private string _alvara;
-        private DateTime _dataFundacao;
+        private DateTime? _dataFundacao;
         private string _historia;
         private string _gestor;
         private string _statusCasaLar;
-        private int _qtdMaxAssistidos;
-        private int _qtdAssistidos;
+        private int? _qtdMaxAssistidos;
+        private int? _qtdAssistidos;
         private string _foto;
         private string _emailGestor;
-        private int _telefoneGestor;
+        private int? _telefoneGestor;
 
 
         public int codCasaLar
@@ -28,13 +29,19 @@ namespace SGS.Entidades
             set { _codCasaLar = value; }
         }
 
+        public int contato_CodContato
+        {
+            get { return _contato_CodContato; }
+            set { _contato_CodContato = value; }
+        }
+
         public string nomeCasaLar
         {
             get { return _nomeCasaLar; }
             set { _nomeCasaLar = value; }
         }
 
-        public int cnpj
+        public int? cnpj
         {
             get { return _cnpj; }
             set { _cnpj = value; }
@@ -46,7 +53,7 @@ namespace SGS.Entidades
             set { _alvara = value; }
         }
 
-        public DateTime dataFundacao
+        public DateTime? dataFundacao
         {
             get { return _dataFundacao; }
             set { _dataFundacao = value; }
@@ -70,13 +77,13 @@ namespace SGS.Entidades
             set { _statusCasaLar = value; }
         }
 
-        public int qtdMaxAssistidos
+        public int? qtdMaxAssistidos
         {
             get { return _qtdMaxAssistidos; }
             set { _qtdMaxAssistidos = value; }
         }
 
-        public int qtdAssistidos
+        public int? qtdAssistidos
         {
             get { return _qtdAssistidos; }
             set { _qtdAssistidos = value; }
@@ -94,7 +101,7 @@ namespace SGS.Entidades
             set { _emailGestor = value; }
         }
 
-        public int telefoneGestor
+        public int? telefoneGestor
         {
             get { return _telefoneGestor; }
             set { _telefoneGestor = value; }
