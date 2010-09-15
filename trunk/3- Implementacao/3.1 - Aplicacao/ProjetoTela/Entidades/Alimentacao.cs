@@ -8,9 +8,10 @@ namespace SGS.Entidades
     public class Alimentacao
     {
         private int _codAlimentacao;
+        private int _codAssistido;
         private string _diaSemana;
         private string _periodo;
-        private DateTime _horario;
+        private DateTime? _horario;
         private string _alimento;
         private string _porcaoAlimento;
 
@@ -19,6 +20,12 @@ namespace SGS.Entidades
         {
             get { return _codAlimentacao; }
             set { _codAlimentacao = value; }
+        }
+
+        public int codAssistido
+        {
+            get { return _codAssistido; }
+            set { _codAssistido = value; }
         }
 
         public string diaSemana
@@ -33,7 +40,7 @@ namespace SGS.Entidades
             set { _periodo = value; }
         }
 
-        public DateTime horario
+        public DateTime? horario
         {
             get { return _horario; }
             set { _horario = value; }

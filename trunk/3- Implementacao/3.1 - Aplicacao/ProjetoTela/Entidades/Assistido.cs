@@ -9,27 +9,29 @@ namespace SGS.Entidades
     {
         private int _codAssistido;
         private int _certidaoNascimento;
+        private int _pessoa_CodPessoa;
+        private int _contato_CodContato;
         private string _nomePai;
         private string _nomeMae;
-        private int _cpfPai;
-        private int _cpfMae;
-        private int _rgPai;
-        private int _rgMae;
+        private int? _cpfPai;
+        private int? _cpfMae;
+        private int? _rgPai;
+        private int? _rgMae;
         private string _enderecoFamilia;
-        private int _telFamilia;
+        private int? _telFamilia;
         private float _peso;
         private float _altura;
         private string _cor;
         private string _historicoVida;
         private string _vivo;
-        private int _telMae;
-        private int _qtdIrmaos;
+        private int? _telMae;
+        private int? _qtdIrmaos;
         private string _responsavelLegal;
-        private int _cpfResponsavel;
-        private int _telResponsavel;
+        private int? _cpfResponsavel;
+        private int? _telResponsavel;
         private string _logradouroResponsavel;
-        private int _numeroResponsavel;
-        private int _cepResponsavel;
+        private int? _numeroResponsavel;
+        private int? _cepResponsavel;
 
 
 
@@ -37,6 +39,18 @@ namespace SGS.Entidades
         {
             get { return _codAssistido; }
             set { _codAssistido = value; }
+        }
+
+        public int pessoa_CodPessoa
+        {
+            get { return _pessoa_CodPessoa; }
+            set { _pessoa_CodPessoa = value; }
+        }
+
+        public int contato_CodContato
+        {
+            get { return _contato_CodContato; }
+            set { _contato_CodContato = value; }
         }
 
         public int certidaoNascimento
@@ -57,25 +71,25 @@ namespace SGS.Entidades
             set { _nomeMae = value; }
         }
 
-        public int cpfPai
+        public int? cpfPai
         {
             get { return _cpfPai; }
             set { _cpfPai = value; }
         }
 
-        public int cpfMae
+        public int? cpfMae
         {
             get { return _cpfMae; }
             set { _cpfMae = value; }
         }
 
-        public int rgPai
+        public int? rgPai
         {
             get { return _rgPai; }
             set { _rgPai = value; }
         }
 
-        public int rgmae
+        public int? rgmae
         {
             get { return _rgMae; }
             set { _rgMae = value; }
@@ -87,7 +101,7 @@ namespace SGS.Entidades
             set { _enderecoFamilia = value; }
         }
 
-        public int telFamilia
+        public int? telFamilia
         {
             get { return _telFamilia; }
             set { _telFamilia = value; }
@@ -123,13 +137,13 @@ namespace SGS.Entidades
             set { _vivo = value; }
         }
 
-        public int telMae
+        public int? telMae
         {
             get { return _telMae; }
             set { _telMae = value; }
         }
 
-        public int qtdIrmaos
+        public int? qtdIrmaos
         {
             get { return _qtdIrmaos; }
             set { _qtdIrmaos = value; }
@@ -141,13 +155,13 @@ namespace SGS.Entidades
             set { _responsavelLegal = value; }
         }
 
-        public int cpfResponsavel
+        public int? cpfResponsavel
         {
             get { return _cpfResponsavel; }
             set { _cpfResponsavel = value; }
         }
 
-        public int telResponsavel
+        public int? telResponsavel
         {
             get { return _telResponsavel; }
             set { _telResponsavel = value; }
@@ -159,13 +173,13 @@ namespace SGS.Entidades
             set { _logradouroResponsavel = value; }
         }
 
-        public int numeroResponsavel
+        public int? numeroResponsavel
         {
             get { return _numeroResponsavel; }
             set { _numeroResponsavel = value; }
         }
 
-        public int cepResponsavel
+        public int? cepResponsavel
         {
             get { return _cepResponsavel; }
             set { _cepResponsavel = value; }

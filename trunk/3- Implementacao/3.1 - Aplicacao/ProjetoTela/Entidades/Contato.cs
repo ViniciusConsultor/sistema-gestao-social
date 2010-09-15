@@ -8,16 +8,17 @@ namespace SGS.Entidades
     public class Contato
     {
         private int _codContato;
+        private int _pessoa_CodPessoa;
         private string _logradouro;
-        private int _numero;
+        private int? _numero;
         private string _bairro;
         private string _cidade;
         private string _estado;
         private string _pais;
-        private int _cep;
+        private int? _cep;
         private int _telConvencional;
-        private int _telCelular;
-        private int _fax;
+        private int? _telCelular;
+        private int? _fax;
         private string _email;
         private string _site;
         private string _blog;
@@ -29,13 +30,19 @@ namespace SGS.Entidades
             set { _codContato = value; }
         }
 
+        public int pessoa_CodPessoa
+        {
+            get { return _pessoa_CodPessoa; }
+            set { _pessoa_CodPessoa = value; }
+        }
+
         public string logradouro
         {
             get { return _logradouro; }
             set { _logradouro = value; }
         }
 
-        public int numero
+        public int? numero
         {
             get { return _numero; }
             set { _numero = value; }
@@ -65,7 +72,7 @@ namespace SGS.Entidades
             set { _pais = value; }
         }
 
-        public int cep
+        public int? cep
         {
             get { return _cep; }
             set { _cep = value; }
@@ -77,13 +84,13 @@ namespace SGS.Entidades
             set { _telConvencional = value; }
         }
 
-        public int telCelular
+        public int? telCelular
         {
             get { return _telCelular; }
             set { _telCelular = value; }
         }
 
-        public int fax
+        public int? fax
         {
             get { return _fax; }
             set { _fax = value; }

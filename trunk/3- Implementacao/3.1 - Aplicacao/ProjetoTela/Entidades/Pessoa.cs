@@ -10,10 +10,10 @@ namespace SGS.Entidades
         private int _codPessoa;
         private string _nome;
         private string _sexo;
-        private int _cpf;
-        private int _rg;
-        private int _tituloEleitor;
-        private DateTime _dataNascimento;
+        private int? _cpf;
+        private int? _rg;
+        private int? _tituloEleitor;
+        private DateTime? _dataNascimento;
         private string _naturalidade;
         private string _nacionalidade;
         private string _foto;
@@ -37,25 +37,25 @@ namespace SGS.Entidades
             set { _sexo = value; }
         }
 
-        public int cpf
+        public int? cpf
         {
             get { return _cpf; }
             set { _cpf = value; }
         }
 
-        public int rg
+        public int? rg
         {
             get { return _rg; }
             set { _rg = value; }
         }
 
-        public int tituloEleitor
+        public int? tituloEleitor
         {
             get { return _tituloEleitor; }
             set { _tituloEleitor = value; }
         }
 
-        public DateTime dataNascimento
+        public DateTime? dataNascimento
         {
             get { return _dataNascimento; }
             set { _dataNascimento = value; }

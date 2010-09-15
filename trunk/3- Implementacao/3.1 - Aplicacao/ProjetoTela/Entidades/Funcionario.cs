@@ -9,24 +9,31 @@ namespace SGS.Entidades
     {
 
         private int _codFuncionario;
+        private int _pessoa_CodPessoa;
         private string _cargo;
         private float _salario;
-        private DateTime _dataContratacao;
-        private int _numCtps;
-        private int _pis;
-        private int _grauEscolaridade;
+        private DateTime? _dataContratacao;
+        private int? _numCtps;
+        private int? _pis;
+        private int? _grauEscolaridade;
         private string _cursoFormacao;
         private string _estadoCivil;
-        private int _certidaoNascimento;
-        private int _certidaoCasamento;
-        private int _qtdFilhos;
-        private int _certificadoReservista;
+        private int? _certidaoNascimento;
+        private int? _certidaoCasamento;
+        private int? _qtdFilhos;
+        private int? _certificadoReservista;
         
 
         public int codFuncionario
         {
             get { return _codFuncionario; }
             set { _codFuncionario = value; }
+        }
+
+        public int pessoa_CodPessoa
+        {
+            get { return _pessoa_CodPessoa; }
+            set { _pessoa_CodPessoa = value; }
         }
 
         public string cargo
@@ -41,25 +48,25 @@ namespace SGS.Entidades
             set { _salario = value; }
         }
 
-        public DateTime dataContratacao
+        public DateTime? dataContratacao
         {
             get { return _dataContratacao; }
             set { _dataContratacao = value; }
         }
 
-        public int numCtps
+        public int? numCtps
         {
             get { return _numCtps; }
             set { _numCtps = value; }
         }
 
-        public int pis
+        public int? pis
         {
             get { return _pis; }
             set { _pis = value; }
         }
 
-        public int grauEscolaridade
+        public int? grauEscolaridade
         {
             get { return _grauEscolaridade; }
             set { _grauEscolaridade = value; }
@@ -77,25 +84,25 @@ namespace SGS.Entidades
             set { _estadoCivil = value; }
         }
 
-        public int certidaoNascimento
+        public int? certidaoNascimento
         {
             get { return _certidaoNascimento; }
             set { _certidaoNascimento = value; }
         }
 
-        public int certidaoCasamento
+        public int? certidaoCasamento
         {
             get { return _certidaoCasamento; }
             set { _certidaoCasamento = value; }
         }
 
-        public int qtdFilhos
+        public int? qtdFilhos
         {
             get { return _qtdFilhos; }
             set { _qtdFilhos = value; }
         }
 
-        public int certificadoReservista
+        public int? certificadoReservista
         {
             get { return _certificadoReservista; }
             set { _certificadoReservista = value; }

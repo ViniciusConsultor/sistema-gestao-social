@@ -7,37 +7,37 @@ namespace SGS.Entidades
 {
     public class Financas
     {
-        private int? _codFinancas;
-        private int? _codCasaLar;
-        private DateTime _dataLancamento;
-        private DateTime _dataCriacao;
+        private int _codFinancas;
+        private int _casalar_CodCasaLar;
+        private DateTime? _dataLancamento;
+        private DateTime? _dataCriacao;
         private string _tipoLancamento;
         private Decimal? _valor;
         private string _lancadoPor;
         private string _observacao;
 
 
-        public int? CodFinancas
+        public int codFinancas
         {
             get { return _codFinancas; }
             set { _codFinancas = value; }
 
         }
 
-        public int? CodigoCasaLar
+        public int casalar_CodCasaLar
         {
-            get { return _codFinancas; }
-            set { _codFinancas = value; }
+            get { return _casalar_CodCasaLar; }
+            set { _casalar_CodCasaLar = value; }
 
         }
 
-        public DateTime dataLancamento
+        public DateTime? dataLancamento
         {
             get { return _dataLancamento; }
             set { _dataLancamento = value; }
         }
 
-        public DateTime dataCriacao
+        public DateTime? dataCriacao
         {
             get { return _dataCriacao; }
             set { _dataCriacao = value; }

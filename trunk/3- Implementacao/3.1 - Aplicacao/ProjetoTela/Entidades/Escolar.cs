@@ -8,12 +8,15 @@ namespace SGS.Entidades
     public class Escolar
     {
         private int _codInstituicao;
+        private int _contato_CodContato;
+        private int _assistido_CodAssistido;
         private int _numInscricaoInstituicao;
+        private string _instituicao;
         private float _mediaEscola;
         private string _grauEscolaridade;
         private string _serieCursada;
-        private DateTime _dataMatricula;
-        private DateTime _dataSaida;
+        private DateTime? _dataMatricula;
+        private DateTime? _dataSaida;
         private string _statusMatricula;
         private string _formatoAnoLetivo;
         private string _materia;
@@ -29,7 +32,25 @@ namespace SGS.Entidades
             set { _codInstituicao = value; }
         }
 
-        public int numInscricaoInstituicao
+        public int contato_CodContato
+        {
+            get { return _contato_CodContato; }
+            set { _contato_CodContato = value; }
+        }
+
+        public int assistido_CodAssistido
+        {
+            get { return _assistido_CodAssistido; }
+            set { _assistido_CodAssistido = value; }
+        }
+
+        public string instituicao
+        {
+            get { return _instituicao; }
+            set { _instituicao = value; }
+        }
+
+        public int? numInscricaoInstituicao
         {
             get { return _numInscricaoInstituicao; }
             set { _numInscricaoInstituicao = value; }
@@ -53,13 +74,13 @@ namespace SGS.Entidades
             set { _serieCursada = value; }
         }
 
-        public DateTime dataMatricula
+        public DateTime? dataMatricula
         {
             get { return _dataMatricula; }
             set { _dataMatricula = value; }
         }
 
-        public DateTime dataSaida
+        public DateTime? dataSaida
         {
             get { return _dataSaida; }
             set { _dataSaida = value; }
