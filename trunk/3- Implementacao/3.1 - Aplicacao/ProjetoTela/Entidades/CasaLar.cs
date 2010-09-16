@@ -7,10 +7,10 @@ namespace SGS.Entidades
 {
     public class CasaLar
     {
-        private int _codCasaLar;
-        private int _contato_CodContato;
+        private int _codigoCasaLar;
+        private int _contato_CodigoContato;
         private string _nomeCasaLar;
-        private int? _cnpj;
+        private string _cnpj;
         private string _alvara;
         private DateTime? _dataFundacao;
         private string _historia;
@@ -20,88 +20,88 @@ namespace SGS.Entidades
         private int? _qtdAssistidos;
         private string _foto;
         private string _emailGestor;
-        private int? _telefoneGestor;
+        private string _telefoneGestor;
 
 
-        public int codCasaLar
+        public int CodigoCasaLar
         {
-            get { return _codCasaLar; }
-            set { _codCasaLar = value; }
+            get { return _codigoCasaLar; }
+            set { _codigoCasaLar = value; }
         }
 
-        public int contato_CodContato
+        public int Contato_CodigoContato
         {
-            get { return _contato_CodContato; }
-            set { _contato_CodContato = value; }
+            get { return _contato_CodigoContato; }
+            set { _contato_CodigoContato = value; }
         }
 
-        public string nomeCasaLar
+        public string NomeCasaLar
         {
             get { return _nomeCasaLar; }
             set { _nomeCasaLar = value; }
         }
 
-        public int? cnpj
+        public string Cnpj
         {
             get { return _cnpj; }
             set { _cnpj = value; }
         }
 
-        public string alvara
+        public string Alvara
         {
             get { return _alvara; }
             set { _alvara = value; }
         }
 
-        public DateTime? dataFundacao
+        public DateTime? DataFundacao
         {
             get { return _dataFundacao; }
             set { _dataFundacao = value; }
         }
 
-        public string historia
+        public string Historia
         {
             get { return _historia; }
             set { _historia = value; }
         }
 
-        public string gestor
+        public string Gestor
         {
             get { return _gestor; }
             set { _gestor = value; }
         }
 
-        public string statusCasaLar
+        public string StatusCasaLar
         {
             get { return _statusCasaLar; }
             set { _statusCasaLar = value; }
         }
 
-        public int? qtdMaxAssistidos
+        public int? QtdMaxAssistidos
         {
             get { return _qtdMaxAssistidos; }
             set { _qtdMaxAssistidos = value; }
         }
 
-        public int? qtdAssistidos
+        public int? QtdAssistidos
         {
             get { return _qtdAssistidos; }
             set { _qtdAssistidos = value; }
         }
 
-        public string foto
+        public string Foto
         {
             get { return _foto; }
             set { _foto = value; }
         }
 
-        public string emailGestor
+        public string EmailGestor
         {
             get { return _emailGestor; }
             set { _emailGestor = value; }
         }
 
-        public int? telefoneGestor
+        public string TelefoneGestor
         {
             get { return _telefoneGestor; }
             set { _telefoneGestor = value; }

@@ -8,51 +8,51 @@ namespace SGS.Entidades
     public class DadosBancarios
     {
         private int _codigoDadosBancarios;
-        private int _patrocinador_CodPatrocinador;
-        private int _voluntario_CodVoluntario;
-        private int _funcionario_CodFuncionario;
+        private int _patrocinador_CodigoPatrocinador;
+        private int _voluntario_CodigoVoluntario;
+        private int _funcionario_CodigoFuncionario;
         private string _agencia;
         private string _contaBancaria;
         private string _banco;
 
 
-        public int codigoDadosBancarios
+        public int CodigoDadosBancarios
         {
             get { return _codigoDadosBancarios; }
             set { _codigoDadosBancarios = value; }
         }
 
-        public int patrocinador_CodPatrocinador
+        public int Patrocinador_CodigoPatrocinador
         {
-            get { return _patrocinador_CodPatrocinador; }
-            set { _patrocinador_CodPatrocinador = value; }
+            get { return _patrocinador_CodigoPatrocinador; }
+            set { _patrocinador_CodigoPatrocinador = value; }
         }
 
-        public int voluntario_CodVoluntario
+        public int Voluntario_CodigoVoluntario
         {
-            get { return _voluntario_CodVoluntario; }
-            set { _voluntario_CodVoluntario = value; }
+            get { return _voluntario_CodigoVoluntario; }
+            set { _voluntario_CodigoVoluntario = value; }
         }
 
-        public int funcionario_CodFuncionario
+        public int Funcionario_CodigoFuncionario
         {
-            get { return _funcionario_CodFuncionario; }
-            set { _funcionario_CodFuncionario = value; }
+            get { return _funcionario_CodigoFuncionario; }
+            set { _funcionario_CodigoFuncionario = value; }
         }
 
-        public string agencia
+        public string Agencia
         {
             get { return _agencia; }
             set { _agencia = value; }
         }
 
-        public string contaBancaria
+        public string ContaBancaria
         {
             get { return _contaBancaria; }
             set { _contaBancaria = value; }
         }
 
-        public string banco
+        public string Banco
         {
             get { return _banco; }
             set { _banco = value; }

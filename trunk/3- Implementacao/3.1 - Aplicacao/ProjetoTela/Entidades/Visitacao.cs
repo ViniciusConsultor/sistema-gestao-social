@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Visitacao
     {
-        private int _codVisitacao;
-        private int _assistido_CodAssistido;
+        private int _codigoVisitacao;
+        private int _assistido_CodigoAssistido;
         private string _pessoaVisitante;
         private string _assistidoVisitado;
         private DateTime? _dataVisita;
@@ -19,61 +19,61 @@ namespace SGS.Entidades
         private string _statusVisita;
 
 
-        public int codVisitacao
+        public int CodigoVisitacao
         {
-            get { return _codVisitacao; }
-            set { _codVisitacao = value; }
+            get { return _codigoVisitacao; }
+            set { _codigoVisitacao = value; }
         }
 
-        public int assistido_CodAssistido
+        public int Assistido_CodigoAssistido
         {
-            get { return _assistido_CodAssistido; }
-            set { _assistido_CodAssistido = value; }
+            get { return _assistido_CodigoAssistido; }
+            set { _assistido_CodigoAssistido = value; }
         }
 
-        public string pessoaVisitante
+        public string PessoaVisitante
         {
             get { return _pessoaVisitante; }
             set { _pessoaVisitante = value; }
         }
 
-        public string assistidoVisitado
+        public string AssistidoVisitado
         {
             get { return _assistidoVisitado; }
             set { _assistidoVisitado = value; }
         }
 
-        public DateTime? dataVisita
+        public DateTime? DataVisita
         {
             get { return _dataVisita; }
             set { _dataVisita = value; }
         }
 
-        public DateTime? horaInicioVisita
+        public DateTime? HoraInicioVisita
         {
             get { return _horaInicioVisita; }
             set { _horaInicioVisita = value; }
         }
 
-        public DateTime? horaFimVisita
+        public DateTime? HoraFimVisita
         {
             get { return _horaFimVisita; }
             set { _horaFimVisita = value; }
         }
 
-        public string motivoVisita
+        public string MotivoVisita
         {
             get { return _motivoVisita; }
             set { _motivoVisita = value; }
         }
 
-        public string feedBackVisita
+        public string FeedBackVisita
         {
             get { return _feedBackVisita; }
             set { _feedBackVisita = value; }
         }
 
-        public string statusVisita
+        public string StatusVisita
         {
             get { return _statusVisita; }
             set { _statusVisita = value; }

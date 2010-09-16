@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace SGS.Entidades
 {
     public class Alimentacao
     {
-        private int _codAlimentacao;
-        private int _codAssistido;
+        private int _codigoAlimentacao;
+        private int _assistido_CodigoAssistido;
         private string _diaSemana;
         private string _periodo;
         private DateTime? _horario;
@@ -16,43 +17,43 @@ namespace SGS.Entidades
         private string _porcaoAlimento;
 
 
-        public int codAlimentacao
+        public int CodigoAlimentacao
         {
-            get { return _codAlimentacao; }
-            set { _codAlimentacao = value; }
+            get { return _codigoAlimentacao; }
+            set { _codigoAlimentacao = value; }
         }
 
-        public int codAssistido
+        public int Assistido_CodigoAssistido
         {
-            get { return _codAssistido; }
-            set { _codAssistido = value; }
+            get { return _assistido_CodigoAssistido; }
+            set { _assistido_CodigoAssistido = value; }
         }
 
-        public string diaSemana
+        public string DiaSemana
         {
             get { return _diaSemana; }
             set { _diaSemana = value; }
         }
 
-        public string periodo
+        public string Periodo
         {
             get { return _periodo; }
             set { _periodo = value; }
         }
 
-        public DateTime? horario
+        public DateTime? Horario
         {
             get { return _horario; }
             set { _horario = value; }
         }
 
-        public string alimento
+        public string Alimento
         {
             get { return _alimento; }
             set { _alimento = value; }
         }
 
-        public string porcaoAlimento
+        public string PorcaoAlimento
         {
             get { return _porcaoAlimento; }
             set { _porcaoAlimento = value; }

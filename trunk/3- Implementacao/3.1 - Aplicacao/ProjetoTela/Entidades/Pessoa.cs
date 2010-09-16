@@ -7,73 +7,73 @@ namespace SGS.Entidades
 {
     public class Pessoa
     {
-        private int _codPessoa;
+        private int _codigoPessoa;
         private string _nome;
         private string _sexo;
-        private int? _cpf;
-        private int? _rg;
-        private int? _tituloEleitor;
+        private string _cpf;
+        private string _rg;
+        private string _tituloEleitor;
         private DateTime? _dataNascimento;
         private string _naturalidade;
         private string _nacionalidade;
         private string _foto;
 
 
-        public int codpessoa
+        public int Codigopessoa
         {
-            get { return _codPessoa; }
-            set { _codPessoa = value; }
+            get { return _codigoPessoa; }
+            set { _codigoPessoa = value; }
         }
 
-        public string nome
+        public string Nome
         {
             get { return _nome; }
             set { _nome = value; }
         }
 
-        public string sexo
+        public string Sexo
         {
             get { return _sexo; }
             set { _sexo = value; }
         }
 
-        public int? cpf
+        public string Cpf
         {
             get { return _cpf; }
             set { _cpf = value; }
         }
 
-        public int? rg
+        public string Rg
         {
             get { return _rg; }
             set { _rg = value; }
         }
 
-        public int? tituloEleitor
+        public string TituloEleitor
         {
             get { return _tituloEleitor; }
             set { _tituloEleitor = value; }
         }
 
-        public DateTime? dataNascimento
+        public DateTime? DataNascimento
         {
             get { return _dataNascimento; }
             set { _dataNascimento = value; }
         }
 
-        public string naturalidade
+        public string Naturalidade
         {
             get { return _naturalidade; }
             set { _naturalidade = value; }
         }
 
-        public string nacionalidade
+        public string Nacionalidade
         {
             get { return _nacionalidade; }
             set { _nacionalidade = value; }
         }
 
-        public string foto
+        public string Foto
         {
             get { return _foto; }
             set { _foto = value; }

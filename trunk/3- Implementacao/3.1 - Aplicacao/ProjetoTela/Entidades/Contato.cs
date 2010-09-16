@@ -7,108 +7,108 @@ namespace SGS.Entidades
 {
     public class Contato
     {
-        private int _codContato;
-        private int _pessoa_CodPessoa;
+        private int _codigoContato;
+        private int _pessoa_CodigoPessoa;
         private string _logradouro;
-        private int? _numero;
+        private string _numero;
         private string _bairro;
         private string _cidade;
         private string _estado;
         private string _pais;
-        private int? _cep;
-        private int _telConvencional;
-        private int? _telCelular;
-        private int? _fax;
+        private string _cep;
+        private string _telConvencional;
+        private string _telCelular;
+        private string _fax;
         private string _email;
         private string _site;
         private string _blog;
 
 
-        public int codContato
+        public int CodigoContato
         {
-            get { return _codContato; }
-            set { _codContato = value; }
+            get { return _codigoContato; }
+            set { _codigoContato = value; }
         }
 
-        public int pessoa_CodPessoa
+        public int Pessoa_CodigoPessoa
         {
-            get { return _pessoa_CodPessoa; }
-            set { _pessoa_CodPessoa = value; }
+            get { return _pessoa_CodigoPessoa; }
+            set { _pessoa_CodigoPessoa = value; }
         }
 
-        public string logradouro
+        public string Logradouro
         {
             get { return _logradouro; }
             set { _logradouro = value; }
         }
 
-        public int? numero
+        public string Numero
         {
             get { return _numero; }
             set { _numero = value; }
         }
 
-        public string bairro
+        public string Bairro
         {
             get { return _bairro; }
             set { _bairro = value; }
         }
 
-        public string cidade
+        public string Cidade
         {
             get { return _cidade; }
             set { _cidade = value; }
         }
 
-        public string estado
+        public string Estado
         {
             get { return _estado; }
             set { _estado = value; }
         }
 
-        public string pais
+        public string Pais
         {
             get { return _pais; }
             set { _pais = value; }
         }
 
-        public int? cep
+        public string Cep
         {
             get { return _cep; }
             set { _cep = value; }
         }
 
-        public int telConvencional
+        public string TelConvencional
         {
             get { return _telConvencional; }
             set { _telConvencional = value; }
         }
 
-        public int? telCelular
+        public string TelCelular
         {
             get { return _telCelular; }
             set { _telCelular = value; }
         }
 
-        public int? fax
+        public string Fax
         {
             get { return _fax; }
             set { _fax = value; }
         }
 
-        public string email
+        public string Email
         {
             get { return _email; }
             set { _email = value; }
         }
 
-        public string site
+        public string Site
         {
             get { return _site; }
             set { _site = value; }
         }
 
-        public string blog
+        public string Blog
         {
             get { return _blog; }
             set { _blog = value; }

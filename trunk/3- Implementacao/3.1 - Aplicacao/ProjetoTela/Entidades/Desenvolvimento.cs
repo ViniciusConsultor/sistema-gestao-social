@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Desenvolvimento
     {
-        private int _codDesenvolvimento;
-        private int _assistido_CodAssistido;
+        private int _codigoDesenvolvimento;
+        private int _assistido_CodigoAssistido;
         private string _atividade;
         private string _tipoAtividade;
         private string _descricaoAtividade;
@@ -19,61 +19,61 @@ namespace SGS.Entidades
         private string _statusAtividade;
 
 
-        public int codDesenvolvimento
+        public int CodigoDesenvolvimento
         {
-            get { return _codDesenvolvimento; }
-            set { _codDesenvolvimento = value; }
+            get { return _codigoDesenvolvimento; }
+            set { _codigoDesenvolvimento = value; }
         }
 
-        public int assistido_CodAssistido
+        public int Assistido_CodigoAssistido
         {
-            get { return _assistido_CodAssistido; }
-            set { _assistido_CodAssistido = value; }
+            get { return _assistido_CodigoAssistido; }
+            set { _assistido_CodigoAssistido = value; }
         }
 
-        public string atividade
+        public string Atividade
         {
             get { return _atividade; }
             set { _atividade = value; }
         }
 
-        public string tipoAtividade
+        public string TipoAtividade
         {
             get { return _tipoAtividade; }
             set { _tipoAtividade = value; }
         }
 
-        public string descricaoAtividade
+        public string DescricaoAtividade
         {
             get { return _descricaoAtividade; }
             set { _descricaoAtividade = value; }
         }
 
-        public float valor
+        public float Valor
         {
             get { return _valor; }
             set { _valor = value; }
         }
 
-        public DateTime? dataInicio
+        public DateTime? DataInicio
         {
             get { return _dataInicio; }
             set { _dataInicio = value; }
         }
 
-        public DateTime? dataFim
+        public DateTime? DataFim
         {
             get { return _dataFim; }
             set { _dataFim = value; }
         }
 
-        public int? cargaHoraria
+        public int? CargaHoraria
         {
             get { return _cargaHoraria; }
             set { _cargaHoraria = value; }
         }
 
-        public string statusAtividade
+        public string StatusAtividade
         {
             get { return _statusAtividade; }
             set { _statusAtividade = value; }

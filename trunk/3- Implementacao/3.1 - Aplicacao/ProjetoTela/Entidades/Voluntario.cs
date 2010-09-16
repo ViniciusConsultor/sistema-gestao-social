@@ -7,66 +7,66 @@ namespace SGS.Entidades
 {
     public class Voluntario
     {
-        private int _codVoluntario;
-        private int _pessoa_CodPessoa;
+        private int _codigoVoluntario;
+        private int _pessoa_CodigoPessoa;
         private string _motivoVoluntariado;
         private string _tempoDisponivel;
         private string _especialidades;
-        private int _grauEscolaridade;
+        private string _grauEscolaridade;
         private string _cursoFormacao;
         private string _profissao;
         private string _experienciaProfissional;
 
 
-        public int codVoluntario
+        public int CodigoVoluntario
         {
-            get { return _codVoluntario; }
-            set { _codVoluntario = value; }
+            get { return _codigoVoluntario; }
+            set { _codigoVoluntario = value; }
         }
 
-        public int pessoa_CodPessoa
+        public int Pessoa_CodigoPessoa
         {
-            get { return _pessoa_CodPessoa; }
-            set { _pessoa_CodPessoa = value; }
+            get { return _pessoa_CodigoPessoa; }
+            set { _pessoa_CodigoPessoa = value; }
         }
 
-        public string motivoVoluntariado
+        public string MotivoVoluntariado
         {
             get { return _motivoVoluntariado; }
             set { _motivoVoluntariado = value; }
         }
 
-        public string tempoDisponivel
+        public string TempoDisponivel
         {
             get { return _tempoDisponivel; }
             set { _tempoDisponivel = value; }
         }
 
-        public string especialidades
+        public string Especialidades
         {
             get { return _especialidades; }
             set { _especialidades = value; }
         }
 
-        public int grauEscolaridade
+        public string GrauEscolaridade
         {
             get { return _grauEscolaridade; }
             set { _grauEscolaridade = value; }
         }
 
-        public string cursoFormacao
+        public string CursoFormacao
         {
             get { return _cursoFormacao; }
             set { _cursoFormacao = value; }
         }
 
-        public string profissao
+        public string Profissao
         {
             get { return _profissao; }
             set { _profissao = value; }
         }
 
-        public string experienciaProfissional
+        public string ExperienciaProfissional
         {
             get { return _experienciaProfissional; }
             set { _experienciaProfissional = value; }
