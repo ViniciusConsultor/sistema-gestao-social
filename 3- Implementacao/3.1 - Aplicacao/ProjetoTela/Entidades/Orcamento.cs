@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Orcamento
     {
-        private int _codOrcamento;
-        private int _casalar_CodCasaLar;
+        private int _codigoOrcamento;
+        private int _casalar_CodigoCasaLar;
         private string _nomePlano;
         private string _statusPlano;
         private float _valorTotal;
@@ -24,91 +24,91 @@ namespace SGS.Entidades
         private DateTime? _fimVigencia;
 
 
-        public int codOrcamento
+        public int CodigoOrcamento
         {
-            get { return _codOrcamento; }
-            set { _codOrcamento = value; }
+            get { return _codigoOrcamento; }
+            set { _codigoOrcamento = value; }
         }
 
-        public int casalar_CodCasaLar
+        public int Casalar_CodigoCasaLar
         {
-            get { return _casalar_CodCasaLar; }
-            set { _casalar_CodCasaLar = value; }
+            get { return _casalar_CodigoCasaLar; }
+            set { _casalar_CodigoCasaLar = value; }
         }
 
-        public string nomePlano
+        public string NomePlano
         {
             get { return _nomePlano; }
             set { _nomePlano = value; }
         }
 
-        public string statusPlano
+        public string StatusPlano
         {
             get { return _statusPlano; }
             set { _statusPlano = value; }
         }
 
-        public float valorTotal
+        public float ValorTotal
         {
             get { return _valorTotal; }
             set { _valorTotal = value; }
         }
 
-        public float valorEstimado
+        public float ValorEstimado
         {
             get { return _valorEstimado; }
             set { _valorEstimado = value; }
         }
 
-        public float valorDisponivel
+        public float ValorDisponivel
         {
             get { return _valorDisponivel; }
             set { _valorDisponivel = value; }
         }
 
-        public string nomeGasto
+        public string NomeGasto
         {
             get { return _nomeGasto; }
             set { _nomeGasto = value; }
         }
 
-        public float valorGasto
+        public float ValorGasto
         {
             get { return _valorGasto; }
             set { _valorGasto = value; }
         }
 
-        public DateTime? dataGasto
+        public DateTime? DataGasto
         {
             get { return _dataGasto; }
             set { _dataGasto = value; }
         }
 
-        public int? qtdParcelas
+        public int? QtdParcelas
         {
             get { return _qtdParcelas; }
             set { _qtdParcelas = value; }
         }
 
-        public float gastoTotal
+        public float GastoTotal
         {
             get { return _gastoTotal; }
             set { _gastoTotal = value; }
         }
 
-        public float mediaGastoTotal
+        public float MediaGastoTotal
         {
             get { return _mediaGastoMensal; }
             set { _mediaGastoMensal = value; }
         }
 
-        public DateTime? inicioVigencia
+        public DateTime? InicioVigencia
         {
             get { return _inicioVigencia; }
             set { _inicioVigencia = value; }
         }
 
-        public DateTime? fimVigencia
+        public DateTime? FimVigencia
         {
             get { return _fimVigencia; }
             set { _fimVigencia = value; }

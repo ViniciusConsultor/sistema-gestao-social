@@ -7,52 +7,52 @@ namespace SGS.Entidades
 {
     public class Patricionador
     {
-        private int _codPatrocinador;
-        private int _pessoa_CodPessoa;
+        private int _codigoPatrocinador;
+        private int _pessoa_CodigoPessoa;
         private string _empresa;
-        private int? _cnpj;
+        private string _cnpj;
         private string _ramoAtividade;
         private float _valorContribuicao;
         private string _periodicidadeContribuicao;
 
 
-        public int codPatrocinador
+        public int CodigoPatrocinador
         {
-            get { return _codPatrocinador; }
-            set { _codPatrocinador = value; }
+            get { return _codigoPatrocinador; }
+            set { _codigoPatrocinador = value; }
         }
 
-        public int pessoa_CodPessoa
+        public int Pessoa_CodigoPessoa
         {
-            get { return _pessoa_CodPessoa; }
-            set { _pessoa_CodPessoa = value; }
+            get { return _pessoa_CodigoPessoa; }
+            set { _pessoa_CodigoPessoa = value; }
         }
 
-        public string empresa
+        public string Empresa
         {
             get { return _empresa; }
             set { _empresa = value; }
         }
 
-        public int? cnpj
+        public string Cnpj
         {
             get { return _cnpj; }
             set { _cnpj = value; }
         }
 
-        public string ramoAtividade
+        public string RamoAtividade
         {
             get { return _ramoAtividade; }
             set { _ramoAtividade = value; }
         }
 
-        public float valorContribuicao
+        public float ValorContribuicao
         {
             get { return _valorContribuicao; }
             set { _valorContribuicao = value; }
         }
 
-        public string periodicidadeContribuicao
+        public string PeriodicidadeContribuicao
         {
             get { return _periodicidadeContribuicao; }
             set { _periodicidadeContribuicao = value; }

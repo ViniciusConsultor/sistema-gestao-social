@@ -132,8 +132,8 @@ namespace SGS.CamadaDados
             return objLogin;
         }
 
-        /// <summary>
-        /// Obtém o Login do usuário pelo seu Código de Login
+            /// <summary>
+            /// Obtém o Login do usuário pelo seu Código de Login
         /// </summary>
         /// <param name="codigoLogin"></param>
         /// <returns></returns>

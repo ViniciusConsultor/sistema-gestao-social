@@ -7,179 +7,179 @@ namespace SGS.Entidades
 {
     public class Assistido
     {
-        private int _codAssistido;
+        private int _codigoAssistido;
         private int _certidaoNascimento;
-        private int _pessoa_CodPessoa;
-        private int _contato_CodContato;
+        private int _pessoa_CodigoPessoa;
+        private int _contato_CodigoContato;
         private string _nomePai;
         private string _nomeMae;
-        private int? _cpfPai;
-        private int? _cpfMae;
-        private int? _rgPai;
-        private int? _rgMae;
+        private string _cpfPai;
+        private string _cpfMae;
+        private string _rgPai;
+        private string _rgMae;
         private string _enderecoFamilia;
-        private int? _telFamilia;
+        private string _telFamilia;
         private float _peso;
         private float _altura;
         private string _cor;
         private string _historicoVida;
         private string _vivo;
-        private int? _telMae;
+        private string _telMae;
         private int? _qtdIrmaos;
         private string _responsavelLegal;
-        private int? _cpfResponsavel;
-        private int? _telResponsavel;
+        private string _cpfResponsavel;
+        private string _telResponsavel;
         private string _logradouroResponsavel;
-        private int? _numeroResponsavel;
-        private int? _cepResponsavel;
+        private string _numeroResponsavel;
+        private string _cepResponsavel;
 
 
 
-        public int codAssistido
+        public int CodigoAssistido
         {
-            get { return _codAssistido; }
-            set { _codAssistido = value; }
+            get { return _codigoAssistido; }
+            set { _codigoAssistido = value; }
         }
 
-        public int pessoa_CodPessoa
+        public int Pessoa_CodigoPessoa
         {
-            get { return _pessoa_CodPessoa; }
-            set { _pessoa_CodPessoa = value; }
+            get { return _pessoa_CodigoPessoa; }
+            set { _pessoa_CodigoPessoa = value; }
         }
 
-        public int contato_CodContato
+        public int Contato_CodContato
         {
-            get { return _contato_CodContato; }
-            set { _contato_CodContato = value; }
+            get { return _contato_CodigoContato; }
+            set { _contato_CodigoContato = value; }
         }
 
-        public int certidaoNascimento
+        public int CertidaoNascimento
         {
             get { return _certidaoNascimento; }
             set { _certidaoNascimento = value; }
         }
 
-        public string nomePai
+        public string NomePai
         {
             get { return _nomePai; }
             set { _nomePai = value; }
         }
 
-        public string nomeMae
+        public string NomeMae
         {
             get { return _nomeMae; }
             set { _nomeMae = value; }
         }
 
-        public int? cpfPai
+        public string CpfPai
         {
             get { return _cpfPai; }
             set { _cpfPai = value; }
         }
 
-        public int? cpfMae
+        public string CpfMae
         {
             get { return _cpfMae; }
             set { _cpfMae = value; }
         }
 
-        public int? rgPai
+        public string RgPai
         {
             get { return _rgPai; }
             set { _rgPai = value; }
         }
 
-        public int? rgmae
+        public string Rgmae
         {
             get { return _rgMae; }
             set { _rgMae = value; }
         }
 
-        public string enderecoFamilia
+        public string EnderecoFamilia
         {
             get { return _enderecoFamilia; }
             set { _enderecoFamilia = value; }
         }
 
-        public int? telFamilia
+        public string TelFamilia
         {
             get { return _telFamilia; }
             set { _telFamilia = value; }
         }
 
-        public float peso
+        public float Peso
         {
             get { return _peso; }
             set { _peso = value; }
         }
 
-        public float altura
+        public float Altura
         {
             get { return _altura; }
             set { _altura = value; }
         }
 
-        public string cor
+        public string Cor
         {
             get { return _cor; }
             set { _cor = value; }
         }
 
-        public string historicoVida
+        public string HistoricoVida
         {
             get { return _historicoVida; }
             set { _historicoVida = value; }
         }
 
-        public string vivo
+        public string Vivo
         {
             get { return _vivo; }
             set { _vivo = value; }
         }
 
-        public int? telMae
+        public string TelMae
         {
             get { return _telMae; }
             set { _telMae = value; }
         }
 
-        public int? qtdIrmaos
+        public int? QtdIrmaos
         {
             get { return _qtdIrmaos; }
             set { _qtdIrmaos = value; }
         }
 
-        public string responsavelLegal
+        public string ResponsavelLegal
         {
             get { return _responsavelLegal; }
             set { _responsavelLegal = value; }
         }
 
-        public int? cpfResponsavel
+        public string CpfResponsavel
         {
             get { return _cpfResponsavel; }
             set { _cpfResponsavel = value; }
         }
 
-        public int? telResponsavel
+        public string TelResponsavel
         {
             get { return _telResponsavel; }
             set { _telResponsavel = value; }
         }
 
-        public string logradouroResponsavel
+        public string LogradouroResponsavel
         {
             get { return _logradouroResponsavel; }
             set { _logradouroResponsavel = value; }
         }
 
-        public int? numeroResponsavel
+        public string NumeroResponsavel
         {
             get { return _numeroResponsavel; }
             set { _numeroResponsavel = value; }
         }
 
-        public int? cepResponsavel
+        public string CepResponsavel
         {
             get { return _cepResponsavel; }
             set { _cepResponsavel = value; }

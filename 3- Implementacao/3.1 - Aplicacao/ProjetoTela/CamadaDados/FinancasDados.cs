@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using SGS.Entidades;
 using System.Data.SqlClient;
+using SGS.Entidades.DTO;
 
 namespace SGS.CamadaDados
 {
@@ -21,62 +22,62 @@ namespace SGS.CamadaDados
         SqlCommand comando = new SqlCommand();
         comando.Connection = base.Conectar();
 
-        if (!objFinancas.codFinancas.HasValue)
+        if (!objFinancas.CodigoFinancas.HasValue)
         {
             comando.CommandText = 
-                @"INSERT INTO FINANCAS ( casaLar_CodCasaLar, DataLancamento, DataCriacao, TipoLancamento, Valor, LancadoPor, Observacao)
-                VALUES (@casalar_CodCasaLar, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao)";
+                @"INSERT INTO FINANCAS ( CasaLar_CodigoCasaLar, DataLancamento, DataCriacao, TipoLancamento, Valor, LancadoPor, Observacao)
+                VALUES (@casalar_CodigoCasaLar, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao)";
         }
         else
         {
             comando.CommandText = 
-            @"UPDATE FINANCAS SET casaLar_CodCasaLar = @casalar_CodCasaLar, DataLancamento = @dataLancamento, DataCriacao = @dataCriacao, TipoLancamento = @tipoLancamento,
+            @"UPDATE FINANCAS SET CasaLar_CodigoCasaLar = @casalar_CodigoCasaLar, DataLancamento = @dataLancamento, DataCriacao = @dataCriacao, TipoLancamento = @tipoLancamento,
             Valor = @valor, LancadoPor = @lancadoPor, Observacao = @observacao
-            WHERE (casaLar_CodCasaLar = @casalar_CodCasaLar)";
+            WHERE (CasaLar_CodigoCasaLar = @casalar_CodigoCasaLar)";
         }
         
         comando.CommandType = System.Data.CommandType.Text;
 
-        if (objFinancas.codFinancas.HasValue)
+        if (objFinancas.CodigoFinancas.HasValue)
          {
-            SqlParameter parametroCodigo = new SqlParameter ("@codFinancas", objFinancas.codFinancas.Value);
+            SqlParameter parametroCodigo = new SqlParameter ("@codigoFinancas", objFinancas.CodigoFinancas.Value);
             parametroCodigo.DbType  = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigo);
         }
 
-            SqlParameter parametrocasaLar_CodCasaLar = new SqlParameter();
-            if (objFinancas.parametrocasaLar_CodCasaLar.HasValue)
+            SqlParameter parametroCasaLar_CodigoCasaLar = new SqlParameter();
+            if (objFinancas.CasaLar_CodigoCasaLar > 0)
             {
-                parametrocasaLar_CodCasaLar.Value = objFinancas.casalar_CodCasaLar.Value;
-                parametrocasaLar_CodCasaLar.ParameterName = "@casaLar_CodCasaLar";
-                parametrocasaLar_CodCasaLar.DbType = System.Data.DbType.Int32;
+                parametroCasaLar_CodigoCasaLar.Value = objFinancas.CasaLar_CodigoCasaLar.Value;
+                parametroCasaLar_CodigoCasaLar.ParameterName = "@casaLar_CodigoCasaLar";
+                parametroCasaLar_CodigoCasaLar.DbType = System.Data.DbType.Int32;
             }
             else
             {
-                parametrocasalar_CodCasaLar.Value = DBNull.Value;
-                parametrocasaLar_CodCasaLar.ParameterName = "@casaLar_CodCasaLar";
-                parametrocasaLar_CodCasaLar.DbType = System.Data.DbType.Int32;
+                parametroCasaLar_CodigoCasaLar.Value = DBNull.Value;
+                parametroCasaLar_CodigoCasaLar.ParameterName = "@casaLar_CodigoCasaLar";
+                parametroCasaLar_CodigoCasaLar.DbType = System.Data.DbType.Int32;
             }
 
-        SqlParameter parametroDataLancamento = new SqlParameter("@dataLancamento", objFinancas.dataLancamento);
+        SqlParameter parametroDataLancamento = new SqlParameter("@dataLancamento", objFinancas.DataLancamento);
         parametroDataLancamento.DbType = System.Data.DbType.DateTime;
 
-        SqlParameter parametroDataCriacao = new SqlParameter("@dataCriacao", objFinancas.dataCriacao);
+        SqlParameter parametroDataCriacao = new SqlParameter("@dataCriacao", objFinancas.DataCriacao);
         parametroDataCriacao.DbType = System.Data.DbType.DateTime;
        
-        SqlParameter parametroTipoLancamento = new SqlParameter("@tipoLancamento", objFinancas.tipoLancamento);
+        SqlParameter parametroTipoLancamento = new SqlParameter("@tipoLancamento", objFinancas.TipoLancamento);
         parametroTipoLancamento.DbType = System.Data.DbType.String;
 
-        SqlParameter parametroValor = new SqlParameter("@valor", objFinancas.valor);
+        SqlParameter parametroValor = new SqlParameter("@valor", objFinancas.Valor);
         parametroValor.DbType = System.Data.DbType.Decimal;
 
-        SqlParameter parametroLancadoPor = new SqlParameter("@lancadoPor", objFinancas.lancadoPor);
+        SqlParameter parametroLancadoPor = new SqlParameter("@lancadoPor", objFinancas.LancadoPor);
         parametroLancadoPor.DbType  = System.Data.DbType.String;
 
-        SqlParameter parametroObservacao = new SqlParameter("@observacao", objFinancas.observacao);
+        SqlParameter parametroObservacao = new SqlParameter("@observacao", objFinancas.Observacao);
         parametroObservacao.DbType = System.Data.DbType.String;
 
-        comando.Parameters.Add(parametrocasalar_CodCasaLar);
+        comando.Parameters.Add(parametroCasaLar_CodigoCasaLar);
         comando.Parameters.Add(parametroDataLancamento);
         comando.Parameters.Add(parametroDataCriacao);
         comando.Parameters.Add(parametroTipoLancamento);
@@ -89,10 +90,10 @@ namespace SGS.CamadaDados
         return objFinancas;
     }
 
-   public Financas ObterFinancas(int codFinancas)
+   public Financas ObterFinancas(int codigoFinancas)
         {
-            SqlCommand comando = new SqlCommand("select * from Financas where CodFinancas = @codFinancas", base.Conectar());
-            SqlParameter parametroCodigo = new SqlParameter("@codFinancas", codFinancas);
+            SqlCommand comando = new SqlCommand("select * from Financas where CodigoFinancas = @codigoFinancas", base.Conectar());
+            SqlParameter parametroCodigo = new SqlParameter("@codigoFinancas", codigoFinancas);
             parametroCodigo.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigo);
 
@@ -103,14 +104,14 @@ namespace SGS.CamadaDados
             {
                 objFinancas = new Financas();
 
-                objFinancas.codFinancas = codFinancas;
-                objFinancas.casalar_CodCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
-                objFinancas.dataLancamento = leitorDados["DataLancamento"].ToDateTime();
-                objFinancas.dataCriacao = leitorDados["DataCriacao"].ToDateTime();
-                objFinancas.tipoLancamento = leitorDados["TipoLancamento"].ToString();
-                objFinancas.valor = leitorDados["Valor"].ToFloat();
-                objFinancas.lancadoPor = leitorDados["LancadoPor"].ToString();
-                objFinancas.observacao = leitorDados["Observacao"].ToString();
+                objFinancas.CodigoFinancas = codigoFinancas;
+                objFinancas.CasaLar_CodigoCasaLar = Convert.ToInt32(leitorDados["CasaLar_CodigoCasaLar"]);
+                objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
+                objFinancas.DataCriacao =  Convert.ToDateTime(leitorDados["DataCriacao"]);
+                objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
+                objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
+                objFinancas.Observacao = leitorDados["Observacao"].ToString();
                 
             }
     
@@ -120,15 +121,15 @@ namespace SGS.CamadaDados
             return objFinancas;
         }
 
-   public bool ExcluirFinancas(int codFinancas)
+   public bool ExcluirFinancas(int codigoFinancas)
     {
         bool execucao;
 
-        SqlCommand comando = new SqlCommand("delete from Financas where CodFinancas = @codFinancas", base.Conectar());
+        SqlCommand comando = new SqlCommand("delete from Financas where CodigoFinancas = @codigoFinancas", base.Conectar());
 
-        SqlParameter parametroCodFinancas = new SqlParameter("@codigoLogin", codFinancas);
-        parametroCodFinancas.DbType = System.Data.DbType.Int32;
-        comando.Parameters.Add(parametroCodFinancas);
+        SqlParameter parametroCodigoFinancas = new SqlParameter("@codigoFinancas", codigoFinancas);
+        parametroCodigoFinancas.DbType = System.Data.DbType.Int32;
+        comando.Parameters.Add(parametroCodigoFinancas);
 
         execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
 
@@ -136,6 +137,6 @@ namespace SGS.CamadaDados
 
     }
 
-
+ 
     }
 }

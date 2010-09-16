@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Financas
     {
-        private int _codFinancas;
-        private int _casalar_CodCasaLar;
+        private int? _codigoFinancas;
+        private int? _casaLar_CodigoCasaLar;
         private DateTime? _dataLancamento;
         private DateTime? _dataCriacao;
         private string _tipoLancamento;
@@ -17,51 +17,51 @@ namespace SGS.Entidades
         private string _observacao;
 
 
-        public int codFinancas
+        public int? CodigoFinancas
         {
-            get { return _codFinancas; }
-            set { _codFinancas = value; }
+            get { return _codigoFinancas; }
+            set { _codigoFinancas = value; }
 
         }
 
-        public int casalar_CodCasaLar
+        public int? CasaLar_CodigoCasaLar
         {
-            get { return _casalar_CodCasaLar; }
-            set { _casalar_CodCasaLar = value; }
+            get { return _casaLar_CodigoCasaLar; }
+            set { _casaLar_CodigoCasaLar = value; }
 
         }
 
-        public DateTime? dataLancamento
+        public DateTime? DataLancamento
         {
             get { return _dataLancamento; }
             set { _dataLancamento = value; }
         }
 
-        public DateTime? dataCriacao
+        public DateTime? DataCriacao
         {
             get { return _dataCriacao; }
             set { _dataCriacao = value; }
         }
 
-        public string tipoLancamento
+        public string TipoLancamento
         {
             get { return _tipoLancamento; }
             set { _tipoLancamento = value; }
         }
 
-        public Decimal? valor
+        public Decimal? Valor
         {
             get { return _valor; }
             set { _valor = value; }
         }
 
-        public string lancadoPor
+        public string LancadoPor
         {
             get { return _lancadoPor; }
             set { _lancadoPor = value; }
         }
 
-        public string observacao
+        public string Observacao
         {
             get { return _observacao; }
             set { _observacao = value; }

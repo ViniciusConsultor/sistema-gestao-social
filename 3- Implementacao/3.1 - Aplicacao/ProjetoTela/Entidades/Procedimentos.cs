@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Procedimentos
     {
-        private int _codProcedimentos;
-        private int _assistido_CodAssistido;
+        private int _codigoProcedimentos;
+        private int _assistido_CodigoAssistido;
         private string _tipoProcedimento;
         private string _procedimento;
         private string _descrição;
@@ -19,61 +19,61 @@ namespace SGS.Entidades
         private string _laudoAtendente;
 
 
-        public int codProcedimentos
+        public int CodigoProcedimentos
         {
-            get { return _codProcedimentos; }
-            set { _codProcedimentos = value; }
+            get { return _codigoProcedimentos; }
+            set { _codigoProcedimentos = value; }
         }
 
-        public int assistido_CodAssistido
+        public int Assistido_CodigoAssistido
         {
-            get { return _assistido_CodAssistido; }
-            set { _assistido_CodAssistido = value; }
+            get { return _assistido_CodigoAssistido; }
+            set { _assistido_CodigoAssistido = value; }
         }
 
-        public string tipoProcedimento
+        public string TipoProcedimento
         {
             get { return _tipoProcedimento; }
             set { _tipoProcedimento = value; }
         }
 
-        public string procedimento
+        public string Procedimento
         {
             get { return _procedimento; }
             set { _procedimento = value; }
         }
 
-        public string descricao
+        public string Descricao
         {
             get { return _descrição; }
             set { _descrição = value; }
         }
 
-        public string statusProcedimento
+        public string StatusProcedimento
         {
             get { return _statusProcedimento; }
             set { _statusProcedimento = value; }
         }
 
-        public string pessoaAtendente
+        public string PessoaAtendente
         {
             get { return _pessoaAtendente; }
             set { _pessoaAtendente = value; }
         }
 
-        public DateTime? dataMarcada
+        public DateTime? DataMarcada
         {
             get { return _dataMarcada; }
             set { _dataMarcada = value; }
         }
 
-        public DateTime dataRealizada
+        public DateTime DataRealizada
         {
             get { return _dataRealizada; }
             set { _dataRealizada = value; }
         }
 
-        public string laudoAtendente
+        public string LaudoAtendente
         {
             get { return _laudoAtendente; }
             set { _laudoAtendente = value; }

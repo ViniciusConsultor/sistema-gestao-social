@@ -8,32 +8,32 @@ namespace SGS.Entidades
     public class Funcionario
     {
 
-        private int _codFuncionario;
-        private int _pessoa_CodPessoa;
+        private int _codigoFuncionario;
+        private int _pessoa_CodigoPessoa;
         private string _cargo;
         private float _salario;
         private DateTime? _dataContratacao;
-        private int? _numCtps;
-        private int? _pis;
-        private int? _grauEscolaridade;
+        private string _numCtps;
+        private string _pis;
+        private string _grauEscolaridade;
         private string _cursoFormacao;
         private string _estadoCivil;
-        private int? _certidaoNascimento;
-        private int? _certidaoCasamento;
-        private int? _qtdFilhos;
-        private int? _certificadoReservista;
+        private string _certidaoNascimento;
+        private string _certidaoCasamento;
+        private string _qtdFilhos;
+        private string _certificadoReservista;
         
 
-        public int codFuncionario
+        public int CodigoFuncionario
         {
-            get { return _codFuncionario; }
-            set { _codFuncionario = value; }
+            get { return _codigoFuncionario; }
+            set { _codigoFuncionario = value; }
         }
 
-        public int pessoa_CodPessoa
+        public int Pessoa_CodigoPessoa
         {
-            get { return _pessoa_CodPessoa; }
-            set { _pessoa_CodPessoa = value; }
+            get { return _pessoa_CodigoPessoa; }
+            set { _pessoa_CodigoPessoa = value; }
         }
 
         public string cargo
@@ -42,67 +42,67 @@ namespace SGS.Entidades
             set { _cargo = value; }
         }
 
-        public float salario
+        public float Salario
         {
             get { return _salario; }
             set { _salario = value; }
         }
 
-        public DateTime? dataContratacao
+        public DateTime? DataContratacao
         {
             get { return _dataContratacao; }
             set { _dataContratacao = value; }
         }
 
-        public int? numCtps
+        public string NumCtps
         {
             get { return _numCtps; }
             set { _numCtps = value; }
         }
 
-        public int? pis
+        public string Pis
         {
             get { return _pis; }
             set { _pis = value; }
         }
 
-        public int? grauEscolaridade
+        public string GrauEscolaridade
         {
             get { return _grauEscolaridade; }
             set { _grauEscolaridade = value; }
         }
 
-        public string cursoFormacao
+        public string CursoFormacao
         {
             get { return _cursoFormacao; }
             set { _cursoFormacao = value; }
         }
 
-        public string estadoCivil
+        public string EstadoCivil
         {
             get { return _estadoCivil; }
             set { _estadoCivil = value; }
         }
 
-        public int? certidaoNascimento
+        public string CertidaoNascimento
         {
             get { return _certidaoNascimento; }
             set { _certidaoNascimento = value; }
         }
 
-        public int? certidaoCasamento
+        public string CertidaoCasamento
         {
             get { return _certidaoCasamento; }
             set { _certidaoCasamento = value; }
         }
 
-        public int? qtdFilhos
+        public string QtdFilhos
         {
             get { return _qtdFilhos; }
             set { _qtdFilhos = value; }
         }
 
-        public int? certificadoReservista
+        public string CertificadoReservista
         {
             get { return _certificadoReservista; }
             set { _certificadoReservista = value; }

@@ -7,10 +7,10 @@ namespace SGS.Entidades
 {
     public class Escolar
     {
-        private int _codInstituicao;
-        private int _contato_CodContato;
-        private int _assistido_CodAssistido;
-        private int _numInscricaoInstituicao;
+        private int _codigoInstituicao;
+        private int _contato_CodigoContato;
+        private int _assistido_CodigoAssistido;
+        private int? _numInscricaoInstituicao;
         private string _instituicao;
         private float _mediaEscola;
         private string _grauEscolaridade;
@@ -26,103 +26,103 @@ namespace SGS.Entidades
         private string _parteAnoLetivo;
 
 
-        public int codInstituicao
+        public int CodigoInstituicao
         {
-            get { return _codInstituicao; }
-            set { _codInstituicao = value; }
+            get { return _codigoInstituicao; }
+            set { _codigoInstituicao = value; }
         }
 
-        public int contato_CodContato
+        public int Contato_CodigoContato
         {
-            get { return _contato_CodContato; }
-            set { _contato_CodContato = value; }
+            get { return _contato_CodigoContato; }
+            set { _contato_CodigoContato = value; }
         }
 
-        public int assistido_CodAssistido
+        public int Assistido_CodigoAssistido
         {
-            get { return _assistido_CodAssistido; }
-            set { _assistido_CodAssistido = value; }
+            get { return _assistido_CodigoAssistido; }
+            set { _assistido_CodigoAssistido = value; }
         }
 
-        public string instituicao
+        public string Instituicao
         {
             get { return _instituicao; }
             set { _instituicao = value; }
         }
 
-        public int? numInscricaoInstituicao
+        public int? NumInscricaoInstituicao
         {
             get { return _numInscricaoInstituicao; }
             set { _numInscricaoInstituicao = value; }
         }
 
-        public float mediaEscola
+        public float MediaEscola
         {
             get { return _mediaEscola; }
             set { _mediaEscola = value; }
         }
 
-        public string grauEscolaridade
+        public string GrauEscolaridade
         {
             get { return _grauEscolaridade; }
             set { _grauEscolaridade = value; }
         }
 
-        public string serieCursada
+        public string SerieCursada
         {
             get { return _serieCursada; }
             set { _serieCursada = value; }
         }
 
-        public DateTime? dataMatricula
+        public DateTime? DataMatricula
         {
             get { return _dataMatricula; }
             set { _dataMatricula = value; }
         }
 
-        public DateTime? dataSaida
+        public DateTime? DataSaida
         {
             get { return _dataSaida; }
             set { _dataSaida = value; }
         }
 
-        public string statusMatricula
+        public string StatusMatricula
         {
             get { return _statusMatricula; }
             set { _statusMatricula = value; }
         }
 
-        public string formatoAnoLetivo
+        public string FormatoAnoLetivo
         {
             get { return _formatoAnoLetivo; }
             set { _formatoAnoLetivo = value; }
         }
 
-        public string materia
+        public string Materia
         {
             get { return _materia; }
             set { _materia = value; }
         }
 
-        public string professor
+        public string Professor
         {
             get { return _professor; }
             set { _professor = value; }
         }
 
-        public float nota
+        public float Nota
         {
             get { return _nota; }
             set { _nota = value; }
         }
 
-        public string statusMateria
+        public string StatusMateria
         {
             get { return _statusMateria; }
             set { _statusMateria = value; }
         }
 
-        public string parteAnoLetivo
+        public string ParteAnoLetivo
         {
             get { return _parteAnoLetivo; }
             set { _parteAnoLetivo = value; }
