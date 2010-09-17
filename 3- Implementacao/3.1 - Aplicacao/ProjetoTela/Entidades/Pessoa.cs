@@ -7,7 +7,8 @@ namespace SGS.Entidades
 {
     public class Pessoa
     {
-        private int _codigoPessoa;
+        private int? _codigoPessoa;
+        private int? _contato_CodigoContato;
         private string _nome;
         private string _sexo;
         private string _cpf;
@@ -19,10 +20,16 @@ namespace SGS.Entidades
         private string _foto;
 
 
-        public int Codigopessoa
+        public int? CodigoPessoa
         {
             get { return _codigoPessoa; }
             set { _codigoPessoa = value; }
+        }
+
+        public int? Contato_CodigoContato
+        {
+            get { return _contato_CodigoContato; }
+            set { _contato_CodigoContato = value; }
         }
 
         public string Nome
@@ -37,13 +44,13 @@ namespace SGS.Entidades
             set { _sexo = value; }
         }
 
-        public string Cpf
+        public string CPF
         {
             get { return _cpf; }
             set { _cpf = value; }
         }
 
-        public string Rg
+        public string RG
         {
             get { return _rg; }
             set { _rg = value; }

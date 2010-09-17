@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Linq;
 using System.Web;
 using SGS.Entidades;
 using System.Data.SqlClient;
@@ -46,7 +47,7 @@ namespace SGS.CamadaDados
         }
 
             SqlParameter parametroCasaLar_CodigoCasaLar = new SqlParameter();
-            if (objFinancas.CasaLar_CodigoCasaLar > 0)
+            if (objFinancas.CasaLar_CodigoCasaLar.HasValue)
             {
                 parametroCasaLar_CodigoCasaLar.Value = objFinancas.CasaLar_CodigoCasaLar.Value;
                 parametroCasaLar_CodigoCasaLar.ParameterName = "@casaLar_CodigoCasaLar";

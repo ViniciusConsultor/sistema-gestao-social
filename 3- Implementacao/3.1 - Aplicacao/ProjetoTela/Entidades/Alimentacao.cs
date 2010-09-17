@@ -8,8 +8,8 @@ namespace SGS.Entidades
 {
     public class Alimentacao
     {
-        private int _codigoAlimentacao;
-        private int _assistido_CodigoAssistido;
+        private int? _codigoAlimentacao;
+        private int? _assistido_CodigoAssistido;
         private string _diaSemana;
         private string _periodo;
         private DateTime? _horario;
@@ -17,13 +17,13 @@ namespace SGS.Entidades
         private string _porcaoAlimento;
 
 
-        public int CodigoAlimentacao
+        public int? CodigoAlimentacao
         {
             get { return _codigoAlimentacao; }
             set { _codigoAlimentacao = value; }
         }
 
-        public int Assistido_CodigoAssistido
+        public int? Assistido_CodigoAssistido
         {
             get { return _assistido_CodigoAssistido; }
             set { _assistido_CodigoAssistido = value; }

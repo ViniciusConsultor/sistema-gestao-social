@@ -21,7 +21,7 @@ namespace ProjetoTela
             //con.Conectar();
             SGS.CamadaDados.CasaLarDados casaLarDados = new SGS.CamadaDados.CasaLarDados();
             
-            casaLarDados.SelecionarTodos();
+     ///       casaLarDados.SelecionarTodos();
 
 
         }

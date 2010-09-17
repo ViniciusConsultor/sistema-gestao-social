@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Contato
     {
-        private int _codigoContato;
-        private int _pessoa_CodigoPessoa;
+        private int? _codigoContato;
+    ///    private int _pessoa_CodigoPessoa;
         private string _logradouro;
         private string _numero;
         private string _bairro;
@@ -16,25 +16,28 @@ namespace SGS.Entidades
         private string _estado;
         private string _pais;
         private string _cep;
-        private string _telConvencional;
-        private string _telCelular;
+        private string _telefoneConvencional;
+        private string _telefoneCelular;
         private string _fax;
         private string _email;
         private string _site;
         private string _blog;
 
 
-        public int CodigoContato
+        public int? CodigoContato
         {
             get { return _codigoContato; }
             set { _codigoContato = value; }
         }
-
-        public int Pessoa_CodigoPessoa
-        {
-            get { return _pessoa_CodigoPessoa; }
-            set { _pessoa_CodigoPessoa = value; }
-        }
+/// <summary>
+/// ***A chave estrangeira de Pessoa não precisa estar nesta entidade.***
+///  public int Pessoa_CodigoPessoa
+///        {
+///            get { return _pessoa_CodigoPessoa; }
+///            set { _pessoa_CodigoPessoa = value; }
+///        }
+/// </summary>
+       
 
         public string Logradouro
         {
@@ -72,25 +75,25 @@ namespace SGS.Entidades
             set { _pais = value; }
         }
 
-        public string Cep
+        public string CEP
         {
             get { return _cep; }
             set { _cep = value; }
         }
 
-        public string TelConvencional
+        public string TelefoneConvencional
         {
-            get { return _telConvencional; }
-            set { _telConvencional = value; }
+            get { return _telefoneConvencional; }
+            set { _telefoneConvencional = value; }
         }
 
-        public string TelCelular
+        public string TelefoneCelular
         {
-            get { return _telCelular; }
-            set { _telCelular = value; }
+            get { return _telefoneCelular; }
+            set { _telefoneCelular = value; }
         }
 
-        public string Fax
+        public string FAX
         {
             get { return _fax; }
             set { _fax = value; }
