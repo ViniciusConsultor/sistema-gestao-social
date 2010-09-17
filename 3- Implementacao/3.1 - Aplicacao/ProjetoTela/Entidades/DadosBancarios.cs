@@ -7,34 +7,34 @@ namespace SGS.Entidades
 {
     public class DadosBancarios
     {
-        private int _codigoDadosBancarios;
-        private int _patrocinador_CodigoPatrocinador;
-        private int _voluntario_CodigoVoluntario;
-        private int _funcionario_CodigoFuncionario;
+        private int? _codigoDadosBancarios;
+        private int? _patrocinador_CodigoPatrocinador;
+        private int? _voluntario_CodigoVoluntario;
+        private int? _funcionario_CodigoFuncionario;
         private string _agencia;
         private string _contaBancaria;
         private string _banco;
 
 
-        public int CodigoDadosBancarios
+        public int? CodigoDadosBancarios
         {
             get { return _codigoDadosBancarios; }
             set { _codigoDadosBancarios = value; }
         }
 
-        public int Patrocinador_CodigoPatrocinador
+        public int? Patrocinador_CodigoPatrocinador
         {
             get { return _patrocinador_CodigoPatrocinador; }
             set { _patrocinador_CodigoPatrocinador = value; }
         }
 
-        public int Voluntario_CodigoVoluntario
+        public int? Voluntario_CodigoVoluntario
         {
             get { return _voluntario_CodigoVoluntario; }
             set { _voluntario_CodigoVoluntario = value; }
         }
 
-        public int Funcionario_CodigoFuncionario
+        public int? Funcionario_CodigoFuncionario
         {
             get { return _funcionario_CodigoFuncionario; }
             set { _funcionario_CodigoFuncionario = value; }
