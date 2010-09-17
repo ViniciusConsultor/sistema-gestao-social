@@ -156,8 +156,10 @@
     <Compile Include="CamadaDados\BaseConnection.cs" />
     <Compile Include="CamadaDados\CasaLarDados.cs" />
     <Compile Include="CamadaDados\ContatoDados.cs" />
+    <Compile Include="CamadaDados\DadosBancariosDados.cs" />
     <Compile Include="CamadaDados\FinancasDados.cs" />
     <Compile Include="CamadaDados\LoginDados.cs" />
+    <Compile Include="CamadaDados\PatrocinadorDados.cs" />
     <Compile Include="CamadaDados\PessoaDados.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -179,7 +181,7 @@
     <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\Login.cs" />
     <Compile Include="Entidades\Orcamento.cs" />
-    <Compile Include="Entidades\Patricionador.cs" />
+    <Compile Include="Entidades\Patrocinador.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Procedimentos.cs" />
     <Compile Include="Entidades\Visitacao.cs" />
