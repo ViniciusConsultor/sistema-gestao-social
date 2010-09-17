@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class CasaLar
     {
-        private int _codigoCasaLar;
-        private int _contato_CodigoContato;
+        private int? _codigoCasaLar;
+        private int? _contato_CodigoContato;
         private string _nomeCasaLar;
         private string _cnpj;
         private string _alvara;
@@ -23,13 +23,13 @@ namespace SGS.Entidades
         private string _telefoneGestor;
 
 
-        public int CodigoCasaLar
+        public int? CodigoCasaLar
         {
             get { return _codigoCasaLar; }
             set { _codigoCasaLar = value; }
         }
 
-        public int Contato_CodigoContato
+        public int? Contato_CodigoContato
         {
             get { return _contato_CodigoContato; }
             set { _contato_CodigoContato = value; }
@@ -41,7 +41,7 @@ namespace SGS.Entidades
             set { _nomeCasaLar = value; }
         }
 
-        public string Cnpj
+        public string CNPJ
         {
             get { return _cnpj; }
             set { _cnpj = value; }

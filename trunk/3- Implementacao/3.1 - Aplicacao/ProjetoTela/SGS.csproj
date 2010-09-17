@@ -152,10 +152,13 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CamadaDados\AlimentacaoDados.cs" />
     <Compile Include="CamadaDados\BaseConnection.cs" />
     <Compile Include="CamadaDados\CasaLarDados.cs" />
+    <Compile Include="CamadaDados\ContatoDados.cs" />
     <Compile Include="CamadaDados\FinancasDados.cs" />
     <Compile Include="CamadaDados\LoginDados.cs" />
+    <Compile Include="CamadaDados\PessoaDados.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

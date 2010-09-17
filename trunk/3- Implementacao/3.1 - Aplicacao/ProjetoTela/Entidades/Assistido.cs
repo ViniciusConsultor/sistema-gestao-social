@@ -18,17 +18,17 @@ namespace SGS.Entidades
         private string _rgPai;
         private string _rgMae;
         private string _enderecoFamilia;
-        private string _telFamilia;
+        private string _telefoneFamilia;
         private float _peso;
         private float _altura;
         private string _cor;
         private string _historicoVida;
         private string _vivo;
-        private string _telMae;
+        private string _telefoneMae;
         private int? _qtdIrmaos;
         private string _responsavelLegal;
         private string _cpfResponsavel;
-        private string _telResponsavel;
+        private string _telefoneResponsavel;
         private string _logradouroResponsavel;
         private string _numeroResponsavel;
         private string _cepResponsavel;
@@ -71,25 +71,25 @@ namespace SGS.Entidades
             set { _nomeMae = value; }
         }
 
-        public string CpfPai
+        public string CPFPai
         {
             get { return _cpfPai; }
             set { _cpfPai = value; }
         }
 
-        public string CpfMae
+        public string CPFMae
         {
             get { return _cpfMae; }
             set { _cpfMae = value; }
         }
 
-        public string RgPai
+        public string RGPai
         {
             get { return _rgPai; }
             set { _rgPai = value; }
         }
 
-        public string Rgmae
+        public string RGmae
         {
             get { return _rgMae; }
             set { _rgMae = value; }
@@ -101,10 +101,10 @@ namespace SGS.Entidades
             set { _enderecoFamilia = value; }
         }
 
-        public string TelFamilia
+        public string TelefoneFamilia
         {
-            get { return _telFamilia; }
-            set { _telFamilia = value; }
+            get { return _telefoneFamilia; }
+            set { _telefoneFamilia = value; }
         }
 
         public float Peso
@@ -137,10 +137,10 @@ namespace SGS.Entidades
             set { _vivo = value; }
         }
 
-        public string TelMae
+        public string TelefoneMae
         {
-            get { return _telMae; }
-            set { _telMae = value; }
+            get { return _telefoneMae; }
+            set { _telefoneMae = value; }
         }
 
         public int? QtdIrmaos
@@ -155,16 +155,16 @@ namespace SGS.Entidades
             set { _responsavelLegal = value; }
         }
 
-        public string CpfResponsavel
+        public string CPFResponsavel
         {
             get { return _cpfResponsavel; }
             set { _cpfResponsavel = value; }
         }
 
-        public string TelResponsavel
+        public string TelefoneResponsavel
         {
-            get { return _telResponsavel; }
-            set { _telResponsavel = value; }
+            get { return _telefoneResponsavel; }
+            set { _telefoneResponsavel = value; }
         }
 
         public string LogradouroResponsavel
@@ -179,7 +179,7 @@ namespace SGS.Entidades
             set { _numeroResponsavel = value; }
         }
 
-        public string CepResponsavel
+        public string CEPResponsavel
         {
             get { return _cepResponsavel; }
             set { _cepResponsavel = value; }

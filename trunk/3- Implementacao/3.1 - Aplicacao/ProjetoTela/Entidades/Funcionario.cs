@@ -36,7 +36,7 @@ namespace SGS.Entidades
             set { _pessoa_CodigoPessoa = value; }
         }
 
-        public string cargo
+        public string Cargo
         {
             get { return _cargo; }
             set { _cargo = value; }
@@ -54,13 +54,13 @@ namespace SGS.Entidades
             set { _dataContratacao = value; }
         }
 
-        public string NumCtps
+        public string NumCTPS
         {
             get { return _numCtps; }
             set { _numCtps = value; }
         }
 
-        public string Pis
+        public string PIS
         {
             get { return _pis; }
             set { _pis = value; }
