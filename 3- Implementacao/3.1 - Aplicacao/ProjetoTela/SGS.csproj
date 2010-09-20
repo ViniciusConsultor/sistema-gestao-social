@@ -67,9 +67,9 @@
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Servicos\Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Servicos\Scripts\jquery-1.4.1.js" />
+    <Content Include="Servicos\Scripts\jquery-1.4.1.min.js" />
     <Content Include="View\Alimentacao\AltAlimentacao.aspx" />
     <Content Include="View\Alimentacao\CadAlimentacao.aspx" />
     <Content Include="View\Alimentacao\ConAlimentacao.aspx" />
@@ -157,10 +157,15 @@
     <Compile Include="CamadaDados\CasaLarDados.cs" />
     <Compile Include="CamadaDados\ContatoDados.cs" />
     <Compile Include="CamadaDados\DadosBancariosDados.cs" />
+    <Compile Include="CamadaDados\DesenvolvimentoDados.cs" />
     <Compile Include="CamadaDados\FinancasDados.cs" />
+    <Compile Include="CamadaDados\FuncionarioDados.cs" />
     <Compile Include="CamadaDados\LoginDados.cs" />
     <Compile Include="CamadaDados\PatrocinadorDados.cs" />
     <Compile Include="CamadaDados\PessoaDados.cs" />
+    <Compile Include="CamadaDados\ProcedimentosDados.cs" />
+    <Compile Include="CamadaDados\VisitacaoDados.cs" />
+    <Compile Include="CamadaDados\VoluntarioDados.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

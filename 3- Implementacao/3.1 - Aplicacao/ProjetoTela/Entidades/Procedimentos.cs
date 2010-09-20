@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Procedimentos
     {
-        private int _codigoProcedimentos;
-        private int _assistido_CodigoAssistido;
+        private int? _codigoProcedimentos;
+        private int? _assistido_CodigoAssistido;
         private string _tipoProcedimento;
         private string _procedimento;
         private string _descrição;
@@ -19,13 +19,13 @@ namespace SGS.Entidades
         private string _laudoAtendente;
 
 
-        public int CodigoProcedimentos
+        public int? CodigoProcedimentos
         {
             get { return _codigoProcedimentos; }
             set { _codigoProcedimentos = value; }
         }
 
-        public int Assistido_CodigoAssistido
+        public int? Assistido_CodigoAssistido
         {
             get { return _assistido_CodigoAssistido; }
             set { _assistido_CodigoAssistido = value; }

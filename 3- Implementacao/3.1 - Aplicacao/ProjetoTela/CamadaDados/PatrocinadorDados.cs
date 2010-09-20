@@ -87,7 +87,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Obtém o Patrocinador pelo Código do Patrocinador
         /// </summary>
-        /// <param name="codigoPessoa"></param>
+        /// <param name="codigoPatrocinador"></param>
         /// <returns></returns>
         public Patrocinador ObterPatrocinador(int codigoPatrocinador)
         {

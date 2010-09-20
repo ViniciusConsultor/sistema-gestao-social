@@ -7,25 +7,25 @@ namespace SGS.Entidades
 {
     public class Desenvolvimento
     {
-        private int _codigoDesenvolvimento;
-        private int _assistido_CodigoAssistido;
+        private int? _codigoDesenvolvimento;
+        private int? _assistido_CodigoAssistido;
         private string _atividade;
         private string _tipoAtividade;
         private string _descricaoAtividade;
-        private float _valor;
+        private Decimal _valor;
         private DateTime? _dataInicio;
         private DateTime? _dataFim;
-        private int? _cargaHoraria;
+        private string _cargaHoraria;
         private string _statusAtividade;
 
 
-        public int CodigoDesenvolvimento
+        public int? CodigoDesenvolvimento
         {
             get { return _codigoDesenvolvimento; }
             set { _codigoDesenvolvimento = value; }
         }
 
-        public int Assistido_CodigoAssistido
+        public int? Assistido_CodigoAssistido
         {
             get { return _assistido_CodigoAssistido; }
             set { _assistido_CodigoAssistido = value; }
@@ -49,7 +49,7 @@ namespace SGS.Entidades
             set { _descricaoAtividade = value; }
         }
 
-        public float Valor
+        public Decimal Valor
         {
             get { return _valor; }
             set { _valor = value; }
@@ -67,7 +67,7 @@ namespace SGS.Entidades
             set { _dataFim = value; }
         }
 
-        public int? CargaHoraria
+        public string CargaHoraria
         {
             get { return _cargaHoraria; }
             set { _cargaHoraria = value; }

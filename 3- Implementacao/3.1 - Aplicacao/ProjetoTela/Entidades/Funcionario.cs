@@ -8,10 +8,10 @@ namespace SGS.Entidades
     public class Funcionario
     {
 
-        private int _codigoFuncionario;
-        private int _pessoa_CodigoPessoa;
+        private int? _codigoFuncionario;
+        private int? _pessoa_CodigoPessoa;
         private string _cargo;
-        private float _salario;
+        private Decimal _salario;
         private DateTime? _dataContratacao;
         private string _numCtps;
         private string _pis;
@@ -20,17 +20,17 @@ namespace SGS.Entidades
         private string _estadoCivil;
         private string _certidaoNascimento;
         private string _certidaoCasamento;
-        private string _qtdFilhos;
+        private int _qtdFilhos;
         private string _certificadoReservista;
         
 
-        public int CodigoFuncionario
+        public int? CodigoFuncionario
         {
             get { return _codigoFuncionario; }
             set { _codigoFuncionario = value; }
         }
 
-        public int Pessoa_CodigoPessoa
+        public int? Pessoa_CodigoPessoa
         {
             get { return _pessoa_CodigoPessoa; }
             set { _pessoa_CodigoPessoa = value; }
@@ -42,7 +42,7 @@ namespace SGS.Entidades
             set { _cargo = value; }
         }
 
-        public float Salario
+        public Decimal Salario
         {
             get { return _salario; }
             set { _salario = value; }
@@ -96,7 +96,7 @@ namespace SGS.Entidades
             set { _certidaoCasamento = value; }
         }
 
-        public string QtdFilhos
+        public int QtdFilhos
         {
             get { return _qtdFilhos; }
             set { _qtdFilhos = value; }
