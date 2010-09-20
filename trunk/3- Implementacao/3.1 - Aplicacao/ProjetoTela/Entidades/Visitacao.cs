@@ -7,8 +7,8 @@ namespace SGS.Entidades
 {
     public class Visitacao
     {
-        private int _codigoVisitacao;
-        private int _assistido_CodigoAssistido;
+        private int? _codigoVisitacao;
+        private int? _assistido_CodigoAssistido;
         private string _pessoaVisitante;
         private string _assistidoVisitado;
         private DateTime? _dataVisita;
@@ -19,13 +19,13 @@ namespace SGS.Entidades
         private string _statusVisita;
 
 
-        public int CodigoVisitacao
+        public int? CodigoVisitacao
         {
             get { return _codigoVisitacao; }
             set { _codigoVisitacao = value; }
         }
 
-        public int Assistido_CodigoAssistido
+        public int? Assistido_CodigoAssistido
         {
             get { return _assistido_CodigoAssistido; }
             set { _assistido_CodigoAssistido = value; }
