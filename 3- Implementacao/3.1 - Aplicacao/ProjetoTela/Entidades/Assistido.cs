@@ -7,10 +7,11 @@ namespace SGS.Entidades
 {
     public class Assistido
     {
-        private int _codigoAssistido;
-        private int _certidaoNascimento;
-        private int _pessoa_CodigoPessoa;
-        private int _contato_CodigoContato;
+        private int? _codigoAssistido;
+        private int? _pessoa_CodigoPessoa;
+        private int? _contato_CodigoContato;
+        private int? _escolar_CodigoEscolar;
+        private string _certidaoNascimento;
         private string _nomePai;
         private string _nomeMae;
         private string _cpfPai;
@@ -19,8 +20,8 @@ namespace SGS.Entidades
         private string _rgMae;
         private string _enderecoFamilia;
         private string _telefoneFamilia;
-        private float _peso;
-        private float _altura;
+        private Decimal? _peso;
+        private Decimal? _altura;
         private string _cor;
         private string _historicoVida;
         private string _vivo;
@@ -35,25 +36,31 @@ namespace SGS.Entidades
 
 
 
-        public int CodigoAssistido
+        public int? CodigoAssistido
         {
             get { return _codigoAssistido; }
             set { _codigoAssistido = value; }
         }
 
-        public int Pessoa_CodigoPessoa
+        public int? Pessoa_CodigoPessoa
         {
             get { return _pessoa_CodigoPessoa; }
             set { _pessoa_CodigoPessoa = value; }
         }
 
-        public int Contato_CodContato
+        public int? Contato_CodigoContato
         {
             get { return _contato_CodigoContato; }
             set { _contato_CodigoContato = value; }
         }
 
-        public int CertidaoNascimento
+        public int? Escolar_CodigoEscolar
+        {
+            get { return _escolar_CodigoEscolar; }
+            set { _escolar_CodigoEscolar = value; }
+        }
+
+        public string CertidaoNascimento
         {
             get { return _certidaoNascimento; }
             set { _certidaoNascimento = value; }
@@ -89,7 +96,7 @@ namespace SGS.Entidades
             set { _rgPai = value; }
         }
 
-        public string RGmae
+        public string RGMae
         {
             get { return _rgMae; }
             set { _rgMae = value; }
@@ -107,13 +114,13 @@ namespace SGS.Entidades
             set { _telefoneFamilia = value; }
         }
 
-        public float Peso
+        public Decimal? Peso
         {
             get { return _peso; }
             set { _peso = value; }
         }
 
-        public float Altura
+        public Decimal? Altura
         {
             get { return _altura; }
             set { _altura = value; }
