@@ -153,14 +153,17 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="CamadaDados\AlimentacaoDados.cs" />
+    <Compile Include="CamadaDados\AssistidoDados.cs" />
     <Compile Include="CamadaDados\BaseConnection.cs" />
     <Compile Include="CamadaDados\CasaLarDados.cs" />
     <Compile Include="CamadaDados\ContatoDados.cs" />
     <Compile Include="CamadaDados\DadosBancariosDados.cs" />
     <Compile Include="CamadaDados\DesenvolvimentoDados.cs" />
+    <Compile Include="CamadaDados\EscolarDados.cs" />
     <Compile Include="CamadaDados\FinancasDados.cs" />
     <Compile Include="CamadaDados\FuncionarioDados.cs" />
     <Compile Include="CamadaDados\LoginDados.cs" />
+    <Compile Include="CamadaDados\OrçamentoDados.cs" />
     <Compile Include="CamadaDados\PatrocinadorDados.cs" />
     <Compile Include="CamadaDados\PessoaDados.cs" />
     <Compile Include="CamadaDados\ProcedimentosDados.cs" />

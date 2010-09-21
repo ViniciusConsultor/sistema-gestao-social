@@ -7,12 +7,12 @@ namespace SGS.Entidades
 {
     public class Escolar
     {
-        private int _codigoInstituicao;
-        private int _contato_CodigoContato;
-        private int _assistido_CodigoAssistido;
-        private int? _numInscricaoInstituicao;
+        private int? _codigoEscolar;
+        private int? _contato_CodigoContato;
+        private int? _assistido_CodigoAssistido;
+        private string _numInscricaoInstituicao;
         private string _instituicao;
-        private float _mediaEscola;
+        private Decimal _mediaEscola;
         private string _grauEscolaridade;
         private string _serieCursada;
         private DateTime? _dataMatricula;
@@ -21,24 +21,24 @@ namespace SGS.Entidades
         private string _formatoAnoLetivo;
         private string _materia;
         private string _professor;
-        private float _nota;
+        private Decimal _nota;
         private string _statusMateria;
         private string _parteAnoLetivo;
 
 
-        public int CodigoInstituicao
+        public int? CodigoEscolar
         {
-            get { return _codigoInstituicao; }
-            set { _codigoInstituicao = value; }
+            get { return _codigoEscolar; }
+            set { _codigoEscolar = value; }
         }
 
-        public int Contato_CodigoContato
+        public int? Contato_CodigoContato
         {
             get { return _contato_CodigoContato; }
             set { _contato_CodigoContato = value; }
         }
 
-        public int Assistido_CodigoAssistido
+        public int? Assistido_CodigoAssistido
         {
             get { return _assistido_CodigoAssistido; }
             set { _assistido_CodigoAssistido = value; }
@@ -50,13 +50,13 @@ namespace SGS.Entidades
             set { _instituicao = value; }
         }
 
-        public int? NumInscricaoInstituicao
+        public string NumInscricaoInstituicao
         {
             get { return _numInscricaoInstituicao; }
             set { _numInscricaoInstituicao = value; }
         }
 
-        public float MediaEscola
+        public Decimal MediaEscola
         {
             get { return _mediaEscola; }
             set { _mediaEscola = value; }
@@ -110,7 +110,7 @@ namespace SGS.Entidades
             set { _professor = value; }
         }
 
-        public float Nota
+        public Decimal Nota
         {
             get { return _nota; }
             set { _nota = value; }
