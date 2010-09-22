@@ -117,7 +117,7 @@
                 Pessoa no sistema</td>
             <td align="right" class="style9" style="text-align: left">
                 <asp:DropDownList ID="ddlPessoaSistema" runat="server" Width="185px" 
-                    Height="18px">
+                    Height="22px">
                     <asp:ListItem Text="Selecione" Value="Selecione"></asp:ListItem>
                     <asp:ListItem Text="Gestor" Value="1"></asp:ListItem>
                     <asp:ListItem Text="Funcionário" Value="1"></asp:ListItem>
@@ -133,7 +133,7 @@
                 Perfil
             </td>
             <td align="right" class="style9" style="text-align: left">
-                <asp:DropDownList ID="ddlPerfil" runat="server" Width="185px" Height="18px">
+                <asp:DropDownList ID="ddlPerfil" runat="server" Width="185px" Height="22px">
                     <asp:ListItem Text="Selecione" Value="Selecione"></asp:ListItem>
                     <asp:ListItem Text="Gestor" Value="Gestor"></asp:ListItem>
                     <asp:ListItem Text="Funcionário" Value="Funcionario"></asp:ListItem>

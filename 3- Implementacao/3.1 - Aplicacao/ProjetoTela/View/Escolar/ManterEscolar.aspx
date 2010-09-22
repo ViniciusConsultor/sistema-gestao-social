@@ -22,70 +22,156 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
  <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server"></asp:Label> 
+        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" Text=""></asp:Label> 
         
         <br /><br />
- </span>
+    </span>
 
   <table class="style6">
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Nome</td>
+                    Assistido</td>
                 <td>
-                    <asp:TextBox ID="txtNome" runat="server" CssClass="style8" MaxLength="25"></asp:TextBox>
-                </td>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Status</td>
-                <td>
-                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px">
+                    <asp:DropDownList ID="dllAssistido" runat="server" Height="22px" Width="148px">
+                        <asp:ListItem>Selecione</asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Instituição de Ensino</td>
+                <td>
+                    <asp:TextBox ID="txtInstituicaoEnsino" runat="server" Height="22px" 
+                        Width="148px"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    CNPJ</td>
+                    Nº de Inscrição</td>
                 <td>
-                    <asp:TextBox ID="txtCNPJ" runat="server" Width="148px"></asp:TextBox>
+                    <asp:TextBox ID="txtNumeroInscricao" runat="server" Width="148px" Height="22px"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    &nbsp;</td>
+                    Média Escolar</td>
                 <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Alvará</td>
-                <td>
-                    <asp:TextBox ID="txtAlvara" runat="server" CssClass="style8" MaxLength="10"></asp:TextBox>
-                </td>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Data fundação</td>
-                <td>
-                    <asp:TextBox ID="txtDataFundacao" runat="server" CssClass="style8" 
+                    <asp:TextBox ID="txtMediaEscolar" runat="server" CssClass="style8" 
                         MaxLength="10"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Grau de Escolaridade</td>
+                <td>
+                    <asp:DropDownList ID="ddlGrauEscolaridade" runat="server" Width="148px">
+                        <asp:ListItem>Selecione</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Série Cursada</td>
+                <td>
+                    <asp:TextBox ID="txtSerieCursada" runat="server" CssClass="style8" 
+                        MaxLength="10"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Data de Matrícula</td>
+                <td>
+                    <asp:TextBox ID="txtDataMatricula" runat="server" CssClass="style8"></asp:TextBox>
+                </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Data de Saída</td>
+                <td>
+                    <asp:TextBox ID="txtDataSaida" runat="server" CssClass="style8"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Status da Matrícula</td>
+                <td>
+                    <asp:RadioButtonList ID="rbtStatusMatricula" runat="server" Height="22px" 
+                        Width="148px">
+                    </asp:RadioButtonList>
+                </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Formato do Ano Letivo</td>
+                <td>
+                    <asp:DropDownList ID="ddlFormatoAnoLetivo" runat="server" Width="148px">
+                        <asp:ListItem>Selecione</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Matéria</td>
+                <td>
+                    <asp:TextBox ID="txtMateria" runat="server" CssClass="style8"></asp:TextBox>
+                </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Status Matéria</td>
+                <td>
+                    <asp:DropDownList ID="ddlStatusMateria" runat="server" Width="148px">
+                        <asp:ListItem>Aprovado</asp:ListItem>
+                        <asp:ListItem>Recuperação</asp:ListItem>
+                        <asp:ListItem>Reprovado</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Professor</td>
+                <td>
+                    <asp:TextBox ID="txtProfessor" runat="server" CssClass="style8"></asp:TextBox>
+                </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Nota</td>
+                <td>
+                    <asp:TextBox ID="txtNota" runat="server" CssClass="style8"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Parte do Ano Letivo</td>
+                <td>
+                    <asp:DropDownList ID="ddlParteAnoLetivo" runat="server" Width="148px">
+                        <asp:ListItem>Selecione</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Telefone</td>
                 <td>
-                    <asp:TextBox ID="TextBox7" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtTelefone" runat="server" CssClass="style8"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Telefone Celular</td>
+                <td>
+                    <asp:TextBox ID="txtTelefoneCelular" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Fax</td>
                 <td>
-                    <asp:TextBox ID="TextBox8" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtFax" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -93,13 +179,13 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     E-mail</td>
                 <td>
-                    <asp:TextBox ID="TextBox9" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Site</td>
                 <td>
-                    <asp:TextBox ID="TextBox10" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtSite" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -107,14 +193,15 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Blog</td>
                 <td>
-                    <asp:TextBox ID="TextBox11" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtBlog" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     País</td>
                 <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Width="140px" 
+                    <asp:DropDownList ID="ddlPais" runat="server" Width="140px" 
                         CssClass="style8">
+                        <asp:ListItem>Selecione</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -123,31 +210,33 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Estado</td>
                 <td>
-                    <asp:DropDownList ID="DropDownList2" runat="server" Width="140px" 
+                    <asp:DropDownList ID="ddlEstado" runat="server" Width="140px" 
                         CssClass="style8">
+                        <asp:ListItem>Selecione</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Cidade</td>
                 <td>
-                    <asp:DropDownList ID="DropDownList3" runat="server" Width="140px" 
+                    <asp:DropDownList ID="ddlCidade" runat="server" Width="140px" 
                         CssClass="style8">
+                        <asp:ListItem>Selecione</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Bairro</td>
+                    Logradouro</td>
                 <td>
-                    <asp:TextBox ID="TextBox12" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtLogradouro" runat="server" CssClass="style8" Height="22px"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Endereço</td>
+                    Numero</td>
                 <td>
-                    <asp:TextBox ID="TextBox13" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtNumero" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -155,100 +244,32 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     CEP</td>
                 <td>
-                    <asp:TextBox ID="TextBox14" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtCEP" runat="server" CssClass="style8"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Foto</td>
+                    Bairro</td>
                 <td>
-                    <asp:FileUpload ID="uploadFoto" runat="server" Width="220px" 
-                        CssClass="style8" />
+                    <asp:TextBox ID="txtBairro" runat="server" CssClass="style8" Height="22px"></asp:TextBox>
                 </td>
             </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Qtd. Máximo Assistidos</td>
-                <td>
-                    <asp:TextBox ID="txtQtdMaximo" runat="server" CssClass="style8" MaxLength="4"></asp:TextBox>
-                </td>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Qtd. Assistidos</td>
-                <td>
-                    <asp:TextBox ID="txtQtdAssistidos" runat="server" CssClass="style8" 
-                        MaxLength="4"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
-                    class="style9">
-                    Gestor</td>
-                <td>
-                    <asp:TextBox ID="txtGestor" runat="server" CssClass="style8"></asp:TextBox>
-                </td>
-                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
-                    class="style9">
-                    E-mail Gestor </td>
-                <td>
-                    <asp:TextBox ID="txtEmailGestor" runat="server" CssClass="style8" 
-                        MaxLength="25"></asp:TextBox>
+            </table>
+
+        <br />
+
+        <table width="100%">
+            <tr align="center">
+                <td> 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                        /> &nbsp; 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                        /> &nbsp;
+                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
+                        CausesValidation="False" />
                 </td>
             </tr>
-            <tr>
-                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
-                    class="style9">
-                    Telefone Gestor</td>
-                <td>
-                    <asp:TextBox ID="TelefoneGestor" runat="server" MaxLength="10" Width="148px"></asp:TextBox>
-                </td>
-                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
-                    class="style9">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    História</td>
-                <td colspan="3">
-                    <asp:TextBox ID="txtHistoria" runat="server" Height="107px" TextMode="MultiLine" 
-                        Width="481px" CssClass="style8" MaxLength="255"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="style4">
-                    &nbsp;</td>
-                <td class="style4">
-                    &nbsp;</td>
-                <td class="style4">
-                    &nbsp;</td>
-                <td class="style4">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style4">
-                    &nbsp;</td>
-                <td style="text-align: right">
-                    <asp:Button ID="Button1" runat="server" BackColor="#A6B4C6" Text="Salvar" 
-                        Width="80px" CssClass="style8" />
-                </td>
-                <td style="margin-left: 40px">
-                    <asp:Button ID="Button2" runat="server" BackColor="#A6B4C6" Text="Cancelar" 
-                        Width="100px" CssClass="style8" />
-                </td>
-                <td class="style4">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-                <td style="text-align: right">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td>
+            <tr align="center">
+                <td> 
                     &nbsp;</td>
             </tr>
         </table>

@@ -60,103 +60,79 @@
                                         NavigateUrl="~/View/LoginUI/ConsultarLogin.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/LoginUI/ManterLogin.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar" 
-                                        NavigateUrl="~/View/LoginUI/ConsultarLogin.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="CASA LAR" Value="CasaLar">
                                 <asp:MenuItem Text="Casa Lar" Value="Casa Lar">
-                                    <asp:MenuItem Text="Visualizar" Value="Consultar" 
-                                        NavigateUrl="~/Telas/CasaLar/ConCasaLar.aspx"></asp:MenuItem>
-                                    <asp:MenuItem NavigateUrl="~/Telas/CasaLar/CadCasaLar.aspx" Text="Cadastrar" 
+                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                        NavigateUrl="~/View/CasaLar/ConsultarCasaLar.aspx"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/View/CasaLar/ManterCasaLar.aspx" Text="Cadastrar" 
                                         Value="Cadastrar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar" 
-                                        NavigateUrl="~/Telas/CasaLar/AltCasaLar.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir" 
-                                        NavigateUrl="~/Telas/CasaLar/AltCasaLar.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Alimentação" Value="Alimentação">
                                     <asp:MenuItem Text="Visualizar" Value="Visualizar" 
-                                        NavigateUrl="~/Telas/Alimentacao/ConAlimentacao.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/Alimentacao/ConsultarAlimentacao.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
-                                        NavigateUrl="~/Telas/Alimentacao/CadAlimentacao.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar" 
-                                        NavigateUrl="~/Telas/Alimentacao/AltAlimentacao.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir" 
-                                        NavigateUrl="~/Telas/Alimentacao/AltAlimentacao.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/Alimentacao/ManterAlimentacao.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Visita" Value="Visita">
                                     <asp:MenuItem Text="Visualizar" Value="Visualizar" 
-                                        NavigateUrl="~/Telas/Visita/ConVisita.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/Visita/ConsultarVisita.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
-                                        NavigateUrl="~/Telas/Visita/CadVisita.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar" 
-                                        NavigateUrl="~/Telas/Visita/AltVisita.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir" 
-                                        NavigateUrl="~/Telas/Visita/AltVisita.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/Visita/ManterVisita.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/View/CasaLar/ConsultarCasaLar.aspx" Text="teste" 
-                                    Value="teste"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="PESSOA" Value="Pessoa">
-                                <asp:MenuItem Text="Pessoa" Value="Teste">
-                                    <asp:MenuItem NavigateUrl="~/Telas/Pessoa/CadPessoa.aspx" Text="Cadastrar" 
+                                <asp:MenuItem Text="Pessoa" Value="Pessoa">
+                                    <asp:MenuItem NavigateUrl="~/View/Pessoa/ManterPessoa.aspx" Text="Cadastrar" 
                                         Value="Cadastrar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar" 
-                                        NavigateUrl="~/Telas/Pessoa/AltPessoa.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir" 
-                                        NavigateUrl="~/Telas/Pessoa/AltPessoa.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/Telas/Pessoa/ConPessoa.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/Pessoa/ConsultarPessoa.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="ASSISTIDO" Value="Assistido">
                                 <asp:MenuItem Text="Procedimentos" Value="Procedimentos">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir"></asp:MenuItem>
+                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                        NavigateUrl="~/View/Procedimentos/ConsultarProcedimentos.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
+                                        NavigateUrl="~/View/Procedimentos/ManterProcedimentos.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Dados Escolares" Value="Dados Escolares">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir"></asp:MenuItem>
+                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                        NavigateUrl="~/View/Escolar/ConsultarEscolar.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
+                                        NavigateUrl="~/View/Escolar/ManterEscolar.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Desenv. Profissional" Value="Desenv. Profissional">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir"></asp:MenuItem>
+                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                        NavigateUrl="~/View/Desenvolvimento/ConsultarDesenvolvimento.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
+                                        NavigateUrl="~/View/Desenvolvimento/ManterDesenvolvimento.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="FINANCEIRO" Value="Financeiro">
                                 <asp:MenuItem Text="Plano Orçamentário" Value="Plano Orçamentário">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir"></asp:MenuItem>
+                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                        NavigateUrl="~/View/PlanoOrcamentario/ConsultarPlanoOrcamentario.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
+                                        NavigateUrl="~/View/PlanoOrcamentario/ManterPlanoOrcamentario.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Finanças" Value="Finanças">
                                     <asp:MenuItem Text="Visualizar" Value="Visualizar" 
-                                        NavigateUrl="~/Telas/Financas/ConFinancas.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/Financas/ConsultarFinancas.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
-                                        NavigateUrl="~/Telas/Financas/Cad_Financas.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Alterar" Value="Alterar" 
-                                        NavigateUrl="~/Telas/Financas/AltFinancas.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Excluir" Value="Excluir" 
-                                        NavigateUrl="~/Telas/Financas/AltFinancas.aspx"></asp:MenuItem>
+                                        NavigateUrl="~/View/Financas/ManterFinancas.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="RELATÓRIO" Value="Relatório">
                                 <asp:MenuItem Text="Casa Lar" Value="Casa Lar" 
-                                    NavigateUrl="~/Telas/Relatorio/RelCasaLar.aspx"></asp:MenuItem>
+                                    NavigateUrl="~/View/Relatorio/RelCasaLar.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Financeiro" Value="Financeiro" 
-                                    NavigateUrl="~/Telas/Relatorio/RelCasaLar.aspx"></asp:MenuItem>
+                                    NavigateUrl="~/View/Relatorio/RelFinancas.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Assistidos" Value="Assistidos" 
-                                    NavigateUrl="~/Telas/Relatorio/RelCasaLar.aspx"></asp:MenuItem>
+                                    NavigateUrl="~/View/Relatorio/RelAssistidos.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Escolar" Value="Escolar" 
-                                    NavigateUrl="~/Telas/Relatorio/RelCasaLar.aspx"></asp:MenuItem>
+                                    NavigateUrl="~/View/Relatorio/RelEscolar.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                         </Items>
                         <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
