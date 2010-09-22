@@ -97,13 +97,12 @@
     <Content Include="View\Pessoa\ConPessoa.aspx" />
     <Content Include="View\Pessoa\ConsultarPessoa.aspx" />
     <Content Include="View\Pessoa\ManterPessoa.aspx" />
-    <Content Include="View\PlanoOrcamentario\CadPlanoOrcamentario.aspx" />
     <Content Include="View\PlanoOrcamentario\ConsultarPlanoOrcamentario.aspx" />
     <Content Include="View\PlanoOrcamentario\ManterPlanoOrcamentario.aspx" />
     <Content Include="View\Procedimentos\ConsultarProcedimentos.aspx" />
     <Content Include="View\Procedimentos\ManterProcedimentos.aspx" />
-    <Content Include="View\Profissional\ConsultarProfissional.aspx" />
-    <Content Include="View\Profissional\ManterProfissional.aspx" />
+    <Content Include="View\Desenvolvimento\ConsultarDesenvolvimento.aspx" />
+    <Content Include="View\Desenvolvimento\ManterDesenvolvimento.aspx" />
     <Content Include="View\Relatorio\RelAssistidos.aspx" />
     <Content Include="View\Relatorio\RelCasaLar.aspx" />
     <Content Include="View\Relatorio\RelEscolar.aspx" />
@@ -403,13 +402,6 @@
     <Compile Include="View\Pessoa\ManterPessoa.aspx.designer.cs">
       <DependentUpon>ManterPessoa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\PlanoOrcamentario\CadPlanoOrcamentario.aspx.cs">
-      <DependentUpon>CadPlanoOrcamentario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\PlanoOrcamentario\CadPlanoOrcamentario.aspx.designer.cs">
-      <DependentUpon>CadPlanoOrcamentario.aspx</DependentUpon>
-    </Compile>
     <Compile Include="View\PlanoOrcamentario\ConsultarPlanoOrcamentario.aspx.cs">
       <DependentUpon>ConsultarPlanoOrcamentario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -438,19 +430,19 @@
     <Compile Include="View\Procedimentos\ManterProcedimentos.aspx.designer.cs">
       <DependentUpon>ManterProcedimentos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Profissional\ConsultarProfissional.aspx.cs">
-      <DependentUpon>ConsultarProfissional.aspx</DependentUpon>
+    <Compile Include="View\Desenvolvimento\ConsultarDesenvolvimento.aspx.cs">
+      <DependentUpon>ConsultarDesenvolvimento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Profissional\ConsultarProfissional.aspx.designer.cs">
-      <DependentUpon>ConsultarProfissional.aspx</DependentUpon>
+    <Compile Include="View\Desenvolvimento\ConsultarDesenvolvimento.aspx.designer.cs">
+      <DependentUpon>ConsultarDesenvolvimento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Profissional\ManterProfissional.aspx.cs">
-      <DependentUpon>ManterProfissional.aspx</DependentUpon>
+    <Compile Include="View\Desenvolvimento\ManterDesenvolvimento.aspx.cs">
+      <DependentUpon>ManterDesenvolvimento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Profissional\ManterProfissional.aspx.designer.cs">
-      <DependentUpon>ManterProfissional.aspx</DependentUpon>
+    <Compile Include="View\Desenvolvimento\ManterDesenvolvimento.aspx.designer.cs">
+      <DependentUpon>ManterDesenvolvimento.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Relatorio\RelAssistidos.aspx.cs">
       <DependentUpon>RelAssistidos.aspx</DependentUpon>
