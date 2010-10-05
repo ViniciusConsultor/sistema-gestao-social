@@ -25,11 +25,11 @@
 <table class="style6">
     <tr>
         <td class="style8" style="text-align: right">
-            Nome</td>
+            Login</td>
         <td>
             <asp:TextBox ID="txtNome" runat="server" Width="150px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="validatorNome" runat="server" 
-                ControlToValidate="txtNome" ErrorMessage="Preencha o campo Nome" 
+                ControlToValidate="txtNome" ErrorMessage="Preencha o campo Login" 
                 ForeColor="#CC0000" style="text-align: center">*</asp:RequiredFieldValidator>
         </td>
     </tr>
@@ -48,7 +48,7 @@
             &nbsp;</td>
         <td>
             <asp:Button ID="btnLogar" runat="server" BackColor="#A6B4C6" Text="Logar" 
-                Width="76px" onclick="btnLogar_Click" />
+                Width="76px" onclick="Page_Load" />
             <asp:Button ID="btnLimpar" runat="server" BackColor="#A6B4C6" Text="Limpar" 
                 Width="75px" CausesValidation="False" onclick="btnLimpar_Click" />
         </td>
