@@ -40,6 +40,9 @@
                         Enabled="False">
                         <asp:ListItem Selected="True">Reviver ONG</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="validatorCasaLar" runat="server" 
+                        ControlToValidate="txtCasaLar" ErrorMessage="Selecione uma Casa Lar." 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -57,6 +60,9 @@
                         <asp:ListItem>Receita</asp:ListItem>
                         <asp:ListItem>Despesa</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="validatorTipoLancamento" runat="server" 
+                        ControlToValidate="txtTipoLancamento" 
+                        ErrorMessage="Selecione o Tipo de Lançamento." ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -69,6 +75,9 @@
                     Data Lançamento</td>
                 <td class="style9">
                     <asp:TextBox ID="txtDataLancamento" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="validatorDataLancamento" runat="server" 
+                        ControlToValidate="txtDataLancamento" 
+                        ErrorMessage="Informe a Data de Lançamento." ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -81,6 +90,9 @@
                     Data de Criação</td>
                 <td class="style9">
                     <asp:TextBox ID="txtDataCriacao" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="validatorDataCriacao" runat="server" 
+                        ControlToValidate="txtDataCriacao" ErrorMessage="Informe a Data de Criação." 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -93,6 +105,8 @@
                     Valor</td>
                 <td class="style9">
                     <asp:TextBox ID="txtValor" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="validatorValor" runat="server" 
+                        ControlToValidate="txtValor" ErrorMessage="Informe o Valor." ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -105,6 +119,9 @@
                     Lançado Por</td>
                 <td class="style9">
                     <asp:TextBox ID="txtLancadoPor" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="validatorLancadoPor" runat="server" 
+                        ControlToValidate="txtLancadoPor" ErrorMessage="Preencha o campo Lançado Por." 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -120,7 +137,10 @@
                         Width="300px"></asp:TextBox>
                 </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:RequiredFieldValidator ID="validatorObservacao" runat="server" 
+                        ControlToValidate="txtObservacao" ErrorMessage="Preencha o campo Observação." 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                </td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -138,6 +158,9 @@
                 <tr align="center">
                     <td> 
                         &nbsp;
+                        <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#0066FF" 
+                            BorderStyle="Double" BorderWidth="1px" ForeColor="Red" HeaderText="Validação:" 
+                            Height="93px" style="font-size: small; text-align: left" Width="255px" />
                     </td>
                 </tr>
             </table>
