@@ -42,7 +42,7 @@
             <td class="style7"> &nbsp;</td>    
             <td class="style8"> Login</td>
             <td> 
-                <asp:TextBox ID="txtLogin" runat="server" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="txtLogin" runat="server" Width="200px" MaxLength="10"></asp:TextBox>
             </td>
             <td> &nbsp;</td>
         </tr>
@@ -50,7 +50,7 @@
             <td class="style7"> &nbsp;</td>    
             <td class="style8"> Nome</td>
             <td> 
-                <asp:TextBox ID="txtNome" runat="server" Width="199px"></asp:TextBox>
+                <asp:TextBox ID="txtNome" runat="server" Width="199px" MaxLength="50"></asp:TextBox>
             </td>
             <td> &nbsp;</td>
         </tr>

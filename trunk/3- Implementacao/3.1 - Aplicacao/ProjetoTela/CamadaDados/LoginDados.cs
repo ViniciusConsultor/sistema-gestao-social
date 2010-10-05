@@ -57,7 +57,7 @@ namespace SGS.CamadaDados
             leitorDados.Dispose();
         }
 
-    /// <summary>
+        /// <summary>
     /// Este método salva o Login
     /// </summary>
     /// <param name="objLogin"></param>
@@ -190,15 +190,55 @@ namespace SGS.CamadaDados
         /// </summary>
         public List<Login> ConsultarLogin(LoginDTO objLoginDTO)
         {
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = base.Conectar();
+
+            SqlDataReader leitorDados;
+
+            SqlParameter paramLoginValor = new SqlParameter("@loginValor", "%" + objLoginDTO.LoginValor + "%");
+            paramLoginValor.DbType = System.Data.DbType.String;
+
+            SqlParameter paramNomeValor = new SqlParameter("@nomeValor", "%" + objLoginDTO.NomeValor + "%");
+            paramNomeValor.DbType = System.Data.DbType.String;
+
+            String sql = "select * from Login";
+
+            //Se os Login e Nome login preenchidos
+            if (objLoginDTO.LoginValor != "" && objLoginDTO.NomeValor != "")
+                sql += @" where Login like @loginValor or Nome like @nomeValor";
+            //Se apenas Login preenchido
+            else if (objLoginDTO.LoginValor != "")
+                sql += @" where Login like @loginValor";
+            //Se apenas Nome preenchido
+            else if (objLoginDTO.NomeValor != "")
+                sql += @" where Nome like @nomeValor";
+
+            comando.CommandText = sql;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.Parameters.Add(paramLoginValor);
+            comando.Parameters.Add(paramNomeValor);
+
+            leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
             List<Login> loginLista = new List<Login>();
             Login objLogin;
+            
+            while (leitorDados.Read())
+            {
+                objLogin = new Login();
 
-            objLogin = this.ObterLogin(9);
-            loginLista.Add(objLogin);
-            //TODO: Maycon concluir desenvolvimento
+                objLogin.CodigoLogin = Convert.ToInt32(leitorDados["CodigoLogin"]);
+                objLogin.LoginUsuario = leitorDados["Login"].ToString();
+                objLogin.Pessoa_CodigoPessoa = Convert.ToInt32(leitorDados["Pessoa_CodigoPessoa"]);
+                objLogin.Email = leitorDados["Email"].ToString();
+                objLogin.Nome = leitorDados["Nome"].ToString();
+                objLogin.Senha = leitorDados["Senha"].ToString();
+                objLogin.Perfil = leitorDados["Perfil"].ToString();
+
+                loginLista.Add(objLogin);
+            }
 
             return loginLista;
-            //return new List<Login>();
         }
 
     }
