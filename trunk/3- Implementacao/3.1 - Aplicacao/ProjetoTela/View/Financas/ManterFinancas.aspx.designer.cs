@@ -40,6 +40,15 @@ namespace SGS.View.Financas {
         protected global::System.Web.UI.WebControls.DropDownList ddlCasaLar;
         
         /// <summary>
+        /// validatorCasaLar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorCasaLar;
+        
+        /// <summary>
         /// ddlTipoLancamento control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace SGS.View.Financas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoLancamento;
+        
+        /// <summary>
+        /// validatorTipoLancamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorTipoLancamento;
         
         /// <summary>
         /// txtDataLancamento control.
@@ -58,6 +76,15 @@ namespace SGS.View.Financas {
         protected global::System.Web.UI.WebControls.TextBox txtDataLancamento;
         
         /// <summary>
+        /// validatorDataLancamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorDataLancamento;
+        
+        /// <summary>
         /// txtDataCriacao control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace SGS.View.Financas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataCriacao;
+        
+        /// <summary>
+        /// validatorDataCriacao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorDataCriacao;
         
         /// <summary>
         /// txtValor control.
@@ -76,6 +112,15 @@ namespace SGS.View.Financas {
         protected global::System.Web.UI.WebControls.TextBox txtValor;
         
         /// <summary>
+        /// validatorValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValor;
+        
+        /// <summary>
         /// txtLancadoPor control.
         /// </summary>
         /// <remarks>
@@ -85,6 +130,15 @@ namespace SGS.View.Financas {
         protected global::System.Web.UI.WebControls.TextBox txtLancadoPor;
         
         /// <summary>
+        /// validatorLancadoPor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorLancadoPor;
+        
+        /// <summary>
         /// txtObservacao control.
         /// </summary>
         /// <remarks>
@@ -92,6 +146,15 @@ namespace SGS.View.Financas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtObservacao;
+        
+        /// <summary>
+        /// validatorObservacao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorObservacao;
         
         /// <summary>
         /// btnSalvar control.
@@ -119,5 +182,14 @@ namespace SGS.View.Financas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }
