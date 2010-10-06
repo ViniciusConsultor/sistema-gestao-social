@@ -57,7 +57,7 @@
                 Login
             </td>
             <td class="style9">
-                <asp:TextBox ID="txtLogin" runat="server" Width="180px"></asp:TextBox>
+                <asp:TextBox ID="txtLogin" runat="server" Width="180px" MaxLength="10"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="validatorLogin" runat="server" 
                     ErrorMessage="Preencha o Login" ControlToValidate="txtLogin" 
                     SetFocusOnError="True" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -109,22 +109,6 @@
                     ErrorMessage="Preencha o campo e-mail e confirme o e-mail com o memso e-mail." 
                     SetFocusOnError="True" style="font-size: small" ForeColor="Red">* Este e-mail não está igual ao e-mail acima</asp:CompareValidator>
             </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7">
-                Pessoa no sistema</td>
-            <td align="right" class="style9" style="text-align: left">
-                <asp:DropDownList ID="ddlPessoaSistema" runat="server" Width="185px" 
-                    Height="22px">
-                    <asp:ListItem Text="Selecione" Value="Selecione"></asp:ListItem>
-                    <asp:ListItem Text="Gestor" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="Funcionário" Value="1"></asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td>
-                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>

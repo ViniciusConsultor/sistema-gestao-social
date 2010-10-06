@@ -115,11 +115,6 @@ namespace SGS.View.LoginUI
             objLogin.Perfil = ddlPerfil.SelectedValue;
             objLogin.Senha = txtSenha.Text;
 
-            if (ddlPessoaSistema.SelectedValue != "Selecione")
-                objLogin.Pessoa_CodigoPessoa = Convert.ToInt32(ddlPessoaSistema.SelectedValue);
-            else
-                objLogin.Pessoa_CodigoPessoa = null;
-
             return objLogin;
         }
 
@@ -135,8 +130,6 @@ namespace SGS.View.LoginUI
             txtSenha.Text = SGSLogin.Senha;
             ddlPerfil.SelectedValue = SGSLogin.Perfil;
 
-            if (SGSLogin.Pessoa_CodigoPessoa.HasValue)
-                ddlPessoaSistema.SelectedValue = SGSLogin.Pessoa_CodigoPessoa.Value.ToString();
         }
         
         #endregion
