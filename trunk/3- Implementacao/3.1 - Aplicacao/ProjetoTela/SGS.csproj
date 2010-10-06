@@ -67,9 +67,6 @@
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Servicos\Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Servicos\Scripts\jquery-1.4.1.js" />
-    <Content Include="Servicos\Scripts\jquery-1.4.1.min.js" />
     <Content Include="View\Alimentacao\AltAlimentacao.aspx" />
     <Content Include="View\Alimentacao\CadAlimentacao.aspx" />
     <Content Include="View\Alimentacao\ConAlimentacao.aspx" />
