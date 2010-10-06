@@ -35,10 +35,10 @@ namespace SGS.View.LoginUI
 
             SGSLogin = sgsServico.SalvarLogin(PegarDadosView());
 
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+            string url = @"ManterLogin.aspx?tipo=alt&cod=" + SGSLogin.CodigoLogin.Value.ToString();
+            Response.Redirect(url);
 
-            //string url = @"ManterLogin.aspx?tipo=alt&cod=" + SGSLogin.CodigoLogin.Value.ToString();
-            //Server.Transfer(url);
+            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
         }
 
         /// <summary>
@@ -64,6 +64,8 @@ namespace SGS.View.LoginUI
 
             if (objSGSServico.ExcluirLogin(SGSLogin.CodigoLogin.Value))
                 ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Login excluído com sucesso!'); </script>");
+
+            Response.Redirect("ConsultarLogin.aspx");
         }
 
         #endregion

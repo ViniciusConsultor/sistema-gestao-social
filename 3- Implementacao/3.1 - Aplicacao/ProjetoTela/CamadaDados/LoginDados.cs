@@ -40,7 +40,6 @@ namespace SGS.CamadaDados
             {
                 objLogin.CodigoLogin = Convert.ToInt32(leitorDados["CodigoLogin"]);
                 objLogin.LoginUsuario = leitorDados["Login"].ToString();
-                objLogin.Pessoa_CodigoPessoa = Convert.ToInt32(leitorDados["Pessoa_CodigoPessoa"]);
                 objLogin.Email = leitorDados["Email"].ToString();
                 objLogin.Nome = leitorDados["Nome"].ToString();
                 objLogin.Senha = leitorDados["Senha"].ToString();
@@ -71,13 +70,13 @@ namespace SGS.CamadaDados
             if (!objLogin.CodigoLogin.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Login (Pessoa_CodigoPessoa, Login, Nome, Senha, Email, Perfil)
-                    VALUES (@pessoa_CodigoPessoa, @loginUsuario, @nome, @senha, @email, @perfil)";
+                    @"INSERT INTO Login (Login, Nome, Senha, Email, Perfil)
+                    VALUES (@loginUsuario, @nome, @senha, @email, @perfil)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Login SET Pessoa_CodigoPessoa = @pessoa_CodigoPessoa, Nome = @nome, Login = @loginUsuario,
+                    @"UPDATE Login SET Nome = @nome, Login = @loginUsuario,
                     Senha = @senha, Email =@email, Perfil =@perfil
                         WHERE (CodigoLogin = @codigoLogin)";
             }
@@ -90,21 +89,7 @@ namespace SGS.CamadaDados
                 comando.Parameters.Add(parametroCodigo);
             }
 
-            SqlParameter parametroPessoa_CodigoPessoa = new SqlParameter();
-            if (objLogin.Pessoa_CodigoPessoa.HasValue)
-            {
-                parametroPessoa_CodigoPessoa.Value = objLogin.Pessoa_CodigoPessoa.Value;
-                parametroPessoa_CodigoPessoa.ParameterName = "@pessoa_CodigoPessoa";
-                parametroPessoa_CodigoPessoa.DbType = System.Data.DbType.Int32;
-            }
-            else
-            {
-                parametroPessoa_CodigoPessoa.Value = DBNull.Value;
-                parametroPessoa_CodigoPessoa.ParameterName = "@pessoa_CodigoPessoa";
-                parametroPessoa_CodigoPessoa.DbType = System.Data.DbType.Int32;
-            }
-
-            SqlParameter parametroNome = new SqlParameter("@nome", objLogin.Nome);
+           SqlParameter parametroNome = new SqlParameter("@nome", objLogin.Nome);
             parametroNome.DbType = System.Data.DbType.String;
 
             SqlParameter parametroLoginUsuario = new SqlParameter("@loginUsuario", objLogin.LoginUsuario);
@@ -119,7 +104,6 @@ namespace SGS.CamadaDados
             SqlParameter parametroSenha = new SqlParameter("@senha", objLogin.Senha);
             parametroSenha.DbType = System.Data.DbType.String;
 
-            comando.Parameters.Add(parametroPessoa_CodigoPessoa);
             comando.Parameters.Add(parametroNome);
             comando.Parameters.Add(parametroLoginUsuario);
             comando.Parameters.Add(parametroEmail);
@@ -129,10 +113,40 @@ namespace SGS.CamadaDados
             comando.ExecuteNonQuery();
 
             //TODO: retorno entidade login com o Código do Login Preenchido
+            return ObterUltimoLoginInserido();
+        }
+
+        /// <summary>
+        /// Obtém o código do último Login do usuário gerado
+        /// </summary>
+        /// <param name="codigoLogin"></param>
+        /// <returns></returns>
+        public Login ObterUltimoLoginInserido()
+        {
+            SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Login ORDER BY CodigoLogin DESC", base.Conectar());
+            
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Login objLogin = null;
+
+            if (leitorDados.Read())
+            {
+                objLogin = new Login();
+
+                objLogin.CodigoLogin = Convert.ToInt32(leitorDados["CodigoLogin"]);
+                objLogin.LoginUsuario = leitorDados["Login"].ToString();
+                objLogin.Email = leitorDados["Email"].ToString();
+                objLogin.Nome = leitorDados["Nome"].ToString();
+                objLogin.Senha = leitorDados["Senha"].ToString();
+                objLogin.Perfil = leitorDados["Perfil"].ToString();
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
             return objLogin;
         }
 
-            /// <summary>
+        /// <summary>
             /// Obtém o Login do usuário pelo seu Código de Login
         /// </summary>
         /// <param name="codigoLogin"></param>
@@ -153,7 +167,6 @@ namespace SGS.CamadaDados
 
                 objLogin.CodigoLogin = codigoLogin;
                 objLogin.LoginUsuario = leitorDados["Login"].ToString();
-                objLogin.Pessoa_CodigoPessoa = Convert.ToInt32(leitorDados["Pessoa_CodigoPessoa"]);
                 objLogin.Email = leitorDados["Email"].ToString();
                 objLogin.Nome = leitorDados["Nome"].ToString();
                 objLogin.Senha = leitorDados["Senha"].ToString();
@@ -229,7 +242,6 @@ namespace SGS.CamadaDados
 
                 objLogin.CodigoLogin = Convert.ToInt32(leitorDados["CodigoLogin"]);
                 objLogin.LoginUsuario = leitorDados["Login"].ToString();
-                objLogin.Pessoa_CodigoPessoa = Convert.ToInt32(leitorDados["Pessoa_CodigoPessoa"]);
                 objLogin.Email = leitorDados["Email"].ToString();
                 objLogin.Nome = leitorDados["Nome"].ToString();
                 objLogin.Senha = leitorDados["Senha"].ToString();
