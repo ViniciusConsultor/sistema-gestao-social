@@ -40,6 +40,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
+        /// requeridCasaLar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridCasaLar;
+        
+        /// <summary>
         /// ddlStatus control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace ProjetoTela.View.CasaLar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCNPJ;
+        
+        /// <summary>
+        /// ValidatorCNPJ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorCNPJ;
         
         /// <summary>
         /// txtAlvara control.
@@ -155,6 +173,15 @@ namespace ProjetoTela.View.CasaLar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// ddlCidade control.
@@ -281,5 +308,14 @@ namespace ProjetoTela.View.CasaLar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }
