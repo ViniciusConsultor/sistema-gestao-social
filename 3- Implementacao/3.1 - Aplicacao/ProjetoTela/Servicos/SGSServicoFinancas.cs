@@ -11,7 +11,11 @@ namespace SGS.Servicos
     public partial class SGSServico
     {
 
-      
+      /// <summary>
+      /// Este método salva e atualiza a tabela de finanças
+      /// </summary>
+      /// <param name="objFinancas"></param>
+      /// <returns></returns>
         public Financas SalvarFinancas(Financas objFinancas)
         {
             FinancasDados objFinancasDados = new FinancasDados();

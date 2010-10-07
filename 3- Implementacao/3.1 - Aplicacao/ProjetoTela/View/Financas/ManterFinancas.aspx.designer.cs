@@ -31,24 +31,6 @@ namespace SGS.View.Financas {
         protected global::System.Web.UI.WebControls.Label lblDescricao;
         
         /// <summary>
-        /// ddlCasaLar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCasaLar;
-        
-        /// <summary>
-        /// validatorCasaLar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorCasaLar;
-        
-        /// <summary>
         /// ddlTipoLancamento control.
         /// </summary>
         /// <remarks>
