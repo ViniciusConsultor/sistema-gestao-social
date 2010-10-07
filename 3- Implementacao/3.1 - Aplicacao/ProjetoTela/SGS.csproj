@@ -202,6 +202,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\SGSServico.cs" />
+    <Compile Include="Servicos\SGSServicoCasaLar.cs" />
     <Compile Include="Servicos\SGSServicoFinancas.cs" />
     <Compile Include="Servicos\SGSServicoLogin.cs" />
     <Compile Include="Site.Master.cs">

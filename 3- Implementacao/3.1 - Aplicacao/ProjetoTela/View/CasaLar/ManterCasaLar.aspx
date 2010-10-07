@@ -36,7 +36,10 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Nome</td>
                 <td>
-                    <asp:TextBox ID="txtNome" runat="server" CssClass="style8" MaxLength="25"></asp:TextBox>
+                    <asp:TextBox ID="txtNome" runat="server" CssClass="style8" MaxLength="50"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridCasaLar" runat="server" 
+                        ControlToValidate="txtNome" ErrorMessage="Preencha o campo Casa Lar" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
@@ -53,6 +56,8 @@
                     CNPJ</td>
                 <td>
                     <asp:TextBox ID="txtCNPJ" runat="server" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ValidatorCNPJ" runat="server" 
+                        ErrorMessage="Preencha o CNPJ" ControlToValidate="txtCNPJ">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
@@ -140,6 +145,9 @@
                         CssClass="style8">
                         <asp:ListItem>Selecione</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="ddlEstado" ErrorMessage="Escolha o Estado" 
+                        InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
@@ -242,12 +250,13 @@
         <table width="100%">
             <tr align="center">
                 <td> 
-                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
                     <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                        CausesValidation="False" onclientclick="return confirm('Deseja realmente excluir a Casa Lar?')" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                        CausesValidation="False" />
+                        CausesValidation="False" onclick="btnCancelar_Click" />
                 </td>
             </tr>
             <tr align="center">
@@ -255,5 +264,16 @@
                     &nbsp;</td>
             </tr>
         </table>
+
+         <br />
+    <table align="center">
+        <tr>
+            <td>
+                <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
+                    BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
+                    HeaderText="Validação:" Width="350px" />
+            </td>
+        </tr>
+    </table>
 
 </asp:Content>
