@@ -48,7 +48,7 @@
             &nbsp;</td>
         <td>
             <asp:Button ID="btnLogar" runat="server" BackColor="#A6B4C6" Text="Logar" 
-                Width="76px" onclick="Page_Load" />
+                Width="76px" onclick="btnLogar_Click" />
             <asp:Button ID="btnLimpar" runat="server" BackColor="#A6B4C6" Text="Limpar" 
                 Width="75px" CausesValidation="False" onclick="btnLimpar_Click" />
         </td>

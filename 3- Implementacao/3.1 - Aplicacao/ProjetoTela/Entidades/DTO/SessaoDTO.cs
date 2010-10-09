@@ -38,6 +38,7 @@ namespace SGS.Entidades.DTO
             set { _login = value; }
         }
 
+       
         #endregion
 
     }

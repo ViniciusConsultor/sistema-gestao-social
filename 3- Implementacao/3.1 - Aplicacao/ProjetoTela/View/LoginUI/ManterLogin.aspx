@@ -23,8 +23,7 @@
         .style10
         {
             text-align: left;
-            width: 269px;
-        }
+            }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -86,6 +85,23 @@
             <td>
                 &nbsp;
             </td>
+        </tr>
+        <tr>
+            <td class="style7">
+                Confirmar
+                Senha
+            </td>
+            <td class="style10" colspan="2">
+                <asp:TextBox ID="txtSenhaConfirma" runat="server" MaxLength="10" TextMode="Password" 
+                    Width="180px"></asp:TextBox>
+                <asp:CompareValidator ID="compareSenha" runat="server" 
+                    ControlToCompare="txtSenhaConfirma" ControlToValidate="txtSenha" 
+                    
+                    ErrorMessage="Preencha o campo e-mail e confirme o e-mail com o memso e-mail." 
+                    style="font-size: small" ForeColor="Red">* Esta senha não está igual a senha acima</asp:CompareValidator>
+            </td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="style7">
