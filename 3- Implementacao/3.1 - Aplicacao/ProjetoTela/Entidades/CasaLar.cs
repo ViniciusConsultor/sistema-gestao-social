@@ -5,6 +5,7 @@ using System.Web;
 
 namespace SGS.Entidades
 {
+    [Serializable]
     public class CasaLar
     {
         private int? _codigoCasaLar;
@@ -21,15 +22,16 @@ namespace SGS.Entidades
         private string _foto;
         private string _emailGestor;
         private string _telefoneGestor;
+        private Contato _contato;
 
-
+       
         public int? CodigoCasaLar
         {
             get { return _codigoCasaLar; }
             set { _codigoCasaLar = value; }
         }
 
-        public int? Contato_CodigoContato
+        public int? CodigoContato
         {
             get { return _contato_CodigoContato; }
             set { _contato_CodigoContato = value; }
@@ -105,6 +107,12 @@ namespace SGS.Entidades
         {
             get { return _telefoneGestor; }
             set { _telefoneGestor = value; }
+        }
+
+        public Contato Contato
+        {
+            get { return _contato; }
+            set { _contato = value; }
         }
     }
 }

@@ -58,6 +58,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
+        /// requeridStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridStatus;
+        
+        /// <summary>
         /// txtCNPJ control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtAlvara;
         
         /// <summary>
+        /// requeridAlvara control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAlvara;
+        
+        /// <summary>
         /// txtDataFundacao control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtDataFundacao;
         
         /// <summary>
+        /// requeridDaTaFundacao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDaTaFundacao;
+        
+        /// <summary>
         /// txtTelefone control.
         /// </summary>
         /// <remarks>
@@ -101,6 +128,15 @@ namespace ProjetoTela.View.CasaLar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefone;
+        
+        /// <summary>
+        /// requeridTelefone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridTelefone;
         
         /// <summary>
         /// txtTelefoneCelular control.
@@ -130,6 +166,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// requeridEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridEmail;
+        
+        /// <summary>
         /// txtSite control.
         /// </summary>
         /// <remarks>
@@ -148,22 +193,13 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtBlog;
         
         /// <summary>
-        /// txtLogradouro control.
+        /// ddlPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
-        
-        /// <summary>
-        /// txtNumero control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumero;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPais;
         
         /// <summary>
         /// ddlEstado control.
@@ -175,31 +211,85 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// ValidatorEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorEstado;
         
         /// <summary>
-        /// ddlCidade control.
+        /// txtCidade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCidade;
+        protected global::System.Web.UI.WebControls.TextBox txtCidade;
         
         /// <summary>
-        /// ddlPais control.
+        /// requeridCidade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPais;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridCidade;
+        
+        /// <summary>
+        /// txtCEP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCEP;
+        
+        /// <summary>
+        /// requeridCEP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridCEP;
+        
+        /// <summary>
+        /// txtLogradouro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
+        
+        /// <summary>
+        /// requeridLogradouro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridLogradouro;
+        
+        /// <summary>
+        /// txtNumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumero;
+        
+        /// <summary>
+        /// requeridNumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridNumero;
         
         /// <summary>
         /// txtBairro control.
@@ -211,13 +301,13 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtBairro;
         
         /// <summary>
-        /// txtCEP control.
+        /// requeridBairro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCEP;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridBairro;
         
         /// <summary>
         /// uploadFoto control.
@@ -238,6 +328,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtQtdMaximo;
         
         /// <summary>
+        /// requeridQtdMáximo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridQtdMáximo;
+        
+        /// <summary>
         /// txtQtdAssistidos control.
         /// </summary>
         /// <remarks>
@@ -245,6 +344,15 @@ namespace ProjetoTela.View.CasaLar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQtdAssistidos;
+        
+        /// <summary>
+        /// requeridQtdAssistidos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridQtdAssistidos;
         
         /// <summary>
         /// txtGestor control.
@@ -256,6 +364,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtGestor;
         
         /// <summary>
+        /// requeridGestor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridGestor;
+        
+        /// <summary>
         /// txtEmailGestor control.
         /// </summary>
         /// <remarks>
@@ -265,6 +382,15 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.TextBox txtEmailGestor;
         
         /// <summary>
+        /// requeridEmailGestor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridEmailGestor;
+        
+        /// <summary>
         /// txtTelefoneGestor control.
         /// </summary>
         /// <remarks>
@@ -272,6 +398,15 @@ namespace ProjetoTela.View.CasaLar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefoneGestor;
+        
+        /// <summary>
+        /// requeridTelefoneGestor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridTelefoneGestor;
         
         /// <summary>
         /// txtHistoria control.

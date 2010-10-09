@@ -44,9 +44,9 @@ namespace SGS.CamadaDados
             }
 
             SqlParameter parametroContato_CodigoContato = new SqlParameter();
-            if (objCasaLar.Contato_CodigoContato.HasValue)
+            if (objCasaLar.CodigoContato.HasValue)
             {
-                parametroContato_CodigoContato.Value = objCasaLar.Contato_CodigoContato.Value;
+                parametroContato_CodigoContato.Value = objCasaLar.CodigoContato.Value;
                 parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
                 parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
             }
@@ -122,7 +122,7 @@ namespace SGS.CamadaDados
         /// <returns></returns>
         public CasaLar ObterCasaLar(int codigoCasaLar)
         {
-            SqlCommand comando = new SqlCommand("select * from CasaLar where CodigoCasaLar = @codigoCasaLar", base.Conectar());
+            SqlCommand comando = new SqlCommand("select * from Casa_Lar where CodigoCasaLar = @codigoCasaLar", base.Conectar());
             SqlParameter parametroCodigoCasaLar = new SqlParameter("@codigoCasaLar", codigoCasaLar);
             parametroCodigoCasaLar.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoCasaLar);
@@ -135,19 +135,26 @@ namespace SGS.CamadaDados
                 objCasaLar = new CasaLar();
 
                 objCasaLar.CodigoCasaLar = codigoCasaLar;
-                objCasaLar.Contato_CodigoContato = Convert.ToInt32(leitorDados["Contato_CodigoContato"]);
+                objCasaLar.CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 objCasaLar.NomeCasaLar = leitorDados["NomeCasaLar"].ToString();
                 objCasaLar.CNPJ = leitorDados["CNPJ"].ToString();
                 objCasaLar.Alvara = leitorDados["Alvara"].ToString();
                 objCasaLar.DataFundacao = Convert.ToDateTime(leitorDados["DataFundacao"]);
                 objCasaLar.Historia = leitorDados["Historia"].ToString();
                 objCasaLar.Gestor = leitorDados["Gestor"].ToString();
-                objCasaLar.StatusCasaLar = leitorDados["StatusCasaLar"].ToString();
-                objCasaLar.QtdMaxAssistidos = Convert.ToInt32(leitorDados["QtdMaxAssistidos"]);
+                objCasaLar.StatusCasaLar = leitorDados["Status"].ToString();
+                objCasaLar.QtdMaxAssistidos = Convert.ToInt32(leitorDados["QtdMaximaAssistidos"]);
                 objCasaLar.QtdAssistidos = Convert.ToInt32(leitorDados["QtdAssistidos"]);
-                objCasaLar.Foto = leitorDados["Foto"].ToString();
+               ///TODO: Maycon
+               ///objCasaLar.Foto = leitorDados["Foto"].ToString();
                 objCasaLar.EmailGestor = leitorDados["EmailGestor"].ToString();
                 objCasaLar.TelefoneGestor = leitorDados["TelefoneGestor"].ToString();
+            }
+
+            if (objCasaLar != null && objCasaLar.CodigoContato != null)
+            { 
+               ContatoDados objContatoDados = new ContatoDados();
+               objCasaLar.Contato = objContatoDados.ObterContato(objCasaLar.CodigoContato.Value);
             }
 
             leitorDados.Close();
