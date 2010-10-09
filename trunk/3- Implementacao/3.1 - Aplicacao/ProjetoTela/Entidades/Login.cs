@@ -22,12 +22,6 @@ namespace SGS.Entidades
             set { _codigoLogin = value; }
         }
 
-        public int? Pessoa_CodigoPessoa
-        {
-            get { return _pessoa_CodigoPessoa; }
-            set { _pessoa_CodigoPessoa = value; }
-        }
-
         public string Nome
         {
             get { return _nome; }

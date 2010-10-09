@@ -8,7 +8,9 @@ using System.Web.UI.WebControls;
 using SGS.Entidades;
 using SGS.Servicos;
 using SGS.Entidades.DTO;
-using System.Data;
+
+
+
 
 namespace ProjetoTela.Telas
 {
@@ -34,8 +36,7 @@ namespace ProjetoTela.Telas
 
             if (umLogin != null)
             {
-                SessaoDTO umSessaoDTO = new SessaoDTO(umLogin);
-                Session.Add("Sessao", umSessaoDTO);
+                DadosAcesso.SessaoDTO = new SessaoDTO(umLogin); 
                 Server.Transfer("../Apresentacao.aspx");
             }
             else

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SGS.Entidades.DTO;
 
 using SGS.Servicos;
 
@@ -20,9 +21,18 @@ namespace SGS.View.LoginUI
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            // Valida se o usuário logado possui acesso.
+            if (DadosAcesso.Perfil == "Gestor")
             {
-                this.CarregarTela();
+                if (!Page.IsPostBack)
+                {
+                    this.CarregarTela();
+                }
+            }
+            // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
+            else
+            {
+                Server.Transfer("../SemPermissao.aspx");
             }
         }
 
@@ -71,6 +81,16 @@ namespace SGS.View.LoginUI
         #endregion
 
         #region Metodos
+
+        /// <summary>
+        /// Este método valida se o usuário possui permissão de acesso
+        /// </summary>
+        /// <returns></returns>
+        public bool ValidarPermissao()
+        {
+            return true;
+        }
+
 
         /// <summary>
         /// Este método preenche os controles da tela de acordo com a operação que

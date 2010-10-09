@@ -106,6 +106,7 @@
     <Content Include="View\Relatorio\RelFinancas.aspx" />
     <Content Include="View\LoginUI\Login.aspx" />
     <Content Include="View\CasaLar\CadCasaLar.aspx" />
+    <Content Include="View\SemPermissao.aspx" />
     <Content Include="View\Visita\AltVisita.aspx" />
     <Content Include="View\Visita\CadVisita.aspx" />
     <Content Include="View\Visita\ConsultarVisita.aspx" />
@@ -178,8 +179,10 @@
     <Compile Include="Entidades\Contato.cs" />
     <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\Desenvolvimento.cs" />
+    <Compile Include="Entidades\DTO\DadosAcesso.cs" />
     <Compile Include="Entidades\DTO\LoginDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
+    <Compile Include="Entidades\Enum\PerfilEnum.cs" />
     <Compile Include="Entidades\Escolar.cs" />
     <Compile Include="Entidades\Financas.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
@@ -484,6 +487,13 @@
     </Compile>
     <Compile Include="View\CasaLar\CadCasaLar.aspx.designer.cs">
       <DependentUpon>CadCasaLar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\SemPermissao.aspx.cs">
+      <DependentUpon>SemPermissao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\SemPermissao.aspx.designer.cs">
+      <DependentUpon>SemPermissao.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Visita\AltVisita.aspx.cs">
       <DependentUpon>AltVisita.aspx</DependentUpon>
