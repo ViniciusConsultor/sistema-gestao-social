@@ -18,8 +18,6 @@ namespace ProjetoTela.View.CasaLar
         /// <summary>
         /// Evento OnLoad da tela
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -29,26 +27,46 @@ namespace ProjetoTela.View.CasaLar
 
         }
 
-        protected void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Evento onClick do botão Salvar CasaLar
+        /// </summary>
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
             SGSServico sgsServico = new SGSServico();
 
-        //   // SGSCasaLar = sgsServico.SalvarLogin(PegarDadosView());
+           /// SGSCasaLar = sgsServico.SalvarCasaLar(PegarDadosView());
 
-        //    string url = @"ManterLogin.aspx?tipo=alt&cod=" + SGSCasaLar.CodigoCasaLar.Value.ToString();
-        //    Response.Redirect(url);
+            string url = @"ManterCasaLar.aspx?tipo=alt&cod=" + SGSCasaLar.CodigoCasaLar.Value.ToString();
+            Response.Redirect(url);
 
-        //    ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+        }
+
+        /// <summary>
+        /// Evento OnClick do Botão Cancelar
+        /// </summary>
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            string url;
+            if (Request.QueryString["tipo"] == "alt")
+                url = @"ManterCasaLar.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
+            else
+                url = "ManterCasaLar.aspx";
+
+            Server.Transfer(url);
+        }
+
+        /// <summary>
+        /// Evento OnClick do Botão Excluir
+        /// </summary>
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+           /// if (objSGSServico.ExcluirCasaLar(SGSCasaLar.CodigoCasaLar.Value))
+                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Casa Lar excluída com sucesso!'); </script>");
+
+            Response.Redirect("ConsultarCasaLar.aspx");
         }
 
         #endregion
@@ -66,8 +84,8 @@ namespace ProjetoTela.View.CasaLar
 
             if (Request.QueryString["tipo"] == "alt")
             {
-                lblTitulo.Text = "Alterar Login";
-                lblDescricao.Text = "Descrição: Permite cadastrar os logins de acesso ao sistema.";
+                lblTitulo.Text = "Alterar Casa Lar";
+                lblDescricao.Text = "Descrição: Permite alterar os dados da Casa Lar.";
                 btnExcluir.Visible = true;
                 SGSCasaLar.CodigoCasaLar = Convert.ToInt32(Request.QueryString["cod"]);
 
@@ -77,27 +95,50 @@ namespace ProjetoTela.View.CasaLar
                 if (SGSCasaLar != null)
                     this.PreencherDadosView();
                 else
-                    //TODO: MAycon colocar pagina correta
-                    Server.Transfer("bla.aspx"); //transfere usuário para tela de usuário não encontrado
+                    //TODO: MAycon colocar pagina correta (desconsiderar)
+                    Server.Transfer("ConsultarCasaLar.aspx"); //transfere usuário para tela de Consulta
             }
             else
             {
-                lblTitulo.Text = "Cadastrar Login";
-                lblDescricao.Text = "Descrição: Permite cadastrar os logins de acesso ao sistema.";
+                lblTitulo.Text = "Cadastrar Casa Lar";
+                lblDescricao.Text = "Descrição: Permite cadastrar os dados da Casa Lar.";
                 btnExcluir.Visible = false;
             }
         }
 
         /// <summary>
-        /// Preencha a entidade Login com os dados da View
+        /// Preencha a entidade CasaLar com os dados da View
         /// </summary>
         private SGS.Entidades.CasaLar PegarDadosView()
         {
             SGS.Entidades.CasaLar objCasaLar = SGSCasaLar;
 
             objCasaLar.NomeCasaLar = txtNome.Text;
-            //TODO: Jonathan preencher todos os dados da Propriedade Casa Lar
-
+            objCasaLar.Alvara = txtAlvara.Text;
+            objCasaLar.CNPJ = txtCNPJ.Text;
+            objCasaLar.DataFundacao = Convert.ToDateTime(txtDataFundacao.Text);
+            objCasaLar.EmailGestor = txtEmailGestor.Text;
+            objCasaLar.Gestor = txtGestor.Text;
+            objCasaLar.Historia = txtHistoria.Text;
+            objCasaLar.QtdAssistidos = Convert.ToInt32(txtQtdAssistidos.Text);
+            objCasaLar.QtdMaxAssistidos = Convert.ToInt32(txtQtdMaximo.Text);
+            objCasaLar.StatusCasaLar = ddlStatus.SelectedValue;
+            objCasaLar.TelefoneGestor = txtTelefoneGestor.Text;
+           ///TODO: Maycon
+           ///objCasaLar.Foto = uploadFoto
+            objCasaLar.Contato.Bairro = txtBairro.Text;
+            objCasaLar.Contato.Blog = txtBlog.Text;
+            objCasaLar.Contato.CEP = txtCEP.Text;
+            objCasaLar.Contato.Cidade = txtCidade.Text;
+            objCasaLar.Contato.Email = txtEmail.Text;
+            objCasaLar.Contato.Estado = ddlEstado.SelectedValue;
+            objCasaLar.Contato.FAX = txtFax.Text;
+            objCasaLar.Contato.Logradouro = txtLogradouro.Text;
+            objCasaLar.Contato.Numero = txtNumero.Text;
+            objCasaLar.Contato.Pais = ddlPais.SelectedValue;
+            objCasaLar.Contato.TelefoneCelular = txtTelefoneCelular.Text;
+            objCasaLar.Contato.TelefoneConvencional = txtTelefone.Text;         
+                                 
             return objCasaLar;
         }
 
@@ -107,10 +148,12 @@ namespace ProjetoTela.View.CasaLar
         private void PreencherDadosView()
         {
             txtNome.Text = SGSCasaLar.NomeCasaLar;
+            txtAlvara.Text = SGSCasaLar.Alvara;
+           
             //TODO: Jonathan Para todos os outros campos
 
         }
-
+        
         #endregion
 
         #region Propriedades

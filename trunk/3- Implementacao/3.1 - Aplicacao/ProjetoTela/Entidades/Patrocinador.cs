@@ -5,6 +5,7 @@ using System.Web;
 
 namespace SGS.Entidades
 {
+    [Serializable]
     public class Patrocinador
     {
         private int? _codigoPatrocinador;
