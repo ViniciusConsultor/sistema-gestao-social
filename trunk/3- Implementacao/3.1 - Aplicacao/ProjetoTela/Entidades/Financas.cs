@@ -9,7 +9,7 @@ namespace SGS.Entidades
     public class Financas
     {
         private int? _codigoFinancas;
-        private int? _casaLar_CodigoCasaLar;
+        private int? _codigoCasaLar;
         private DateTime? _dataLancamento;
         private DateTime? _dataCriacao;
         private string _tipoLancamento;
@@ -25,10 +25,10 @@ namespace SGS.Entidades
 
         }
 
-        public int? CasaLar_CodigoCasaLar
+        public int? CodigoCasaLar
         {
-            get { return _casaLar_CodigoCasaLar; }
-            set { _casaLar_CodigoCasaLar = value; }
+            get { return _codigoCasaLar; }
+            set { _codigoCasaLar = value; }
 
         }
 
