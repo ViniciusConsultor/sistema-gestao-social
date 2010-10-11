@@ -34,10 +34,24 @@
             <tr>
                 <td class="style8" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Casa Lar</td>
+                <td class="style9">
+                    <asp:DropDownList ID="ddlCasaLar" runat="server" 
+                        onselectedindexchanged="ddlCasaLar_SelectedIndexChanged">
+                        <asp:ListItem Selected="True">Nossa Casa</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style8" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Tipo Lançamento</td>
                 <td class="style9">
-                    <asp:DropDownList ID="ddlTipoLancamento" runat="server" Height="22px" 
-                        Width="148px">
+                    <asp:DropDownList ID="ddlTipoLancamento" runat="server">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Receita</asp:ListItem>
                         <asp:ListItem>Despesa</asp:ListItem>
