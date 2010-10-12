@@ -36,9 +36,8 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Casa Lar</td>
                 <td class="style9">
-                    <asp:DropDownList ID="ddlCasaLar" runat="server" 
-                        onselectedindexchanged="ddlCasaLar_SelectedIndexChanged">
-                        <asp:ListItem Selected="True">Nossa Casa</asp:ListItem>
+                    <asp:DropDownList ID="ddlCasaLar" runat="server">
+                        <asp:ListItem Selected="True" Value="4">David Gomes</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -154,7 +153,9 @@
                     <td> 
                         <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
                             onclick="btnSalvar_Click" /> &nbsp; 
-                        <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" /> &nbsp;
+                        <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                            onclick="btnExcluir_Click" 
+                            onclientclick="return confirm('Deseja realmente excluir?')" /> &nbsp;
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" CausesValidation="False" />
                     </td>
                 </tr>
