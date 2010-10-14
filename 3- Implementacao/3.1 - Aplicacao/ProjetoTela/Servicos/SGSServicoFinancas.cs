@@ -39,17 +39,18 @@ namespace SGS.Servicos
             return objFinancasDados.ExcluirFinancas(codigoFinancas);
         }
 
-        /// <summary>
-        /// Consulta a tabela Financas e retorna resultados de acordo com o preenchimento do filtro 
-        /// </summary>
-  ///      public FinancasDTO ConsultarFinancas(FinancasDTO objFinancasDTO)
- ///       {
- ///           FinancasDados objFinancasDados = new FinancasDados();
- ///           objFinancasDTO.FinancasLista = objFinancasDados.ConsultarFinancas(objFinancasDTO);
+       /// <summary>
+       /// Consulta a tabela Financas e retorna resultados de acordo com o preenchimento do filtro
+       /// </summary>
 
- ///           return objFinancasDTO;
+        public FinancasDTO ConsultarFinancas(FinancasDTO objFinancasDTO)
+        {
+            FinancasDados objFinancasDados = new FinancasDados();
+            objFinancasDTO.FinancasLista = objFinancasDados.ConsultarFinancas(objFinancasDTO);
 
-  ///      }
+            return objFinancasDTO;
+
+        }
 
     }
 }

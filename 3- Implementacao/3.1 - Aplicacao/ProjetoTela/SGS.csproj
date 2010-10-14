@@ -180,6 +180,7 @@
     <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\Desenvolvimento.cs" />
     <Compile Include="Entidades\DTO\DadosAcesso.cs" />
+    <Compile Include="Entidades\DTO\FinancasDTO.cs" />
     <Compile Include="Entidades\DTO\LoginDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Enum\PerfilEnum.cs" />
