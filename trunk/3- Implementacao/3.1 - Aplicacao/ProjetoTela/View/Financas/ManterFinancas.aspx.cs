@@ -173,8 +173,6 @@ namespace SGS.View.Financas
 
         #endregion
 
-
-
         #endregion
 
     }

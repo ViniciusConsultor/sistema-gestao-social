@@ -138,6 +138,67 @@ namespace SGS.CamadaDados
 
     }
 
+   public List<Financas> ConsultarFinancas(FinancasDTO objFinancasDTO)
+   {
+       SqlCommand comando = new SqlCommand();
+       comando.Connection = base.Conectar();
+
+       SqlDataReader leitorDados;
+
+       SqlParameter paramTipoLancamentoValor = new SqlParameter("@tipoLancamentoValor", "%" + objFinancasDTO.TipoLancamentoValor + "%");
+       paramTipoLancamentoValor.DbType = System.Data.DbType.String;
+
+       SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", "%" + objFinancasDTO.DataLancamentoValor + "%");
+       paramDataLancamentoValor.DbType = System.Data.DbType.String;
+
+       SqlParameter paramDescricaoValor = new SqlParameter("@descricaoValor", "%" + objFinancasDTO.DescricaoValor + "%");
+       paramDescricaoValor.DbType = System.Data.DbType.String;
+
+       String sql = "select * from Financas";
+
+       //Se o Tipo de Lancamento, Data Lancamento e Descricao preenchidos
+       if (objFinancasDTO.TipoLancamentoValor != "" && objFinancasDTO.DataLancamentoValor != "" && objFinancasDTO.DescricaoValor != "")
+           sql += @" where TipoLancamento like @dataLancamentoValor or DataLancamento like @dataLancamentoValor or Descricao like @descricaoValor";
+       //Se apenas TipoLancamento preenchido
+       else if (objFinancasDTO.TipoLancamentoValor != "")
+           sql += @" where TipoLancamento like @tipoLancamentoValor";
+       //Se apenas DataLancamento preenchido
+       else if (objFinancasDTO.DataLancamentoValor != "")
+           sql += @" where DataLancamento like @dataLancamentoValor";
+       //Se apenas Descricao preenchido
+       else if (objFinancasDTO.DescricaoValor != "")
+           sql += @" where Descricao like @descricaoValor";
+
+       comando.CommandText = sql;
+       comando.CommandType = System.Data.CommandType.Text;
+       comando.Parameters.Add(paramTipoLancamentoValor);
+       comando.Parameters.Add(paramDataLancamentoValor);
+       comando.Parameters.Add(paramDescricaoValor);
+
+       leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+       List<Financas> financasLista = new List<Financas>();
+       Financas objFinancas;
+
+       while (leitorDados.Read())
+       {
+           objFinancas = new Financas();
+
+           objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["CodigoFinancas"]);
+           ///objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+           objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
+           objFinancas.DataCriacao = Convert.ToDateTime(leitorDados["DataCriacao"]);
+           objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
+           objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+           objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
+           objFinancas.Observacao = leitorDados["Observacao"].ToString();
+                
+
+           financasLista.Add(objFinancas);
+       }
+
+       return financasLista;
+   }
  
     }
 }
