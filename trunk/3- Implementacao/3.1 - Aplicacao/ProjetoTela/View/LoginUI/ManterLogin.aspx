@@ -18,13 +18,46 @@
             text-align: left;
         }
         .style9
-        {            margin-left: 40px;
+        {            margin-left: 80px;
         }
         .style10
         {
             text-align: left;
             }
         </style>
+
+        <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        
+        <script type="text/javascript">
+       
+            $(function () {
+                alert('Jesus é Salvação');
+            }
+            );
+
+        
+            //Diz que quando a página for carregada, irá ser executado o 
+            //bloco de código contido entre os {};
+            $(document).ready(function () {
+            $('.mask-data').mask('99/99/9999'); //data
+            $('.mask-hora').mask('99:99'); //hora
+            $('.mask-fone').mask('(99) 9999-9999'); //telefone
+            $('.mask-rg').mask('99.999.999-9'); //RG
+            $('.mask-ag').mask('9999-9'); //Agência
+            $('.mask-ag').mask('9.999-9'); //Conta
+
+            $("#cpf").mask("999.999.999-99");
+            $("#cnpj").mask("99.999.999/9999-99");
+            $("#cep").mask("99999-999");
+
+
+            }); 
+            
+            
+
+        </script>
+        
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <span class="style4"><strong> 
@@ -42,7 +75,8 @@
                 Nome
             </td>
             <td class="style9" colspan="2">
-                <asp:TextBox ID="txtNome" runat="server" Width="330px" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtNome" runat="server" Width="330px" MaxLength="50" 
+                    CssClass="cpf" ></asp:TextBox>
                 &nbsp;<asp:RequiredFieldValidator ID="validatorNome" runat="server" 
                     ErrorMessage="Preencha o Nome" ControlToValidate="txtNome" SetFocusOnError="True" 
                     Width="25px" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -56,7 +90,8 @@
                 Login
             </td>
             <td class="style9">
-                <asp:TextBox ID="txtLogin" runat="server" Width="180px" MaxLength="10"></asp:TextBox>
+                <asp:TextBox ID="txtLogin" runat="server" Width="180px" MaxLength="10" 
+                    CssClass="mask-data"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="validatorLogin" runat="server" 
                     ErrorMessage="Preencha o Login" ControlToValidate="txtLogin" 
                     SetFocusOnError="True" ForeColor="Red">*</asp:RequiredFieldValidator>
