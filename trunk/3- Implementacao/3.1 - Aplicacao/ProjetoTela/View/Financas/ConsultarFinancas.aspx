@@ -22,6 +22,36 @@
     }
         </style>
 
+         <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        
+        <script type="text/javascript">
+
+ ///          $(function () {
+ ///               alert('Jesus é Salvação');
+ ///           }
+  ///          );
+
+
+            //Diz que quando a página for carregada, irá ser executado o 
+            //bloco de código contido entre os {};
+            $(document).ready(function () {
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99");
+                $(".mask-cnpj").mask("99.999.999/9999-99");
+                $(".mask-cep").mask("99999-999");
+
+            }); 
+            
+            
+
+        </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -66,7 +96,7 @@
             <td class="style7"> &nbsp;</td>    
             <td class="style11"> Data de Lançamento</td>
             <td> 
-                <asp:TextBox ID="txtDataLancamento" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                <asp:TextBox ID="txtDataLancamento" runat="server" Height="22px" Width="148px" CssClass="mask-data"></asp:TextBox>
             </td>
             <td> &nbsp;</td>
         </tr>

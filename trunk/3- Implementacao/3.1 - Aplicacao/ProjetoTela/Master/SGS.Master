@@ -122,7 +122,7 @@
                                         NavigateUrl="~/View/PlanoOrcamentario/ManterPlanoOrcamentario.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Finanças" Value="Finanças">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
                                         NavigateUrl="~/View/Financas/ConsultarFinancas.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Financas/ManterFinancas.aspx"></asp:MenuItem>

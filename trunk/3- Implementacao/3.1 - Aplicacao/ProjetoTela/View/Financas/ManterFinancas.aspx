@@ -18,6 +18,37 @@
         }
     </style>
 
+
+     <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        
+        <script type="text/javascript">
+
+///            $(function () {
+///                alert('Jesus é Salvação');
+///            }
+///            );
+
+
+            //Diz que quando a página for carregada, irá ser executado o 
+            //bloco de código contido entre os {};
+            $(document).ready(function () {
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99");
+                $(".mask-cnpj").mask("99.999.999/9999-99");
+                $(".mask-cep").mask("99999-999");
+
+            }); 
+            
+            
+
+        </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -73,7 +104,7 @@
                     Data Lançamento</td>
                 <td class="style9">
                     <asp:TextBox ID="txtDataLancamento" runat="server" Height="22px" Width="148px" 
-                        MaxLength="10"></asp:TextBox>
+                        MaxLength="10" CssClass="mask-data"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorDataLancamento" runat="server" 
                         ControlToValidate="txtDataLancamento" 
                         ErrorMessage="Informe a Data de Lançamento" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -89,7 +120,7 @@
                     Data Criação</td>
                 <td class="style9">
                     <asp:TextBox ID="txtDataCriacao" runat="server" Height="22px" Width="148px" 
-                        MaxLength="10"></asp:TextBox>
+                        MaxLength="10" CssClass="mask-data"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorDataCriacao" runat="server" 
                         ControlToValidate="txtDataCriacao" ErrorMessage="Informe a Data de Criação" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -159,7 +190,7 @@
                             onclick="btnExcluir_Click" 
                             onclientclick="return confirm('Deseja realmente excluir?')" /> &nbsp;
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                            CausesValidation="False" onclick="btnCancelar_Click1" />
+                            CausesValidation="False" onclick="btnCancelar_Click" />
                     </td>
                 </tr>
                 <tr align="center">

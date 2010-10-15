@@ -53,13 +53,16 @@ namespace SGS.View.Financas
         /// </summary>
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            string url;
             if (Request.QueryString["tipo"] == "alt")
-                url = @"ManterFinancas.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
-            else
-                url = "ManterFinancas.aspx";
+            {
+                Server.Transfer("ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString());
 
-            Server.Transfer(url);
+            }
+            else
+            {
+                Server.Transfer("ManterFinancas.aspx");
+            }
+
         }
 
         /// <summary>
@@ -173,19 +176,6 @@ namespace SGS.View.Financas
 
         #endregion
 
-        protected void btnCancelar_Click1(object sender, EventArgs e)
-        {
-            if (Request.QueryString["tipo"] == "alt")
-            {
-                Server.Transfer("ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString() );
-
-            }
-            else
-            {
-                Server.Transfer("ManterFinancas.aspx");
-            }
-
-        }
 
         #endregion
 
