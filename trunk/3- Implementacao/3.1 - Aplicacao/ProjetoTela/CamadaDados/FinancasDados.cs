@@ -148,7 +148,7 @@ namespace SGS.CamadaDados
        SqlParameter paramTipoLancamentoValor = new SqlParameter("@tipoLancamentoValor", objFinancasDTO.TipoLancamentoValor);
        paramTipoLancamentoValor.DbType = System.Data.DbType.String;
 
-       SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", objFinancasDTO.DataLancamentoValor);
+       SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", objFinancasDTO.DataLancamentoValor.HasValue);
        paramDataLancamentoValor.DbType = System.Data.DbType.DateTime;
 
        SqlParameter paramDescricaoValor = new SqlParameter("@descricaoValor", "%" + objFinancasDTO.DescricaoValor + "%");
@@ -157,25 +157,32 @@ namespace SGS.CamadaDados
        String sql = "select * from Financas";
 
        //Se o Tipo de Lancamento, Data Lancamento e Descricao preenchidos
-       if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor != "" && objFinancasDTO.DescricaoValor != "")
-           sql += @" where TipoLancamento like @dataLancamentoValor or DataLancamento like @dataLancamentoValor or Observacao like @descricaoValor";
+       if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
+           sql += @" where TipoLancamento like @dataLancamentoValor or DataLancamento = @dataLancamentoValor or Observacao like @descricaoValor";
+ 
        //Se apenas TipoLancamento e DataLancamento preenchido
-       else if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor != "")
-           sql += @" where TipoLancamento like @tipoLancamentoValor or DataLancamento like @dataLancamentoValor";
+       else if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue)
+           sql += @" where TipoLancamento like @tipoLancamentoValor or DataLancamento = @dataLancamentoValor";
+ 
        //Se apenas DataLancamento e DescricaoValor preenchido
-       else if (objFinancasDTO.DataLancamentoValor != "" && objFinancasDTO.DescricaoValor != "")
-           sql += @" where DataLancamento like @dataLancamentoValor or Observacao like @descricaoValor";
+       else if (objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
+           sql += @" where DataLancamento = @dataLancamentoValor or Observacao like @descricaoValor";
+ 
        //Se apenas Descricao e TipoLancamento preenchido
        else if (objFinancasDTO.DescricaoValor != "" && objFinancasDTO.TipoLancamentoValor != "Selecione")
-           sql += @" where Observacao like @descricaoValor or TipoLancamento like @dataLancamentoValor";
+           sql += @" where Observacao like @descricaoValor or TipoLancamento like @tipoLancamentoValor";
+ 
        //Se apenas Descricao preenchido
        else if (objFinancasDTO.DescricaoValor != "")
            sql += @" where Observacao like @descricaoValor";
+ 
        //Se apenas TipoLancamento preenchido
        else if (objFinancasDTO.TipoLancamentoValor != "Selecione")
            sql += @" where TipoLancamento like @tipoLancamentoValor";
+ 
        //Se apenas DataLancamento e DescricaoValor preenchido
-       else if (objFinancasDTO.DataLancamentoValor != "" )
+
+       else if (objFinancasDTO.DataLancamentoValor.HasValue)
            sql += @" where DataLancamento = @dataLancamentoValor";
 
        comando.CommandText = sql;

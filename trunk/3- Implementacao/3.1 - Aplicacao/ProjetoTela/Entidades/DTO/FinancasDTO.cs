@@ -62,8 +62,8 @@ namespace SGS.Entidades.DTO
             get { return _tipoLancamentoValor; }
         }
 
-        private string _dataLancamentoValor;
-        public string DataLancamentoValor
+        private DateTime? _dataLancamentoValor;
+        public DateTime? DataLancamentoValor
         {
             set { _dataLancamentoValor = value; }
             get { return _dataLancamentoValor; }
