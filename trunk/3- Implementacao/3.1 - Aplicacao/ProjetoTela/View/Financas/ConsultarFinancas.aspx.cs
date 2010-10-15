@@ -46,8 +46,16 @@ namespace SGS.View.Financas
             FinancasDTO = new FinancasDTO();
 
             FinancasDTO.TipoLancamentoValor = ddlTipoLancamento.Text;
-            FinancasDTO.DataLancamentoValor = Convert.ToDateTime(txtDataLancamento.Text);
             FinancasDTO.DescricaoValor = txtDescricao.Text;
+
+            if (txtDataLancamento.Text == "")
+            {
+                FinancasDTO.DataLancamentoValor = null;
+            }
+            else
+            {
+                FinancasDTO.DataLancamentoValor = Convert.ToDateTime(txtDataLancamento.Text);
+            }
 
             FinancasDTO = objSGSServico.ConsultarFinancas(FinancasDTO);
 
