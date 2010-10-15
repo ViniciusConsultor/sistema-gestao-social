@@ -19,7 +19,19 @@ namespace SGS.View.Financas
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Valida se o usuário logado possui acesso.
+            if (DadosAcesso.Perfil == "Gestor")
+            {
+                if (!Page.IsPostBack)
+                {
+                    this.CarregarTela();
+                }
+            }
+            // Caso usuário logado não possua acesso redireciona usuário para tela que informa que ele não possui acesso.
+            else
+            {
+                Server.Transfer("../SemPermissao.aspx");
+            }
         }
 
         /// <summary>
@@ -57,6 +69,24 @@ namespace SGS.View.Financas
 
         #region Metodos
 
+        public void CarregarTela()
+        {
+            SGSServico objSGSServico = new SGSServico();
+            SGSFinancas = new Entidades.Financas();
+
+            if (Request.QueryString["tipo"] == "con")
+            {
+                ////* View/Financas/ManterFinancas.aspx?tipo=alt&cod=1
+                lblTitulo.Text = "Consultar Finanças";
+                lblDescricao.Text = "Descrição: Permite consultar as Finanças da Casa Lar.";
+                btnLimpar.Visible = true;
+                SGSFinancas.CodigoFinancas = Convert.ToInt32(Request.QueryString["cod"]);
+                //SGSFinancas.CodigoFinancas = 1;
+
+                SGSFinancas = objSGSServico.ObterFinancas(SGSFinancas.CodigoFinancas.Value);
+            }
+
+        }
 
         #endregion
 
@@ -91,6 +121,28 @@ namespace SGS.View.Financas
                 gridFinancas.DataSource = value;
                 gridFinancas.DataBind();
             }
+        }
+
+        /// <summary>
+        /// Esta propriedade armazena em memória os dados da Entidade Financas
+        /// </summary>
+        public SGS.Entidades.Financas SGSFinancas
+        {
+            set
+            {
+                if (ViewState["SGSFinancas"] == null)
+                    ViewState.Add("SGSFinancas", value);
+                else
+                    ViewState["SGSFinancas"] = value;
+            }
+            get
+            {
+                if (ViewState["SGSFinancas"] == null)
+                    return null;
+                else
+                    return (SGS.Entidades.Financas)ViewState["SGSFinancas"];
+            }
+
         }
 
         #endregion
