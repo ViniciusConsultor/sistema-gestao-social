@@ -34,7 +34,7 @@ namespace SGS.CamadaDados
             comando.CommandText = 
             @"UPDATE FINANCAS SET CodigoCasaLar = @codigoCasaLar, DataLancamento = @dataLancamento, DataCriacao = @dataCriacao, TipoLancamento = @tipoLancamento,
             Valor = @valor, LancadoPor = @lancadoPor, Observacao = @observacao
-            WHERE (CodigoCasaLar = @codigoCasaLar)";
+            WHERE (CodigoFinancas = @codigoFinancas)";
         }
         
         comando.CommandType = System.Data.CommandType.Text;
@@ -145,11 +145,11 @@ namespace SGS.CamadaDados
 
        SqlDataReader leitorDados;
 
-       SqlParameter paramTipoLancamentoValor = new SqlParameter("@tipoLancamentoValor", "%" + objFinancasDTO.TipoLancamentoValor + "%");
+       SqlParameter paramTipoLancamentoValor = new SqlParameter("@tipoLancamentoValor", objFinancasDTO.TipoLancamentoValor);
        paramTipoLancamentoValor.DbType = System.Data.DbType.String;
 
-       SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", "%" + objFinancasDTO.DataLancamentoValor + "%");
-       paramDataLancamentoValor.DbType = System.Data.DbType.String;
+       SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", objFinancasDTO.DataLancamentoValor);
+       paramDataLancamentoValor.DbType = System.Data.DbType.DateTime;
 
        SqlParameter paramDescricaoValor = new SqlParameter("@descricaoValor", "%" + objFinancasDTO.DescricaoValor + "%");
        paramDescricaoValor.DbType = System.Data.DbType.String;
@@ -157,17 +157,26 @@ namespace SGS.CamadaDados
        String sql = "select * from Financas";
 
        //Se o Tipo de Lancamento, Data Lancamento e Descricao preenchidos
-       if (objFinancasDTO.TipoLancamentoValor != "" && objFinancasDTO.DataLancamentoValor != "" && objFinancasDTO.DescricaoValor != "")
-           sql += @" where TipoLancamento like @dataLancamentoValor or DataLancamento like @dataLancamentoValor or Descricao like @descricaoValor";
-       //Se apenas TipoLancamento preenchido
-       else if (objFinancasDTO.TipoLancamentoValor != "")
-           sql += @" where TipoLancamento like @tipoLancamentoValor";
-       //Se apenas DataLancamento preenchido
-       else if (objFinancasDTO.DataLancamentoValor != "")
-           sql += @" where DataLancamento like @dataLancamentoValor";
+       if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor != "" && objFinancasDTO.DescricaoValor != "")
+           sql += @" where TipoLancamento like @dataLancamentoValor or DataLancamento like @dataLancamentoValor or Observacao like @descricaoValor";
+       //Se apenas TipoLancamento e DataLancamento preenchido
+       else if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor != "")
+           sql += @" where TipoLancamento like @tipoLancamentoValor or DataLancamento like @dataLancamentoValor";
+       //Se apenas DataLancamento e DescricaoValor preenchido
+       else if (objFinancasDTO.DataLancamentoValor != "" && objFinancasDTO.DescricaoValor != "")
+           sql += @" where DataLancamento like @dataLancamentoValor or Observacao like @descricaoValor";
+       //Se apenas Descricao e TipoLancamento preenchido
+       else if (objFinancasDTO.DescricaoValor != "" && objFinancasDTO.TipoLancamentoValor != "Selecione")
+           sql += @" where Observacao like @descricaoValor or TipoLancamento like @dataLancamentoValor";
        //Se apenas Descricao preenchido
        else if (objFinancasDTO.DescricaoValor != "")
-           sql += @" where Descricao like @descricaoValor";
+           sql += @" where Observacao like @descricaoValor";
+       //Se apenas TipoLancamento preenchido
+       else if (objFinancasDTO.TipoLancamentoValor != "Selecione")
+           sql += @" where TipoLancamento like @tipoLancamentoValor";
+       //Se apenas DataLancamento e DescricaoValor preenchido
+       else if (objFinancasDTO.DataLancamentoValor != "" )
+           sql += @" where DataLancamento = @dataLancamentoValor";
 
        comando.CommandText = sql;
        comando.CommandType = System.Data.CommandType.Text;
@@ -176,6 +185,10 @@ namespace SGS.CamadaDados
        comando.Parameters.Add(paramDescricaoValor);
 
        leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+
+
+
 
        List<Financas> financasLista = new List<Financas>();
        Financas objFinancas;

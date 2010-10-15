@@ -5,6 +5,8 @@ using System.Web;
 
 namespace SGS.Entidades.DTO
 {
+
+    [Serializable]
     public class FinancasDTO
     {
 

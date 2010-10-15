@@ -49,7 +49,7 @@ namespace SGS.View.Financas
         /// </summary>
         protected void btnLimpar_Click(object sender, EventArgs e)
         {
-            Server.Transfer("ConsultarFinancas.aspx");
+            Response.Redirect("ConsultarFinancas.aspx");
         }
 
         #endregion
@@ -94,6 +94,7 @@ namespace SGS.View.Financas
         }
 
         #endregion
+
 
 
     }

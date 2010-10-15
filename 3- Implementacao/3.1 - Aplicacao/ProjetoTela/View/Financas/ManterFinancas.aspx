@@ -36,7 +36,8 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Casa Lar</td>
                 <td class="style9">
-                    <asp:DropDownList ID="ddlCasaLar" runat="server">
+                    <asp:DropDownList ID="ddlCasaLar" runat="server" Enabled="False" Height="22px" 
+                        Width="148px">
                         <asp:ListItem Selected="True" Value="4">David Gomes</asp:ListItem>
                     </asp:DropDownList>
                 </td>
@@ -50,7 +51,8 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Tipo Lançamento</td>
                 <td class="style9">
-                    <asp:DropDownList ID="ddlTipoLancamento" runat="server">
+                    <asp:DropDownList ID="ddlTipoLancamento" runat="server" Height="22px" 
+                        Width="148px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Receita</asp:ListItem>
                         <asp:ListItem>Despesa</asp:ListItem>
@@ -132,7 +134,7 @@
             <tr>
                 <td class="style8" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Observação</td>
+                    Descrição</td>
                 <td class="style9">
                     <asp:TextBox ID="txtObservacao" runat="server" Height="102px" TextMode="MultiLine" 
                         Width="300px" MaxLength="4000"></asp:TextBox>
@@ -156,7 +158,8 @@
                         <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
                             onclick="btnExcluir_Click" 
                             onclientclick="return confirm('Deseja realmente excluir?')" /> &nbsp;
-                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" CausesValidation="False" />
+                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
+                            CausesValidation="False" onclick="btnCancelar_Click1" />
                     </td>
                 </tr>
                 <tr align="center">
