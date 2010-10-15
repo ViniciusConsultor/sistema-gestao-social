@@ -173,6 +173,20 @@ namespace SGS.View.Financas
 
         #endregion
 
+        protected void btnCancelar_Click1(object sender, EventArgs e)
+        {
+            if (Request.QueryString["tipo"] == "alt")
+            {
+                Server.Transfer("ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString() );
+
+            }
+            else
+            {
+                Server.Transfer("ManterFinancas.aspx");
+            }
+
+        }
+
         #endregion
 
     }
