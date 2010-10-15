@@ -46,11 +46,9 @@
             $('.mask-rg').mask('99.999.999-9'); //RG
             $('.mask-ag').mask('9999-9'); //Agência
             $('.mask-ag').mask('9.999-9'); //Conta
-
-            $("#cpf").mask("999.999.999-99");
-            $("#cnpj").mask("99.999.999/9999-99");
-            $("#cep").mask("99999-999");
-
+            $(".mask-cpf").mask("999.999.999-99");
+            $(".mask-cnpj").mask("99.999.999/9999-99");
+            $(".mask-cep").mask("99999-999");
 
             }); 
             
@@ -76,7 +74,7 @@
             </td>
             <td class="style9" colspan="2">
                 <asp:TextBox ID="txtNome" runat="server" Width="330px" MaxLength="50" 
-                    CssClass="cpf" ></asp:TextBox>
+                    CssClass="mask-cpf" ></asp:TextBox>
                 &nbsp;<asp:RequiredFieldValidator ID="validatorNome" runat="server" 
                     ErrorMessage="Preencha o Nome" ControlToValidate="txtNome" SetFocusOnError="True" 
                     Width="25px" ForeColor="Red">*</asp:RequiredFieldValidator>
