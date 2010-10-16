@@ -47,7 +47,7 @@ namespace SGS.CamadaDados
             parametroLogradouro.DbType = System.Data.DbType.String;
 
             SqlParameter parametroNumero = new SqlParameter("@numero", objContato.Numero);
-            parametroNumero.DbType = System.Data.DbType.String;
+            parametroNumero.DbType = System.Data.DbType.Int32;
 
             SqlParameter parametroBairro = new SqlParameter("@bairro", objContato.Bairro);
             parametroBairro.DbType = System.Data.DbType.String;
@@ -59,7 +59,7 @@ namespace SGS.CamadaDados
             parametroEstado.DbType = System.Data.DbType.String;
 
             SqlParameter parametroPais = new SqlParameter("@pais", objContato.Pais);
-            parametroPais.DbType = System.Data.DbType.DateTime;
+            parametroPais.DbType = System.Data.DbType.String;
 
             SqlParameter parametroCEP = new SqlParameter("@cep", objContato.CEP);
             parametroCEP.DbType = System.Data.DbType.String;
@@ -99,9 +99,47 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade contato com o Código do contato Preenchido
+            return ObterUltimoContato();
+        }
+
+        /// <summary>
+        /// Obtém o Contato pelo Código o Contato
+        /// </summary>
+        /// <param name="codigoPessoa"></param>
+        /// <returns></returns>
+        public Contato ObterUltimoContato()
+        {
+            SqlCommand comando = new SqlCommand("select TOP (1) * from Contato ORDER BY CodigoContato DESC", base.Conectar());
+           
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Contato objContato = null;
+
+            if (leitorDados.Read())
+            {
+                objContato = new Contato();
+
+                objContato.CodigoContato = Convert.ToInt32(leitorDados["codigoContato"]);
+                objContato.Logradouro = leitorDados["Logradouro"].ToString();
+                objContato.Numero = leitorDados["Numero"].ToString();
+                objContato.Bairro = leitorDados["Bairro"].ToString();
+                objContato.Cidade = leitorDados["Cidade"].ToString();
+                objContato.Estado = leitorDados["Estado"].ToString();
+                objContato.Pais = leitorDados["Pais"].ToString();
+                objContato.CEP = leitorDados["CEP"].ToString();
+                objContato.TelefoneConvencional = leitorDados["TelefoneConvencional"].ToString();
+                objContato.TelefoneCelular = leitorDados["TelefoneCelular"].ToString();
+                objContato.FAX = leitorDados["FAX"].ToString();
+                objContato.Email = leitorDados["Email"].ToString();
+                objContato.Site = leitorDados["Site"].ToString();
+                objContato.Blog = leitorDados["Blog"].ToString();
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
             return objContato;
         }
+
 
         /// <summary>
         /// Obtém o Contato pelo Código o Contato

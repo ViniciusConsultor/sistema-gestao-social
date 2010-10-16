@@ -16,21 +16,23 @@ namespace SGS.CamadaDados
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
 
-
+            ContatoDados objContatoDados = new ContatoDados();
+            objCasaLar.Contato = objContatoDados.Salvar(objCasaLar.Contato); 
+            
             if (!objCasaLar.CodigoCasaLar.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO CasaLar (Contato_CodigoContato, NomeCasaLar, CNPJ, Alvara, DataFundacao, Historia, Gestor, StatusCasaLar,
-                           QtdMaxAssistidos, QtdAssistidos, Foto, EmailGestor, TelefoneGestor)
+                    @"INSERT INTO CasaLar (CodigoContato, NomeCasaLar, CNPJ, Alvara, DataFundacao, Historia, Gestor, Status,
+                           QtdMaximaAssistidos, QtdAssistidos, Foto, EmailGestor, TelefoneGestor)
                     VALUES (@contato_CodigoContato, @nomeCasaLar, @cnpj, @alvara, @dataFundacao, @historia, @gestor, @statusCasaLar, 
                             @qtdMaxAssistidos, @qtdAssistidos, @foto, @emailGestor, @telefoneGestor)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Pessoa SET Contato_CodigoContato = @contato_CodigoContato, NomeCasaLar = @nomeCasaLar, CNPJ = @cnpj,
-                        Alvara = @alvara, DataFundacao = @dataFundacao, Historia = @historia, gestor = @gestor, 
-                        StatusCasaLar = @statusCasaLar, QtdMaxAssistidos = @qtdMaxAssistidos, QtdAssistidos = @qtdAssistidos,
+                    @"UPDATE CasaLar SET CodigoContato = @contato_CodigoContato, NomeCasaLar = @nomeCasaLar, CNPJ = @cnpj,
+                        Alvara = @alvara, DataFundacao = @dataFundacao, Historia = @historia, Gestor = @gestor, 
+                        Status = @statusCasaLar, QtdMaximaAssistidos = @qtdMaxAssistidos, QtdAssistidos = @qtdAssistidos,
                         Foto = @foto, EmailGestor = @emailGestor, TelefoneGestor = @telefoneGestor
                         WHERE (CodigoCasaLar = @codigoCasaLar)";
             }
@@ -44,9 +46,9 @@ namespace SGS.CamadaDados
             }
 
             SqlParameter parametroContato_CodigoContato = new SqlParameter();
-            if (objCasaLar.CodigoContato.HasValue)
+            if (objCasaLar.Contato.CodigoContato.HasValue)
             {
-                parametroContato_CodigoContato.Value = objCasaLar.CodigoContato.Value;
+                parametroContato_CodigoContato.Value = objCasaLar.Contato.CodigoContato.Value;
                 parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
                 parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
             }
@@ -112,6 +114,46 @@ namespace SGS.CamadaDados
             comando.ExecuteNonQuery();
 
             //TODO: retorno entidade CasaLar com o Código da casaLAr Preenchido
+            return ObterUltimaCasaLarInserida();
+        }
+
+        /// <summary>
+        /// Obtém o código da última CasaLar Inserida
+        /// </summary>
+        /// <param name="codigoCasaLar"></param>
+        /// <returns></returns>
+        public CasaLar ObterUltimaCasaLarInserida()
+        {
+            SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM CasaLar ORDER BY CodigoCasaLar DESC", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            CasaLar objCasaLar = null;
+
+            if (leitorDados.Read())
+            {
+                objCasaLar = new CasaLar();
+
+                objCasaLar.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objCasaLar.CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                objCasaLar.Alvara = leitorDados["Alvara"].ToString();
+                objCasaLar.CNPJ = leitorDados["CNPJ"].ToString();
+                objCasaLar.DataFundacao = Convert.ToDateTime(leitorDados["DataFundacao"]);
+                objCasaLar.EmailGestor = leitorDados["EmailGestor"].ToString();
+                objCasaLar.Foto = leitorDados["Foto"].ToString();
+                objCasaLar.Gestor = leitorDados["Gestor"].ToString();
+                objCasaLar.Historia = leitorDados["Historia"].ToString();
+                objCasaLar.NomeCasaLar = leitorDados["NomeCasaLar"].ToString();
+                objCasaLar.QtdAssistidos = Convert.ToInt32(leitorDados["QtdAssistidos"]);
+                objCasaLar.QtdMaxAssistidos = Convert.ToInt32(leitorDados["QtdMaximaAssistidos"]);
+                objCasaLar.StatusCasaLar = leitorDados["Status"].ToString();
+                objCasaLar.TelefoneGestor = leitorDados["TelefoneGestor"].ToString();
+               
+               
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
             return objCasaLar;
         }
 
@@ -122,7 +164,7 @@ namespace SGS.CamadaDados
         /// <returns></returns>
         public CasaLar ObterCasaLar(int codigoCasaLar)
         {
-            SqlCommand comando = new SqlCommand("select * from Casa_Lar where CodigoCasaLar = @codigoCasaLar", base.Conectar());
+            SqlCommand comando = new SqlCommand("select * from CasaLar where CodigoCasaLar = @codigoCasaLar", base.Conectar());
             SqlParameter parametroCodigoCasaLar = new SqlParameter("@codigoCasaLar", codigoCasaLar);
             parametroCodigoCasaLar.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoCasaLar);
@@ -147,8 +189,8 @@ namespace SGS.CamadaDados
                 objCasaLar.QtdAssistidos = Convert.ToInt32(leitorDados["QtdAssistidos"]);
                ///TODO: Maycon
                ///objCasaLar.Foto = leitorDados["Foto"].ToString();
-                objCasaLar.EmailGestor = leitorDados["EmailGestor"].ToString();
-                objCasaLar.TelefoneGestor = leitorDados["TelefoneGestor"].ToString();
+                
+              
             }
 
             if (objCasaLar != null && objCasaLar.CodigoContato != null)

@@ -16,6 +16,15 @@ namespace SGS.Servicos
         /// </summary>
         /// <param name="codigoCasaLar"> Representa o código da Casa Lar</param>
         /// <returns></returns>
+
+        public CasaLar SalvarCasaLar(CasaLar objCasaLar)
+        {
+            CasaLarDados objCasaLarDados = new CasaLarDados();
+
+            objCasaLar = objCasaLarDados.Salvar(objCasaLar);
+
+            return objCasaLar;
+        }
         public CasaLar ObterCasaLar(int codigoCasaLar)
         {
             CasaLarDados objCasaLarDados = new CasaLarDados();
@@ -23,6 +32,12 @@ namespace SGS.Servicos
             return objCasaLarDados.ObterCasaLar(codigoCasaLar);
         }
 
+        public bool ExcluirCasaLar(int codigoCasaLar)
+        {
+            CasaLarDados objCasaLarDados = new CasaLarDados();
+
+            return objCasaLarDados.ExcluirCasaLar(codigoCasaLar);
+        }
 
     }
 }
