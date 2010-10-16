@@ -34,7 +34,7 @@ namespace ProjetoTela.View.CasaLar
         {
             SGSServico sgsServico = new SGSServico();
 
-           /// SGSCasaLar = sgsServico.SalvarCasaLar(PegarDadosView());
+            SGSCasaLar = sgsServico.SalvarCasaLar(PegarDadosView());
 
             string url = @"ManterCasaLar.aspx?tipo=alt&cod=" + SGSCasaLar.CodigoCasaLar.Value.ToString();
             Response.Redirect(url);
@@ -63,7 +63,7 @@ namespace ProjetoTela.View.CasaLar
         {
             SGSServico objSGSServico = new SGSServico();
 
-           /// if (objSGSServico.ExcluirCasaLar(SGSCasaLar.CodigoCasaLar.Value))
+           if (objSGSServico.ExcluirCasaLar(SGSCasaLar.CodigoCasaLar.Value))
                 ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Casa Lar excluída com sucesso!'); </script>");
 
             Response.Redirect("ConsultarCasaLar.aspx");
@@ -95,7 +95,6 @@ namespace ProjetoTela.View.CasaLar
                 if (SGSCasaLar != null)
                     this.PreencherDadosView();
                 else
-                    //TODO: MAycon colocar pagina correta (desconsiderar)
                     Server.Transfer("ConsultarCasaLar.aspx"); //transfere usuário para tela de Consulta
             }
             else
@@ -112,6 +111,7 @@ namespace ProjetoTela.View.CasaLar
         private SGS.Entidades.CasaLar PegarDadosView()
         {
             SGS.Entidades.CasaLar objCasaLar = SGSCasaLar;
+            objCasaLar.Contato = new Contato(); 
 
             objCasaLar.NomeCasaLar = txtNome.Text;
             objCasaLar.Alvara = txtAlvara.Text;
@@ -125,7 +125,7 @@ namespace ProjetoTela.View.CasaLar
             objCasaLar.StatusCasaLar = ddlStatus.SelectedValue;
             objCasaLar.TelefoneGestor = txtTelefoneGestor.Text;
            ///TODO: Maycon
-           ///objCasaLar.Foto = uploadFoto
+            objCasaLar.Foto = "bla";
             objCasaLar.Contato.Bairro = txtBairro.Text;
             objCasaLar.Contato.Blog = txtBlog.Text;
             objCasaLar.Contato.CEP = txtCEP.Text;
@@ -137,21 +137,44 @@ namespace ProjetoTela.View.CasaLar
             objCasaLar.Contato.Numero = txtNumero.Text;
             objCasaLar.Contato.Pais = ddlPais.SelectedValue;
             objCasaLar.Contato.TelefoneCelular = txtTelefoneCelular.Text;
-            objCasaLar.Contato.TelefoneConvencional = txtTelefone.Text;         
-                                 
+            objCasaLar.Contato.TelefoneConvencional = txtTelefone.Text;
+            objCasaLar.Contato.Site = txtSite.Text;
+            
+      
             return objCasaLar;
         }
 
         /// <summary>
-        /// Preenche a View com os dados que estão na entidade Login
+        /// Preenche a View com os dados que estão na entidade CasaLar
         /// </summary>
         private void PreencherDadosView()
         {
             txtNome.Text = SGSCasaLar.NomeCasaLar;
             txtAlvara.Text = SGSCasaLar.Alvara;
-           
-            //TODO: Jonathan Para todos os outros campos
-
+            txtBairro.Text = SGSCasaLar.Contato.Bairro;
+            txtBlog.Text = SGSCasaLar.Contato.Blog;
+            txtCEP.Text = SGSCasaLar.Contato.CEP;
+            txtCidade.Text = SGSCasaLar.Contato.Cidade;
+            txtCNPJ.Text = SGSCasaLar.CNPJ;
+            txtDataFundacao.Text = SGSCasaLar.DataFundacao.Value.ToString();
+            txtEmail.Text = SGSCasaLar.Contato.Email;
+            txtEmailGestor.Text = SGSCasaLar.EmailGestor;
+            txtFax.Text = SGSCasaLar.Contato.FAX;
+            ddlEstado.SelectedValue = SGSCasaLar.Contato.Estado;
+            ddlPais.SelectedValue = SGSCasaLar.Contato.Pais;
+            ddlStatus.SelectedValue = SGSCasaLar.Contato.Pais;
+            txtGestor.Text = SGSCasaLar.Gestor;
+            txtHistoria.Text = SGSCasaLar.Historia;
+            ///TODO: Maycon
+            ///uploadFoto
+            txtLogradouro.Text = SGSCasaLar.Contato.Logradouro;
+            txtNumero.Text = SGSCasaLar.Contato.Numero;
+            txtQtdAssistidos.Text = SGSCasaLar.QtdAssistidos.Value.ToString();
+            txtQtdMaximo.Text = Convert.ToString(SGSCasaLar.QtdMaxAssistidos.Value);
+            txtSite.Text = SGSCasaLar.Contato.Site;
+            txtTelefone.Text = SGSCasaLar.Contato.TelefoneConvencional;
+            txtTelefoneCelular.Text = SGSCasaLar.Contato.TelefoneCelular;
+            txtTelefoneGestor.Text = SGSCasaLar.TelefoneGestor;
         }
         
         #endregion
