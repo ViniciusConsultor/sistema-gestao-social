@@ -103,19 +103,18 @@ namespace SGS.View.LoginUI
 
             if (Request.QueryString["tipo"] == "alt")
             {
-                ////* View/LoginUI/ManterLogin.aspx?tipo=alt&cod=1
                 lblTitulo.Text = "Alterar Login";
                 lblDescricao.Text = "Descrição: Permite cadastrar os logins de acesso ao sistema.";
                 btnExcluir.Visible = true;
+                validatorSenha.Enabled = false;
                 SGSLogin.CodigoLogin = Convert.ToInt32(Request.QueryString["cod"]);
-                //SGSLogin.CodigoLogin = 1;
 
                 SGSLogin = objSGSServico.ObterLogin(SGSLogin.CodigoLogin.Value);
 
                 if (SGSLogin != null)
                     this.PreencherDadosView();
                 else
-                    Server.Transfer("bla.aspx"); //transfere usuário para tela de usuário não encontrado
+                    Server.Transfer("bla.aspx"); //TODO: Maycon transfere usuário para tela de usuário não encontrado
             }
             else
             {
@@ -135,7 +134,8 @@ namespace SGS.View.LoginUI
             objLogin.LoginUsuario = txtLogin.Text;
             objLogin.Nome = txtNome.Text;
             objLogin.Perfil = ddlPerfil.SelectedValue;
-            objLogin.Senha = txtSenha.Text;
+            if (txtSenha.Text != "")
+                objLogin.Senha = txtSenha.Text;
 
             return objLogin;
         }

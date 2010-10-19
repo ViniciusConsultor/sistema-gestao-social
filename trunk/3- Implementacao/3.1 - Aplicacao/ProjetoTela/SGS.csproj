@@ -80,6 +80,7 @@
     <Content Include="View\Apresentacao.aspx" />
     <Content Include="View\CasaLar\ConsultarCasaLar.aspx" />
     <Content Include="View\CasaLar\ManterCasaLar.aspx" />
+    <Content Include="View\Codificacao.aspx" />
     <Content Include="View\Escolar\ConsultarEscolar.aspx" />
     <Content Include="View\Escolar\ManterEscolar.aspx" />
     <Content Include="View\Financas\AltFinancas.aspx" />
@@ -93,9 +94,6 @@
     <Content Include="View\Financas\Cad_Financas.aspx" />
     <Content Include="View\CasaLar\AltCasaLar.aspx" />
     <Content Include="View\CasaLar\ConCasaLar.aspx" />
-    <Content Include="View\LoginUI\AltLogin.aspx" />
-    <Content Include="View\LoginUI\CadLogin.aspx" />
-    <Content Include="View\LoginUI\ConLogin.aspx" />
     <Content Include="View\Pessoa\ConPessoa.aspx" />
     <Content Include="View\Pessoa\ConsultarPessoa.aspx" />
     <Content Include="View\Pessoa\ManterPessoa.aspx" />
@@ -171,6 +169,7 @@
     <Compile Include="CamadaDados\ProcedimentosDados.cs" />
     <Compile Include="CamadaDados\VisitacaoDados.cs" />
     <Compile Include="CamadaDados\VoluntarioDados.cs" />
+    <Compile Include="Componentes\Criptografia.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -277,6 +276,13 @@
     <Compile Include="View\CasaLar\ManterCasaLar.aspx.designer.cs">
       <DependentUpon>ManterCasaLar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Codificacao.aspx.cs">
+      <DependentUpon>Codificacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Codificacao.aspx.designer.cs">
+      <DependentUpon>Codificacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Escolar\ConsultarEscolar.aspx.cs">
       <DependentUpon>ConsultarEscolar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,27 +373,6 @@
     </Compile>
     <Compile Include="View\CasaLar\ConCasaLar.aspx.designer.cs">
       <DependentUpon>ConCasaLar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoginUI\AltLogin.aspx.cs">
-      <DependentUpon>AltLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\LoginUI\AltLogin.aspx.designer.cs">
-      <DependentUpon>AltLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoginUI\CadLogin.aspx.cs">
-      <DependentUpon>CadLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\LoginUI\CadLogin.aspx.designer.cs">
-      <DependentUpon>CadLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoginUI\ConLogin.aspx.cs">
-      <DependentUpon>ConLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\LoginUI\ConLogin.aspx.designer.cs">
-      <DependentUpon>ConLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Pessoa\ConPessoa.aspx.cs">
       <DependentUpon>ConPessoa.aspx</DependentUpon>

@@ -154,7 +154,7 @@
                 E-mail
             </td>
             <td class="style8" colspan="2">
-                <asp:TextBox ID="txtEmail" runat="server" MaxLength="6" Width="180px"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" MaxLength="50" Width="180px"></asp:TextBox>
                 &nbsp;&nbsp;
             </td>
             <td>
