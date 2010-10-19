@@ -20,6 +20,11 @@ namespace SGS.View.LoginUI
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
+            if (DadosAcesso.Perfil != "Gestor")
+            {
+                Server.Transfer("../SemPermissao.aspx");
+            }
         }
 
         /// <summary>
@@ -49,6 +54,18 @@ namespace SGS.View.LoginUI
         protected void btnLimpar_Click(object sender, EventArgs e)
         {
             Server.Transfer("ConsultarLogin.aspx");
+        }
+
+        /// <summary>
+        /// Este método é executado quando o usuário clica em 
+        /// algum número do paginador da Grid View
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridLogin_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridLogin.PageIndex = e.NewPageIndex;
+            GridLoginDataSource = LoginDTO.LoginLista;
         }
 
         #endregion
@@ -92,8 +109,6 @@ namespace SGS.View.LoginUI
         }
 
         #endregion
-
-        
 
     }
 }

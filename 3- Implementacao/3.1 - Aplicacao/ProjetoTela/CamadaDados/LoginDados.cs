@@ -6,6 +6,7 @@ using System.Web;
 using SGS.Entidades;
 using System.Data.SqlClient;
 using SGS.Entidades.DTO;
+using SGS.Componentes;
 
 namespace SGS.CamadaDados
 {
@@ -25,7 +26,7 @@ namespace SGS.CamadaDados
 
             parametroLogin.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroSenha = new SqlParameter("@senha", objLogin.Senha);
+            SqlParameter parametroSenha = new SqlParameter("@senha", objLogin.SenhaCriptografada);
             parametroSenha.DbType = System.Data.DbType.String;
 
             SqlDataReader leitorDados;
@@ -101,7 +102,7 @@ namespace SGS.CamadaDados
             SqlParameter parametroPerfil = new SqlParameter("@perfil", objLogin.Perfil);
             parametroPerfil.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroSenha = new SqlParameter("@senha", objLogin.Senha);
+            SqlParameter parametroSenha = new SqlParameter("@senha", objLogin.SenhaCriptografada);
             parametroSenha.DbType = System.Data.DbType.String;
 
             comando.Parameters.Add(parametroNome);
@@ -136,7 +137,7 @@ namespace SGS.CamadaDados
                 objLogin.LoginUsuario = leitorDados["Login"].ToString();
                 objLogin.Email = leitorDados["Email"].ToString();
                 objLogin.Nome = leitorDados["Nome"].ToString();
-                objLogin.Senha = leitorDados["Senha"].ToString();
+                objLogin.Senha = Criptografia.Descriptografar(leitorDados["Senha"].ToString(), "Protetor");
                 objLogin.Perfil = leitorDados["Perfil"].ToString();
             }
 
@@ -169,7 +170,7 @@ namespace SGS.CamadaDados
                 objLogin.LoginUsuario = leitorDados["Login"].ToString();
                 objLogin.Email = leitorDados["Email"].ToString();
                 objLogin.Nome = leitorDados["Nome"].ToString();
-                objLogin.Senha = leitorDados["Senha"].ToString();
+                objLogin.Senha = Criptografia.Descriptografar(leitorDados["Senha"].ToString(), "Protetor");
                 objLogin.Perfil = leitorDados["Perfil"].ToString();
             }
 
@@ -244,7 +245,7 @@ namespace SGS.CamadaDados
                 objLogin.LoginUsuario = leitorDados["Login"].ToString();
                 objLogin.Email = leitorDados["Email"].ToString();
                 objLogin.Nome = leitorDados["Nome"].ToString();
-                objLogin.Senha = leitorDados["Senha"].ToString();
+                objLogin.Senha = Criptografia.Descriptografar(leitorDados["Senha"].ToString(), "Protetor");
                 objLogin.Perfil = leitorDados["Perfil"].ToString();
 
                 loginLista.Add(objLogin);

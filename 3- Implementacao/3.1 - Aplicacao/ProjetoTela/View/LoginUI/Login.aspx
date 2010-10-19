@@ -27,7 +27,7 @@
         <td class="style8" style="text-align: right">
             Login</td>
         <td>
-            <asp:TextBox ID="txtNome" runat="server" Width="150px"></asp:TextBox>
+            <asp:TextBox ID="txtNome" runat="server" Width="150px" MaxLength="10"></asp:TextBox>
             <asp:RequiredFieldValidator ID="validatorNome" runat="server" 
                 ControlToValidate="txtNome" ErrorMessage="Preencha o campo Login" 
                 ForeColor="#CC0000" style="text-align: center">*</asp:RequiredFieldValidator>
@@ -37,7 +37,8 @@
         <td class="style8" style="text-align: right">
             Senha</td>
         <td>
-            <asp:TextBox ID="txtSenha" runat="server" Width="151px" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="txtSenha" runat="server" Width="151px" TextMode="Password" 
+                MaxLength="6"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="txtSenha" ErrorMessage="Preencha o campo Senha" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>

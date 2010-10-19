@@ -6,6 +6,7 @@
             {
                 font-size: smaller;
                 text-align: right;
+                text-decoration: underline;
             }
             .style7
             {
@@ -14,7 +15,13 @@
             }
             .style8
             {
+                width: 258px;
+            }
+            .style9
+            {
+                font-size: smaller;
                 text-align: right;
+                width: 258px;
             }
         </style>
 
@@ -34,13 +41,13 @@
     <table width="850px" align="left">
         <tr>
             <td class="style7"> &nbsp; </td>    
-            <td> &nbsp; <span class="style6"><strong>Filtro:</strong></span></td>
+            <td class="style8" align="right"> &nbsp;<span class="style6"><strong>Filtro</strong></span></td>
             <td> &nbsp; </td>
             <td> &nbsp; </td>
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td class="style8"> Login</td>
+            <td class="style9"> Login:</td>
             <td> 
                 <asp:TextBox ID="txtLogin" runat="server" Width="200px" MaxLength="10"></asp:TextBox>
             </td>
@@ -48,19 +55,19 @@
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td class="style8"> Nome</td>
+            <td class="style9"> Nome:</td>
             <td> 
-                <asp:TextBox ID="txtNome" runat="server" Width="199px" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtNome" runat="server" Width="200px" MaxLength="50"></asp:TextBox>
             </td>
             <td> &nbsp;</td>
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td style="text-align: right"> &nbsp; </td>
+            <td style="text-align: right" class="style8"> &nbsp; </td>
             <td> 
                 <asp:Button ID="btnLocalizar" runat="server" onclick="btnLocalizar_Click" 
-                    Text="Localizar" Width="95px" />
-&nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="95px" 
+                    Text="Localizar" Width="97px" />
+&nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="97px" 
                     onclick="btnLimpar_Click" />
             </td>
             <td> &nbsp;</td>
@@ -82,7 +89,8 @@
                 <asp:GridView ID="gridLogin" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
-                    BorderColor="#003399" HorizontalAlign="Center">
+                    BorderColor="#003399" HorizontalAlign="Center" AllowPaging="True" 
+                    onpageindexchanging="gridLogin_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoLogin" 
@@ -106,10 +114,13 @@
                     <EditRowStyle BackColor="#2461BF" BorderColor="#003399" />
                     <EmptyDataRowStyle Font-Bold="True" Font-Size="Small" ForeColor="Red" 
                         HorizontalAlign="Center" />
-                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" 
+                        Font-Size="Smaller" />
                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" Font-Size="Small" 
                         ForeColor="White" />
-                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <PagerSettings Mode="NumericFirstLast" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Right" 
+                        Font-Names="Verdana,Tahoma" Font-Size="Smaller" />
                     <RowStyle BackColor="#EFF3FB" Font-Size="Small" BorderColor="#003399" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F5F7FB" />

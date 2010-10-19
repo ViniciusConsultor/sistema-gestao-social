@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SGS.Componentes;
 
 namespace SGS.Entidades
 {
@@ -36,8 +37,27 @@ namespace SGS.Entidades
 
         public string Senha
         {
-            get { return _senha; }
-            set { _senha = value; }
+            get 
+            { 
+                //Este código Descriptografa a senha
+                return Criptografia.Descriptografar(_senha, "Protetor"); 
+            }
+            set 
+            {
+                //Este código Criptografa a senha
+                _senha = Criptografia.Criptografar(value, "Protetor"); 
+            }
+        }
+
+        /// <summary>
+        /// Esta propriedade retorna a senha criptografada do Login
+        /// </summary>
+        public string SenhaCriptografada
+        {
+            get
+            {
+                return _senha;
+            }
         }
 
         public string Email
