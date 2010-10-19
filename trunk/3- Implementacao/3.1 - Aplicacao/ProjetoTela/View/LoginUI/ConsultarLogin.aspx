@@ -90,7 +90,7 @@
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center" AllowPaging="True" 
-                    onpageindexchanging="gridLogin_PageIndexChanging">
+                    onpageindexchanging="gridLogin_PageIndexChanging" PageSize="4">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoLogin" 

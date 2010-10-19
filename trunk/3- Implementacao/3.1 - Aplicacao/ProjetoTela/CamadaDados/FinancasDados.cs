@@ -148,8 +148,11 @@ namespace SGS.CamadaDados
        SqlParameter paramTipoLancamentoValor = new SqlParameter("@tipoLancamentoValor", objFinancasDTO.TipoLancamentoValor);
        paramTipoLancamentoValor.DbType = System.Data.DbType.String;
 
-       SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", objFinancasDTO.DataLancamentoValor.HasValue);
-       paramDataLancamentoValor.DbType = System.Data.DbType.DateTime;
+       SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", System.Data.SqlDbType.DateTime);
+       if (objFinancasDTO.DataLancamentoValor.HasValue)
+           paramDataLancamentoValor.Value = objFinancasDTO.DataLancamentoValor.Value;
+       else
+           paramDataLancamentoValor.Value = DBNull.Value;
 
        SqlParameter paramDescricaoValor = new SqlParameter("@descricaoValor", "%" + objFinancasDTO.DescricaoValor + "%");
        paramDescricaoValor.DbType = System.Data.DbType.String;
@@ -158,11 +161,11 @@ namespace SGS.CamadaDados
 
        //Se o Tipo de Lancamento, Data Lancamento e Descricao preenchidos
        if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
-           sql += @" where TipoLancamento like @dataLancamentoValor or DataLancamento = @dataLancamentoValor or Observacao like @descricaoValor";
+           sql += @" where TipoLancamento = @tipoLancamentoValor or DataLancamento = @dataLancamentoValor or Observacao like @descricaoValor";
  
        //Se apenas TipoLancamento e DataLancamento preenchido
        else if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue)
-           sql += @" where TipoLancamento like @tipoLancamentoValor or DataLancamento = @dataLancamentoValor";
+           sql += @" where TipoLancamento = @tipoLancamentoValor or DataLancamento = @dataLancamentoValor";
  
        //Se apenas DataLancamento e DescricaoValor preenchido
        else if (objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
@@ -170,7 +173,7 @@ namespace SGS.CamadaDados
  
        //Se apenas Descricao e TipoLancamento preenchido
        else if (objFinancasDTO.DescricaoValor != "" && objFinancasDTO.TipoLancamentoValor != "Selecione")
-           sql += @" where Observacao like @descricaoValor or TipoLancamento like @tipoLancamentoValor";
+           sql += @" where Observacao like @descricaoValor or TipoLancamento = @tipoLancamentoValor";
  
        //Se apenas Descricao preenchido
        else if (objFinancasDTO.DescricaoValor != "")
@@ -178,10 +181,9 @@ namespace SGS.CamadaDados
  
        //Se apenas TipoLancamento preenchido
        else if (objFinancasDTO.TipoLancamentoValor != "Selecione")
-           sql += @" where TipoLancamento like @tipoLancamentoValor";
+           sql += @" where TipoLancamento = @tipoLancamentoValor";
  
        //Se apenas DataLancamento e DescricaoValor preenchido
-
        else if (objFinancasDTO.DataLancamentoValor.HasValue)
            sql += @" where DataLancamento = @dataLancamentoValor";
 
@@ -192,10 +194,6 @@ namespace SGS.CamadaDados
        comando.Parameters.Add(paramDescricaoValor);
 
        leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-
-
-
-
 
        List<Financas> financasLista = new List<Financas>();
        Financas objFinancas;
