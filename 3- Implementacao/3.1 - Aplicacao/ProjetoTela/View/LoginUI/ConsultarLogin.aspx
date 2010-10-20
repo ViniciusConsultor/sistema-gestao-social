@@ -65,8 +65,7 @@
             <td class="style7"> &nbsp;</td>    
             <td style="text-align: right" class="style8"> &nbsp; </td>
             <td> 
-                <asp:Button ID="btnLocalizar" runat="server" onclick="btnLocalizar_Click" 
-                    Text="Localizar" Width="97px" />
+                <asp:Button ID="btnLocalizar" runat="server" onclick="btnLocalizar_Click" Text="Localizar" Width="97px" />
 &nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="97px" 
                     onclick="btnLimpar_Click" />
             </td>
