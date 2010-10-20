@@ -128,22 +128,7 @@
                 <td>
                     &nbsp;</td>
             </tr>
-            <tr>
-                <td class="style8" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Data Criação</td>
-                <td class="style9">
-                    <asp:TextBox ID="txtDataCriacao" runat="server" Height="22px" Width="148px" 
-                        MaxLength="10" CssClass="mask-data"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="validatorDataCriacao" runat="server" 
-                        ControlToValidate="txtDataCriacao" ErrorMessage="Informe a Data de Criação" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
-                </td>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
+
             <tr>
                 <td class="style8" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
@@ -159,13 +144,31 @@
                 <td>
                     &nbsp;</td>
             </tr>
+
+            <tr>
+                <td class="style8" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Data Criação</td>
+                <td class="style9">
+                    <asp:TextBox ID="txtDataCriacao" runat="server" Height="22px" Width="148px" 
+                        MaxLength="10" CssClass="mask-data" Enabled="False"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="validatorDataCriacao" runat="server" 
+                        ControlToValidate="txtDataCriacao" ErrorMessage="Informe a Data de Criação" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            
             <tr>
                 <td class="style8" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Lançado Por</td>
                 <td class="style9">
                     <asp:TextBox ID="txtLancadoPor" runat="server" Height="22px" Width="148px" 
-                        MaxLength="50" Rows="20"></asp:TextBox>
+                        MaxLength="50" Rows="20" Enabled="False"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorLancadoPor" runat="server" 
                         ControlToValidate="txtLancadoPor" ErrorMessage="Preencha o campo Lançado Por" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>

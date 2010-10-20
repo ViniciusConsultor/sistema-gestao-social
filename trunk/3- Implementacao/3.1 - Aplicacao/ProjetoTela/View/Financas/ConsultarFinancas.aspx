@@ -11,15 +11,17 @@
         text-align: right;
         font-size: small;
     }
-        .style11
+        .style12
+    {
+        width: 200px;
+    }
+        .style9
     {
         text-align: right;
-        width: 200px;
+        font-size: smaller;
     }
-    .style12
-    {
-        width: 200px;
-    }
+    .mask-data
+    {}
         </style>
 
         <!-- Importa todos os script JavaScript-->
@@ -83,22 +85,23 @@
     <table width="850px" align="left">
         <tr>
             <td class="style7"> &nbsp; </td>    
-            <td class="style12"> &nbsp; <span class="style6"><strong>Filtro:</strong></span></td>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
-        </tr>
-        <tr>
-            <td class="style7"> &nbsp;</td>    
             <td class="style12"> &nbsp;</td>
+            <td> &nbsp; </td>
+            <td> &nbsp; </td>
+        </tr>
+        <tr>
+            <td class="style7"> &nbsp;</td>  
+            <td class="style8" align="right"> &nbsp;<span class="style6"><strong 
+                    style="text-align: right; font-size: smaller; text-decoration: underline;">Filtro</strong></span></td>
             <td> &nbsp;</td>
             <td> &nbsp;</td>
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td class="style11"> Tipo de Lançamento</td>
+            <td class="style9"> Tipo de Lançamento</td>
             <td> 
-                <asp:DropDownList ID="ddlTipoLancamento" runat="server" Height="22px" 
-                    Width="148px">
+                <asp:DropDownList ID="ddlTipoLancamento" runat="server" 
+                    Width="200px">
                     <asp:ListItem>Selecione</asp:ListItem>
                     <asp:ListItem>Receita</asp:ListItem>
                     <asp:ListItem>Despesa</asp:ListItem>
@@ -108,17 +111,18 @@
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td class="style11"> Data de Lançamento</td>
+            <td class="style9"> Data de Lançamento</td>
             <td> 
-                <asp:TextBox ID="txtDataLancamento" runat="server" Height="22px" Width="148px" CssClass="mask-data"></asp:TextBox>
+                <asp:TextBox ID="txtDataLancamento" runat="server" Width="200px" 
+                    CssClass="mask-data"></asp:TextBox>
             </td>
             <td> &nbsp;</td>
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td style="text-align: right" class="style12"> Descrição </td>
+            <td style="text-align: right" class="style9"> Descrição </td>
             <td> 
-                <asp:TextBox ID="txtDescricao" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                <asp:TextBox ID="txtDescricao" runat="server" Width="200px"></asp:TextBox>
             </td>
             <td> &nbsp;</td>
         </tr>
@@ -131,11 +135,11 @@
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td style="text-align: right" class="style12"> &nbsp; </td>
+            <td style="text-align: right" class="style8"> &nbsp; </td>
             <td> 
-                <asp:Button ID="btnLocalizar" runat="server" Text="Localizar" Width="95px" 
+                <asp:Button ID="btnLocalizar" runat="server" Text="Localizar" Width="97px" 
                     onclick="btnLocalizar_Click" />
-&nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="95px" 
+&nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="97px" 
                     onclick="btnLimpar_Click" />
             </td>
             <td> &nbsp;</td>
@@ -148,11 +152,13 @@
             <td> &nbsp;</td>
         </tr>
         <tr>
-            <td class="style7" colspan="4">  
+            <td colspan="4">  
                 <asp:GridView ID="gridFinancas" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
-                    GridLines="Horizontal" Width="91%" AutoGenerateColumns="False" 
-                    BorderColor="#003399" HorizontalAlign="Center" Height="147px">
+                    GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
+                    BorderColor="#003399" HorizontalAlign="Center" Height="147px" 
+                    AllowPaging="True" onpageindexchanging="gridFinancas_PageIndexChanging" 
+                    PageSize="2">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoFinancas" 
@@ -168,11 +174,12 @@
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="Valor" HeaderText="Valor">
+                        <asp:BoundField DataField="Valor" HeaderText="Valor" DataFormatString="{0:C2}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="DataLancamento" HeaderText="Data de Lançamento">
+                        <asp:BoundField DataField="DataLancamento" HeaderText="Data de Lançamento" 
+                            DataFormatString="{0:dd-M-yyyy}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -183,7 +190,8 @@
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" Font-Size="Small" 
                         ForeColor="White" />
-                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Right" 
+                        Font-Size="Smaller" />
                     <RowStyle BackColor="#EFF3FB" Font-Size="Small" BorderColor="#003399" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F5F7FB" />

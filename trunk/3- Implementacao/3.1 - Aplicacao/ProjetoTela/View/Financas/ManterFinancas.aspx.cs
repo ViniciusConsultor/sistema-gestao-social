@@ -43,8 +43,8 @@ namespace SGS.View.Financas
 
             ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
 
-            //string url = @"ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString();
-            //Server.Transfer(url);
+            string url = @"ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString();
+            Server.Transfer(url);
             
         }
 
@@ -101,6 +101,7 @@ namespace SGS.View.Financas
 
                 SGSFinancas = objSGSServico.ObterFinancas(SGSFinancas.CodigoFinancas.Value);
 
+
                 if (SGSFinancas != null)
                     this.PreencherDadosView();
                 else
@@ -111,6 +112,8 @@ namespace SGS.View.Financas
                 lblTitulo.Text = "Cadastrar Financas";
                 lblDescricao.Text = "Descrição: Permite cadastrar os Financas Casa Lar.";
                 btnExcluir.Visible = false;
+                txtDataCriacao.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                txtLancadoPor.Text = DadosAcesso.SessaoDTO.Login.LoginUsuario;
             }
         }
 
@@ -123,7 +126,7 @@ namespace SGS.View.Financas
             objFinancas.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
             objFinancas.TipoLancamento = ddlTipoLancamento.SelectedValue;
             objFinancas.DataLancamento = Convert.ToDateTime(txtDataLancamento.Text);
-            objFinancas.DataCriacao = Convert.ToDateTime(txtDataCriacao.Text);
+            objFinancas.DataCriacao = DateTime.Now;
             objFinancas.Valor = Convert.ToDecimal(txtValor.Text);
             objFinancas.LancadoPor = txtLancadoPor.Text;
             objFinancas.Observacao = txtObservacao.Text;

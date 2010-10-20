@@ -72,8 +72,18 @@ namespace SGS.View.Financas
             Response.Redirect("ConsultarFinancas.aspx");
         }
 
-        #endregion
+        /// <summary>
+        /// Esse método é responsável pela paginação da GridFinancas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridFinancas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridFinancas.PageIndex = e.NewPageIndex;
+            GridFinancasDataSource = FinancasDTO.FinancasLista;
+        }
 
+        #endregion
 
         #region Metodos
 
@@ -154,8 +164,6 @@ namespace SGS.View.Financas
         }
 
         #endregion
-
-
 
     }
 }

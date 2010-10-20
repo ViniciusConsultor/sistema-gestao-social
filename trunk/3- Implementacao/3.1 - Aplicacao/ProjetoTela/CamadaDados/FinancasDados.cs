@@ -88,7 +88,7 @@ namespace SGS.CamadaDados
        
         comando.ExecuteNonQuery();
 
-        return objFinancas;
+        return ObterUltimaFinancasInserida();
     }
 
    public Financas ObterFinancas(int codigoFinancas)
@@ -121,6 +121,37 @@ namespace SGS.CamadaDados
 
             return objFinancas;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Financas ObterUltimaFinancasInserida()
+        {
+            SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Financas ORDER BY CodigoFinancas DESC", base.Conectar());
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Financas objFinancas = null;
+
+            if (leitorDados.Read())
+            {
+                objFinancas = new Financas();
+
+                objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["codigoFinancas"]);
+                objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
+                objFinancas.DataCriacao =  Convert.ToDateTime(leitorDados["DataCriacao"]);
+                objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
+                objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
+                objFinancas.Observacao = leitorDados["Observacao"].ToString();
+                
+            }
+    
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objFinancas;
+   }
 
    public bool ExcluirFinancas(int codigoFinancas)
     {
@@ -194,6 +225,8 @@ namespace SGS.CamadaDados
        comando.Parameters.Add(paramDescricaoValor);
 
        leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+
 
        List<Financas> financasLista = new List<Financas>();
        Financas objFinancas;
