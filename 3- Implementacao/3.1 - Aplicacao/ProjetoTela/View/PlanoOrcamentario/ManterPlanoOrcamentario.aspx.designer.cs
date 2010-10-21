@@ -40,6 +40,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtNomePlano;
         
         /// <summary>
+        /// validatorNomePlano control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorNomePlano;
+        
+        /// <summary>
         /// txtInicioVigencia control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInicioVigencia;
+        
+        /// <summary>
+        /// validatorInicioVigencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorInicioVigencia;
         
         /// <summary>
         /// txtFimVigencia control.
@@ -58,22 +76,13 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtFimVigencia;
         
         /// <summary>
-        /// ddlStatus control.
+        /// validatorFimVigencia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
-        
-        /// <summary>
-        /// txtValorTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorTotal;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorFimVigencia;
         
         /// <summary>
         /// txtValorEstimado control.
@@ -85,6 +94,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtValorEstimado;
         
         /// <summary>
+        /// validatorValorEstimado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorEstimado;
+        
+        /// <summary>
         /// txtValorDisponivel control.
         /// </summary>
         /// <remarks>
@@ -92,6 +110,33 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtValorDisponivel;
+        
+        /// <summary>
+        /// validatorValorDisponivel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorDisponivel;
+        
+        /// <summary>
+        /// ddlStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+        
+        /// <summary>
+        /// validatorStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorStatus;
         
         /// <summary>
         /// txtNomeGasto control.
@@ -103,6 +148,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtNomeGasto;
         
         /// <summary>
+        /// validatorNomeGasto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorNomeGasto;
+        
+        /// <summary>
         /// txtValorGasto control.
         /// </summary>
         /// <remarks>
@@ -110,6 +164,15 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtValorGasto;
+        
+        /// <summary>
+        /// validatorValorGasto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorGasto;
         
         /// <summary>
         /// txtDataGasto control.
@@ -121,31 +184,13 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtDataGasto;
         
         /// <summary>
-        /// txtQtdParcelas control.
+        /// validatorDataGasto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQtdParcelas;
-        
-        /// <summary>
-        /// txtGastoTotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGastoTotal;
-        
-        /// <summary>
-        /// txtMediaGastoMensal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMediaGastoMensal;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorDataGasto;
         
         /// <summary>
         /// btnSalvar control.
@@ -173,5 +218,14 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }
