@@ -29,7 +29,7 @@ namespace SGS.CamadaDados
             else
             {
                 comando.CommandText =
-                    @"UPDATE Pessoa SET Logradouro = @logradouro, Numero = @numero, Bairro = @bairro, Cidade = @cidade, Estado = @estado, 
+                    @"UPDATE Contato SET Logradouro = @logradouro, Numero = @numero, Bairro = @bairro, Cidade = @cidade, Estado = @estado, 
                         Pais = @pais, CEP = @cep, TelefoneConvencional = @telefoneConvencional, TelefoneCelular = @telefoneCelular,
                         FAX = @fax, Email = @email, Site = @site, Blog = @blog
                         WHERE (CodigoContato = @codigocontato)";
@@ -99,7 +99,15 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            return ObterUltimoContato();
+            if (!objContato.CodigoContato.HasValue)
+            {
+                return ObterUltimoContato();
+            }
+            else
+            {
+                return objContato;
+            }
+          
         }
 
         /// <summary>

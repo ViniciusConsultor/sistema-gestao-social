@@ -111,7 +111,6 @@ namespace ProjetoTela.View.CasaLar
         private SGS.Entidades.CasaLar PegarDadosView()
         {
             SGS.Entidades.CasaLar objCasaLar = SGSCasaLar;
-            objCasaLar.Contato = new Contato(); 
 
             objCasaLar.NomeCasaLar = txtNome.Text;
             objCasaLar.Alvara = txtAlvara.Text;
@@ -162,7 +161,7 @@ namespace ProjetoTela.View.CasaLar
             txtFax.Text = SGSCasaLar.Contato.FAX;
             ddlEstado.SelectedValue = SGSCasaLar.Contato.Estado;
             ddlPais.SelectedValue = SGSCasaLar.Contato.Pais;
-            ddlStatus.SelectedValue = SGSCasaLar.Contato.Pais;
+            ddlStatus.SelectedValue = SGSCasaLar.StatusCasaLar;
             txtGestor.Text = SGSCasaLar.Gestor;
             txtHistoria.Text = SGSCasaLar.Historia;
             ///TODO: Maycon
