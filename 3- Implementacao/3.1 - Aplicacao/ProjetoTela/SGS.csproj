@@ -94,6 +94,7 @@
     <Content Include="View\Pessoa\ConPessoa.aspx" />
     <Content Include="View\Pessoa\ConsultarPessoa.aspx" />
     <Content Include="View\Pessoa\ManterPessoa.aspx" />
+    <Content Include="View\Pessoa\PessoaDadosBasico.ascx" />
     <Content Include="View\PlanoOrcamentario\ConsultarPlanoOrcamentario.aspx" />
     <Content Include="View\PlanoOrcamentario\ManterPlanoOrcamentario.aspx" />
     <Content Include="View\Procedimentos\ConsultarProcedimentos.aspx" />
@@ -370,6 +371,13 @@
     </Compile>
     <Compile Include="View\Pessoa\ManterPessoa.aspx.designer.cs">
       <DependentUpon>ManterPessoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaDadosBasico.ascx.cs">
+      <DependentUpon>PessoaDadosBasico.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaDadosBasico.ascx.designer.cs">
+      <DependentUpon>PessoaDadosBasico.ascx</DependentUpon>
     </Compile>
     <Compile Include="View\PlanoOrcamentario\ConsultarPlanoOrcamentario.aspx.cs">
       <DependentUpon>ConsultarPlanoOrcamentario.aspx</DependentUpon>

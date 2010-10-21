@@ -13,5 +13,29 @@ namespace SGS.View.Pessoa
         {
 
         }
+
+        protected void ddlTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList objDropDownList = (DropDownList)sender;
+
+            if (objDropDownList.SelectedValue == "Selecione")
+            {
+                ucPessoaDadosBasico.Visible = false;
+            }
+            else if (objDropDownList.SelectedValue == "Assistido")
+            {
+                ucPessoaDadosBasico.Visible = true;
+            }
+            else if (objDropDownList.SelectedValue == "Funcionario")
+            {
+                ucPessoaDadosBasico.Visible = true;
+            }
+            else if (objDropDownList.SelectedValue == "Voluntario")
+            {
+
+                ucPessoaDadosBasico.Visible = true;
+            }
+
+        }
     }
 }
