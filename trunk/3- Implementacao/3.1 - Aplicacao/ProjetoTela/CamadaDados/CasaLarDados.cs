@@ -187,6 +187,10 @@ namespace SGS.CamadaDados
                 objCasaLar.StatusCasaLar = leitorDados["Status"].ToString();
                 objCasaLar.QtdMaxAssistidos = Convert.ToInt32(leitorDados["QtdMaximaAssistidos"]);
                 objCasaLar.QtdAssistidos = Convert.ToInt32(leitorDados["QtdAssistidos"]);
+                objCasaLar.TelefoneGestor = leitorDados["TelefoneGestor"].ToString();
+                objCasaLar.EmailGestor = leitorDados["EmailGestor"].ToString();
+                
+
                ///TODO: Maycon
                ///objCasaLar.Foto = leitorDados["Foto"].ToString();
                 

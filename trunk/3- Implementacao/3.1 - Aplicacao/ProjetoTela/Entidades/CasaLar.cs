@@ -8,6 +8,12 @@ namespace SGS.Entidades
     [Serializable]
     public class CasaLar
     {
+
+        public CasaLar()
+        {
+            this.Contato = new Contato();
+        }
+
         private int? _codigoCasaLar;
         private int? _contato_CodigoContato;
         private string _nomeCasaLar;
