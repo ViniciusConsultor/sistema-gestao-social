@@ -22,10 +22,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
  <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" 
+        Text="Cadastrar Plano Orçamentário"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" Text=""></asp:Label> 
+        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text="Descrição: Permite cadastrar um Plano Orçamentário para a Casa Lar."></asp:Label> 
         
         <br /><br />
  </span>
@@ -37,6 +39,22 @@
                     Nome do Plano </td>
                 <td>
                     <asp:TextBox ID="txtNomePlano" runat="server" CssClass="style8" MaxLength="25"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
+                    class="style9">
+                    Início de Vigência</td>
+                <td>
+                    <asp:TextBox ID="txtInicioVigencia" runat="server" MaxLength="10" Width="148px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
+                    class="style9">
+                    Fim de Vigência</td>
+                <td>
+                    <asp:TextBox ID="txtFimVigencia" runat="server" MaxLength="10" Width="148px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -52,6 +70,13 @@
                         <asp:ListItem>A Realizar</asp:ListItem>
                     </asp:DropDownList>
                 </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style9" 
@@ -123,22 +148,6 @@
                     Média de Gasto Mensal</td>
                 <td>
                     <asp:TextBox ID="txtMediaGastoMensal" runat="server" CssClass="style8"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
-                    class="style9">
-                    Início de Vigência</td>
-                <td>
-                    <asp:TextBox ID="txtInicioVigencia" runat="server" MaxLength="10" Width="148px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA;" 
-                    class="style9">
-                    Fim de Vigência</td>
-                <td>
-                    <asp:TextBox ID="txtFimVigencia" runat="server" MaxLength="10" Width="148px"></asp:TextBox>
                 </td>
             </tr>
             </table>

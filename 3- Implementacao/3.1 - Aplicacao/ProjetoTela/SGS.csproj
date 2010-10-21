@@ -83,15 +83,12 @@
     <Content Include="View\Codificacao.aspx" />
     <Content Include="View\Escolar\ConsultarEscolar.aspx" />
     <Content Include="View\Escolar\ManterEscolar.aspx" />
-    <Content Include="View\Financas\AltFinancas.aspx" />
-    <Content Include="View\Financas\ConFinancas.aspx" />
     <Content Include="View\Financas\ConsultarFinancas.aspx" />
     <Content Include="View\Financas\ManterFinancas.aspx" />
     <Content Include="View\LoginUI\ConsultarLogin.aspx" />
     <Content Include="View\LoginUI\ManterLogin.aspx" />
     <Content Include="View\Pessoa\AltPessoa.aspx" />
     <Content Include="View\Pessoa\CadPessoa.aspx" />
-    <Content Include="View\Financas\Cad_Financas.aspx" />
     <Content Include="View\CasaLar\AltCasaLar.aspx" />
     <Content Include="View\CasaLar\ConCasaLar.aspx" />
     <Content Include="View\Pessoa\ConPessoa.aspx" />
@@ -297,20 +294,6 @@
     <Compile Include="View\Escolar\ManterEscolar.aspx.designer.cs">
       <DependentUpon>ManterEscolar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Financas\AltFinancas.aspx.cs">
-      <DependentUpon>AltFinancas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Financas\AltFinancas.aspx.designer.cs">
-      <DependentUpon>AltFinancas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Financas\ConFinancas.aspx.cs">
-      <DependentUpon>ConFinancas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Financas\ConFinancas.aspx.designer.cs">
-      <DependentUpon>ConFinancas.aspx</DependentUpon>
-    </Compile>
     <Compile Include="View\Financas\ConsultarFinancas.aspx.cs">
       <DependentUpon>ConsultarFinancas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -352,13 +335,6 @@
     </Compile>
     <Compile Include="View\Pessoa\CadPessoa.aspx.designer.cs">
       <DependentUpon>CadPessoa.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Financas\Cad_Financas.aspx.cs">
-      <DependentUpon>Cad_Financas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Financas\Cad_Financas.aspx.designer.cs">
-      <DependentUpon>Cad_Financas.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\CasaLar\AltCasaLar.aspx.cs">
       <DependentUpon>AltCasaLar.aspx</DependentUpon>
