@@ -13,5 +13,30 @@ namespace SGS.View.PlanoOrcamentario
         {
 
         }
+
+        protected void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+            //ddlNaturezaDespesa.DataSource = 
+            ddlNaturezaDespesa.DataBind();
+
+
+        }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlNaturezaDespesa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

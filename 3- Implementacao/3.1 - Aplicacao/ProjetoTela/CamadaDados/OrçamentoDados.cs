@@ -11,7 +11,11 @@ namespace SGS.CamadaDados
 {
     public class OrcamentoDados : BaseConnection
     {
-
+        /// <summary>
+        /// Salva os orçamentos
+        /// </summary>
+        /// <param name="objOrcamento"></param>
+        /// <returns></returns>
         public Orcamento Salvar(Orcamento objOrcamento)
         {
             SqlCommand comando = new SqlCommand();
@@ -21,18 +25,17 @@ namespace SGS.CamadaDados
             if (!objOrcamento.CodigoOrcamento.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Orcamento (CasaLar_CodigoCasaLar, NomePlano, StatusPlano, ValorTotal, ValorEstimado, ValorDisponivel
-                                  NomeGasto, ValorGasto, DataGasto, QtdParcelas, GastoTotal, MediaGastoMensal, InicioVigencia, FimVigencia)
-                    VALUES (@casaLar_CodigoCasaLar, @nomePlano, @statusPlano, @valorTotal, @valorEstimado, @valorDisponivel, @nomeGasto,
-                            @valorGasto, @dataGasto, @qtdParcelas, @gastoTotal, @mediaGastoMensal, @inicioVigencia, @fimVigencia )";
+                    @"INSERT INTO Orcamento (CasaLar_CodigoCasaLar, NomePlano, StatusPlano, ValorEstimado, ValorDisponivel
+                                  NomeGasto, ValorGasto, DataGasto, InicioVigencia, FimVigencia)
+                    VALUES (@casaLar_CodigoCasaLar, @nomePlano, @statusPlano, @valorEstimado, @valorDisponivel, @nomeGasto,
+                            @valorGasto, @dataGasto, @inicioVigencia, @fimVigencia )";
             }
             else
             {
                 comando.CommandText =
                     @"UPDATE Orcamento SET CasaLar_CodigoCasaLar = @casaLar_CodigoCasaLar, NomePlano = @nomePlano, StatusPlano = @statusPlano,
-                             ValorTotal = @valorTotal, ValorEstimado = @valorEstimado, ValorDisponivel = @valorDisponivel,
-                             NomeGasto = @nomeGasto, ValorGasto = @valorGasto, DataGasto = @dataGasto, QtdParcelas = @qtdParcelas,
-                             GastoTotal = @gastoTotal, MediaGastoMensal = @mediaGastoMensal, InicioVigencia = @inicioVigencia,
+                             ValorEstimado = @valorEstimado, ValorDisponivel = @valorDisponivel,
+                             NomeGasto = @nomeGasto, ValorGasto = @valorGasto, DataGasto = @dataGasto, InicioVigencia = @inicioVigencia,
                              FimVigencia = @fimVigencia)";
             }
 
@@ -65,9 +68,6 @@ namespace SGS.CamadaDados
             SqlParameter parametroStatusPlano = new SqlParameter("@statusPlano", objOrcamento.StatusPlano);
             parametroStatusPlano.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroValorTotal = new SqlParameter("@valorTotal", objOrcamento.ValorTotal);
-            parametroValorTotal.DbType = System.Data.DbType.Decimal;
-
             SqlParameter parametroValorEstimado = new SqlParameter("@valorEstimado", objOrcamento.ValorEstimado);
             parametroValorEstimado.DbType = System.Data.DbType.Decimal;
 
@@ -83,15 +83,6 @@ namespace SGS.CamadaDados
             SqlParameter parametroDataGasto = new SqlParameter("@dataGasto", objOrcamento.DataGasto);
             parametroDataGasto.DbType = System.Data.DbType.DateTime;
 
-            SqlParameter parametroQtdParcelas = new SqlParameter("@qtdParcelas", objOrcamento.QtdParcelas);
-            parametroQtdParcelas.DbType = System.Data.DbType.Int32;
-
-            SqlParameter parametroGastoTotal = new SqlParameter("@gastoTotal", objOrcamento.GastoTotal);
-            parametroGastoTotal.DbType = System.Data.DbType.Decimal;
-
-            SqlParameter parametroMediaGastoMensal = new SqlParameter("@mediaGastoMensal", objOrcamento.MediaGastoMensal);
-            parametroMediaGastoMensal.DbType = System.Data.DbType.Decimal;
-
             SqlParameter parametroInicioVigencia = new SqlParameter("@inicioVigencia", objOrcamento.InicioVigencia);
             parametroInicioVigencia.DbType = System.Data.DbType.DateTime;
 
@@ -102,15 +93,11 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroCasaLar_CodigoCasaLar);
             comando.Parameters.Add(parametroNomePlano);
             comando.Parameters.Add(parametroStatusPlano);
-            comando.Parameters.Add(parametroValorTotal);
             comando.Parameters.Add(parametroValorEstimado);
             comando.Parameters.Add(parametroValorDisponivel);
             comando.Parameters.Add(parametroNomeGasto);
             comando.Parameters.Add(parametroValorGasto);
             comando.Parameters.Add(parametroDataGasto);
-            comando.Parameters.Add(parametroQtdParcelas);
-            comando.Parameters.Add(parametroGastoTotal);
-            comando.Parameters.Add(parametroMediaGastoMensal);
             comando.Parameters.Add(parametroInicioVigencia);
             comando.Parameters.Add(parametroFimVigencia);
 
@@ -144,15 +131,11 @@ namespace SGS.CamadaDados
                 objOrcamento.CasaLar_CodigoCasaLar = Convert.ToInt32(leitorDados["CasaLar_CodigoCasaLar"]);
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
-                objOrcamento.ValorTotal = Convert.ToDecimal(leitorDados["ValorTotal"]);
                 objOrcamento.ValorEstimado = Convert.ToDecimal(leitorDados["ValorEstimado"]);
                 objOrcamento.ValorDisponivel = Convert.ToDecimal(leitorDados["ValorDisponivel"]);
                 objOrcamento.NomeGasto = leitorDados["NomeGasto"].ToString();
                 objOrcamento.ValorGasto = Convert.ToDecimal(leitorDados["ValorGasto"]);
                 objOrcamento.DataGasto = Convert.ToDateTime(leitorDados["DataGasto"]);
-                objOrcamento.QtdParcelas = Convert.ToInt32(leitorDados["QtdParcelas"]);
-                objOrcamento.GastoTotal = Convert.ToDecimal(leitorDados["GastoTotal"]);
-                objOrcamento.MediaGastoMensal = Convert.ToDecimal(leitorDados["MediaGastoMensal"]);
                 objOrcamento.InicioVigencia = Convert.ToDateTime (leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 
