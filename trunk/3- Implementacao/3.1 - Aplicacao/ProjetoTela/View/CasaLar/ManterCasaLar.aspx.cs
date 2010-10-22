@@ -63,7 +63,7 @@ namespace ProjetoTela.View.CasaLar
         {
             SGSServico objSGSServico = new SGSServico();
 
-           if (objSGSServico.ExcluirCasaLar(SGSCasaLar.CodigoCasaLar.Value))
+           if (objSGSServico.ExcluirCasaLar(SGSCasaLar.CodigoCasaLar.Value, SGSCasaLar.Contato.CodigoContato.Value))
                 ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Casa Lar excluída com sucesso!'); </script>");
 
             Response.Redirect("ConsultarCasaLar.aspx");

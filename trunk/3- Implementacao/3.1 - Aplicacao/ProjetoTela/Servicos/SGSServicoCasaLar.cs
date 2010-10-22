@@ -32,11 +32,11 @@ namespace SGS.Servicos
             return objCasaLarDados.ObterCasaLar(codigoCasaLar);
         }
 
-        public bool ExcluirCasaLar(int codigoCasaLar)
+        public bool ExcluirCasaLar(int codigoCasaLar, int codigoContato)
         {
             CasaLarDados objCasaLarDados = new CasaLarDados();
 
-            return objCasaLarDados.ExcluirCasaLar(codigoCasaLar);
+            return objCasaLarDados.ExcluirCasaLar(codigoCasaLar,codigoContato);
         }
 
     }
