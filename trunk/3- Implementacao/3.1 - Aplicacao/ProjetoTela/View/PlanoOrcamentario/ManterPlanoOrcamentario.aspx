@@ -130,7 +130,7 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Valor Estimado</td>
+                    Valor do Orçamento</td>
                 <td>
                     <asp:TextBox ID="txtValorEstimado" runat="server" CssClass="mask-real-cifrao" 
                         Width="148px"></asp:TextBox>
@@ -142,10 +142,10 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Valor Disponível</td>
+                    Saldo Disponível</td>
                 <td>
                     <asp:TextBox ID="txtValorDisponivel" runat="server" Width="148px" 
-                        CssClass="mask-real-cifrao"></asp:TextBox>
+                        CssClass="mask-real-cifrao" Enabled="False"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorValorDisponivel" runat="server" 
                         ControlToValidate="txtValorDisponivel" 
                         ErrorMessage="Informe o Valor Disponível" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -164,7 +164,8 @@
                         <asp:ListItem>A Realizar</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="validatorStatus" runat="server" 
-                        ControlToValidate="ddlStatus" ErrorMessage="Selecione o Status" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        ControlToValidate="ddlStatus" ErrorMessage="Selecione o Status" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
  </table>
@@ -176,11 +177,15 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Nome do Gasto</td>
+                    Natureza da Despesa</td>
                 <td>
-                    <asp:TextBox ID="txtNomeGasto" runat="server" CssClass="style8" Width="148px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" 
+                        CssClass="style8" 
+                        onselectedindexchanged="ddlNaturezaDespesa_SelectedIndexChanged">
+                        <asp:ListItem>Selecione</asp:ListItem>
+                    </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="validatorNomeGasto" runat="server" 
-                        ControlToValidate="txtNomeGasto" ErrorMessage="Informe o Nome do Gasto" 
+                        ControlToValidate="ddlNaturezaDespesa" ErrorMessage="Selecione a Natureza da Despesa" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -188,24 +193,12 @@
                 <td class="style10" 
                     
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Valor do Gasto</td>
+                    Valor da Despesa</td>
                 <td class="style11">
                     <asp:TextBox ID="txtValorGasto" runat="server" CssClass="mask-real-cifrao" 
                         Width="148px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorValorGasto" runat="server" 
                         ControlToValidate="txtValorGasto" ErrorMessage="Informe o Valor do Gasto" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Data do Gasto</td>
-                <td>
-                    <asp:TextBox ID="txtDataGasto" runat="server" CssClass="mask-data" 
-                        Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="validatorDataGasto" runat="server" 
-                        ControlToValidate="txtDataGasto" ErrorMessage="Informe a Data do Gasto" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -216,13 +209,50 @@
         <table width="100%" align="center">
             <tr align="center">
                 <td> 
-                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                        CausesValidation="False" />
+                        CausesValidation="False" onclick="btnCancelar_Click" />
                 </td>
+            </tr>
+            <tr>
+            <td>  
+                <asp:GridView ID="gridOrcamento" runat="server" CellPadding="4" 
+                    EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
+                    GridLines="Horizontal" Width="90%" 
+                    BorderColor="#003399" HorizontalAlign="Center" Height="147px" 
+                    AllowPaging="True" 
+                    PageSize="1">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:HyperLinkField DataNavigateUrlFields="CodigoOrcamento" 
+                            DataNavigateUrlFormatString="ManterPlanoOrcamentario.aspx?tipo=alt&amp;cod={0}" 
+                            Text="Selecionar">
+                        <ItemStyle Width="75px" />
+                        </asp:HyperLinkField>
+                    </Columns>
+                    <EditRowStyle BackColor="#2461BF" BorderColor="#003399" />
+                    <EmptyDataRowStyle Font-Bold="True" Font-Size="Small" ForeColor="Red" 
+                        HorizontalAlign="Center" />
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" Font-Size="Small" 
+                        ForeColor="White" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Right" 
+                        Font-Size="Smaller" />
+                    <RowStyle BackColor="#EFF3FB" Font-Size="Small" BorderColor="#003399" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                </asp:GridView>
+                </td>    
+            </tr>
+            <tr align="center">
+                <td> 
+                    &nbsp;</td>
             </tr>
             <tr align="center">
                 <td class="style12"> 

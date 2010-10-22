@@ -139,13 +139,13 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorStatus;
         
         /// <summary>
-        /// txtNomeGasto control.
+        /// ddlNaturezaDespesa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomeGasto;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNaturezaDespesa;
         
         /// <summary>
         /// validatorNomeGasto control.
@@ -175,24 +175,6 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorGasto;
         
         /// <summary>
-        /// txtDataGasto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataGasto;
-        
-        /// <summary>
-        /// validatorDataGasto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorDataGasto;
-        
-        /// <summary>
         /// btnSalvar control.
         /// </summary>
         /// <remarks>
@@ -218,6 +200,15 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// gridOrcamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridOrcamento;
         
         /// <summary>
         /// sumarioErro control.

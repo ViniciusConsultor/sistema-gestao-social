@@ -12,15 +12,11 @@ namespace SGS.Entidades
         private int? _casaLar_CodigoCasaLar;
         private string _nomePlano;
         private string _statusPlano;
-        private Decimal _valorTotal;
         private Decimal _valorEstimado;
         private Decimal? _valorDisponivel;
         private string _nomeGasto;
         private Decimal? _valorGasto;
         private DateTime? _dataGasto;
-        private int? _qtdParcelas;
-        private Decimal? _gastoTotal;
-        private Decimal? _mediaGastoMensal;
         private DateTime? _inicioVigencia;
         private DateTime? _fimVigencia;
 
@@ -47,12 +43,6 @@ namespace SGS.Entidades
         {
             get { return _statusPlano; }
             set { _statusPlano = value; }
-        }
-
-        public Decimal ValorTotal
-        {
-            get { return _valorTotal; }
-            set { _valorTotal = value; }
         }
 
         public Decimal ValorEstimado
@@ -83,24 +73,6 @@ namespace SGS.Entidades
         {
             get { return _dataGasto; }
             set { _dataGasto = value; }
-        }
-
-        public int? QtdParcelas
-        {
-            get { return _qtdParcelas; }
-            set { _qtdParcelas = value; }
-        }
-
-        public Decimal? GastoTotal
-        {
-            get { return _gastoTotal; }
-            set { _gastoTotal = value; }
-        }
-
-        public Decimal? MediaGastoMensal
-        {
-            get { return _mediaGastoMensal; }
-            set { _mediaGastoMensal = value; }
         }
 
         public DateTime? InicioVigencia
