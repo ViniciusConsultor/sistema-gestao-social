@@ -212,7 +212,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui uma CasaLar pelo seu código
         /// </summary>
-        public bool ExcluirCasaLar(int codigoCasaLar)
+        public bool ExcluirCasaLar(int codigoCasaLar, int codigoContato)
         {
             bool execucao;
 
@@ -223,6 +223,9 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroCodigoCasaLar);
         
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
+
+            ContatoDados objContatoDados = new ContatoDados();
+            objContatoDados.ExcluirContato(codigoContato);
 
             return execucao;
         }
