@@ -210,6 +210,55 @@ namespace SGS.CamadaDados
         }
 
         /// <summary>
+        /// Obtém a CasaLar sem o seu Código
+        /// </summary>
+        /// <param name="codigoCasaLar"></param>
+        /// <returns></returns>
+        public CasaLar ObterCasaLar()
+        {
+            SqlCommand comando = new SqlCommand("select TOP(1) * from CasaLar ORDER BY codigocasalar ASC", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            CasaLar objCasaLar = null;
+
+            if (leitorDados.Read())
+            {
+                objCasaLar = new CasaLar();
+
+                objCasaLar.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasalar"]);
+                objCasaLar.CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                objCasaLar.NomeCasaLar = leitorDados["NomeCasaLar"].ToString();
+                objCasaLar.CNPJ = leitorDados["CNPJ"].ToString();
+                objCasaLar.Alvara = leitorDados["Alvara"].ToString();
+                objCasaLar.DataFundacao = Convert.ToDateTime(leitorDados["DataFundacao"]);
+                objCasaLar.Historia = leitorDados["Historia"].ToString();
+                objCasaLar.Gestor = leitorDados["Gestor"].ToString();
+                objCasaLar.StatusCasaLar = leitorDados["Status"].ToString();
+                objCasaLar.QtdMaxAssistidos = Convert.ToInt32(leitorDados["QtdMaximaAssistidos"]);
+                objCasaLar.QtdAssistidos = Convert.ToInt32(leitorDados["QtdAssistidos"]);
+                objCasaLar.TelefoneGestor = leitorDados["TelefoneGestor"].ToString();
+                objCasaLar.EmailGestor = leitorDados["EmailGestor"].ToString();
+
+
+                ///TODO: Maycon
+                ///objCasaLar.Foto = leitorDados["Foto"].ToString();
+
+
+            }
+
+            if (objCasaLar != null && objCasaLar.CodigoContato != null)
+            {
+                ContatoDados objContatoDados = new ContatoDados();
+                objCasaLar.Contato = objContatoDados.ObterContato(objCasaLar.CodigoContato.Value);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objCasaLar;
+        }
+
+        /// <summary>
         /// Exclui uma CasaLar pelo seu código
         /// </summary>
         public bool ExcluirCasaLar(int codigoCasaLar, int codigoContato)

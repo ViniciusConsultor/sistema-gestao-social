@@ -25,6 +25,12 @@ namespace SGS.Servicos
 
             return objCasaLar;
         }
+
+        /// <summary>
+        /// Este método obtém uma Casa Lar pelo seu código
+        /// </summary>
+        /// <param name="codigoCasaLar"></param>
+        /// <returns></returns>
         public CasaLar ObterCasaLar(int codigoCasaLar)
         {
             CasaLarDados objCasaLarDados = new CasaLarDados();
@@ -32,6 +38,24 @@ namespace SGS.Servicos
             return objCasaLarDados.ObterCasaLar(codigoCasaLar);
         }
 
+        /// <summary>
+        /// Este método obtém uma Casa Lar sem o seu código
+        /// </summary>
+        /// <param name="codigoCasaLar"></param>
+        /// <returns></returns>
+        public CasaLar ObterCasaLar()
+        {
+            CasaLarDados objCasaLarDados = new CasaLarDados();
+
+            return objCasaLarDados.ObterCasaLar();
+        }
+
+        /// <summary>
+        /// Este método exclui a casa lar e o seu respectivo contato.
+        /// </summary>
+        /// <param name="codigoCasaLar"></param>
+        /// <param name="codigoContato"></param>
+        /// <returns></returns>
         public bool ExcluirCasaLar(int codigoCasaLar, int codigoContato)
         {
             CasaLarDados objCasaLarDados = new CasaLarDados();

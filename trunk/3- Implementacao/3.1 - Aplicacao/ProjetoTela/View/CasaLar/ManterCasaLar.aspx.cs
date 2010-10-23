@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 using SGS.Servicos;
 using SGS.Entidades;
+using SGS.Entidades.DTO;
 
 namespace ProjetoTela.View.CasaLar
 {
@@ -23,7 +24,9 @@ namespace ProjetoTela.View.CasaLar
             if (!Page.IsPostBack)
             {
                 this.CarregarTela();
+                    
             }
+       
 
         }
 
@@ -49,7 +52,7 @@ namespace ProjetoTela.View.CasaLar
         {
             string url;
             if (Request.QueryString["tipo"] == "alt")
-                url = @"ManterCasaLar.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
+                url = @"ManterCasaLar.aspx?tipo=alt";
             else
                 url = "ManterCasaLar.aspx";
 
@@ -65,8 +68,9 @@ namespace ProjetoTela.View.CasaLar
 
            if (objSGSServico.ExcluirCasaLar(SGSCasaLar.CodigoCasaLar.Value, SGSCasaLar.Contato.CodigoContato.Value))
                 ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Casa Lar excluída com sucesso!'); </script>");
-
-            Response.Redirect("ConsultarCasaLar.aspx");
+           //TODO:maycon - Exibir msg javascript
+            //TODO:maycon - não deixar excluir casalar quando possuir relação com outras entidades.
+            Response.Redirect("../Apresentacao.aspx");
         }
 
         #endregion
@@ -82,26 +86,64 @@ namespace ProjetoTela.View.CasaLar
             SGSServico objSGSServico = new SGSServico();
             SGSCasaLar = new SGS.Entidades.CasaLar();
 
-            if (Request.QueryString["tipo"] == "alt")
+            //Alterar Casa Lar
+            if (Request.QueryString["tipo"] == "alt" && DadosAcesso.Perfil=="Gestor")
             {
                 lblTitulo.Text = "Alterar Casa Lar";
                 lblDescricao.Text = "Descrição: Permite alterar os dados da Casa Lar.";
                 btnExcluir.Visible = true;
-                SGSCasaLar.CodigoCasaLar = Convert.ToInt32(Request.QueryString["cod"]);
-
+               
                 //Preencha a propriedade Casa Lar
-                SGSCasaLar = objSGSServico.ObterCasaLar(SGSCasaLar.CodigoCasaLar.Value);
+                SGSCasaLar = objSGSServico.ObterCasaLar();
 
                 if (SGSCasaLar != null)
                     this.PreencherDadosView();
                 else
-                    Server.Transfer("ConsultarCasaLar.aspx"); //transfere usuário para tela de Consulta
+                    Server.Transfer("MsgCasaLar.aspx"); //transfere usuário para tela de mensagem de casa lar não cadastrada.
             }
-            else
+
+            //Vizualizar Casa Lar
+            else if (Request.QueryString["tipo"] == "viz" && (DadosAcesso.Perfil=="Gestor" || DadosAcesso.Perfil=="Funcionario"))
             {
-                lblTitulo.Text = "Cadastrar Casa Lar";
-                lblDescricao.Text = "Descrição: Permite cadastrar os dados da Casa Lar.";
+                lblTitulo.Text = "Vizualizar Casa Lar";
+                lblDescricao.Text = "Descrição: Permite vizualizar os dados da Casa Lar.";
                 btnExcluir.Visible = false;
+                btnSalvar.Visible = false;
+                btnCancelar.Visible = false;
+
+                //Preencha a propriedade Casa Lar
+                SGSCasaLar = objSGSServico.ObterCasaLar();
+
+                if (SGSCasaLar != null)
+                {
+                    this.PreencherDadosView();
+                    this.DesabilitarView();
+                }
+                else
+                    Server.Transfer("MsgCasaLar.aspx"); //transfere usuário para tela de mensagem de casa lar não cadastrada.
+            }
+
+            //Cadastrar Casa Lar
+            else if (DadosAcesso.Perfil == "Gestor")
+            {
+                SGSCasaLar = objSGSServico.ObterCasaLar();
+
+                if (SGSCasaLar == null)
+                {
+                    SGSCasaLar = new SGS.Entidades.CasaLar();
+                    lblTitulo.Text = "Cadastrar Casa Lar";
+                    lblDescricao.Text = "Descrição: Permite cadastrar os dados da Casa Lar.";
+                    btnExcluir.Visible = false;
+                }
+                else
+                    Server.Transfer("ManterCasaLar.aspx?tipo=alt");
+
+            }
+
+            //Usuário sem permissão
+            else 
+            {
+                Server.Transfer("../SemPermissao.aspx");
             }
         }
 
@@ -175,6 +217,40 @@ namespace ProjetoTela.View.CasaLar
             txtTelefoneCelular.Text = SGSCasaLar.Contato.TelefoneCelular;
             txtTelefoneGestor.Text = SGSCasaLar.TelefoneGestor;
         }
+
+        /// <summary>
+        /// Este método desabilita todos os controles da Casa Lar
+        /// </summary>
+        private void DesabilitarView()
+        {
+            txtNome.Enabled = false;
+            txtAlvara.Enabled = false;
+            txtBairro.Enabled = false;
+            txtBlog.Enabled = false;
+            txtCEP.Enabled = false;
+            txtCidade.Enabled = false;
+            txtCNPJ.Enabled = false;
+            txtDataFundacao.Enabled = false;
+            txtEmail.Enabled = false;
+            txtEmailGestor.Enabled = false;
+            txtFax.Enabled = false;
+            ddlEstado.Enabled = false;
+            ddlPais.Enabled = false;
+            ddlStatus.Enabled = false;
+            txtGestor.Enabled = false;
+            txtHistoria.Enabled = false;
+            ///TODO: Maycon
+            ///uploadFoto
+            txtLogradouro.Enabled = false;
+            txtNumero.Enabled = false;
+            txtQtdAssistidos.Enabled = false;
+            txtQtdMaximo.Enabled = false;
+            txtSite.Enabled = false;
+            txtTelefone.Enabled = false;
+            txtTelefoneCelular.Enabled = false;
+            txtTelefoneGestor.Enabled = false;
+        }
+
         
         #endregion
 
