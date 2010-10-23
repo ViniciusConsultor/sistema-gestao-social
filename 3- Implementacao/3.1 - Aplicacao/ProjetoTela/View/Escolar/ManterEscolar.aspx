@@ -85,7 +85,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data de Matrícula</td>
                 <td>
-                    <asp:TextBox ID="txtDataMatricula" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtDataMatricula" runat="server" Height="22px" Width="148px"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">

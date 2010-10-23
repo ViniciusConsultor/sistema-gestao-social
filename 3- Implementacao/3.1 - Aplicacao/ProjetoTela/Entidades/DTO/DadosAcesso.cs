@@ -6,9 +6,14 @@ using System.Web;
 
 namespace SGS.Entidades.DTO
 {
+    /// <summary>
+    /// Esta classe retorna os dados do usuário logado que ficam na "SESSION".
+    /// </summary>
     public static class DadosAcesso
     {
-
+        /// <summary>
+        /// Retorna a entidade que contém todos os dados do usuário logado.
+        /// </summary>
         public static SessaoDTO SessaoDTO
         {
             get
@@ -25,6 +30,9 @@ namespace SGS.Entidades.DTO
             }
         }
 
+        /// <summary>
+        /// Retorna o Perfil do usuário Logado. EX: "Gestor", "Funcionário"
+        /// </summary>
         public static string Perfil
         {
             get
