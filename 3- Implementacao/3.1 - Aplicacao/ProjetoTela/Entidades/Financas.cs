@@ -10,12 +10,14 @@ namespace SGS.Entidades
     {
         private int? _codigoFinancas;
         private int? _codigoCasaLar;
+        private int? _codigoNatureza;
         private DateTime? _dataLancamento;
         private DateTime? _dataCriacao;
         private string _tipoLancamento;
         private Decimal? _valor;
         private string _lancadoPor;
         private string _observacao;
+        private string _naturezaFinanca;
 
 
         public int? CodigoFinancas
@@ -29,6 +31,13 @@ namespace SGS.Entidades
         {
             get { return _codigoCasaLar; }
             set { _codigoCasaLar = value; }
+
+        }
+
+        public int? CodigoNatureza
+        {
+            get { return _codigoNatureza; }
+            set { _codigoNatureza = value; }
 
         }
 
@@ -67,5 +76,12 @@ namespace SGS.Entidades
             get { return _observacao; }
             set { _observacao = value; }
         }
-    }
-}
+
+        public string NaturezaFinanca
+        {
+            get { return _naturezaFinanca; }
+            set { _naturezaFinanca = value; }
+        }
+
+     }
+ }

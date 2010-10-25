@@ -33,10 +33,5 @@ namespace SGS.View.PlanoOrcamentario
 
         }
 
-        protected void ddlNaturezaDespesa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
