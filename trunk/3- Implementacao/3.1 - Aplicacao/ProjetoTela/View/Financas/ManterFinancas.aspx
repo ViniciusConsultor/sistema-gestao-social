@@ -83,7 +83,7 @@
                 <td class="style9">
                     <asp:DropDownList ID="ddlCasaLar" runat="server" Enabled="False" Height="22px" 
                         Width="148px">
-                        <asp:ListItem Selected="True" Value="4">David Gomes</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="13">Minha Casa</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -112,6 +112,28 @@
                 <td>
                     &nbsp;</td>
             </tr>
+            <tr>
+                <td class="style8" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Natureza da Finança</td>
+                <td class="style9">
+                    <asp:DropDownList ID="ddlNaturezaFinanca" runat="server" Height="22px" 
+                        Width="148px">
+                        <asp:ListItem>Selecione</asp:ListItem>
+                        <asp:ListItem>Compras</asp:ListItem>
+                        <asp:ListItem>Reforma</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="validatorNaturezaFinanca" runat="server" 
+                        ControlToValidate="ddlNaturezaFinanca" 
+                        ErrorMessage="Selecione a Natureza da Financa" ForeColor="Red" 
+                        InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+
             <tr>
                 <td class="style8" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">

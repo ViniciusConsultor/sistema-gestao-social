@@ -130,6 +130,7 @@ namespace SGS.View.Financas
             objFinancas.Valor = Convert.ToDecimal(txtValor.Text);
             objFinancas.LancadoPor = txtLancadoPor.Text;
             objFinancas.Observacao = txtObservacao.Text;
+            objFinancas.NaturezaFinanca = ddlNaturezaFinanca.SelectedValue;
 
 
             return objFinancas;
@@ -147,6 +148,7 @@ namespace SGS.View.Financas
             txtValor.Text = SGSFinancas.Valor.Value.ToString();
             txtLancadoPor.Text = SGSFinancas.LancadoPor;
             txtObservacao.Text = SGSFinancas.Observacao;
+            ddlNaturezaFinanca.SelectedValue = SGSFinancas.NaturezaFinanca;
         }
 
         #endregion

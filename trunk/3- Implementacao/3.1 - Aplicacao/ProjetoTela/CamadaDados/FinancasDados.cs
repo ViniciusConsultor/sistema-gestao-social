@@ -26,14 +26,14 @@ namespace SGS.CamadaDados
         if (!objFinancas.CodigoFinancas.HasValue)
         {
             comando.CommandText = 
-                @"INSERT INTO FINANCAS ( CodigoCasaLar, DataLancamento, DataCriacao, TipoLancamento, Valor, LancadoPor, Observacao)
-                VALUES (@codigoCasaLar, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao)";
+                @"INSERT INTO FINANCAS ( CodigoCasaLar, CodigoNatureza, DataLancamento, DataCriacao, TipoLancamento, Valor, LancadoPor, Observacao, NaturezaFinanca)
+                VALUES (@codigoCasaLar, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao, @naturezaFinanca)";
         }
         else
         {
-            comando.CommandText = 
-            @"UPDATE FINANCAS SET CodigoCasaLar = @codigoCasaLar, DataLancamento = @dataLancamento, DataCriacao = @dataCriacao, TipoLancamento = @tipoLancamento,
-            Valor = @valor, LancadoPor = @lancadoPor, Observacao = @observacao
+            comando.CommandText =
+            @"UPDATE FINANCAS SET CodigoCasaLar = @codigoCasaLar, CodigoNatureza = @codigoNatureza, DataLancamento = @dataLancamento, DataCriacao = @dataCriacao, TipoLancamento = @tipoLancamento,
+            Valor = @valor, LancadoPor = @lancadoPor, Observacao = @observacao, NaturezaFinanca = @naturezaFinanca
             WHERE (CodigoFinancas = @codigoFinancas)";
         }
         
@@ -60,6 +60,20 @@ namespace SGS.CamadaDados
                 parametroCodigoCasaLar.DbType = System.Data.DbType.Int32;
             }
 
+            SqlParameter parametroCodigoNatureza = new SqlParameter();
+            if (objFinancas.CodigoNatureza.HasValue)
+            {
+                parametroCodigoNatureza.Value = objFinancas.CodigoNatureza.Value;
+                parametroCodigoNatureza.ParameterName = "@codigoNaturezar";
+                parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
+            }
+            else
+            {
+                parametroCodigoNatureza.Value = DBNull.Value;
+                parametroCodigoNatureza.ParameterName = "@codigoNatureza";
+                parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
+            }
+
         SqlParameter parametroDataLancamento = new SqlParameter("@dataLancamento", objFinancas.DataLancamento);
         parametroDataLancamento.DbType = System.Data.DbType.DateTime;
 
@@ -78,14 +92,19 @@ namespace SGS.CamadaDados
         SqlParameter parametroObservacao = new SqlParameter("@observacao", objFinancas.Observacao);
         parametroObservacao.DbType = System.Data.DbType.String;
 
+        SqlParameter parametroNaturezaFinanca = new SqlParameter("@naturezaFinanca", objFinancas.NaturezaFinanca);
+        parametroNaturezaFinanca.DbType = System.Data.DbType.String;
+
         comando.Parameters.Add(parametroCodigoCasaLar);
+        comando.Parameters.Add(parametroCodigoNatureza);
         comando.Parameters.Add(parametroDataLancamento);
         comando.Parameters.Add(parametroDataCriacao);
         comando.Parameters.Add(parametroTipoLancamento);
         comando.Parameters.Add(parametroValor);
         comando.Parameters.Add(parametroLancadoPor);
         comando.Parameters.Add(parametroObservacao);
-       
+        comando.Parameters.Add(parametroNaturezaFinanca);
+            
         comando.ExecuteNonQuery();
 
         return ObterUltimaFinancasInserida();
@@ -107,12 +126,14 @@ namespace SGS.CamadaDados
 
                 objFinancas.CodigoFinancas = codigoFinancas;
                 objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
                 objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
                 objFinancas.DataCriacao =  Convert.ToDateTime(leitorDados["DataCriacao"]);
                 objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
                 objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
                 objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
                 objFinancas.Observacao = leitorDados["Observacao"].ToString();
+                objFinancas.NaturezaFinanca = leitorDados["NaturezaFinanca"].ToString();
                 
             }
     
@@ -138,12 +159,14 @@ namespace SGS.CamadaDados
 
                 objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["codigoFinancas"]);
                 objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
                 objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
                 objFinancas.DataCriacao =  Convert.ToDateTime(leitorDados["DataCriacao"]);
                 objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
                 objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
                 objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
                 objFinancas.Observacao = leitorDados["Observacao"].ToString();
+                objFinancas.NaturezaFinanca = leitorDados["NaturezaFinanca"].ToString();
                 
             }
     
@@ -192,19 +215,19 @@ namespace SGS.CamadaDados
 
        //Se o Tipo de Lancamento, Data Lancamento e Descricao preenchidos
        if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
-           sql += @" where TipoLancamento = @tipoLancamentoValor or DataLancamento = @dataLancamentoValor or Observacao like @descricaoValor";
+           sql += @" where TipoLancamento = @tipoLancamentoValor and DataLancamento = @dataLancamentoValor and Observacao like @descricaoValor";
  
        //Se apenas TipoLancamento e DataLancamento preenchido
        else if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue)
-           sql += @" where TipoLancamento = @tipoLancamentoValor or DataLancamento = @dataLancamentoValor";
+           sql += @" where TipoLancamento = @tipoLancamentoValor and DataLancamento = @dataLancamentoValor";
  
        //Se apenas DataLancamento e DescricaoValor preenchido
        else if (objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
-           sql += @" where DataLancamento = @dataLancamentoValor or Observacao like @descricaoValor";
+           sql += @" where DataLancamento = @dataLancamentoValor and Observacao like @descricaoValor";
  
        //Se apenas Descricao e TipoLancamento preenchido
        else if (objFinancasDTO.DescricaoValor != "" && objFinancasDTO.TipoLancamentoValor != "Selecione")
-           sql += @" where Observacao like @descricaoValor or TipoLancamento = @tipoLancamentoValor";
+           sql += @" where Observacao like @descricaoValor and TipoLancamento = @tipoLancamentoValor";
  
        //Se apenas Descricao preenchido
        else if (objFinancasDTO.DescricaoValor != "")
@@ -236,13 +259,15 @@ namespace SGS.CamadaDados
            objFinancas = new Financas();
 
            objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["CodigoFinancas"]);
-           ///objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+           //objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+           //objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
            objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
            objFinancas.DataCriacao = Convert.ToDateTime(leitorDados["DataCriacao"]);
            objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
            objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
            objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
            objFinancas.Observacao = leitorDados["Observacao"].ToString();
+           objFinancas.NaturezaFinanca = leitorDados["NaturezaFinanca"].ToString();
                 
 
            financasLista.Add(objFinancas);

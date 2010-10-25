@@ -25,18 +25,14 @@ namespace SGS.CamadaDados
             if (!objOrcamento.CodigoOrcamento.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Orcamento (CasaLar_CodigoCasaLar, NomePlano, StatusPlano, ValorEstimado, ValorDisponivel
-                                  NomeGasto, ValorGasto, DataGasto, InicioVigencia, FimVigencia)
-                    VALUES (@casaLar_CodigoCasaLar, @nomePlano, @statusPlano, @valorEstimado, @valorDisponivel, @nomeGasto,
-                            @valorGasto, @dataGasto, @inicioVigencia, @fimVigencia )";
+                    @"INSERT INTO Orcamento (CodigoCasaLar, NomePlano, StatusPlano, ValorOrcamento, SaldoDisponivel, InicioVigencia, FimVigencia)
+                    VALUES (@codigoCasaLar, @nomePlano, @statusPlano, @valorOrcamento, @saldoDisponivel, @inicioVigencia, @fimVigencia )";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Orcamento SET CasaLar_CodigoCasaLar = @casaLar_CodigoCasaLar, NomePlano = @nomePlano, StatusPlano = @statusPlano,
-                             ValorEstimado = @valorEstimado, ValorDisponivel = @valorDisponivel,
-                             NomeGasto = @nomeGasto, ValorGasto = @valorGasto, DataGasto = @dataGasto, InicioVigencia = @inicioVigencia,
-                             FimVigencia = @fimVigencia)";
+                    @"UPDATE Orcamento SET CodigoCasaLar = @codigoCasaLar, NomePlano = @nomePlano, StatusPlano = @statusPlano, SaldoDisponivel = @saldoDisponivel,
+                             ValorOrcamento = @valorOrcamento, InicioVigencia = @inicioVigencia, FimVigencia = @fimVigencia)";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
@@ -47,18 +43,18 @@ namespace SGS.CamadaDados
                 comando.Parameters.Add(parametroCodigo);
             }
 
-            SqlParameter parametroCasaLar_CodigoCasaLar = new SqlParameter();
-            if (objOrcamento.CasaLar_CodigoCasaLar.HasValue)
+            SqlParameter parametroCodigoCasaLar = new SqlParameter();
+            if (objOrcamento.CodigoCasaLar.HasValue)
             {
-                parametroCasaLar_CodigoCasaLar.Value = objOrcamento.CasaLar_CodigoCasaLar.Value;
-                parametroCasaLar_CodigoCasaLar.ParameterName = "@casaLar_CodigoCasaLar";
-                parametroCasaLar_CodigoCasaLar.DbType = System.Data.DbType.Int32;
+                parametroCodigoCasaLar.Value = objOrcamento.CodigoCasaLar.Value;
+                parametroCodigoCasaLar.ParameterName = "@codigoCasaLar";
+                parametroCodigoCasaLar.DbType = System.Data.DbType.Int32;
             }
             else
             {
-                parametroCasaLar_CodigoCasaLar.Value = DBNull.Value;
-                parametroCasaLar_CodigoCasaLar.ParameterName = "@casaLar_CodigoCasaLar";
-                parametroCasaLar_CodigoCasaLar.DbType = System.Data.DbType.Int32;
+                parametroCodigoCasaLar.Value = DBNull.Value;
+                parametroCodigoCasaLar.ParameterName = "@codigoCasaLar";
+                parametroCodigoCasaLar.DbType = System.Data.DbType.Int32;
             }
 
 
@@ -68,20 +64,11 @@ namespace SGS.CamadaDados
             SqlParameter parametroStatusPlano = new SqlParameter("@statusPlano", objOrcamento.StatusPlano);
             parametroStatusPlano.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroValorEstimado = new SqlParameter("@valorEstimado", objOrcamento.ValorEstimado);
-            parametroValorEstimado.DbType = System.Data.DbType.Decimal;
+            SqlParameter parametroValorOrcamento = new SqlParameter("@valorOrcamento", objOrcamento.ValorOrcamento);
+            parametroValorOrcamento.DbType = System.Data.DbType.Decimal;
 
-            SqlParameter parametroValorDisponivel = new SqlParameter("@valorDisponivel", objOrcamento.ValorDisponivel);
-            parametroValorDisponivel.DbType = System.Data.DbType.Decimal;
-
-            SqlParameter parametroNomeGasto = new SqlParameter("@nomeGasto", objOrcamento.NomeGasto);
-            parametroNomeGasto.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroValorGasto = new SqlParameter("@valorGasto", objOrcamento.ValorGasto);
-            parametroValorGasto.DbType = System.Data.DbType.Decimal;
-
-            SqlParameter parametroDataGasto = new SqlParameter("@dataGasto", objOrcamento.DataGasto);
-            parametroDataGasto.DbType = System.Data.DbType.DateTime;
+            SqlParameter parametroSaldoDisponivel = new SqlParameter("@saldoDisponivel", objOrcamento.SaldoDisponivel);
+            parametroValorOrcamento.DbType = System.Data.DbType.Decimal;
 
             SqlParameter parametroInicioVigencia = new SqlParameter("@inicioVigencia", objOrcamento.InicioVigencia);
             parametroInicioVigencia.DbType = System.Data.DbType.DateTime;
@@ -90,14 +77,11 @@ namespace SGS.CamadaDados
             parametroFimVigencia.DbType = System.Data.DbType.DateTime;
 
            
-            comando.Parameters.Add(parametroCasaLar_CodigoCasaLar);
+            comando.Parameters.Add(parametroCodigoCasaLar);
             comando.Parameters.Add(parametroNomePlano);
             comando.Parameters.Add(parametroStatusPlano);
-            comando.Parameters.Add(parametroValorEstimado);
-            comando.Parameters.Add(parametroValorDisponivel);
-            comando.Parameters.Add(parametroNomeGasto);
-            comando.Parameters.Add(parametroValorGasto);
-            comando.Parameters.Add(parametroDataGasto);
+            comando.Parameters.Add(parametroValorOrcamento);
+            comando.Parameters.Add(parametroSaldoDisponivel);
             comando.Parameters.Add(parametroInicioVigencia);
             comando.Parameters.Add(parametroFimVigencia);
 
@@ -128,14 +112,11 @@ namespace SGS.CamadaDados
                 objOrcamento = new Orcamento();
 
                 objOrcamento.CodigoOrcamento = codigoOrcamento;
-                objOrcamento.CasaLar_CodigoCasaLar = Convert.ToInt32(leitorDados["CasaLar_CodigoCasaLar"]);
+                objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
-                objOrcamento.ValorEstimado = Convert.ToDecimal(leitorDados["ValorEstimado"]);
-                objOrcamento.ValorDisponivel = Convert.ToDecimal(leitorDados["ValorDisponivel"]);
-                objOrcamento.NomeGasto = leitorDados["NomeGasto"].ToString();
-                objOrcamento.ValorGasto = Convert.ToDecimal(leitorDados["ValorGasto"]);
-                objOrcamento.DataGasto = Convert.ToDateTime(leitorDados["DataGasto"]);
+                objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
+                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
                 objOrcamento.InicioVigencia = Convert.ToDateTime (leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 

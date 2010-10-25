@@ -133,7 +133,7 @@
                     Valor do Orçamento</td>
                 <td>
                     <asp:TextBox ID="txtValorEstimado" runat="server" CssClass="mask-real-cifrao" 
-                        Width="148px"></asp:TextBox>
+                        Width="148px" ontextchanged="txtValorEstimado_TextChanged"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorValorEstimado" runat="server" 
                         ControlToValidate="txtValorEstimado" ErrorMessage="Informe o Valor Estimado" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>

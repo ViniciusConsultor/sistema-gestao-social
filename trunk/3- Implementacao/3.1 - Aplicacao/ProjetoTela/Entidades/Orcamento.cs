@@ -9,14 +9,11 @@ namespace SGS.Entidades
     public class Orcamento
     {
         private int? _codigoOrcamento;
-        private int? _casaLar_CodigoCasaLar;
+        private int? _CodigoCasaLar;
         private string _nomePlano;
         private string _statusPlano;
-        private Decimal _valorEstimado;
-        private Decimal? _valorDisponivel;
-        private string _nomeGasto;
-        private Decimal? _valorGasto;
-        private DateTime? _dataGasto;
+        private Decimal _valorOrcamento;
+        private Decimal _saldoDisponivel;
         private DateTime? _inicioVigencia;
         private DateTime? _fimVigencia;
 
@@ -27,10 +24,10 @@ namespace SGS.Entidades
             set { _codigoOrcamento = value; }
         }
 
-        public int? CasaLar_CodigoCasaLar
+        public int? CodigoCasaLar
         {
-            get { return _casaLar_CodigoCasaLar; }
-            set { _casaLar_CodigoCasaLar = value; }
+            get { return _CodigoCasaLar; }
+            set { _CodigoCasaLar = value; }
         }
 
         public string NomePlano
@@ -45,35 +42,18 @@ namespace SGS.Entidades
             set { _statusPlano = value; }
         }
 
-        public Decimal ValorEstimado
+        public Decimal ValorOrcamento
         {
-            get { return _valorEstimado; }
-            set { _valorEstimado = value; }
+            get { return _valorOrcamento; }
+            set { _valorOrcamento = value; }
         }
 
-        public Decimal? ValorDisponivel
+        public Decimal SaldoDisponivel
         {
-            get { return _valorDisponivel; }
-            set { _valorDisponivel = value; }
+            get { return _saldoDisponivel; }
+            set { _saldoDisponivel = value; }
         }
 
-        public string NomeGasto
-        {
-            get { return _nomeGasto; }
-            set { _nomeGasto = value; }
-        }
-
-        public Decimal? ValorGasto
-        {
-            get { return _valorGasto; }
-            set { _valorGasto = value; }
-        }
-
-        public DateTime? DataGasto
-        {
-            get { return _dataGasto; }
-            set { _dataGasto = value; }
-        }
 
         public DateTime? InicioVigencia
         {
