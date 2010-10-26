@@ -132,10 +132,9 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Valor do Orçamento</td>
                 <td>
-                    <asp:TextBox ID="txtValorEstimado" runat="server" CssClass="mask-real-cifrao" 
-                        Width="148px" ontextchanged="txtValorEstimado_TextChanged"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="validatorValorEstimado" runat="server" 
-                        ControlToValidate="txtValorEstimado" ErrorMessage="Informe o Valor Estimado" 
+                    <asp:TextBox ID="txtValorOrcamento" runat="server" CssClass="mask-real-cifrao" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="validatorValorOrcamento" runat="server" 
+                        ControlToValidate="txtValorOrcamento" ErrorMessage="Informe o Valor do Orçamento" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -144,11 +143,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Saldo Disponível</td>
                 <td>
-                    <asp:TextBox ID="txtValorDisponivel" runat="server" Width="148px" 
-                        CssClass="mask-real-cifrao" Enabled="False"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="validatorValorDisponivel" runat="server" 
-                        ControlToValidate="txtValorDisponivel" 
-                        ErrorMessage="Informe o Valor Disponível" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtSaldoDisponivel" runat="server" Width="148px" CssClass="mask-real-cifrao" Enabled="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -163,8 +158,7 @@
                         <asp:ListItem>Realizado</asp:ListItem>
                         <asp:ListItem>A Realizar</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="validatorStatus" runat="server" 
-                        ControlToValidate="ddlStatus" ErrorMessage="Selecione o Status" 
+                    <asp:RequiredFieldValidator ID="validatorStatus" runat="server" ControlToValidate="ddlStatus" ErrorMessage="Selecione o Status" 
                         ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -179,14 +173,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Natureza da Despesa</td>
                 <td>
-                    <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" 
-                        CssClass="style8" 
-                        onselectedindexchanged="ddlNaturezaDespesa_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" CssClass="style8">
                         <asp:ListItem>Selecione</asp:ListItem>
+                        <asp:ListItem>Reforma</asp:ListItem>
+                        <asp:ListItem>Compras</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="validatorNomeGasto" runat="server" 
-                        ControlToValidate="ddlNaturezaDespesa" ErrorMessage="Selecione a Natureza da Despesa" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -195,11 +186,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Valor da Despesa</td>
                 <td class="style11">
-                    <asp:TextBox ID="txtValorGasto" runat="server" CssClass="mask-real-cifrao" 
-                        Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="validatorValorGasto" runat="server" 
-                        ControlToValidate="txtValorGasto" ErrorMessage="Informe o Valor do Gasto" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtValorDespesa" runat="server" CssClass="mask-real-cifrao" Width="148px"></asp:TextBox>
                 </td>
             </tr>
             </table>

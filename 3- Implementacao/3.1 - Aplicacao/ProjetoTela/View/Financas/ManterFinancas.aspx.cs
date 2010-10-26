@@ -35,6 +35,11 @@ namespace SGS.View.Financas
             }
         }
 
+        /// <summary>
+        /// Evento On click do botão SAlvar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
             SGSServico sgsServico = new SGSServico();
@@ -118,7 +123,7 @@ namespace SGS.View.Financas
         }
 
         /// <summary>
-        /// Preencha a entidade Login com os dados da View
+        /// Preencha a entidade Financas com os dados da View
         /// </summary>
         private SGS.Entidades.Financas PegarDadosView()
         {

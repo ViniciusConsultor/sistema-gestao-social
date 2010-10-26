@@ -27,7 +27,7 @@ namespace SGS.CamadaDados
         {
             comando.CommandText = 
                 @"INSERT INTO FINANCAS ( CodigoCasaLar, CodigoNatureza, DataLancamento, DataCriacao, TipoLancamento, Valor, LancadoPor, Observacao, NaturezaFinanca)
-                VALUES (@codigoCasaLar, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao, @naturezaFinanca)";
+                VALUES (@codigoCasaLar, @codigoNatureza, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao, @naturezaFinanca)";
         }
         else
         {
@@ -64,7 +64,7 @@ namespace SGS.CamadaDados
             if (objFinancas.CodigoNatureza.HasValue)
             {
                 parametroCodigoNatureza.Value = objFinancas.CodigoNatureza.Value;
-                parametroCodigoNatureza.ParameterName = "@codigoNaturezar";
+                parametroCodigoNatureza.ParameterName = "@codigoNatureza";
                 parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
             }
             else
@@ -126,7 +126,9 @@ namespace SGS.CamadaDados
 
                 objFinancas.CodigoFinancas = codigoFinancas;
                 objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
-                objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+               // objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+                try { objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]); }
+                catch { objFinancas.CodigoNatureza = 0; };
                 objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
                 objFinancas.DataCriacao =  Convert.ToDateTime(leitorDados["DataCriacao"]);
                 objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
@@ -157,9 +159,11 @@ namespace SGS.CamadaDados
             {
                 objFinancas = new Financas();
 
-                objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["codigoFinancas"]);
+                objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["CodigoFinancas"]);
                 objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
-                objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+                //objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+                try { objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]); }
+                catch { objFinancas.CodigoNatureza = 0; };
                 objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
                 objFinancas.DataCriacao =  Convert.ToDateTime(leitorDados["DataCriacao"]);
                 objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
