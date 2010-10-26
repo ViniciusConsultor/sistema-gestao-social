@@ -40,6 +40,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.DropDownList dllAssistido;
         
         /// <summary>
+        /// requeridAssistido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAssistido;
+        
+        /// <summary>
         /// txtInstituicaoEnsino control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInstituicaoEnsino;
+        
+        /// <summary>
+        /// requeridInstituicaoEnsino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridInstituicaoEnsino;
         
         /// <summary>
         /// txtNumeroInscricao control.
@@ -67,6 +85,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.TextBox txtMediaEscolar;
         
         /// <summary>
+        /// requeridMediaEscolar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridMediaEscolar;
+        
+        /// <summary>
         /// ddlGrauEscolaridade control.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGrauEscolaridade;
+        
+        /// <summary>
+        /// requeridGrauEscolaridade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridGrauEscolaridade;
         
         /// <summary>
         /// txtSerieCursada control.
@@ -85,6 +121,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.TextBox txtSerieCursada;
         
         /// <summary>
+        /// requeridSerieCursada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridSerieCursada;
+        
+        /// <summary>
         /// txtDataMatricula control.
         /// </summary>
         /// <remarks>
@@ -92,6 +137,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataMatricula;
+        
+        /// <summary>
+        /// requeridDataMatricula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataMatricula;
         
         /// <summary>
         /// txtDataSaida control.
@@ -103,6 +157,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.TextBox txtDataSaida;
         
         /// <summary>
+        /// requeridDataSaida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataSaida;
+        
+        /// <summary>
         /// rbtStatusMatricula control.
         /// </summary>
         /// <remarks>
@@ -110,6 +173,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbtStatusMatricula;
+        
+        /// <summary>
+        /// requeridStatusMatricula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridStatusMatricula;
         
         /// <summary>
         /// ddlFormatoAnoLetivo control.
@@ -121,6 +193,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.DropDownList ddlFormatoAnoLetivo;
         
         /// <summary>
+        /// requeridFormatoAnoLetivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridFormatoAnoLetivo;
+        
+        /// <summary>
         /// txtMateria control.
         /// </summary>
         /// <remarks>
@@ -128,6 +209,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMateria;
+        
+        /// <summary>
+        /// requeridMateria control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridMateria;
         
         /// <summary>
         /// ddlStatusMateria control.
@@ -146,6 +236,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProfessor;
+        
+        /// <summary>
+        /// requeridProfessor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridProfessor;
         
         /// <summary>
         /// txtNota control.
@@ -175,6 +274,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.TextBox txtTelefone;
         
         /// <summary>
+        /// requeridTelefone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridTelefone;
+        
+        /// <summary>
         /// txtTelefoneCelular control.
         /// </summary>
         /// <remarks>
@@ -200,6 +308,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// requeridEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridEmail;
         
         /// <summary>
         /// txtSite control.
@@ -238,31 +355,31 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
-        /// ddlCidade control.
+        /// requeridEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCidade;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridEstado;
         
         /// <summary>
-        /// txtLogradouro control.
+        /// txtCidade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
+        protected global::System.Web.UI.WebControls.TextBox txtCidade;
         
         /// <summary>
-        /// txtNumero control.
+        /// requeridCidade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumero;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridCidade;
         
         /// <summary>
         /// txtCEP control.
@@ -274,6 +391,51 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.TextBox txtCEP;
         
         /// <summary>
+        /// requeridCEP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridCEP;
+        
+        /// <summary>
+        /// txtLogradouro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
+        
+        /// <summary>
+        /// requeridLogradouro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridLogradouro;
+        
+        /// <summary>
+        /// txtNumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumero;
+        
+        /// <summary>
+        /// requeridNumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridNumero;
+        
+        /// <summary>
         /// txtBairro control.
         /// </summary>
         /// <remarks>
@@ -281,6 +443,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBairro;
+        
+        /// <summary>
+        /// requeridBairro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridBairro;
         
         /// <summary>
         /// btnSalvar control.
@@ -308,5 +479,14 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }
