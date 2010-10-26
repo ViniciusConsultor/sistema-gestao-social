@@ -85,40 +85,31 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorFimVigencia;
         
         /// <summary>
-        /// txtValorEstimado control.
+        /// txtValorOrcamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorEstimado;
+        protected global::System.Web.UI.WebControls.TextBox txtValorOrcamento;
         
         /// <summary>
-        /// validatorValorEstimado control.
+        /// validatorValorOrcamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorEstimado;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorOrcamento;
         
         /// <summary>
-        /// txtValorDisponivel control.
+        /// txtSaldoDisponivel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorDisponivel;
-        
-        /// <summary>
-        /// validatorValorDisponivel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorDisponivel;
+        protected global::System.Web.UI.WebControls.TextBox txtSaldoDisponivel;
         
         /// <summary>
         /// ddlStatus control.
@@ -148,31 +139,13 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.DropDownList ddlNaturezaDespesa;
         
         /// <summary>
-        /// validatorNomeGasto control.
+        /// txtValorDespesa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorNomeGasto;
-        
-        /// <summary>
-        /// txtValorGasto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorGasto;
-        
-        /// <summary>
-        /// validatorValorGasto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorValorGasto;
+        protected global::System.Web.UI.WebControls.TextBox txtValorDespesa;
         
         /// <summary>
         /// btnSalvar control.
