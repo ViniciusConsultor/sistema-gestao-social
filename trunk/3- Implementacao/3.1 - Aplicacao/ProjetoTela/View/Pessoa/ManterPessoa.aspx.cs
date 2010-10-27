@@ -37,5 +37,10 @@ namespace SGS.View.Pessoa
             }
 
         }
+
+        protected void ddlTipoPessoa_SelectedIndexChan(object sender, EventArgs e)
+        {
+
+        }
     }
 }

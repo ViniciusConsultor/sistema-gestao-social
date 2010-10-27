@@ -22,8 +22,22 @@
 
     <table width="100%">
         <tr>
+            <td style="text-align: right" class="style6"> Casa Lar</td>
+            <td>  
+                <asp:DropDownList ID="ddlCasaLar" runat="server" Width="200px" 
+                    AutoPostBack="True">
+                    <asp:ListItem>Selecione</asp:ListItem>
+                    <asp:ListItem>Assistido</asp:ListItem>
+                    <asp:ListItem Value="Funcionario">Funcionário</asp:ListItem>
+                    <asp:ListItem Value="Voluntario">Voluntário</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td> &nbsp;</td>
+            <td> &nbsp;</td>
+        </tr>
+        <tr>
             <td style="text-align: right" class="style6"> &nbsp; Tipo Pessoa</td>
-            <td> &nbsp; 
+            <td>  
                 <asp:DropDownList ID="ddlTipoPessoa" runat="server" Width="200px" 
                     onselectedindexchanged="ddlTipoPessoa_SelectedIndexChanged" 
                     AutoPostBack="True">
