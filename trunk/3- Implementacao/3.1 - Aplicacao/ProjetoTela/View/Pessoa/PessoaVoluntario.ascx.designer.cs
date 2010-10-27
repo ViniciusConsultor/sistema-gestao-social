@@ -10,87 +10,114 @@
 namespace SGS.View.Pessoa {
     
     
-    public partial class ManterPessoa {
+    public partial class PessoaVoluntario {
         
         /// <summary>
-        /// lblTitulo control.
+        /// ddlGrauEscolaridade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitulo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGrauEscolaridade;
         
         /// <summary>
-        /// lblDescricao control.
+        /// txtFormacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescricao;
+        protected global::System.Web.UI.WebControls.TextBox txtFormacao;
         
         /// <summary>
-        /// ddlCasaLar control.
+        /// txtProfissao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCasaLar;
+        protected global::System.Web.UI.WebControls.TextBox txtProfissao;
         
         /// <summary>
-        /// ddlTipoPessoa control.
+        /// txtNumeroCTPS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPessoa;
+        protected global::System.Web.UI.WebControls.TextBox txtNumeroCTPS;
         
         /// <summary>
-        /// ucPessoaDadosBasico control.
+        /// txtTempoDisponivel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaDadosBasico ucPessoaDadosBasico;
+        protected global::System.Web.UI.WebControls.TextBox txtTempoDisponivel;
         
         /// <summary>
-        /// PessoaAssistido1 control.
+        /// txtEspecialidades control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaDadosBasico PessoaAssistido1;
+        protected global::System.Web.UI.WebControls.TextBox txtEspecialidades;
         
         /// <summary>
-        /// PessoaFuncionario1 control.
+        /// txtExperienciaProfissional control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaFuncionario PessoaFuncionario1;
+        protected global::System.Web.UI.WebControls.TextBox txtExperienciaProfissional;
         
         /// <summary>
-        /// PessoaVoluntario1 control.
+        /// txtMotivoVoluntariado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaVoluntario PessoaVoluntario1;
+        protected global::System.Web.UI.WebControls.TextBox txtMotivoVoluntariado;
         
         /// <summary>
-        /// PessoaPatrocinador1 control.
+        /// txtCodigoBanco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaPatrocinador PessoaPatrocinador1;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoBanco;
+        
+        /// <summary>
+        /// txtNomeBanco control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomeBanco;
+        
+        /// <summary>
+        /// txtAgencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAgencia;
+        
+        /// <summary>
+        /// txtConta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtConta;
     }
 }
