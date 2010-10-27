@@ -192,7 +192,7 @@
                     Status da Matrícula</td>
                 <td class="style10">
                     <asp:RadioButtonList ID="rbtStatusMatricula" runat="server" Height="22px" 
-                        Width="163px">
+                        Width="136px" Font-Size="Small">
                         <asp:ListItem>Matriculado</asp:ListItem>
                         <asp:ListItem>Não Matriculado</asp:ListItem>
                     </asp:RadioButtonList>
