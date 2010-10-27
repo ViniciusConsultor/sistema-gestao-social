@@ -26,14 +26,14 @@ namespace SGS.CamadaDados
         if (!objFinancas.CodigoFinancas.HasValue)
         {
             comando.CommandText = 
-                @"INSERT INTO FINANCAS ( CodigoCasaLar, CodigoNatureza, DataLancamento, DataCriacao, TipoLancamento, Valor, LancadoPor, Observacao, NaturezaFinanca)
-                VALUES (@codigoCasaLar, @codigoNatureza, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao, @naturezaFinanca)";
+                @"INSERT INTO FINANCAS ( CodigoCasaLar, CodigoNatureza, DataLancamento, DataCriacao, TipoLancamento, Valor, LancadoPor, Observacao)
+                VALUES (@codigoCasaLar, @codigoNatureza, @dataLancamento, @dataCriacao, @tipoLancamento, @valor, @lancadoPor, @observacao)";
         }
         else
         {
             comando.CommandText =
             @"UPDATE FINANCAS SET CodigoCasaLar = @codigoCasaLar, CodigoNatureza = @codigoNatureza, DataLancamento = @dataLancamento, DataCriacao = @dataCriacao, TipoLancamento = @tipoLancamento,
-            Valor = @valor, LancadoPor = @lancadoPor, Observacao = @observacao, NaturezaFinanca = @naturezaFinanca
+            Valor = @valor, LancadoPor = @lancadoPor, Observacao = @observacao
             WHERE (CodigoFinancas = @codigoFinancas)";
         }
         
@@ -92,9 +92,6 @@ namespace SGS.CamadaDados
         SqlParameter parametroObservacao = new SqlParameter("@observacao", objFinancas.Observacao);
         parametroObservacao.DbType = System.Data.DbType.String;
 
-        SqlParameter parametroNaturezaFinanca = new SqlParameter("@naturezaFinanca", objFinancas.NaturezaFinanca);
-        parametroNaturezaFinanca.DbType = System.Data.DbType.String;
-
         comando.Parameters.Add(parametroCodigoCasaLar);
         comando.Parameters.Add(parametroCodigoNatureza);
         comando.Parameters.Add(parametroDataLancamento);
@@ -103,7 +100,6 @@ namespace SGS.CamadaDados
         comando.Parameters.Add(parametroValor);
         comando.Parameters.Add(parametroLancadoPor);
         comando.Parameters.Add(parametroObservacao);
-        comando.Parameters.Add(parametroNaturezaFinanca);
             
         comando.ExecuteNonQuery();
 
@@ -135,7 +131,6 @@ namespace SGS.CamadaDados
                 objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
                 objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
                 objFinancas.Observacao = leitorDados["Observacao"].ToString();
-                objFinancas.NaturezaFinanca = leitorDados["NaturezaFinanca"].ToString();
                 
             }
     
@@ -149,7 +144,7 @@ namespace SGS.CamadaDados
         /// 
         /// </summary>
         /// <returns></returns>
-        public Financas ObterUltimaFinancasInserida()
+   public Financas ObterUltimaFinancasInserida()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Financas ORDER BY CodigoFinancas DESC", base.Conectar());
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -170,7 +165,6 @@ namespace SGS.CamadaDados
                 objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
                 objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
                 objFinancas.Observacao = leitorDados["Observacao"].ToString();
-                objFinancas.NaturezaFinanca = leitorDados["NaturezaFinanca"].ToString();
                 
             }
     
@@ -271,7 +265,6 @@ namespace SGS.CamadaDados
            objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
            objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
            objFinancas.Observacao = leitorDados["Observacao"].ToString();
-           objFinancas.NaturezaFinanca = leitorDados["NaturezaFinanca"].ToString();
                 
 
            financasLista.Add(objFinancas);
