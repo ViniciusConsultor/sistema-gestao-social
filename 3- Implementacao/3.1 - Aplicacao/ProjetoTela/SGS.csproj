@@ -158,7 +158,9 @@
     <Compile Include="CamadaDados\FinancasDados.cs" />
     <Compile Include="CamadaDados\FuncionarioDados.cs" />
     <Compile Include="CamadaDados\LoginDados.cs" />
+    <Compile Include="CamadaDados\NaturezaLancamentoDados.cs" />
     <Compile Include="CamadaDados\OrcamentoDados.cs" />
+    <Compile Include="CamadaDados\OrcamentoNaturezaDados.cs" />
     <Compile Include="CamadaDados\PatrocinadorDados.cs" />
     <Compile Include="CamadaDados\PessoaDados.cs" />
     <Compile Include="CamadaDados\ProcedimentosDados.cs" />
@@ -188,7 +190,9 @@
     <Compile Include="Entidades\Financas.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\Login.cs" />
+    <Compile Include="Entidades\NaturezaLancamento.cs" />
     <Compile Include="Entidades\Orcamento.cs" />
+    <Compile Include="Entidades\OrcamentoNatureza.cs" />
     <Compile Include="Entidades\Patrocinador.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Procedimentos.cs" />
