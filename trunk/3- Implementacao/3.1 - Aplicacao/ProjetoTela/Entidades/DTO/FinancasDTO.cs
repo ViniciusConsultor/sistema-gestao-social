@@ -75,14 +75,6 @@ namespace SGS.Entidades.DTO
             set { _descricaoValor = value; }
             get { return _descricaoValor; }
         }
-
-        private string _naturezaFinancaValor;
-        public string NaturezaFinancaValor
-        {
-            set { _naturezaFinancaValor = value; }
-            get { return _naturezaFinancaValor; }
-        }
-
         #endregion
 
     }
