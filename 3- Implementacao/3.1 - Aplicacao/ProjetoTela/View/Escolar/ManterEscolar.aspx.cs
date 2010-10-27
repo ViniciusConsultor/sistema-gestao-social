@@ -22,7 +22,7 @@ namespace SGS.View.Escolar
         {
             if (!Page.IsPostBack)
             {
-                this.CarregarTela();
+                //this.CarregarTela();
 
             }
 
@@ -36,10 +36,10 @@ namespace SGS.View.Escolar
         {
             SGSServico sgsServico = new SGSServico();
 
-            SGSEscolar = sgsServico.SalvarEscolar(PegarDadosView());
+            //SGSEscolar = sgsServico.SalvarEscolar(PegarDadosView());
 
-            string url = @"ManterEscolar.aspx?tipo=alt&cod=" + SGSEscolar.CodigoInstituicao.Value.ToString();
-            Response.Redirect(url);
+            //string url = @"ManterEscolar.aspx?tipo=alt&cod=" + SGSEscolar.CodigoInstituicao.Value.ToString();
+            //Response.Redirect(url);
 
             ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
         }
@@ -65,8 +65,8 @@ namespace SGS.View.Escolar
         {
             SGSServico objSGSServico = new SGSServico();
 
-            if (objSGSServico.ExcluirEscolar(SGSEscolar.CodigoCasaLar.Value, SGSEscolar.Contato.CodigoContato.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Dados Escolares excluídos com sucesso!'); </script>");
+            //if (objSGSServico.ExcluirEscolar(SGSEscolar.CodigoCasaLar.Value, SGSEscolar.Contato.CodigoContato.Value))
+                //ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Dados Escolares excluídos com sucesso!'); </script>");
             //TODO:maycon - Exibir msg javascript
             //TODO:maycon - não deixar excluir casalar quando possuir relação com outras entidades.
             Response.Redirect("../Apresentacao.aspx");

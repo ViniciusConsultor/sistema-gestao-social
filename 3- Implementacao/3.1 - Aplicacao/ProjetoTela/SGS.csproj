@@ -94,6 +94,9 @@
     <Content Include="View\Pessoa\ManterPessoa.aspx" />
     <Content Include="View\Pessoa\PessoaAssistido.ascx" />
     <Content Include="View\Pessoa\PessoaDadosBasico.ascx" />
+    <Content Include="View\Pessoa\PessoaFuncionario.ascx" />
+    <Content Include="View\Pessoa\PessoaPatrocinador.ascx" />
+    <Content Include="View\Pessoa\PessoaVoluntario.ascx" />
     <Content Include="View\PlanoOrcamentario\ConsultarPlanoOrcamentario.aspx" />
     <Content Include="View\PlanoOrcamentario\ManterPlanoOrcamentario.aspx" />
     <Content Include="View\Procedimentos\ConsultarProcedimentos.aspx" />
@@ -375,6 +378,27 @@
     </Compile>
     <Compile Include="View\Pessoa\PessoaDadosBasico.ascx.designer.cs">
       <DependentUpon>PessoaDadosBasico.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaFuncionario.ascx.cs">
+      <DependentUpon>PessoaFuncionario.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaFuncionario.ascx.designer.cs">
+      <DependentUpon>PessoaFuncionario.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaPatrocinador.ascx.cs">
+      <DependentUpon>PessoaPatrocinador.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaPatrocinador.ascx.designer.cs">
+      <DependentUpon>PessoaPatrocinador.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaVoluntario.ascx.cs">
+      <DependentUpon>PessoaVoluntario.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaVoluntario.ascx.designer.cs">
+      <DependentUpon>PessoaVoluntario.ascx</DependentUpon>
     </Compile>
     <Compile Include="View\PlanoOrcamentario\ConsultarPlanoOrcamentario.aspx.cs">
       <DependentUpon>ConsultarPlanoOrcamentario.aspx</DependentUpon>

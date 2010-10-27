@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterPessoa.aspx.cs" Inherits="SGS.View.Pessoa.ManterPessoa" %>
 <%@ Register src="PessoaDadosBasico.ascx" tagname="PessoaDadosBasico" tagprefix="uc1" %>
+<%@ Register src="PessoaAssistido.ascx" tagname="PessoaAssistido" tagprefix="uc2" %>
+<%@ Register src="PessoaFuncionario.ascx" tagname="PessoaFuncionario" tagprefix="uc3" %>
+<%@ Register src="PessoaVoluntario.ascx" tagname="PessoaVoluntario" tagprefix="uc4" %>
+<%@ Register src="PessoaPatrocinador.ascx" tagname="PessoaPatrocinador" tagprefix="uc5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style6
@@ -67,6 +71,17 @@
     <uc1:PessoaDadosBasico ID="ucPessoaDadosBasico" runat="server" 
         Visible="False" />
 
+        <br />
+
+        <uc2:PessoaAssistido ID="PessoaAssistido1" runat="server" />
+    <uc3:PessoaFuncionario ID="PessoaFuncionario1" runat="server" />
+    <br />
+    <uc4:PessoaVoluntario ID="PessoaVoluntario1" runat="server" />
+
+    <br />
+    <uc5:PessoaPatrocinador ID="PessoaPatrocinador1" runat="server" />
+    <br />
+    <br />
     <br />
       <table width="100%">
         <tr>
