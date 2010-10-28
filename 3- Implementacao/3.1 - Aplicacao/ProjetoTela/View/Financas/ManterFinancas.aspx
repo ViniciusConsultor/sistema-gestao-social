@@ -123,10 +123,6 @@
                         <asp:ListItem>Compras</asp:ListItem>
                         <asp:ListItem>Reforma</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="validatorNaturezaFinanca" runat="server" 
-                        ControlToValidate="ddlNaturezaFinanca" 
-                        ErrorMessage="Selecione a Natureza da Financa" ForeColor="Red" 
-                        InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     &nbsp;</td>

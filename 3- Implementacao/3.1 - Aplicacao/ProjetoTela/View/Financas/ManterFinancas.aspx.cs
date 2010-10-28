@@ -135,7 +135,7 @@ namespace SGS.View.Financas
             objFinancas.Valor = Convert.ToDecimal(txtValor.Text);
             objFinancas.LancadoPor = txtLancadoPor.Text;
             objFinancas.Observacao = txtObservacao.Text;
-
+            
 
             return objFinancas;
         }

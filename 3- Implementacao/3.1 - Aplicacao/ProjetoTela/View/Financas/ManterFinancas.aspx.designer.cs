@@ -67,15 +67,6 @@ namespace SGS.View.Financas {
         protected global::System.Web.UI.WebControls.DropDownList ddlNaturezaFinanca;
         
         /// <summary>
-        /// validatorNaturezaFinanca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorNaturezaFinanca;
-        
-        /// <summary>
         /// txtDataLancamento control.
         /// </summary>
         /// <remarks>

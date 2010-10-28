@@ -28,7 +28,7 @@ namespace SGS.Entidades.DTO
 
         #endregion
 
-        #region Propriedades
+        #region Propriedades1
 
         Orcamento _orcamento;
 
@@ -97,20 +97,46 @@ namespace SGS.Entidades.DTO
             get { return _statusPlanoValor; }
         }
 
-        /*    private string _naturezaDespesaValor;
+        #endregion
 
-              public string NaturezaDespesaValor
-               {
-                   set { _naturezaDespesaValor = value; }
-                   get { return _naturezaDespesaValor; }
-               } 
+        #region Propriedades2
 
-               private Decimal _valorDespesaValor;
-               public Decimal ValorDespesaValor
-               {
-                   set { _valorDespesaValor = value;}
-                   get { return _valorDespesaValor;
-               }*/
+        NaturezaLancamento _naturezaLancamento;
+
+        /// <summary>
+        /// Um objeto NaturezaLancamento
+        /// </summary>
+        public NaturezaLancamento NaturezaLancamento
+        {
+            get { return _naturezaLancamento; }
+            set { _naturezaLancamento = value; }
+        }
+
+
+        List<NaturezaLancamento> _naturezaLancamentoLista;
+
+        /// <summary>
+        /// Lista de NaturezaLancamento
+        /// </summary>
+        public List<NaturezaLancamento> NaturezaLancamentoLista
+        {
+            get { return _naturezaLancamentoLista; }
+            set { _naturezaLancamentoLista = value; }
+        }
+
+        private string _naturezaDespesaValor;
+        public string NaturezaDespesaoValor
+        {
+            set { _naturezaDespesaValor = value; }
+            get { return _naturezaDespesaValor; }
+        }
+
+        private Decimal _valorDespesaValor;
+        public Decimal ValorDespesaValor
+        {
+            set { _valorDespesaValor = value; }
+            get { return _valorDespesaValor; }
+        }
 
         #endregion
 

@@ -143,7 +143,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Saldo Disponível</td>
                 <td>
-                    <asp:TextBox ID="txtSaldoDisponivel" runat="server" Width="148px" CssClass="mask-real-cifrao" Enabled="False"></asp:TextBox>
+                    <asp:TextBox ID="txtSaldoDisponivel" runat="server" Width="148px" CssClass="mask-real-cifrao" Enabled="False">0</asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -196,7 +196,8 @@
         <table width="100%" align="center">
             <tr align="center">
                 <td> 
-                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                        onclick="btnSalvar_Click" Height="26px" 
                         /> &nbsp; 
                     <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
                         /> &nbsp;
