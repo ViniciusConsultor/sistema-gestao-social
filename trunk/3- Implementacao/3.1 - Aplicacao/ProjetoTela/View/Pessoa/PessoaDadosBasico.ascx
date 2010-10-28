@@ -129,8 +129,7 @@
         <td>
             País</td>
         <td>
-            <asp:DropDownList ID="ddlPais" runat="server" Height="16px" Width="125px">
-            </asp:DropDownList>
+            <asp:TextBox ID="txtPais" runat="server" MaxLength="20"></asp:TextBox>
         </td>
     </tr>
     <tr>
