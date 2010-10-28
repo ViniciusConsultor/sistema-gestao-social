@@ -85,39 +85,12 @@ namespace SGS.View.Pessoa {
         protected global::System.Web.UI.WebControls.TextBox txtMotivoVoluntariado;
         
         /// <summary>
-        /// txtCodigoBanco control.
+        /// PessoaDadosBancarios1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoBanco;
-        
-        /// <summary>
-        /// txtNomeBanco control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomeBanco;
-        
-        /// <summary>
-        /// txtAgencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAgencia;
-        
-        /// <summary>
-        /// txtConta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConta;
+        protected global::SGS.View.Pessoa.PessoaDadosBancarios PessoaDadosBancarios1;
     }
 }

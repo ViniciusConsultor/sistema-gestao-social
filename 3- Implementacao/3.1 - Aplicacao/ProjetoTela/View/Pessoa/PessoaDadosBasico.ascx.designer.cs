@@ -13,247 +13,76 @@ namespace SGS.View.Pessoa {
     public partial class PessoaDadosBasico {
         
         /// <summary>
-        /// txtDataEntrada control.
+        /// txtNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataEntrada;
+        protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// txtDataSaida control.
+        /// rdbSexo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataSaida;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbSexo;
         
         /// <summary>
-        /// ddlEstadoSaude control.
+        /// txtDataNascimento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstadoSaude;
+        protected global::System.Web.UI.WebControls.TextBox txtDataNascimento;
         
         /// <summary>
-        /// txtPeso control.
+        /// txtCPF control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPeso;
+        protected global::System.Web.UI.WebControls.TextBox txtCPF;
         
         /// <summary>
-        /// ddlCor control.
+        /// txtRG control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCor;
+        protected global::System.Web.UI.WebControls.TextBox txtRG;
         
         /// <summary>
-        /// txtDormitorio control.
+        /// txtNacionalidade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDormitorio;
+        protected global::System.Web.UI.WebControls.TextBox txtNacionalidade;
         
         /// <summary>
-        /// ddlTamanhoCamisa control.
+        /// txtNaturalidade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTamanhoCamisa;
+        protected global::System.Web.UI.WebControls.TextBox txtNaturalidade;
         
         /// <summary>
-        /// ddlTamanhoCalca control.
+        /// fileUploadFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTamanhoCalca;
-        
-        /// <summary>
-        /// txtTamanhoCalcado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTamanhoCalcado;
-        
-        /// <summary>
-        /// RadioButtonList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
-        
-        /// <summary>
-        /// txtHobby control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHobby;
-        
-        /// <summary>
-        /// txtHistoricoVida control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHistoricoVida;
-        
-        /// <summary>
-        /// txtPai control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPai;
-        
-        /// <summary>
-        /// txtMae control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMae;
-        
-        /// <summary>
-        /// ddlPaiVivo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPaiVivo;
-        
-        /// <summary>
-        /// ddlMaeViva control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMaeViva;
-        
-        /// <summary>
-        /// txtCPFPai control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPFPai;
-        
-        /// <summary>
-        /// txtCPFMae control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPFMae;
-        
-        /// <summary>
-        /// txtRGPai control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRGPai;
-        
-        /// <summary>
-        /// txtRGMae control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRGMae;
-        
-        /// <summary>
-        /// txtTelPai control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelPai;
-        
-        /// <summary>
-        /// txtTelMae control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelMae;
-        
-        /// <summary>
-        /// txtQtdIrmaos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQtdIrmaos;
-        
-        /// <summary>
-        /// txtResponsavel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResponsavel;
-        
-        /// <summary>
-        /// txtCPFResponsavel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCPFResponsavel;
-        
-        /// <summary>
-        /// txtTelResponsavel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelResponsavel;
-        
-        /// <summary>
-        /// txtEmailResponsavel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailResponsavel;
+        protected global::System.Web.UI.WebControls.FileUpload fileUploadFoto;
         
         /// <summary>
         /// txtCEP control.
@@ -310,12 +139,57 @@ namespace SGS.View.Pessoa {
         protected global::System.Web.UI.WebControls.TextBox txtEstado;
         
         /// <summary>
-        /// ddlPais control.
+        /// txtPais control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPais;
+        protected global::System.Web.UI.WebControls.TextBox txtPais;
+        
+        /// <summary>
+        /// txtTelefoneCelular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefoneCelular;
+        
+        /// <summary>
+        /// txtTelefoneConvencional control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefoneConvencional;
+        
+        /// <summary>
+        /// txtFax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFax;
+        
+        /// <summary>
+        /// txtSite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSite;
+        
+        /// <summary>
+        /// txtBlog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBlog;
     }
 }
