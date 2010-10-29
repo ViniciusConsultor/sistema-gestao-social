@@ -278,5 +278,46 @@ namespace SGS.CamadaDados
 
             return execucao;
         }
+
+
+        public List<CasaLar> ListarCasaLar()
+        {
+            SqlCommand comando = new SqlCommand("select * from CasaLar ORDER BY CodigoCasaLar", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            List<CasaLar> listCasaLar = new List<CasaLar>();
+            CasaLar objCasaLar = null;
+
+            while (leitorDados.Read())
+            {
+                objCasaLar = new CasaLar();
+
+                objCasaLar.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objCasaLar.CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                objCasaLar.NomeCasaLar = leitorDados["NomeCasaLar"].ToString();
+                objCasaLar.CNPJ = leitorDados["CNPJ"].ToString();
+                objCasaLar.Alvara = leitorDados["Alvara"].ToString();
+                objCasaLar.DataFundacao = Convert.ToDateTime(leitorDados["DataFundacao"]);
+                objCasaLar.Historia = leitorDados["Historia"].ToString();
+                objCasaLar.Gestor = leitorDados["Gestor"].ToString();
+                objCasaLar.StatusCasaLar = leitorDados["Status"].ToString();
+                objCasaLar.QtdMaxAssistidos = Convert.ToInt32(leitorDados["QtdMaximaAssistidos"]);
+                objCasaLar.QtdAssistidos = Convert.ToInt32(leitorDados["QtdAssistidos"]);
+                objCasaLar.TelefoneGestor = leitorDados["TelefoneGestor"].ToString();
+                objCasaLar.EmailGestor = leitorDados["EmailGestor"].ToString();
+
+                listCasaLar.Add(objCasaLar);
+            }
+
+                leitorDados.Close();
+                leitorDados.Dispose();
+
+            
+
+            return listCasaLar;
+        }
+
+
+
     }
 }

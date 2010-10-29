@@ -53,7 +53,7 @@ namespace SGS.Servicos
         }
 
         /// <summary>
-        /// Consulta a tabela Financas e retorna resultados de acordo com o preenchimento do filtro
+        /// Retorna uma lista de natureza de de lancamento.
         /// </summary>
         public List<NaturezaLancamento> ListarNaturezaLancamento()
         {
@@ -62,6 +62,18 @@ namespace SGS.Servicos
             return objNaturezaLancamentoDados.ListarNaturezaLancamento();
 
         }
+
+        /// <summary>
+        /// Retorna uma lista de casa lar.
+        /// </summary>
+        public List<CasaLar> ListarCasaLar()
+        {
+            CasaLarDados objCasaLarDados = new CasaLarDados();
+
+            return objCasaLarDados.ListarCasaLar();
+
+        }
+
 
     }
 }
