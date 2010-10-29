@@ -94,7 +94,10 @@ namespace SGS.View.Financas
         {
             SGSServico objSGSServico = new SGSServico();
             SGSFinancas = new Entidades.Financas();
+            ddlNaturezaFinanca.DataSource = objSGSServico.ListarNaturezaLancamento();
+            ddlNaturezaFinanca.DataBind();
 
+           
             if (Request.QueryString["tipo"] == "alt")
             {
                 ////* View/Financas/ManterFinancas.aspx?tipo=alt&cod=1
@@ -102,8 +105,7 @@ namespace SGS.View.Financas
                 lblDescricao.Text = "Descrição: Permite alterar as Finanças da Casa Lar.";
                 btnExcluir.Visible = true;
                 SGSFinancas.CodigoFinancas = Convert.ToInt32(Request.QueryString["cod"]);
-                //SGSFinancas.CodigoFinancas = 1;
-
+                
                 SGSFinancas = objSGSServico.ObterFinancas(SGSFinancas.CodigoFinancas.Value);
 
 
@@ -128,6 +130,7 @@ namespace SGS.View.Financas
         private SGS.Entidades.Financas PegarDadosView()
         {
             SGS.Entidades.Financas objFinancas = SGSFinancas;
+            
             objFinancas.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
             objFinancas.TipoLancamento = ddlTipoLancamento.SelectedValue;
             objFinancas.DataLancamento = Convert.ToDateTime(txtDataLancamento.Text);
@@ -135,8 +138,8 @@ namespace SGS.View.Financas
             objFinancas.Valor = Convert.ToDecimal(txtValor.Text);
             objFinancas.LancadoPor = txtLancadoPor.Text;
             objFinancas.Observacao = txtObservacao.Text;
+            objFinancas.CodigoNatureza = Convert.ToInt32(ddlNaturezaFinanca.SelectedValue);
             
-
             return objFinancas;
         }
 
@@ -152,6 +155,10 @@ namespace SGS.View.Financas
             txtValor.Text = SGSFinancas.Valor.Value.ToString();
             txtLancadoPor.Text = SGSFinancas.LancadoPor;
             txtObservacao.Text = SGSFinancas.Observacao;
+            
+            if (SGSFinancas.CodigoNatureza.HasValue)
+                ddlNaturezaFinanca.SelectedValue = SGSFinancas.CodigoNatureza.Value.ToString();
+
         }
 
         #endregion

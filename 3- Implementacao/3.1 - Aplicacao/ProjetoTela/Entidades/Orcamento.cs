@@ -16,6 +16,9 @@ namespace SGS.Entidades
         private Decimal _saldoDisponivel;
         private DateTime? _inicioVigencia;
         private DateTime? _fimVigencia;
+        private NaturezaLancamento _naturezaLancamento;
+        private OrcamentoNatureza _orcamentoNatureza;
+
 
 
         public int? CodigoOrcamento
@@ -66,6 +69,21 @@ namespace SGS.Entidades
             get { return _fimVigencia; }
             set { _fimVigencia = value; }
         }
+
+        public NaturezaLancamento NaturezaLancamento
+        {
+            set { _naturezaLancamento = value; }
+            get { return _naturezaLancamento; }
+
+        }
+
+        public OrcamentoNatureza OrcamentoNatureza
+        { 
+                set { _orcamentoNatureza = value; }
+                get { return _orcamentoNatureza; }
+        }
+
+
 
 
     }
