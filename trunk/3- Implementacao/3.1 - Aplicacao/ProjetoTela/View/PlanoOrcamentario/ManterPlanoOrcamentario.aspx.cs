@@ -134,8 +134,8 @@ namespace SGS.View.PlanoOrcamentario
             objOrcamento.ValorOrcamento = Convert.ToDecimal(txtValorOrcamento.Text);
             objOrcamento.SaldoDisponivel = Convert.ToDecimal(txtSaldoDisponivel.Text);
             objOrcamento.StatusPlano = ddlStatus.SelectedValue;
-  //          objNaturezaLancamento.NomeNatureza = ddlNaturezaDespesa.SelectedValue;
-  //          objOrcamentoNatureza.Valor = Convert.ToDecimal(txtValorDespesa.Text);
+           // objOrcamento.NaturezaLancamento.NomeNatureza = ddlNaturezaDespesa.SelectedValue;
+           // objOrcamento.Valor = Convert.ToDecimal(txtValorDespesa.Text);
 
 
             return objOrcamento;

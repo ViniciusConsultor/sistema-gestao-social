@@ -52,5 +52,16 @@ namespace SGS.Servicos
 
         }
 
+        /// <summary>
+        /// Consulta a tabela Financas e retorna resultados de acordo com o preenchimento do filtro
+        /// </summary>
+        public List<NaturezaLancamento> ListarNaturezaLancamento()
+        {
+            NaturezaLancamentoDados objNaturezaLancamentoDados = new NaturezaLancamentoDados();
+            
+            return objNaturezaLancamentoDados.ListarNaturezaLancamento();
+
+        }
+
     }
 }

@@ -75,7 +75,43 @@ namespace SGS.Entidades.DTO
             set { _descricaoValor = value; }
             get { return _descricaoValor; }
         }
+
+
+
+        NaturezaLancamento _naturezaLancamento;
+
+        /// <summary>
+        /// Um objeto NaturezaLancamento
+        /// </summary>
+        public NaturezaLancamento NaturezaLancamento
+        {
+            get { return _naturezaLancamento; }
+            set { _naturezaLancamento = value; }
+        }
+
+
+        private List<NaturezaLancamento> _naturezaLancamentoLista;
+
+        /// <summary>
+        /// Lista de NaturezaLancamento
+        /// </summary>
+        public List<NaturezaLancamento> NaturezaLancamentoLista
+        {
+            get { return _naturezaLancamentoLista; }
+            set { _naturezaLancamentoLista = value; }
+        }
+
+        private string _naturezaFinancaValor;
+        public string NaturezaFinancaValor
+        {
+            set { _naturezaFinancaValor = value; }
+            get { return _naturezaFinancaValor; }
+        }
+
         #endregion
+
+
+
 
     }
 }

@@ -105,5 +105,34 @@ namespace SGS.CamadaDados
             return execucao;
 
         }
+
+        /// <summary>
+        /// Retorna a lista de natureza de lancamento.
+        /// </summary>
+        /// <returns></returns>
+
+        public List<NaturezaLancamento> ListarNaturezaLancamento()
+        {
+            SqlCommand comando = new SqlCommand("select * from NaturezaLancamento ORDER BY NomeNatureza", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            List<NaturezaLancamento> listNaturezaLancamento = new List<NaturezaLancamento> ();
+            NaturezaLancamento objNaturezaLancamento = null;
+
+            while (leitorDados.Read())
+            {
+                objNaturezaLancamento = new NaturezaLancamento();
+
+                objNaturezaLancamento.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+                objNaturezaLancamento.NomeNatureza = leitorDados["NomeNatureza"].ToString();
+                
+                listNaturezaLancamento.Add(objNaturezaLancamento);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return listNaturezaLancamento;
+        }
     }
 }
