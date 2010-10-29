@@ -96,6 +96,8 @@ namespace SGS.View.Financas
             SGSFinancas = new Entidades.Financas();
             ddlNaturezaFinanca.DataSource = objSGSServico.ListarNaturezaLancamento();
             ddlNaturezaFinanca.DataBind();
+            ddlCasaLar.DataSource = objSGSServico.ListarCasaLar();
+            ddlCasaLar.DataBind();
 
            
             if (Request.QueryString["tipo"] == "alt")
@@ -148,13 +150,16 @@ namespace SGS.View.Financas
         /// </summary>
         private void PreencherDadosView()
         {
-            ddlCasaLar.SelectedValue = SGSFinancas.CodigoCasaLar.Value.ToString();
+            
             ddlTipoLancamento.SelectedValue = SGSFinancas.TipoLancamento;
             txtDataLancamento.Text = SGSFinancas.DataLancamento.Value.ToString();
             txtDataCriacao.Text = SGSFinancas.DataCriacao.Value.ToString();
             txtValor.Text = SGSFinancas.Valor.Value.ToString();
             txtLancadoPor.Text = SGSFinancas.LancadoPor;
             txtObservacao.Text = SGSFinancas.Observacao;
+
+            if (SGSFinancas.CodigoCasaLar.HasValue)
+                ddlCasaLar.SelectedValue = SGSFinancas.CodigoCasaLar.Value.ToString();
             
             if (SGSFinancas.CodigoNatureza.HasValue)
                 ddlNaturezaFinanca.SelectedValue = SGSFinancas.CodigoNatureza.Value.ToString();

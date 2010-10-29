@@ -108,10 +108,40 @@ namespace SGS.Entidades.DTO
             get { return _naturezaFinancaValor; }
         }
 
+
+
+
+        CasaLar _casaLar;
+
+        /// <summary>
+        /// Um objeto CasaLar
+        /// </summary>
+        public CasaLar CasaLar
+        {
+            get { return _casaLar; }
+            set { _casaLar = value; }
+        }
+
+
+        private List<CasaLar> _casaLarLista;
+
+        /// <summary>
+        /// Lista de CasaLar
+        /// </summary>
+        public List<CasaLar> CasaLarLista
+        {
+            get { return _casaLarLista; }
+            set { _casaLarLista = value; }
+        }
+
+        private string _codigoCasaLarValor;
+        public string CodigoCasaLarValor
+        {
+            set { _codigoCasaLarValor = value; }
+            get { return _codigoCasaLarValor; }
+        }
+
         #endregion
-
-
-
-
+        
     }
 }
