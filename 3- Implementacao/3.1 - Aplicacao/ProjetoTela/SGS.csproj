@@ -83,6 +83,7 @@
     <Content Include="View\Codificacao.aspx" />
     <Content Include="View\Escolar\ConsultarEscolar.aspx" />
     <Content Include="View\Escolar\ManterEscolar.aspx" />
+    <Content Include="View\Escolar\MsgEscolar.aspx" />
     <Content Include="View\Financas\ConsultarFinancas.aspx" />
     <Content Include="View\Financas\ManterFinancas.aspx" />
     <Content Include="View\LoginUI\ConsultarLogin.aspx" />
@@ -185,6 +186,7 @@
     <Compile Include="Entidades\Contato.cs" />
     <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\Desenvolvimento.cs" />
+    <Compile Include="Entidades\DTO\EscolarDTO.cs" />
     <Compile Include="Entidades\DTO\DadosAcesso.cs" />
     <Compile Include="Entidades\DTO\DadosAssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\FinancasDTO.cs" />
@@ -216,6 +218,8 @@
       <DependentUpon>SGS.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\SGSServicoAlimentacao.cs" />
+    <Compile Include="Servicos\SGSServicoEscolar.cs" />
     <Compile Include="Servicos\SGSServicoOrcamento.cs" />
     <Compile Include="Servicos\SGSServico.cs" />
     <Compile Include="Servicos\SGSServicoCasaLar.cs" />
@@ -304,6 +308,13 @@
     </Compile>
     <Compile Include="View\Escolar\ManterEscolar.aspx.designer.cs">
       <DependentUpon>ManterEscolar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Escolar\MsgEscolar.aspx.cs">
+      <DependentUpon>MsgEscolar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Escolar\MsgEscolar.aspx.designer.cs">
+      <DependentUpon>MsgEscolar.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Financas\ConsultarFinancas.aspx.cs">
       <DependentUpon>ConsultarFinancas.aspx</DependentUpon>

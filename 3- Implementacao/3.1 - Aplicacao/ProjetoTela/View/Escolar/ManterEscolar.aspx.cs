@@ -36,10 +36,10 @@ namespace SGS.View.Escolar
         {
             SGSServico sgsServico = new SGSServico();
 
-            //SGSEscolar = sgsServico.SalvarEscolar(PegarDadosView());
+            SGSEscolarDTO.Escolar = sgsServico.SalvarEscolar(PegarDadosView());
 
-            //string url = @"ManterEscolar.aspx?tipo=alt&cod=" + SGSEscolar.CodigoInstituicao.Value.ToString();
-            //Response.Redirect(url);
+            string url = @"ManterEscolar.aspx?tipo=alt&cod=" + SGSEscolarDTO.Escolar.CodigoEscolar.Value.ToString();
+            Response.Redirect(url);
 
             ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
         }
@@ -65,11 +65,194 @@ namespace SGS.View.Escolar
         {
             SGSServico objSGSServico = new SGSServico();
 
-            //if (objSGSServico.ExcluirEscolar(SGSEscolar.CodigoCasaLar.Value, SGSEscolar.Contato.CodigoContato.Value))
-                //ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Dados Escolares excluídos com sucesso!'); </script>");
+            if (objSGSServico.ExcluirEscolar(SGSEscolarDTO.Escolar.CodigoEscolar.Value, SGSEscolarDTO.Escolar.Contato.CodigoContato.Value))
+                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Dados Escolares excluídos com sucesso!'); </script>");
             //TODO:maycon - Exibir msg javascript
-            //TODO:maycon - não deixar excluir casalar quando possuir relação com outras entidades.
+            //TODO:maycon - não deixar excluir Escolar quando possuir relação com outras entidades.
             Response.Redirect("../Apresentacao.aspx");
+        }
+
+        #endregion
+
+        #region Metodos
+
+        /// <summary>
+        /// Este método preenche os controles da tela de acordo com a operação que
+        /// está sendo executado "cadastro" ou "edição".
+        /// </summary>
+        public void CarregarTela()
+        {
+            SGSServico objSGSServico = new SGSServico();
+            SGSEscolarDTO = new SGS.Entidades.DTO.EscolarDTO();
+
+            //Alterar Escolar
+            if (Request.QueryString["tipo"] == "alt" && DadosAcesso.Perfil == "Gestor")
+            {
+                lblTitulo.Text = "Alterar Dados Escolares";
+                lblDescricao.Text = "Descrição: Permite alterar os dados escolares dos assistidos.";
+                btnExcluir.Visible = true;
+
+                int codigoEscolar = Convert.ToInt32(Request.QueryString["cod"]);
+
+                //Preencha a propriedade Escolar
+                SGSEscolarDTO.Escolar = objSGSServico.ObterEscolar(codigoEscolar);
+
+                if (SGSEscolarDTO != null)
+                    this.PreencherDadosView();
+                else
+                    Server.Transfer("MsgEscolar.aspx"); //transfere usuário para tela de mensagem de Dados Escolares não cadastrados.(criar)
+            }
+
+            //Vizualizar Escolar
+            else if (Request.QueryString["tipo"] == "viz" && (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario"))
+            {
+                lblTitulo.Text = "Vizualizar Escolar";
+                lblDescricao.Text = "Descrição: Permite vizualizar os dados escolares dos assistidos.";
+                btnExcluir.Visible = false;
+                btnSalvar.Visible = false;
+                btnCancelar.Visible = false;
+
+                int codigoEscolar = Convert.ToInt32(Request.QueryString["cod"]);
+
+                //Preencha a propriedade Escolar
+                SGSEscolarDTO.Escolar = objSGSServico.ObterEscolar(codigoEscolar);
+
+                if (SGSEscolarDTO != null)
+                {
+                    this.PreencherDadosView();
+                }
+                else
+                    Server.Transfer("MsgEscolar.aspx"); //transfere usuário para tela de mensagem de Dados Escolares não cadastrados. (fazer)
+            }
+
+            //Cadastrar Escolar
+            else if (DadosAcesso.Perfil == "Gestor")
+            {
+
+                int codigoEscolar = Convert.ToInt32(Request.QueryString["cod"]);
+
+                SGSEscolarDTO.Escolar = objSGSServico.ObterEscolar(codigoEscolar);
+
+                if (SGSEscolarDTO == null)
+                {
+                    SGSEscolarDTO = new SGS.Entidades.DTO.EscolarDTO();
+                    lblTitulo.Text = "Cadastrar Dados Escolares";
+                    lblDescricao.Text = "Descrição: Permite cadastrar os dados escolares dos assistidos.";
+                    btnExcluir.Visible = false;
+                }
+                else
+                    Server.Transfer("ManterEscolar.aspx?tipo=alt");
+
+            }
+
+            //Usuário sem permissão
+            else
+            {
+                Server.Transfer("../SemPermissao.aspx");
+            }
+        }
+
+        /// <summary>
+        /// Preencha a entidade Escolar com os dados da View
+        /// </summary>
+        private SGS.Entidades.Escolar PegarDadosView()
+        {
+            SGS.Entidades.DTO.EscolarDTO objSGSEscolarDTO = SGSEscolarDTO;
+
+            //Assistido?
+            objSGSEscolarDTO.Escolar.DataMatricula = Convert.ToDateTime(txtDataMatricula.Text);
+            objSGSEscolarDTO.Escolar.DataSaida = Convert.ToDateTime(txtDataSaida.Text);
+            objSGSEscolarDTO.Escolar.FormatoAnoLetivo = ddlFormatoAnoLetivo.SelectedValue;
+            objSGSEscolarDTO.Escolar.GrauEscolaridade = ddlGrauEscolaridade.SelectedValue;
+            objSGSEscolarDTO.Escolar.Instituicao = txtInstituicaoEnsino.Text;
+            objSGSEscolarDTO.Escolar.Materia = txtMateria.Text;
+            objSGSEscolarDTO.Escolar.MediaEscola = Convert.ToInt32(txtMediaEscolar.Text);
+            objSGSEscolarDTO.Escolar.Nota = Convert.ToInt32(txtNota.Text);
+            objSGSEscolarDTO.Escolar.NumInscricaoInstituicao = txtNumeroInscricao.Text;
+            objSGSEscolarDTO.Escolar.ParteAnoLetivo = ddlParteAnoLetivo.SelectedValue;
+            objSGSEscolarDTO.Escolar.Professor = txtProfessor.Text;
+            objSGSEscolarDTO.Escolar.SerieCursada = txtSerieCursada.Text;
+            objSGSEscolarDTO.Escolar.StatusMateria = ddlStatusMateria.SelectedValue;
+            objSGSEscolarDTO.Escolar.StatusMatricula = rbtStatusMatricula.SelectedValue;
+            objSGSEscolarDTO.Escolar.Contato.Bairro = txtBairro.Text;
+            objSGSEscolarDTO.Escolar.Contato.Blog = txtBlog.Text;
+            objSGSEscolarDTO.Escolar.Contato.CEP = txtCEP.Text;
+            objSGSEscolarDTO.Escolar.Contato.Cidade = txtCidade.Text;
+            objSGSEscolarDTO.Escolar.Contato.Email = txtEmail.Text;
+            objSGSEscolarDTO.Escolar.Contato.Estado = ddlEstado.SelectedValue;
+            objSGSEscolarDTO.Escolar.Contato.FAX = txtFax.Text;
+            objSGSEscolarDTO.Escolar.Contato.Logradouro = txtLogradouro.Text;
+            objSGSEscolarDTO.Escolar.Contato.Numero = txtNumero.Text;
+            objSGSEscolarDTO.Escolar.Contato.Pais = ddlPais.SelectedValue;
+            objSGSEscolarDTO.Escolar.Contato.TelefoneCelular = txtTelefoneCelular.Text;
+            objSGSEscolarDTO.Escolar.Contato.TelefoneConvencional = txtTelefone.Text;
+            objSGSEscolarDTO.Escolar.Contato.Site = txtSite.Text;
+
+
+            return objSGSEscolarDTO.Escolar;
+        }
+
+        /// <summary>
+        /// Preenche a View com os dados que estão na entidade Escolar
+        /// </summary>
+        private void PreencherDadosView()
+        {
+            //Assistido?
+            txtDataMatricula.Text = SGSEscolarDTO.Escolar.DataMatricula.Value.ToString();
+            txtDataSaida.Text = SGSEscolarDTO.Escolar.DataSaida.Value.ToString();
+            txtInstituicaoEnsino.Text = SGSEscolarDTO.Escolar.Instituicao;
+            txtMateria.Text = SGSEscolarDTO.Escolar.Materia;
+            txtMediaEscolar.Text = Convert.ToString(SGSEscolarDTO.Escolar.MediaEscola);            
+            txtNota.Text = Convert.ToString(SGSEscolarDTO.Escolar.Nota);
+            txtNumeroInscricao.Text = SGSEscolarDTO.Escolar.NumInscricaoInstituicao;
+            txtProfessor.Text = SGSEscolarDTO.Escolar.Professor;
+            txtSerieCursada.Text = SGSEscolarDTO.Escolar.SerieCursada;
+            ddlFormatoAnoLetivo.SelectedValue = SGSEscolarDTO.Escolar.FormatoAnoLetivo;
+            ddlGrauEscolaridade.SelectedValue = SGSEscolarDTO.Escolar.GrauEscolaridade;
+            ddlParteAnoLetivo.SelectedValue = SGSEscolarDTO.Escolar.ParteAnoLetivo;
+            ddlStatusMateria.SelectedValue = SGSEscolarDTO.Escolar.StatusMateria;
+            rbtStatusMatricula.SelectedValue = SGSEscolarDTO.Escolar.StatusMatricula;
+            txtBairro.Text = SGSEscolarDTO.Escolar.Contato.Bairro;
+            txtBlog.Text = SGSEscolarDTO.Escolar.Contato.Blog;
+            txtCEP.Text = SGSEscolarDTO.Escolar.Contato.CEP;
+            txtCidade.Text = SGSEscolarDTO.Escolar.Contato.Cidade;
+            txtEmail.Text = SGSEscolarDTO.Escolar.Contato.Email;
+            txtFax.Text = SGSEscolarDTO.Escolar.Contato.FAX;
+            ddlEstado.SelectedValue = SGSEscolarDTO.Escolar.Contato.Estado;
+            ddlPais.SelectedValue = SGSEscolarDTO.Escolar.Contato.Pais;
+            txtLogradouro.Text = SGSEscolarDTO.Escolar.Contato.Logradouro;
+            txtNumero.Text = SGSEscolarDTO.Escolar.Contato.Numero;
+            txtSite.Text = SGSEscolarDTO.Escolar.Contato.Site;
+            txtTelefone.Text = SGSEscolarDTO.Escolar.Contato.TelefoneConvencional;
+            txtTelefoneCelular.Text = SGSEscolarDTO.Escolar.Contato.TelefoneCelular;
+        }
+
+        
+        #endregion
+
+        #region Propriedades
+
+        /// <summary>
+        /// Esta propriedade armazena em memória os dados da Entidade Escolar
+        /// </summary>
+        public SGS.Entidades.DTO.EscolarDTO SGSEscolarDTO
+        {
+            set
+            {
+                if (ViewState["EscolarDTO"] == null)
+                    ViewState.Add("EscolarDTO", value);
+                else
+                    ViewState["EscolarDTO"] = value;
+            }
+            get
+            {
+                if (ViewState["EscolarDTO"] == null)
+                    return null;
+                else
+                    return (SGS.Entidades.DTO.EscolarDTO)ViewState["SGSEscolar"];
+
+            }
+
         }
 
         #endregion

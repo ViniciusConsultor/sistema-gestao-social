@@ -8,6 +8,12 @@ namespace SGS.Entidades
     [Serializable]
     public class Escolar
     {
+
+        public Escolar()
+        {
+            this.Contato = new Contato();
+        }
+
         private int? _codigoEscolar;
         private int? _contato_CodigoContato;
         private int? _assistido_CodigoAssistido;
@@ -25,6 +31,7 @@ namespace SGS.Entidades
         private Decimal _nota;
         private string _statusMateria;
         private string _parteAnoLetivo;
+        private Contato _contato;
 
 
         public int? CodigoEscolar
@@ -128,5 +135,12 @@ namespace SGS.Entidades
             get { return _parteAnoLetivo; }
             set { _parteAnoLetivo = value; }
         }
+
+        public Contato Contato
+        {
+            get { return _contato; }
+            set { _contato = value; }
+        }
+
     }
 }

@@ -16,6 +16,7 @@ namespace SGS.Entidades
         private DateTime? _horario;
         private string _alimento;
         private string _porcaoAlimento;
+        private string _diretiva;
 
 
         public int? CodigoAlimentacao
@@ -58,6 +59,12 @@ namespace SGS.Entidades
         {
             get { return _porcaoAlimento; }
             set { _porcaoAlimento = value; }
+        }
+
+        public string Diretiva
+        {
+            get { return _diretiva; }
+            set { _diretiva = value; }
         }
     }
 }

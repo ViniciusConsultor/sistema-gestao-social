@@ -21,7 +21,7 @@ namespace SGS.CamadaDados
             if (!objEscolar.CodigoEscolar.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Escolar (Assistido_CodigoAssistido, Contato_CodigoContato, Instituicao, NumInscricaoInstituicao, 
+                    @"INSERT INTO Escolar (CodigoAssistido, CodigoContato, Instituicao, NumInscricaoInstituicao, 
                                   MediaEscola, GrauEscolaridade, SerieCursada, DataMatricula, DataSaida, StatusMatricula, FormatoAnoLetivo,
                                   Materia, Professor, Nota, StatusMateria, ParteAnoLetivo)
                     VALUES (@assistido_CodigoAssistido, @contato_CodigoContato, @instituicao, @numInscricaoInstituicao, @mediaEscola,
@@ -31,8 +31,8 @@ namespace SGS.CamadaDados
             else
             {
                 comando.CommandText =
-                    @"UPDATE Escolar SET Assistido_CodigoAssistido = @sssistido_CodigoAssistido, 
-                             Contato_CodigoContato = @contato_CodigoContato, Instituicao = @instituicao,
+                    @"UPDATE Escolar SET CodigoAssistido = @sssistido_CodigoAssistido, 
+                             CodigoContato = @contato_CodigoContato, Instituicao = @instituicao,
                              NumInscricaoInstituicao = @numInscricaoInstituicao, MediaEscola = @mediaEscola, 
                              GrauEscolaridade = @grauEscolaridade, SerieCursada = @serieCursada, DataMatricula = @dataMatricula,
                              DataSaida  = @dataSaida, StatusMatricula = @statusMatricula, FormatoAnoLetivo = @formatoAnoLetivo,
@@ -193,7 +193,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui os dados escolar pelo seu código
         /// </summary>
-        public bool ExcluirEscolar(int codigoEscolar)
+        public bool ExcluirEscolar(int codigoEscolar, int codigoContato)
         {
             bool execucao;
 

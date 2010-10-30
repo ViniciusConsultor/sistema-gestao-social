@@ -25,12 +25,51 @@
         {
             color: #FF0000;
         }
-        .style11
-        {
-            font-size: small;
-            color: #FF0000;
-        }
- </style>
+        </style>
+
+        <!-- Importa todos os script JavaScript-->
+        <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskMoney.js"> </script>
+        
+        <!-- Comandos de JavaScript-->
+        <script type="text/javascript">
+
+            //Diz que quando a página for carregada, irá ser executado o
+            //bloco de código contido entre os {};
+
+            $(document).ready(function () {
+
+                //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
+                //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
+
+                $('.mask-numero').mask('999999'); //número
+                $('.mask-numero2').maskMoney({ precision: 6 }); //número
+
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99"); //cpf
+                $(".mask-cnpj").mask("99.999.999/9999-99"); //cnpj
+                $(".mask-cep").mask("99999-999"); //cep
+                $(".mask-real-cifrao").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
+                $(".mask-real").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: false }); //real sem cifrão 1.000,00
+                $(".mask-precision").maskMoney({ precision: 3 }); //com 3 casas de precisão 1,000
+
+                /* Default options are (but you can always change that):
+                symbol:'US$',
+                decimal:'.',
+                precision:2,
+                thousands:',',
+                allowZero:false,
+                showSymbol:false */
+
+            });
+
+        </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -50,7 +89,7 @@
                     Dia da semana</td>
                 <td class="style9">
                     <span class="style10">
-                    <asp:DropDownList ID="ddlDiaSemana" runat="server" Width="126px" Height="22px">
+                    <asp:DropDownList ID="ddlDiaSemana" runat="server" Width="148px" Height="22px">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
                         <asp:ListItem Text="Domingo" Value="Domingo" ></asp:ListItem>
                         <asp:ListItem Text="Segunda-Feira" Value="Segunda-Feira"></asp:ListItem>
@@ -60,7 +99,10 @@
                         <asp:ListItem Text="Sexta-Feira" Value="Segunda-Feira"></asp:ListItem>
                         <asp:ListItem>Sábado</asp:ListItem>
                     </asp:DropDownList>
-                    *</span></td>
+                    <asp:RequiredFieldValidator ID="requeridDiaSemana" runat="server" 
+                        ControlToValidate="ddlDiaSemana" ErrorMessage="Escolha o Dia da Semana" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                    </span></td>
                 <td class="style4">
                     &nbsp;</td>
                 <td>
@@ -71,7 +113,7 @@
                     Período</td>
                 <td class="style9">
                     <span class="style10">
-                    <asp:DropDownList ID="ddlPeriodo" runat="server" Width="126px" Height="22px">
+                    <asp:DropDownList ID="ddlPeriodo" runat="server" Width="148px" Height="22px">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
                         <asp:ListItem >Desjejum</asp:ListItem>
                         <asp:ListItem>Colação</asp:ListItem>
@@ -80,7 +122,10 @@
                         <asp:ListItem>Jantar</asp:ListItem>
                         <asp:ListItem>Ceia</asp:ListItem>
                     </asp:DropDownList>
-                    *</span></td>
+                    <asp:RequiredFieldValidator ID="requeridPeriodo" runat="server" 
+                        ControlToValidate="ddlPeriodo" ErrorMessage="Escolha o Periodo" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                    </span></td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -90,8 +135,12 @@
                 <td class="style7">
                     Horário</td>
                 <td class="style8">
-                    <asp:TextBox ID="txtHorario" runat="server"></asp:TextBox>
-                    <span class="style10">*</span></td>
+                    <asp:TextBox ID="txtHorario" runat="server" Height="22px" MaxLength="6" 
+                        Width="148px" CssClass="mask-hora"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridHorario" runat="server" 
+                        ControlToValidate="txtHorario" ErrorMessage="Preencha o Campo Horário" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -109,7 +158,10 @@
                         <asp:ListItem>Salada</asp:ListItem>
                         <asp:ListItem>Gelatina</asp:ListItem>
                     </asp:ListBox>
-                    <span class="style10">*</span></td>
+                    <asp:RequiredFieldValidator ID="requeridAlimentos" runat="server" 
+                        ControlToValidate="ltbAlimentos" ErrorMessage="Escolha os Alimentos" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -120,8 +172,12 @@
                     Porção do Alimento</td>
                 <td align="right" class="style9" style="text-align: left">
                     <span class="style10">
-                    <asp:TextBox ID="txtPorcaoAlimento" runat="server"></asp:TextBox>
-                    *</span></td>
+                    <asp:TextBox ID="txtPorcaoAlimento" runat="server" Height="22px" MaxLength="30" 
+                        Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridPorcaoAlimento" runat="server" 
+                        ControlToValidate="txtPorcaoAlimento" ErrorMessage="Preencha o Campo Porção do Alimento" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                    </span></td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -133,7 +189,10 @@
                 <td align="right" class="style9" style="text-align: left">
                     <span class="style10">
                     <asp:TextBox ID="txtDiretiva" runat="server" Height="86px" TextMode="MultiLine" 
-                        Width="285px"></asp:TextBox>
+                        Width="285px" MaxLength="200"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridDiretiva" runat="server" 
+                        ControlToValidate="txtDiretiva" ErrorMessage="Preencha o Campo Diretiva" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                     </span></td>
                 <td>
                     &nbsp;</td>
@@ -142,13 +201,6 @@
             </tr>
         </table>
          <br />
-        <table width="100%">
-            <tr align="center"> 
-                <td class="style11">
-                     Os campos que possuem * são obrigatórios.
-                </td>
-            </tr>
-            </table>
 
          <br />
 
@@ -166,6 +218,13 @@
             <tr align="center">
                 <td> 
                     &nbsp;</td>
+            </tr>
+            <tr align="center">
+                <td> 
+                <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
+                    BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
+                    HeaderText="Validação:" Width="350px" />
+                </td>
             </tr>
         </table>
 
