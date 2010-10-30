@@ -40,6 +40,15 @@ namespace SGS.View.Visita {
         protected global::System.Web.UI.WebControls.TextBox txtVisitante;
         
         /// <summary>
+        /// requeridVisitante control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridVisitante;
+        
+        /// <summary>
         /// ddlAssistido control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace SGS.View.Visita {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
         
         /// <summary>
+        /// requeridAssistido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAssistido;
+        
+        /// <summary>
         /// txtDataVisita control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace SGS.View.Visita {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataVisita;
+        
+        /// <summary>
+        /// requeridDataVisita control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataVisita;
         
         /// <summary>
         /// txtHoraInicio control.
@@ -83,6 +110,15 @@ namespace SGS.View.Visita {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMotivoVisita;
+        
+        /// <summary>
+        /// requeridMotivoVisita control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridMotivoVisita;
         
         /// <summary>
         /// txtFeedbackVisita control.
@@ -128,5 +164,14 @@ namespace SGS.View.Visita {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }

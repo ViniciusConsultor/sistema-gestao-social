@@ -40,6 +40,15 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.DropDownList ddlDiaSemana;
         
         /// <summary>
+        /// requeridDiaSemana control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDiaSemana;
+        
+        /// <summary>
         /// ddlPeriodo control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPeriodo;
+        
+        /// <summary>
+        /// requeridPeriodo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridPeriodo;
         
         /// <summary>
         /// txtHorario control.
@@ -58,6 +76,15 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.TextBox txtHorario;
         
         /// <summary>
+        /// requeridHorario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridHorario;
+        
+        /// <summary>
         /// ltbAlimentos control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox ltbAlimentos;
+        
+        /// <summary>
+        /// requeridAlimentos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAlimentos;
         
         /// <summary>
         /// txtPorcaoAlimento control.
@@ -76,6 +112,15 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.TextBox txtPorcaoAlimento;
         
         /// <summary>
+        /// requeridPorcaoAlimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridPorcaoAlimento;
+        
+        /// <summary>
         /// txtDiretiva control.
         /// </summary>
         /// <remarks>
@@ -83,6 +128,15 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiretiva;
+        
+        /// <summary>
+        /// requeridDiretiva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDiretiva;
         
         /// <summary>
         /// Button1 control.
@@ -110,5 +164,14 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }

@@ -6,12 +6,7 @@
         {
             width: 100%;
         }
-        .style8
-    {
-        font-family: Verdana;
-        font-size: small;
-    }
-    .style9
+        .style9
     {
         text-align: right;
         font-size: small;
@@ -36,13 +31,15 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Assistido </td>
                 <td>
-                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" 
-                        CssClass="style8">
+                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>João</asp:ListItem>
                         <asp:ListItem>Pedro</asp:ListItem>
                         <asp:ListItem>Maria</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
+                        ControlToValidate="ddlAssistido" ErrorMessage="Escolha o Assistido" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -50,7 +47,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Atividade </td>
                 <td>
-                    <asp:TextBox ID="txtAtividade" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:TextBox ID="txtAtividade" runat="server" Height="22px" Width="148px" 
+                        MaxLength="50"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridAtividade" runat="server" 
+                        ControlToValidate="txtAtividade" ErrorMessage="Preencha o campo Atividade " 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -59,12 +60,15 @@
                     Tipo de Atividade</td>
                 <td>
                     <asp:DropDownList ID="ddlTipoAtividade" runat="server" Width="148px" 
-                        CssClass="style8">
+                        Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Curso</asp:ListItem>
                         <asp:ListItem>Palestra</asp:ListItem>
                         <asp:ListItem>Seminário</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="requeridTipoAtividade" runat="server" 
+                        ControlToValidate="ddlTipoAtividade" ErrorMessage="Escolha o Tipo de Atividade" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -72,7 +76,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Descrição </td>
                 <td>
-                    <asp:TextBox ID="txtDescricao" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:TextBox ID="txtDescricao" runat="server" Height="136px" Width="315px" 
+                        MaxLength="500"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridDescricao" runat="server" 
+                        ControlToValidate="txtDescricao" ErrorMessage="Preencha o campo Descrição" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -80,7 +88,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Valor</td>
                 <td>
-                    <asp:TextBox ID="txtValor" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:TextBox ID="txtValor" runat="server" Height="22px" Width="148px" 
+                        MaxLength="16"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridValor" runat="server" 
+                        ControlToValidate="txtValor" ErrorMessage="Preencha o campo Valor" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -88,14 +100,16 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status </td>
                 <td>
-                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" 
-                        CssClass="style8">
+                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Criado</asp:ListItem>
                         <asp:ListItem>Parado</asp:ListItem>
                         <asp:ListItem>Iniciado</asp:ListItem>
                         <asp:ListItem>Cancelado</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="requeridStatus" runat="server" 
+                        ControlToValidate="ddlStatus" ErrorMessage="Escolha o Status" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -103,7 +117,8 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data Inicio</td>
                 <td>
-                    <asp:TextBox ID="txtDataInicio" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtDataInicio" runat="server" Height="22px" MaxLength="10" 
+                        Width="148px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -111,7 +126,8 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data Fim</td>
                 <td>
-                    <asp:TextBox ID="txtDataFim" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtDataFim" runat="server" Height="22px" MaxLength="10" 
+                        Width="148px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -119,7 +135,8 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Carga Horária</td>
                 <td>
-                    <asp:TextBox ID="txtCargaHoraria" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtCargaHoraria" runat="server" Height="22px" MaxLength="10" 
+                        Width="148px"></asp:TextBox>
                 </td>
             </tr>
             </table>
@@ -140,6 +157,13 @@
             <tr align="center">
                 <td> 
                     &nbsp;</td>
+            </tr>
+            <tr align="center">
+                <td> 
+                <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
+                    BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
+                    HeaderText="Validação:" Width="350px" />
+                </td>
             </tr>
         </table>
 

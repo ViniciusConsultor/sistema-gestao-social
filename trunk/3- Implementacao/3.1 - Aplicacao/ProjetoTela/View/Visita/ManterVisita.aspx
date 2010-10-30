@@ -25,12 +25,7 @@
         {
             color: #FF0000;
         }
-        .style11
-        {
-            font-size: small;
-            color: #FF0000;
-        }
-    </style>
+        </style>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -51,8 +46,12 @@
                     Visitante</td>
                 <td class="style9">
                     <span class="style10">
-                    <asp:TextBox ID="txtVisitante" runat="server" Width="148px" Height="22px"></asp:TextBox>
-                    *</span></td>
+                    <asp:TextBox ID="txtVisitante" runat="server" Width="148px" Height="22px" 
+                        MaxLength="80"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridVisitante" runat="server" 
+                        ControlToValidate="txtVisitante" ErrorMessage="Preencha o campo Visitante" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                    </span></td>
                 <td class="style4">
                     &nbsp;</td>
                 <td>
@@ -67,8 +66,12 @@
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
                         <asp:ListItem >Tiago Pereira</asp:ListItem>
                         <asp:ListItem>Junior Ferraz</asp:ListItem>
+                        <asp:ListItem>Jonathan Mestre</asp:ListItem>
                     </asp:DropDownList>
-                    *</span></td>
+                    <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
+                        ControlToValidate="ddlAssistido" ErrorMessage="Escolha o Assistido" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                    </span></td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -78,8 +81,12 @@
                 <td class="style7">
                     Data</td>
                 <td class="style8">
-                    <asp:TextBox ID="txtDataVisita" runat="server" Height="22px" Width="148px"></asp:TextBox>
-                    <span class="style10">*</span></td>
+                    <asp:TextBox ID="txtDataVisita" runat="server" Height="22px" Width="148px" 
+                        MaxLength="10"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridDataVisita" runat="server" 
+                        ControlToValidate="txtDataVisita" ErrorMessage="Preencha o campo Data" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -89,8 +96,9 @@
                 <td class="style7">
                     Hoário Início</td>
                 <td class="style8">
-                    <asp:TextBox ID="txtHoraInicio" runat="server" Height="22px" Width="148px"></asp:TextBox>
-                    <span class="style10">*</span></td>
+                    <asp:TextBox ID="txtHoraInicio" runat="server" Height="22px" Width="148px" 
+                        MaxLength="6"></asp:TextBox>
+                    </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -100,8 +108,9 @@
                 <td class="style7">
                     Horário Fim</td>
                 <td class="style8">
-                    <asp:TextBox ID="txtHoraFim" runat="server" Height="22px" Width="148px"></asp:TextBox>
-                    <span class="style10">*</span></td>
+                    <asp:TextBox ID="txtHoraFim" runat="server" Height="22px" Width="148px" 
+                        MaxLength="6"></asp:TextBox>
+                    </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -113,8 +122,11 @@
                 <td class="style8">
                     <span class="style10">
                     <asp:TextBox ID="txtMotivoVisita" runat="server" Height="86px" TextMode="MultiLine" 
-                        Width="285px"></asp:TextBox>
-                    *</span></td>
+                        Width="285px" MaxLength="500"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridMotivoVisita" runat="server" 
+                        ControlToValidate="txtMotivoVisita" ErrorMessage="Preencha o campo Motivo da Visita" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                    </span></td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -126,8 +138,8 @@
                 <td class="style8">
                     <span class="style10">
                     <asp:TextBox ID="txtFeedbackVisita" runat="server" Height="86px" TextMode="MultiLine" 
-                        Width="285px"></asp:TextBox>
-                    *</span></td>
+                        Width="285px" MaxLength="500"></asp:TextBox>
+                    </span></td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -145,7 +157,7 @@
                         <asp:ListItem>Rejeitada</asp:ListItem>
                         <asp:ListItem>Efetuada</asp:ListItem>
                     </asp:DropDownList>
-                    *</span></td>
+                    </span></td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -153,13 +165,6 @@
             </tr>
             </table>
          <br />
-        <table width="100%">
-            <tr align="center"> 
-                <td class="style11">
-                     Os campos que possuem * são obrigatórios.
-                </td>
-            </tr>
-            </table>
         <br />
 
         <table width="100%">
@@ -176,6 +181,13 @@
             <tr align="center">
                 <td> 
                     &nbsp;</td>
+            </tr>
+            <tr align="center">
+                <td> 
+                <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
+                    BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
+                    HeaderText="Validação:" Width="350px" />
+                </td>
             </tr>
         </table>
 

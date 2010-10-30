@@ -36,13 +36,15 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Assistido </td>
                 <td>
-                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" 
-                        CssClass="style8">
+                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>João</asp:ListItem>
                         <asp:ListItem>Pedro</asp:ListItem>
                         <asp:ListItem>Maria</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
+                        ControlToValidate="ddlAssistido" ErrorMessage="Escolha o Assistido" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -51,11 +53,14 @@
                     Tipo de Procedimento </td>
                 <td>
                     <asp:DropDownList ID="ddlTipoProcedimento" runat="server" Width="148px" 
-                        CssClass="style8">
+                        Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Médico</asp:ListItem>
                         <asp:ListItem>Emocional</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="requeridTipoProcedimento" runat="server" 
+                        ControlToValidate="ddlTipoProcedimento" ErrorMessage="Escolha o Tipo de Procedimneto" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -64,12 +69,15 @@
                     Procedimento</td>
                 <td>
                     <asp:DropDownList ID="ddlProcedimento" runat="server" Width="148px" 
-                        CssClass="style8">
+                        Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Clinico Geral</asp:ListItem>
                         <asp:ListItem>Dentista</asp:ListItem>
                         <asp:ListItem>Reforço Escolar</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="requeridProcedimento" runat="server" 
+                        ControlToValidate="ddlProcedimento" ErrorMessage="Escolha o Procedimento" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -77,7 +85,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Descrição </td>
                 <td>
-                    <asp:TextBox ID="txtDescricao" runat="server" Height="22px" Width="148px"></asp:TextBox>
+                    <asp:TextBox ID="txtDescricao" runat="server" Height="22px" Width="148px" 
+                        MaxLength="100"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridDescricao" runat="server" 
+                        ControlToValidate="txtDescricao" ErrorMessage="Preencha o campo Descrição" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -85,13 +97,15 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status</td>
                 <td>
-                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" 
-                        CssClass="style8">
+                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Criado</asp:ListItem>
                         <asp:ListItem>Marcado</asp:ListItem>
                         <asp:ListItem>Efetuado</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="requeridStatus" runat="server" 
+                        ControlToValidate="ddlStatus" ErrorMessage="Escolha o Status" 
+                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -99,7 +113,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Pessoa Atendente</td>
                 <td>
-                    <asp:TextBox ID="txtPessoaAtendente" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtPessoaAtendente" runat="server" Height="22px" 
+                        MaxLength="50" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridPessoaAtendente" runat="server" 
+                        ControlToValidate="txtPessoaAtendente" ErrorMessage="Preencha o campo Pessoa Atendente" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -107,7 +125,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data Marcada</td>
                 <td>
-                    <asp:TextBox ID="txtDataMarcada" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtDataMarcada" runat="server" Height="22px" MaxLength="10" 
+                        Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridDataMarcada" runat="server" 
+                        ControlToValidate="txtDataMarcada" ErrorMessage="Preencha o campo Data Marcada" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -115,7 +137,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data Realizada</td>
                 <td>
-                    <asp:TextBox ID="txtDataRealizada" runat="server" CssClass="style8"></asp:TextBox>
+                    <asp:TextBox ID="txtDataRealizada" runat="server" Height="22px" MaxLength="10" 
+                        Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridDataRealizada" runat="server" 
+                        ControlToValidate="txtDataRealizada" ErrorMessage="Preencha o campo Realizada" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -124,7 +150,10 @@
                     Laudo do Atendente</td>
                 <td>
                     <asp:TextBox ID="txtLaudoAtendente" runat="server" Height="134px" TextMode="MultiLine" 
-                        Width="301px" CssClass="style8" MaxLength="255"></asp:TextBox>
+                        Width="301px" MaxLength="255"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridLaudoAtendente" runat="server" 
+                        ControlToValidate="txtLaudoAtendente" ErrorMessage="Preencha o campo Laudo do Atendente" 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             </table>
@@ -145,6 +174,13 @@
             <tr align="center">
                 <td> 
                     &nbsp;</td>
+            </tr>
+            <tr align="center">
+                <td> 
+                <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
+                    BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
+                    HeaderText="Validação:" Width="350px" />
+                </td>
             </tr>
         </table>
 

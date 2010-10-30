@@ -40,6 +40,15 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
         
         /// <summary>
+        /// requeridAssistido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAssistido;
+        
+        /// <summary>
         /// ddlTipoProcedimento control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoProcedimento;
+        
+        /// <summary>
+        /// requeridTipoProcedimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridTipoProcedimento;
         
         /// <summary>
         /// ddlProcedimento control.
@@ -58,6 +76,15 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.DropDownList ddlProcedimento;
         
         /// <summary>
+        /// requeridProcedimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridProcedimento;
+        
+        /// <summary>
         /// txtDescricao control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescricao;
+        
+        /// <summary>
+        /// requeridDescricao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDescricao;
         
         /// <summary>
         /// ddlStatus control.
@@ -76,6 +112,15 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
+        /// requeridStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridStatus;
+        
+        /// <summary>
         /// txtPessoaAtendente control.
         /// </summary>
         /// <remarks>
@@ -83,6 +128,15 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPessoaAtendente;
+        
+        /// <summary>
+        /// requeridPessoaAtendente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridPessoaAtendente;
         
         /// <summary>
         /// txtDataMarcada control.
@@ -94,6 +148,15 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.TextBox txtDataMarcada;
         
         /// <summary>
+        /// requeridDataMarcada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataMarcada;
+        
+        /// <summary>
         /// txtDataRealizada control.
         /// </summary>
         /// <remarks>
@@ -103,6 +166,15 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.TextBox txtDataRealizada;
         
         /// <summary>
+        /// requeridDataRealizada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataRealizada;
+        
+        /// <summary>
         /// txtLaudoAtendente control.
         /// </summary>
         /// <remarks>
@@ -110,6 +182,15 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLaudoAtendente;
+        
+        /// <summary>
+        /// requeridLaudoAtendente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridLaudoAtendente;
         
         /// <summary>
         /// btnSalvar control.
@@ -137,5 +218,14 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }
