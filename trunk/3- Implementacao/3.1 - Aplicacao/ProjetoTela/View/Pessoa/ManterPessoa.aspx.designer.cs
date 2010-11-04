@@ -65,32 +65,5 @@ namespace SGS.View.Pessoa {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::SGS.View.Pessoa.PessoaDadosBasico PessoaAssistido1;
-        
-        /// <summary>
-        /// PessoaFuncionario1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaFuncionario PessoaFuncionario1;
-        
-        /// <summary>
-        /// PessoaVoluntario1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaVoluntario PessoaVoluntario1;
-        
-        /// <summary>
-        /// PessoaPatrocinador1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaPatrocinador PessoaPatrocinador1;
     }
 }

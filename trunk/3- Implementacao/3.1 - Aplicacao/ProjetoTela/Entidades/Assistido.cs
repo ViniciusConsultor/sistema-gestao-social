@@ -6,7 +6,7 @@ using System.Web;
 namespace SGS.Entidades
 {
     [Serializable]
-    public class Assistido
+    public class Assistido : Pessoa
     {
         private int? _codigoAssistido;
         private int? _pessoa_CodigoPessoa;

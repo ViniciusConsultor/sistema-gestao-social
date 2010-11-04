@@ -74,12 +74,9 @@
         <br />
 
         <uc2:PessoaAssistido ID="PessoaAssistido1" runat="server" />
-    <uc3:PessoaFuncionario ID="PessoaFuncionario1" runat="server" />
     <br />
-    <uc4:PessoaVoluntario ID="PessoaVoluntario1" runat="server" />
 
     <br />
-    <uc5:PessoaPatrocinador ID="PessoaPatrocinador1" runat="server" />
     <br />
     <br />
     <br />

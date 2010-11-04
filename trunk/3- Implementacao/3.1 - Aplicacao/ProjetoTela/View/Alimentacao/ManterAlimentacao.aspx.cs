@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SGS.Entidades.DTO;
 
 namespace SGS.View.Alimentacao
 { /*
@@ -40,9 +41,9 @@ namespace SGS.View.Alimentacao
         /// <param name="e"></param>
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            SGSServico sgsServico = new SGSServico();
+            //SGSServico sgsServico = new SGSServico();
 
-            SGSAlimentacao = sgsServico.SalvarAlimentacao(PegarDadosView());
+            //SGSAlimentacao = sgsServico.SalvarAlimentacao(PegarDadosView());
 
             ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
 
@@ -73,10 +74,10 @@ namespace SGS.View.Alimentacao
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            SGSServico objSGSServico = new SGSServico();
+            //SGSServico objSGSServico = new SGSServico();
 
-            if (objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
+            //if (objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value))
+            //    ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
 
             Response.Redirect("ConsultarAlimentacao.aspx");
         }
@@ -92,7 +93,7 @@ namespace SGS.View.Alimentacao
         /// </summary>
         public void CarregarTela()
         {
-            SGSServico objSGSServico = new SGSServico();
+            //SGSServico objSGSServico = new SGSServico();
             SGSAlimentacao = new Entidades.Alimentacao();
 
             if (Request.QueryString["tipo"] == "alt")
@@ -102,7 +103,7 @@ namespace SGS.View.Alimentacao
                 btnExcluir.Visible = true;
                 SGSAlimentacao.CodigoAlimentacao = Convert.ToInt32(Request.QueryString["cod"]);
               
-                SGSAlimentacao = objSGSServico.ObterAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value);
+              //  SGSAlimentacao = objSGSServico.ObterAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value);
 
                 if (SGSAlimentacao != null)
                     this.PreencherDadosView();

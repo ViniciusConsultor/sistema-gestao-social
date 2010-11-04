@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SGS.Entidades;
+using SGS.Entidades.DTO;
+using SGS.Servicos;
 
 namespace SGS.View.Pessoa
 {
@@ -12,6 +15,15 @@ namespace SGS.View.Pessoa
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void CarregarPagina()
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+            objSGSServico.ListarCasaLar();
+
+            //CarregaLista de Casa Lar
         }
 
         protected void ddlTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,5 +54,12 @@ namespace SGS.View.Pessoa
         {
 
         }
+
+        #region Propriedades
+
+        
+
+        #endregion
+
     }
 }
