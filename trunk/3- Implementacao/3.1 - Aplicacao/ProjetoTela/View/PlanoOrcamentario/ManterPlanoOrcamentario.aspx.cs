@@ -90,6 +90,7 @@ namespace SGS.View.PlanoOrcamentario
         protected void btnIncluir_Click(object sender, EventArgs e)
         {
 
+            
         }
 
 
@@ -117,6 +118,8 @@ namespace SGS.View.PlanoOrcamentario
             SGSOrcamento = new Entidades.Orcamento();
             ddlCasaLar.DataSource = objSGSServico.ListarCasaLarOrcamento();
             ddlCasaLar.DataBind();
+            ddlNaturezaDespesa.DataSource = objSGSServico.ListarNaturezaDespesa();
+            ddlNaturezaDespesa.DataBind();
 
             if (Request.QueryString["tipo"] == "alt")
             {
@@ -159,8 +162,8 @@ namespace SGS.View.PlanoOrcamentario
             objOrcamento.ValorOrcamento = Convert.ToDecimal(txtValorOrcamento.Text);
             objOrcamento.SaldoDisponivel = Convert.ToDecimal(txtSaldoDisponivel.Text);
             objOrcamento.StatusPlano = ddlStatus.SelectedValue;
-           // objOrcamento.NaturezaLancamento.NomeNatureza = ddlNaturezaDespesa.SelectedValue;
-           // objOrcamento.Valor = Convert.ToDecimal(txtValorDespesa.Text);
+            objOrcamento.NaturezaLancamento.NomeNatureza = ddlNaturezaDespesa.SelectedValue;
+            objOrcamento.OrcamentoNatureza.Valor = Convert.ToDecimal(txtValorDespesa.Text);
 
 
             return objOrcamento;
@@ -180,11 +183,13 @@ namespace SGS.View.PlanoOrcamentario
             txtSaldoDisponivel.Text = SGSOrcamento.SaldoDisponivel.ToString();
             ddlStatus.SelectedValue = SGSOrcamento.StatusPlano;
            // ddlNaturezaDespesa.SelectedValue = SGSNaturezaLancamento.NomeNatureza;
-          //  txtValorDespesa.Text = SGSOrcamentoNatureza.Valor;
+            txtValorDespesa.Text = SGSOrcamento.OrcamentoNatureza.Valor.ToString();
 
             if (SGSOrcamento.CodigoCasaLar.HasValue)
                 ddlCasaLar.SelectedValue = SGSOrcamento.CodigoCasaLar.Value.ToString();
 
+            if (SGSOrcamento.OrcamentoNatureza.CodigoNatureza.HasValue)
+                ddlNaturezaDespesa.SelectedValue = SGSOrcamento.OrcamentoNatureza.CodigoNatureza.Value.ToString();
 
 
         }

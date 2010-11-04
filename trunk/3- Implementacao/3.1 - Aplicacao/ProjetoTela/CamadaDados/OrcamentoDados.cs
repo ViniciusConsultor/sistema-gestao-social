@@ -248,7 +248,7 @@ namespace SGS.CamadaDados
 
             //Se NomePlano preenchido
             if (objOrcamentoDTO.NomePlanoValor != "Selecione")
-                sql += @" where NomePlano = @nomePlanoValor";
+                sql = @" where NomePlano = @nomePlanoValor";
 
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;

@@ -32,7 +32,7 @@ namespace SGS.CamadaDados
             else
             {
                 comando.CommandText =
-                    @"UPDATE OrcamentoNatureza SET CodigoOrcamento = @codigoOrcamento, Valor = @valor, DataCriacao = @dataCriacao
+                    @"UPDATE OrcamentoNatureza SET Valor = @valor, DataCriacao = @dataCriacao
                       WHERE (CodigoNatureza = @codigoNatureza)";
             }
 

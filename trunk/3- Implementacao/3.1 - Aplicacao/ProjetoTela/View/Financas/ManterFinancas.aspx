@@ -121,8 +121,8 @@
                     <asp:DropDownList ID="ddlNaturezaFinanca" runat="server" Height="22px" 
                         Width="148px" DataTextField="NomeNatureza" DataValueField="CodigoNatureza">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem Value="1">Compras</asp:ListItem>
-                        <asp:ListItem Value="2">Reforma</asp:ListItem>
+                        <asp:ListItem Value="2">Compras</asp:ListItem>
+                        <asp:ListItem Value="1">Reforma</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="validatorNaturezaFinanca" runat="server" 
                         ControlToValidate="ddlNaturezaFinanca" 

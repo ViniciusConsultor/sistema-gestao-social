@@ -202,10 +202,11 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Natureza da Despesa</td>
                 <td>
-                    <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" CssClass="style8">
+                    <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" 
+                        CssClass="style8" DataTextField="NomeNatureza" DataValueField="CodigoNatureza">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>Reforma</asp:ListItem>
-                        <asp:ListItem>Compras</asp:ListItem>
+                        <asp:ListItem Value="1">Reforma</asp:ListItem>
+                        <asp:ListItem Value="2">Compras</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>

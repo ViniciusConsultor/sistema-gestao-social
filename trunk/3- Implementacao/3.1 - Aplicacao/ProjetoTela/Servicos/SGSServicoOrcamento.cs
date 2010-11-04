@@ -39,6 +39,38 @@ namespace SGS.Servicos
             return objOrcamentoDados.ExcluirOrcamento(codigoOrcamento);
         }
 
+        public OrcamentoNatureza IncluirItemOrcamento(OrcamentoNatureza objOrcamentoNatureza)
+        {
+            OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+
+            objOrcamentoNatureza = objOrcamentoNaturezaDados.Salvar(objOrcamentoNatureza);
+
+            return objOrcamentoNatureza;
+        }
+
+        /// <summary>
+        /// Consulta a tabela Orcamento e retorna resultados de acordo com o preenchimento do filtro
+        /// </summary>
+        public OrcamentoDTO ConsultarOrcamento(OrcamentoDTO objOrcamentoDTO)
+        {
+            OrcamentoDados objOrcamentoDados = new OrcamentoDados();
+            objOrcamentoDTO.OrcamentoLista = objOrcamentoDados.ConsultarOrcamento(objOrcamentoDTO);
+
+            return objOrcamentoDTO;
+
+        }
+
+        /// <summary>
+        /// Retorna uma lista de natureza de de lancamento.
+        /// </summary>
+        public List<NaturezaLancamento> ListarNaturezaDespesa()
+        {
+            NaturezaLancamentoDados objNaturezaLancamentoDados = new NaturezaLancamentoDados();
+
+            return objNaturezaLancamentoDados.ListarNaturezaLancamento();
+
+        }
+
         /// <summary>
         /// Retorna uma lista de casa lar.
         /// </summary>
@@ -50,20 +82,8 @@ namespace SGS.Servicos
 
         }
 
-       /// <summary>
-       /// Consulta a tabela Orcamento e retorna resultados de acordo com o preenchimento do filtro
-       /// </summary>
 
-        /*
-        public OrcamentoDTO ConsultarOrcamento(OrcamentoDTO objOrcamentoDTO)
-        {
-            OrcamentoDados objOrcamentoDados = new OrcamentoDados();
-            objOrcamentoDTO.OrcamentoLista = objOrcamentoDados.ConsultarOrcamento(objOrcamentoDTO);
-
-            return objOrcamentoDTO;
-
-        }
-        */
+        
     }
     
 }
