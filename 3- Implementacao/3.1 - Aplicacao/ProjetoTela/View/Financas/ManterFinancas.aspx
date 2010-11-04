@@ -82,7 +82,8 @@
                     Casa Lar</td>
                 <td class="style9">
                     <asp:DropDownList ID="ddlCasaLar" runat="server" Enabled="False" Height="22px" 
-                        Width="148px" DataTextField="NomeCasaLar" DataValueField="CodigoCasaLar">
+                        Width="148px" DataTextField="NomeCasaLar" DataValueField="CodigoCasaLar" 
+                        onselectedindexchanged="ddlCasaLar_SelectedIndexChanged">
                         <asp:ListItem Selected="True" Value="13">Minha Casa</asp:ListItem>
                     </asp:DropDownList>
                 </td>

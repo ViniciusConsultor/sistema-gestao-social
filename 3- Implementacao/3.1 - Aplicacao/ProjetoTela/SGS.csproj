@@ -262,7 +262,6 @@
     </Compile>
     <Compile Include="View\Alimentacao\ManterAlimentacao.aspx.cs">
       <DependentUpon>ManterAlimentacao.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Alimentacao\ManterAlimentacao.aspx.designer.cs">
       <DependentUpon>ManterAlimentacao.aspx</DependentUpon>

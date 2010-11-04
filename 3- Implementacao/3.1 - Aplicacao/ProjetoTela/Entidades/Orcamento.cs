@@ -18,6 +18,7 @@ namespace SGS.Entidades
         private DateTime? _fimVigencia;
         private NaturezaLancamento _naturezaLancamento;
         private OrcamentoNatureza _orcamentoNatureza;
+        private CasaLar _casaLar;
 
 
 
@@ -81,6 +82,12 @@ namespace SGS.Entidades
         { 
                 set { _orcamentoNatureza = value; }
                 get { return _orcamentoNatureza; }
+        }
+
+        public CasaLar CasaLar
+        {
+            get { return _casaLar; }
+            set { _casaLar = value; }
         }
 
 

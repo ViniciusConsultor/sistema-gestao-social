@@ -28,7 +28,7 @@ namespace SGS.Entidades.DTO
 
         #endregion
 
-        #region Propriedades1
+        #region Propriedades
 
         Orcamento _orcamento;
 
@@ -97,9 +97,7 @@ namespace SGS.Entidades.DTO
             get { return _statusPlanoValor; }
         }
 
-        #endregion
 
-        #region Propriedades2
 
         NaturezaLancamento _naturezaLancamento;
 

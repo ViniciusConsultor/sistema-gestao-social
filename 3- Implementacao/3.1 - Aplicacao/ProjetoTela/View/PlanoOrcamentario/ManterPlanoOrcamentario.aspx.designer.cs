@@ -31,6 +31,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.Label lblDescricao;
         
         /// <summary>
+        /// ddlCasaLar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCasaLar;
+        
+        /// <summary>
         /// txtNomePlano control.
         /// </summary>
         /// <remarks>
@@ -130,24 +139,6 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorStatus;
         
         /// <summary>
-        /// ddlNaturezaDespesa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNaturezaDespesa;
-        
-        /// <summary>
-        /// txtValorDespesa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValorDespesa;
-        
-        /// <summary>
         /// btnSalvar control.
         /// </summary>
         /// <remarks>
@@ -173,6 +164,51 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// ddlNaturezaDespesa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlNaturezaDespesa;
+        
+        /// <summary>
+        /// txtValorDespesa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValorDespesa;
+        
+        /// <summary>
+        /// btnIncluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIncluir;
+        
+        /// <summary>
+        /// btnRemover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemover;
+        
+        /// <summary>
+        /// btnLimpar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpar;
         
         /// <summary>
         /// gridOrcamento control.

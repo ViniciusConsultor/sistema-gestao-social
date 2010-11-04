@@ -22,6 +22,7 @@ namespace SGS.CamadaDados
             comando.Connection = base.Conectar();
 
 
+
             if (!objOrcamento.CodigoOrcamento.HasValue)
             {
                 comando.CommandText =
@@ -31,8 +32,9 @@ namespace SGS.CamadaDados
             else
             {
                 comando.CommandText =
-                    @"UPDATE Orcamento SET CodigoCasaLar = @codigoCasaLar, NomePlano = @nomePlano, StatusPlano = @statusPlano, SaldoDisponivel = @saldoDisponivel,
-                             ValorOrcamento = @valorOrcamento, InicioVigencia = @inicioVigencia, FimVigencia = @fimVigencia)";
+                    @"UPDATE Orcamento SET  CodigoCasaLar = @codigoCasaLar, NomePlano = @nomePlano, StatusPlano = @statusPlano, SaldoDisponivel = @saldoDisponivel,
+                             ValorOrcamento = @valorOrcamento, InicioVigencia = @inicioVigencia, FimVigencia = @fimVigencia
+                        WHERE (CodigoOrcamento = @codigoOrcamento) ";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
@@ -76,7 +78,7 @@ namespace SGS.CamadaDados
             SqlParameter parametroFimVigencia = new SqlParameter("@fimVigencia", objOrcamento.FimVigencia);
             parametroFimVigencia.DbType = System.Data.DbType.DateTime;
 
-           
+
             comando.Parameters.Add(parametroCodigoCasaLar);
             comando.Parameters.Add(parametroNomePlano);
             comando.Parameters.Add(parametroStatusPlano);
@@ -87,6 +89,11 @@ namespace SGS.CamadaDados
 
 
             comando.ExecuteNonQuery();
+
+            if (!objOrcamento.CodigoOrcamento.HasValue)
+            {
+                return ObterUltimoOrcamentoInserido();
+            }
 
             //TODO: retorno entidade Orcamento com o Código do Orcamento Preenchido
             return objOrcamento;
@@ -100,9 +107,10 @@ namespace SGS.CamadaDados
         public Orcamento ObterOrcamento(int codigoOrcamento)
         {
             SqlCommand comando = new SqlCommand("select * from Orcamento where CodigoOrcamento = @codigoOrcamento", base.Conectar());
-            SqlParameter parametroCodigoOrcamento = new SqlParameter("@codigoOrcamento", codigoOrcamento);
-            parametroCodigoOrcamento.DbType = System.Data.DbType.Int32;
-            comando.Parameters.Add(parametroCodigoOrcamento);
+           
+            SqlParameter parametroCodigo = new SqlParameter("@codigoOrcamento", codigoOrcamento);
+            parametroCodigo.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigo);
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             Orcamento objOrcamento = null;
@@ -117,9 +125,53 @@ namespace SGS.CamadaDados
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
                 objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
-                objOrcamento.InicioVigencia = Convert.ToDateTime (leitorDados["InicioVigencia"]);
+                objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 
+            }
+
+            if (objOrcamento != null && objOrcamento.CodigoCasaLar != null)
+            {
+                CasaLarDados objCasaLarDados = new CasaLarDados();
+                objOrcamento.CasaLar = objCasaLarDados.ObterCasaLar(objOrcamento.CodigoCasaLar.Value);
+            }
+
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objOrcamento;
+        }
+
+        public Orcamento ObterOrcamento()
+        {
+            SqlCommand comando = new SqlCommand("select TOP(1) * from Orcamento ORDER BY codigoOrcamento ASC", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Orcamento objOrcamento = null;
+
+            if (leitorDados.Read())
+            {
+                objOrcamento = new Orcamento();
+
+                objOrcamento.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
+                objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
+                objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
+                objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
+                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
+                objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
+                objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
+
+
+
+
+            }
+
+           if (objOrcamento != null && objOrcamento.CodigoCasaLar != null)
+            {
+                CasaLarDados objCasaLarDados = new CasaLarDados();
+                objOrcamento.CasaLar = objCasaLarDados.ObterCasaLar(objOrcamento.CodigoCasaLar.Value);
             }
 
             leitorDados.Close();
@@ -133,7 +185,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <returns></returns>
         public Orcamento ObterUltimoOrcamentoInserido()
-        { 
+        {
 
             SqlCommand comando = new SqlCommand("SELECT TOP (1)* from Orcamento ORDER BY CodigoOrcamento DESC", base.Conectar());
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -149,7 +201,7 @@ namespace SGS.CamadaDados
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
                 objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
-                objOrcamento.InicioVigencia = Convert.ToDateTime (leitorDados["InicioVigencia"]);
+                objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 
             }
@@ -159,8 +211,8 @@ namespace SGS.CamadaDados
 
             return objOrcamento;
         }
-        
-         /// <summary>
+
+        /// <summary>
         /// Exclui o Orcamento pelo seu código
         /// </summary>
         public bool ExcluirOrcamento(int codigoOrcamento)
@@ -178,96 +230,57 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
-/*
+
 
         public List<Orcamento> ConsultarOrcamento(OrcamentoDTO objOrcamentoDTO)
         {
-       SqlCommand comando = new SqlCommand();
-       comando.Connection = base.Conectar();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = base.Conectar();
 
-       SqlDataReader leitorDados;
+            SqlDataReader leitorDados;
 
-       SqlParameter paramStatusPlanoValor = new SqlParameter("@statusPlanoValor", objOrcamentoDTO.StatusPlanoValor);
-       paramStatusPlanoValor.DbType = System.Data.DbType.String;
 
-       SqlParameter paramInicioVigenciaValor = new SqlParameter("@inicioVigenciaValor", System.Data.SqlDbType.DateTime);
-       if (objOrcamentoDTO.InicioVigenciaValor.HasValue)
-           paramInicioVigenciaValor.Value = objOrcamentoDTO.InicioVigenciaValor.Value;
-       else
-           paramInicioVigenciaValor.Value = DBNull.Value;
+            SqlParameter paramNomePlanoValor = new SqlParameter("@nomePlanoValor", "%" + objOrcamentoDTO.NomePlanoValor + "%");
+            paramNomePlanoValor.DbType = System.Data.DbType.String;
 
-       SqlParameter paramFimVigenciaValor = new SqlParameter("@fimVigenciaValor", System.Data.SqlDbType.DateTime);
-       if (objOrcamentoDTO.FimVigenciaValor.HasValue)
-           paramFimVigenciaValor.Value = objOrcamentoDTO.FimVigenciaValor.Value;
-       else
-           paramFimVigenciaValor.Value = DBNull.Value;
+            String sql = "select * from Orcamento";
 
-       SqlParameter paramNomePlanoValor = new SqlParameter("@descricaoValor", "%" + objOrcamentoDTO.NomePlanoValor + "%");
-       paramNomePlanoValor.DbType = System.Data.DbType.String;
 
-       String sql = "select * from Orcamento";
+            //Se NomePlano preenchido
+            if (objOrcamentoDTO.NomePlanoValor != "Selecione")
+                sql += @" where NomePlano = @nomePlanoValor";
 
-       //Se o Tipo de Lancamento, Data Lancamento e Descricao preenchidos
-       if (objOrcamentoDTO.TipoLancamentoValor != "Selecione" && objOrcamentoDTO.DataLancamentoValor.HasValue && objOrcamentoDTO.DescricaoValor != "")
-           sql += @" where TipoLancamento = @tipoLancamentoValor and DataLancamento = @dataLancamentoValor and Observacao like @descricaoValor";
- 
-       //Se apenas TipoLancamento e DataLancamento preenchido
-       else if (objOrcamentoDTO.TipoLancamentoValor != "Selecione" && objOrcamentoDTO.DataLancamentoValor.HasValue)
-           sql += @" where TipoLancamento = @tipoLancamentoValor and DataLancamento = @dataLancamentoValor";
- 
-       //Se apenas DataLancamento e DescricaoValor preenchido
-       else if (objOrcamentoDTO.DataLancamentoValor.HasValue && objOrcamentoDTO.DescricaoValor != "")
-           sql += @" where DataLancamento = @dataLancamentoValor and Observacao like @descricaoValor";
- 
-       //Se apenas Descricao e TipoLancamento preenchido
-       else if (objOrcamentoDTO.DescricaoValor != "" && objOrcamentoDTO.TipoLancamentoValor != "Selecione")
-           sql += @" where Observacao like @descricaoValor and TipoLancamento = @tipoLancamentoValor";
- 
-       //Se apenas Descricao preenchido
-       else if (objOrcamentoDTO.DescricaoValor != "")
-           sql += @" where Observacao like @descricaoValor";
- 
-       //Se apenas TipoLancamento preenchido
-       else if (objOrcamentoDTO.TipoLancamentoValor != "Selecione")
-           sql += @" where TipoLancamento = @tipoLancamentoValor";
- 
-       //Se apenas DataLancamento e DescricaoValor preenchido
-       else if (objOrcamentoDTO.DataLancamentoValor.HasValue)
-           sql += @" where DataLancamento = @dataLancamentoValor";
+            comando.CommandText = sql;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.Parameters.Add(paramNomePlanoValor);
 
-       comando.CommandText = sql;
-       comando.CommandType = System.Data.CommandType.Text;
-       comando.Parameters.Add(paramStatusPlanoValor);
-       comando.Parameters.Add(paramInicioVigenciaValor);
-       comando.Parameters.Add(paramDescricaoValor);
-
-       leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
 
 
-       List<Orcamento> financasLista = new List<Orcamento>();
-       Orcamento objOrcamento;
+            List<Orcamento> orcamentoLista = new List<Orcamento>();
+            Orcamento objOrcamento;
 
-       while (leitorDados.Read())
-       {
-           objOrcamento = new Orcamento();
+            while (leitorDados.Read())
+            {
+                objOrcamento = new Orcamento();
 
-           objOrcamento.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
-           //objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
-           //objOrcamento.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
-           objOrcamento.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
-           objOrcamento.DataCriacao = Convert.ToDateTime(leitorDados["DataCriacao"]);
-           objOrcamento.TipoLancamento = leitorDados["TipoLancamento"].ToString();
-           objOrcamento.Valor = Convert.ToDecimal(leitorDados["Valor"]);
-           objOrcamento.LancadoPor = leitorDados["LancadoPor"].ToString();
-           objOrcamento.Observacao = leitorDados["Observacao"].ToString();
-           objOrcamento.NaturezaFinanca = leitorDados["NaturezaFinanca"].ToString();
-                
+                objOrcamento.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
+                //objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                //objOrcamento.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+                objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
+                objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
+                objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
+                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
+                objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
+                objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 
-           financasLista.Add(objOrcamento);
-       }
 
-       return financasLista;
-        */
+                orcamentoLista.Add(objOrcamento);
+            }
+
+            return orcamentoLista;
+
+        }
     }
 }

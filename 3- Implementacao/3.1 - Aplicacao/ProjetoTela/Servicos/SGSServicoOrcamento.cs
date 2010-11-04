@@ -39,6 +39,17 @@ namespace SGS.Servicos
             return objOrcamentoDados.ExcluirOrcamento(codigoOrcamento);
         }
 
+        /// <summary>
+        /// Retorna uma lista de casa lar.
+        /// </summary>
+        public List<CasaLar> ListarCasaLarOrcamento()
+        {
+            CasaLarDados objCasaLarDados = new CasaLarDados();
+
+            return objCasaLarDados.ListarCasaLar();
+
+        }
+
        /// <summary>
        /// Consulta a tabela Orcamento e retorna resultados de acordo com o preenchimento do filtro
        /// </summary>
