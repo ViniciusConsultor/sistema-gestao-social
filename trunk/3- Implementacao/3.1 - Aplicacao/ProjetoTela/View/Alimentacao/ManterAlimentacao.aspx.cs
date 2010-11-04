@@ -6,8 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace SGS.View.Alimentacao
-{
-    public partial class ManterAlimentacao : System.Web.UI.Page
+{ /*
+   public partial class ManterAlimentacao : System.Web.UI.Page
     {
 
 
@@ -179,4 +179,5 @@ namespace SGS.View.Alimentacao
         #endregion
 
     }
+    */
 }

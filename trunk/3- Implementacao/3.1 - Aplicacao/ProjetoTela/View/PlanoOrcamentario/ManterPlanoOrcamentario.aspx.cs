@@ -20,7 +20,7 @@ namespace SGS.View.PlanoOrcamentario
         protected void Page_Load(object sender, EventArgs e)
         {
             // Valida se o usuário logado possui acesso.
-            if (DadosAcesso.Perfil == "Gestor")
+            if (DadosAcesso.Perfil == "Gestor"  || DadosAcesso.Perfil == "Funcionario")
             {
                 if (!Page.IsPostBack)
                 {
@@ -46,11 +46,12 @@ namespace SGS.View.PlanoOrcamentario
 
             SGSOrcamento = sgsServico.SalvarOrcamento(PegarDadosView());
 
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
-
             string url = @"ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.CodigoOrcamento.Value.ToString();
             Server.Transfer(url);
-            
+
+            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+
+                       
         }
 
         /// <summary>
@@ -85,6 +86,25 @@ namespace SGS.View.PlanoOrcamentario
 
         }
 
+
+        protected void btnIncluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        #endregion
+
+        protected void btnRemover_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLimpar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #region Metodos
 
         /// <summary>
@@ -95,23 +115,26 @@ namespace SGS.View.PlanoOrcamentario
         {
             SGSServico objSGSServico = new SGSServico();
             SGSOrcamento = new Entidades.Orcamento();
+            ddlCasaLar.DataSource = objSGSServico.ListarCasaLarOrcamento();
+            ddlCasaLar.DataBind();
 
             if (Request.QueryString["tipo"] == "alt")
             {
-                ////* View/Orcamento/ManterPlanoOrcamentario.aspx?tipo=alt&cod=1
+             
                 lblTitulo.Text = "Alterar PlanoOrcamentario";
                 lblDescricao.Text = "Descrição: Permite alterar os Planos Orçamentário da Casa Lar.";
                 btnExcluir.Visible = true;
+                                
                 SGSOrcamento.CodigoOrcamento = Convert.ToInt32(Request.QueryString["cod"]);
-                //SGSOrcamento.CodigoOrcamento = 1;
-
+                
+                //preenche a propriedade Plano Orcamentario
                 SGSOrcamento = objSGSServico.ObterOrcamento(SGSOrcamento.CodigoOrcamento.Value);
 
 
                 if (SGSOrcamento != null)
                     this.PreencherDadosView();
                 else
-                    Server.Transfer("bla.aspx"); //transfere usuário para tela finança não encontrada
+                    Server.Transfer("bla.aspx"); //transfere usuário para tela plano não encontrado
             }
             else
             {
@@ -128,6 +151,8 @@ namespace SGS.View.PlanoOrcamentario
         private SGS.Entidades.Orcamento PegarDadosView()
         {
             SGS.Entidades.Orcamento objOrcamento = SGSOrcamento;
+
+            objOrcamento.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
             objOrcamento.NomePlano = txtNomePlano.Text;
             objOrcamento.InicioVigencia = Convert.ToDateTime(txtInicioVigencia.Text);
             objOrcamento.FimVigencia = Convert.ToDateTime(txtFimVigencia.Text);
@@ -156,6 +181,9 @@ namespace SGS.View.PlanoOrcamentario
             ddlStatus.SelectedValue = SGSOrcamento.StatusPlano;
            // ddlNaturezaDespesa.SelectedValue = SGSNaturezaLancamento.NomeNatureza;
           //  txtValorDespesa.Text = SGSOrcamentoNatureza.Valor;
+
+            if (SGSOrcamento.CodigoCasaLar.HasValue)
+                ddlCasaLar.SelectedValue = SGSOrcamento.CodigoCasaLar.Value.ToString();
 
 
 
@@ -190,7 +218,6 @@ namespace SGS.View.PlanoOrcamentario
         #endregion
 
 
-        #endregion
 
     }
 }

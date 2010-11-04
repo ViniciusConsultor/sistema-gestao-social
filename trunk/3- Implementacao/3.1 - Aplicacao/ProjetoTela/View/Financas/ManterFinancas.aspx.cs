@@ -196,6 +196,11 @@ namespace SGS.View.Financas
 
         #endregion
 
+        protected void ddlCasaLar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         #endregion
 

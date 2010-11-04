@@ -96,6 +96,17 @@
  <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Casa Lar</td>
+                <td>
+                    <asp:DropDownList ID="ddlCasaLar" runat="server" Enabled="False" Height="22px" 
+                        Width="148px" DataTextField="NomeCasaLar" DataValueField="CodigoCasaLar">
+                        <asp:ListItem Selected="True" Value="13">Minha Casa</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+ <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Nome do Plano </td>
                 <td>
                     <asp:TextBox ID="txtNomePlano" runat="server" CssClass="style8" MaxLength="25" 
@@ -164,6 +175,24 @@
             </tr>
  </table>
 
+        <table width="100%" align="center">
+            <tr align="center">
+                <td> 
+                    &nbsp;</td>
+            </tr>
+            <tr align="center">
+                <td> 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                        onclick="btnSalvar_Click" Height="26px" 
+                        /> &nbsp; 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
+                        /> &nbsp;
+                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
+                        CausesValidation="False" onclick="btnCancelar_Click" />
+                </td>
+            </tr>
+        </table>
+
  <br />
 
  <table class="style6" align="center">
@@ -194,16 +223,20 @@
         <br />
 
         <table width="100%" align="center">
-            <tr align="center">
-                <td> 
-                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
-                        onclick="btnSalvar_Click" Height="26px" 
+            <tr>
+                <td style="text-align: center"> 
+                    <asp:Button ID="btnIncluir" runat="server" Text="Incluir Item" Width="110px" 
+                        onclick="btnIncluir_Click" Height="26px" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
+                    <asp:Button ID="btnRemover" runat="server" Text="Remover Item" Width="110px" onclick="btnRemover_Click" 
                         /> &nbsp;
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                        CausesValidation="False" onclick="btnCancelar_Click" />
+                    <asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="110px" 
+                        CausesValidation="False" onclick="btnLimpar_Click" />
                 </td>
+            </tr>
+            <tr>
+            <td>  
+                &nbsp;</td>    
             </tr>
             <tr>
             <td>  
