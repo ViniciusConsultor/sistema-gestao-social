@@ -186,6 +186,8 @@
     <Compile Include="Entidades\Contato.cs" />
     <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\Desenvolvimento.cs" />
+    <Compile Include="Entidades\DTO\AlimentacaoDTO.cs" />
+    <Compile Include="Entidades\DTO\AssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\EscolarDTO.cs" />
     <Compile Include="Entidades\DTO\DadosAcesso.cs" />
     <Compile Include="Entidades\DTO\DadosAssistidoDTO.cs" />
@@ -219,6 +221,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\SGSServicoAlimentacao.cs" />
+    <Compile Include="Servicos\SGSServicoAssistido.cs" />
     <Compile Include="Servicos\SGSServicoEscolar.cs" />
     <Compile Include="Servicos\SGSServicoOrcamento.cs" />
     <Compile Include="Servicos\SGSServico.cs" />

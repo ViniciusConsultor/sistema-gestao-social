@@ -11,11 +11,11 @@ namespace SGS.Servicos
     public partial class SGSServico
     {
 
-      /// <summary>
-      /// Este método salva e atualiza a tabela de Alimentação
-      /// </summary>
-      /// <param name="objAlimentacao"></param>
-      /// <returns></returns>
+        /// <summary>
+        /// Este método salva e atualiza a tabela de Alimentação
+        /// </summary>
+        /// <param name="objAlimentacao"></param>
+        /// <returns></returns>
         public Alimentacao SalvarAlimentacao(Alimentacao objAlimentacao)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
@@ -39,18 +39,18 @@ namespace SGS.Servicos
             return objAlimentacaoDados.ExcluirAlimentacao(codigoAlimentacao);
         }
 
-       /// <summary>
-       /// Consulta a tabela Alimentacao e retorna resultados de acordo com o preenchimento do filtro
-       /// </summary>
-
-  /*      public AlimentacaoDTO ConsultarAlimentacao(AlimentacaoDTO objAlimentacaoDTO)
+        /// <summary>
+        /// Consulta a tabela Alimentacao e retorna resultados de acordo com o preenchimento do filtro
+        /// </summary>
+        public AlimentacaoDTO ConsultarAlimentacao(AlimentacaoDTO objAlimentacaoDTO)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
-            objAlimentacaoDTO.AlimentacaoLista = objAlimentacaoDados.ConsultarAlimentacao(objAlimentacaoDTO);
+            //objAlimentacaoDTO.AlimentacaoLista = objAlimentacaoDados.ConsultarAlimentacao(objAlimentacaoDTO);
 
             return objAlimentacaoDTO;
 
-        }*/
+        }
+
 
     }
 }
