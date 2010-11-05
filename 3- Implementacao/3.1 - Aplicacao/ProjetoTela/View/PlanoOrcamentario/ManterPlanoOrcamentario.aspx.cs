@@ -44,9 +44,10 @@ namespace SGS.View.PlanoOrcamentario
 
             SGSServico sgsServico = new SGSServico();
 
-            SGSOrcamento = sgsServico.SalvarOrcamento(PegarDadosView());
+            SGSOrcamento = PegarDadosView();
+            SGSOrcamento.Orcamento = sgsServico.SalvarOrcamento(SGSOrcamento.Orcamento);
 
-            string url = @"ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.CodigoOrcamento.Value.ToString();
+            string url = @"ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.Orcamento.CodigoOrcamento.Value.ToString();
             Server.Transfer(url);
 
             ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
@@ -61,7 +62,7 @@ namespace SGS.View.PlanoOrcamentario
         {
             SGSServico objSGSServico = new SGSServico();
 
-            if (objSGSServico.ExcluirOrcamento(SGSOrcamento.CodigoOrcamento.Value))
+            if (objSGSServico.ExcluirOrcamento(SGSOrcamento.Orcamento.CodigoOrcamento.Value))
                 ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Plano Orcamentário excluído com sucesso!'); </script>");
 
             Response.Redirect("ConsultarPlanoOrcamentario.aspx");
@@ -76,7 +77,7 @@ namespace SGS.View.PlanoOrcamentario
         {
             if (Request.QueryString["tipo"] == "alt")
             {
-                Server.Transfer("ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.CodigoOrcamento.Value.ToString());
+                Server.Transfer("ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.Orcamento.CodigoOrcamento.Value.ToString());
 
             }
             else
@@ -94,7 +95,7 @@ namespace SGS.View.PlanoOrcamentario
         }
 
 
-        #endregion
+
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
@@ -106,6 +107,8 @@ namespace SGS.View.PlanoOrcamentario
 
         }
 
+        #endregion
+
         #region Metodos
 
         /// <summary>
@@ -115,7 +118,10 @@ namespace SGS.View.PlanoOrcamentario
         public void CarregarTela()
         {
             SGSServico objSGSServico = new SGSServico();
-            SGSOrcamento = new Entidades.Orcamento();
+            SGSOrcamento = new OrcamentoDTO();
+            SGSOrcamento.Orcamento = new Entidades.Orcamento();
+
+
             ddlCasaLar.DataSource = objSGSServico.ListarCasaLarOrcamento();
             ddlCasaLar.DataBind();
             ddlNaturezaDespesa.DataSource = objSGSServico.ListarNaturezaDespesa();
@@ -127,11 +133,11 @@ namespace SGS.View.PlanoOrcamentario
                 lblTitulo.Text = "Alterar PlanoOrcamentario";
                 lblDescricao.Text = "Descrição: Permite alterar os Planos Orçamentário da Casa Lar.";
                 btnExcluir.Visible = true;
-                                
-                SGSOrcamento.CodigoOrcamento = Convert.ToInt32(Request.QueryString["cod"]);
+
+                SGSOrcamento.Orcamento.CodigoOrcamento = Convert.ToInt32(Request.QueryString["cod"]);
                 
                 //preenche a propriedade Plano Orcamentario
-                SGSOrcamento = objSGSServico.ObterOrcamento(SGSOrcamento.CodigoOrcamento.Value);
+                SGSOrcamento.Orcamento = objSGSServico.ObterOrcamento(SGSOrcamento.Orcamento.CodigoOrcamento.Value);
 
 
                 if (SGSOrcamento != null)
@@ -145,28 +151,45 @@ namespace SGS.View.PlanoOrcamentario
                 lblDescricao.Text = "Descrição: Permite cadastrar os Orcamento Casa Lar.";
                 btnExcluir.Visible = false;
 
+                gridOrcamento.Visible = false;
+                btnIncluir.Visible = false;
+                btnLimpar.Visible = false;
+                btnRemover.Visible = false;
+                ddlNaturezaDespesa.Visible = false;
+                txtValorDespesa.Visible = false;
+                lblNaturezaDespesa.Visible = false;
+                lblValorDespesa.Visible = false;
+
+
             }
         }
 
         /// <summary>
         /// Preencha a entidade Orcamento com os dados da View
         /// </summary>
-        private SGS.Entidades.Orcamento PegarDadosView()
+        private SGS.Entidades.DTO.OrcamentoDTO PegarDadosView()
         {
-            SGS.Entidades.Orcamento objOrcamento = SGSOrcamento;
+            SGS.Entidades.DTO.OrcamentoDTO objOrcamentoDTO = SGSOrcamento;
 
-            objOrcamento.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
-            objOrcamento.NomePlano = txtNomePlano.Text;
-            objOrcamento.InicioVigencia = Convert.ToDateTime(txtInicioVigencia.Text);
-            objOrcamento.FimVigencia = Convert.ToDateTime(txtFimVigencia.Text);
-            objOrcamento.ValorOrcamento = Convert.ToDecimal(txtValorOrcamento.Text);
-            objOrcamento.SaldoDisponivel = Convert.ToDecimal(txtSaldoDisponivel.Text);
-            objOrcamento.StatusPlano = ddlStatus.SelectedValue;
-            objOrcamento.NaturezaLancamento.NomeNatureza = ddlNaturezaDespesa.SelectedValue;
-            objOrcamento.OrcamentoNatureza.Valor = Convert.ToDecimal(txtValorDespesa.Text);
+            objOrcamentoDTO.Orcamento.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
+            objOrcamentoDTO.Orcamento.NomePlano = txtNomePlano.Text;
+            objOrcamentoDTO.Orcamento.InicioVigencia = Convert.ToDateTime(txtInicioVigencia.Text);
+            objOrcamentoDTO.Orcamento.FimVigencia = Convert.ToDateTime(txtFimVigencia.Text);
+            objOrcamentoDTO.Orcamento.ValorOrcamento = Convert.ToDecimal(txtValorOrcamento.Text);
+            objOrcamentoDTO.Orcamento.SaldoDisponivel = Convert.ToDecimal(txtSaldoDisponivel.Text);
+            objOrcamentoDTO.Orcamento.StatusPlano = ddlStatus.SelectedValue;
 
+            if (ddlNaturezaDespesa.Visible == true)
+            {
+                objOrcamentoDTO.OrcamentoNatureza.CodigoNatureza = Convert.ToInt32(ddlNaturezaDespesa.SelectedValue);
+                objOrcamentoDTO.OrcamentoNatureza.DataCriacao = DateTime.Now;
+                objOrcamentoDTO.OrcamentoNatureza.CodigoOrcamento = objOrcamentoDTO.Orcamento.CodigoOrcamento;
 
-            return objOrcamento;
+                if (txtValorDespesa.Text != "")
+                    objOrcamentoDTO.OrcamentoNatureza.Valor = Convert.ToDecimal(txtValorDespesa.Text);
+            }
+            
+            return objOrcamentoDTO;
         }
 
 
@@ -176,20 +199,22 @@ namespace SGS.View.PlanoOrcamentario
         private void PreencherDadosView()
         {
 
-            txtNomePlano.Text = SGSOrcamento.NomePlano;
-            txtInicioVigencia.Text = SGSOrcamento.InicioVigencia.Value.ToString();
-            txtFimVigencia.Text = SGSOrcamento.FimVigencia.Value.ToString();
-            txtValorOrcamento.Text = SGSOrcamento.ValorOrcamento.ToString();
-            txtSaldoDisponivel.Text = SGSOrcamento.SaldoDisponivel.ToString();
-            ddlStatus.SelectedValue = SGSOrcamento.StatusPlano;
-           // ddlNaturezaDespesa.SelectedValue = SGSNaturezaLancamento.NomeNatureza;
-            txtValorDespesa.Text = SGSOrcamento.OrcamentoNatureza.Valor.ToString();
+            txtNomePlano.Text = SGSOrcamento.Orcamento.NomePlano;
+            txtInicioVigencia.Text = SGSOrcamento.Orcamento.InicioVigencia.Value.ToString();
+            txtFimVigencia.Text = SGSOrcamento.Orcamento.FimVigencia.Value.ToString();
+            txtValorOrcamento.Text = SGSOrcamento.Orcamento.ValorOrcamento.ToString();
+            txtSaldoDisponivel.Text = SGSOrcamento.Orcamento.SaldoDisponivel.ToString();
+            ddlStatus.SelectedValue = SGSOrcamento.Orcamento.StatusPlano;
 
-            if (SGSOrcamento.CodigoCasaLar.HasValue)
-                ddlCasaLar.SelectedValue = SGSOrcamento.CodigoCasaLar.Value.ToString();
+            if (SGSOrcamento.Orcamento.CodigoCasaLar.HasValue)
+                ddlCasaLar.SelectedValue = SGSOrcamento.Orcamento.CodigoCasaLar.Value.ToString();
 
-            if (SGSOrcamento.OrcamentoNatureza.CodigoNatureza.HasValue)
-                ddlNaturezaDespesa.SelectedValue = SGSOrcamento.OrcamentoNatureza.CodigoNatureza.Value.ToString();
+            if (SGSOrcamento.NaturezaLancamento.CodigoNatureza.HasValue)
+                ddlNaturezaDespesa.SelectedValue = SGSOrcamento.NaturezaLancamento.CodigoNatureza.Value.ToString();
+
+            if (SGSOrcamento.OrcamentoNatureza.Valor.HasValue)
+                txtValorDespesa.Text = SGSOrcamento.OrcamentoNatureza.Valor.ToString();
+
 
 
         }
@@ -201,7 +226,7 @@ namespace SGS.View.PlanoOrcamentario
         /// <summary>
         /// Esta propriedade armazena em memória os dados da Entidade Orcamento
         /// </summary>
-        public SGS.Entidades.Orcamento SGSOrcamento
+        public SGS.Entidades.DTO.OrcamentoDTO SGSOrcamento
         {
             set
             {
@@ -215,7 +240,7 @@ namespace SGS.View.PlanoOrcamentario
                 if (ViewState["SGSOrcamento"] == null)
                     return null;
                 else
-                    return (SGS.Entidades.Orcamento)ViewState["SGSOrcamento"];
+                    return (SGS.Entidades.DTO.OrcamentoDTO)ViewState["SGSOrcamento"];
             }
 
         }

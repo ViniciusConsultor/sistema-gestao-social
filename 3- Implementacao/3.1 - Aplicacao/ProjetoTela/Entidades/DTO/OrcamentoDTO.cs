@@ -17,6 +17,8 @@ namespace SGS.Entidades.DTO
         public OrcamentoDTO(Orcamento umOrcamento)
         {
             this.Orcamento = umOrcamento;
+            this.NaturezaLancamento = new NaturezaLancamento();
+            this.OrcamentoNatureza = new OrcamentoNatureza();
         }
 
         /// <summary>
@@ -24,6 +26,9 @@ namespace SGS.Entidades.DTO
         /// </summary>
         public OrcamentoDTO()
         {
+            this.Orcamento = new Orcamento();
+            this.NaturezaLancamento = new NaturezaLancamento();
+            this.OrcamentoNatureza = new OrcamentoNatureza();
         }
 
         #endregion
@@ -122,18 +127,29 @@ namespace SGS.Entidades.DTO
             set { _naturezaLancamentoLista = value; }
         }
 
-        private string _naturezaDespesaValor;
-        public string NaturezaDespesaoValor
+
+
+        OrcamentoNatureza _orcamentoNatureza;
+
+        /// <summary>
+        /// Um objeto OrcamentoNatureza
+        /// </summary>
+        public OrcamentoNatureza OrcamentoNatureza
         {
-            set { _naturezaDespesaValor = value; }
-            get { return _naturezaDespesaValor; }
+            get { return _orcamentoNatureza; }
+            set { _orcamentoNatureza = value; }
         }
 
-        private Decimal _valorDespesaValor;
-        public Decimal ValorDespesaValor
+
+        List<OrcamentoNatureza> _orcamentoNaturezaLista;
+
+        /// <summary>
+        /// Lista de OrcamentoNatureza
+        /// </summary>
+        public List<OrcamentoNatureza> OrcamentoNaturezaLista
         {
-            set { _valorDespesaValor = value; }
-            get { return _valorDespesaValor; }
+            get { return _orcamentoNaturezaLista; }
+            set { _orcamentoNaturezaLista = value; }
         }
 
         #endregion
