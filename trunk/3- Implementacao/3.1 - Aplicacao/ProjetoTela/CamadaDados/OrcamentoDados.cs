@@ -107,7 +107,7 @@ namespace SGS.CamadaDados
         public Orcamento ObterOrcamento(int codigoOrcamento)
         {
             SqlCommand comando = new SqlCommand("select * from Orcamento where CodigoOrcamento = @codigoOrcamento", base.Conectar());
-           
+
             SqlParameter parametroCodigo = new SqlParameter("@codigoOrcamento", codigoOrcamento);
             parametroCodigo.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigo);
@@ -168,7 +168,7 @@ namespace SGS.CamadaDados
 
             }
 
-           if (objOrcamento != null && objOrcamento.CodigoCasaLar != null)
+            if (objOrcamento != null && objOrcamento.CodigoCasaLar != null)
             {
                 CasaLarDados objCasaLarDados = new CasaLarDados();
                 objOrcamento.CasaLar = objCasaLarDados.ObterCasaLar(objOrcamento.CodigoCasaLar.Value);
@@ -281,6 +281,9 @@ namespace SGS.CamadaDados
 
             return orcamentoLista;
 
+
+
         }
+
     }
 }

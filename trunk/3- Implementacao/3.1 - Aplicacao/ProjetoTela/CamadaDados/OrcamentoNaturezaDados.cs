@@ -49,7 +49,7 @@ namespace SGS.CamadaDados
             parametroValor.DbType = System.Data.DbType.Decimal;
 
             SqlParameter parametroDataCriacao = new SqlParameter("@dataCriacao", objOrcamentoNatureza.DataCriacao);
-            parametroDataCriacao.DbType = System.Data.DbType.Decimal;
+            parametroDataCriacao.DbType = System.Data.DbType.DateTime;
 
             comando.Parameters.Add(parametroValor);
             comando.Parameters.Add(parametroDataCriacao);
@@ -94,15 +94,15 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um DadoBancario pelo seu código
         /// </summary>
-        public bool ExcluirOrcamentoNatureza(int codigoNatureza)
+        public bool ExcluirOrcamentoNatureza(int codigoOrcamento)
         {
             bool execucao;
 
-            SqlCommand comando = new SqlCommand("delete from OrcamentoNatureza where CodigoNatureza = @codigoNatureza", base.Conectar());
+            SqlCommand comando = new SqlCommand("delete from OrcamentoNatureza where CodigoOrcamento = @codigoOrcamento", base.Conectar());
 
-            SqlParameter parametroCodigoNatureza = new SqlParameter("@codigoNatureza", codigoNatureza);
-            parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
-            comando.Parameters.Add(parametroCodigoNatureza);
+            SqlParameter parametroCodigoOrcamento = new SqlParameter("@codigoOrcamento", codigoOrcamento);
+            parametroCodigoOrcamento.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoOrcamento);
 
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
 
