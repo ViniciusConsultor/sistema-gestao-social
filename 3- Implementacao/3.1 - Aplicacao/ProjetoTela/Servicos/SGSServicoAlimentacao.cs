@@ -42,14 +42,14 @@ namespace SGS.Servicos
         /// <summary>
         /// Consulta a tabela Alimentacao e retorna resultados de acordo com o preenchimento do filtro
         /// </summary>
-        public AlimentacaoDTO ConsultarAlimentacao(AlimentacaoDTO objAlimentacaoDTO)
+  /*      public AlimentacaoDTO ConsultarAlimentacao(AlimentacaoDTO objAlimentacaoDTO)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
             //objAlimentacaoDTO.AlimentacaoLista = objAlimentacaoDados.ConsultarAlimentacao(objAlimentacaoDTO);
 
             return objAlimentacaoDTO;
 
-        }
+        }*/
 
 
     }

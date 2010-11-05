@@ -91,6 +91,17 @@ namespace SGS.View.PlanoOrcamentario
         protected void btnIncluir_Click(object sender, EventArgs e)
         {
 
+
+            SGSServico sgsServico = new SGSServico();
+
+            SGSOrcamento = PegarDadosView();
+            SGSOrcamento.OrcamentoNatureza = sgsServico.IncluirItemOrcamento(SGSOrcamento.OrcamentoNatureza);
+
+            string url = @"ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.OrcamentoNatureza.CodigoOrcamento.Value.ToString();
+            Server.Transfer(url);
+
+            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+
             
         }
 
@@ -99,6 +110,13 @@ namespace SGS.View.PlanoOrcamentario
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
+
+            SGSServico objSGSServico = new SGSServico();
+
+            if (objSGSServico.ExcluirOrcamento(SGSOrcamento.Orcamento.CodigoOrcamento.Value))
+                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Plano Orcamentário excluído com sucesso!'); </script>");
+
+            Response.Redirect("ConsultarPlanoOrcamentario.aspx");
 
         }
 
@@ -139,6 +157,7 @@ namespace SGS.View.PlanoOrcamentario
                 //preenche a propriedade Plano Orcamentario
                 SGSOrcamento.Orcamento = objSGSServico.ObterOrcamento(SGSOrcamento.Orcamento.CodigoOrcamento.Value);
 
+                gridOrcamento.Visible = true;
 
                 if (SGSOrcamento != null)
                     this.PreencherDadosView();

@@ -48,6 +48,13 @@ namespace SGS.Servicos
             return objOrcamentoNatureza;
         }
 
+        public bool RemoverItemOrcamento(int codigoOrcamento)
+        {
+            OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+
+            return objOrcamentoNaturezaDados.ExcluirOrcamentoNatureza(codigoOrcamento);
+        }
+
         /// <summary>
         /// Consulta a tabela Orcamento e retorna resultados de acordo com o preenchimento do filtro
         /// </summary>
