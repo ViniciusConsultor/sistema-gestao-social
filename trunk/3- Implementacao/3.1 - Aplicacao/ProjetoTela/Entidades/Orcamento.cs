@@ -8,6 +8,11 @@ namespace SGS.Entidades
     [Serializable]
     public class Orcamento
     {
+        public Orcamento()
+        {
+    //        this.NaturezaLancamento = new NaturezaLancamento();
+        }
+
         private int? _codigoOrcamento;
         private int? _CodigoCasaLar;
         private string _nomePlano;
@@ -16,8 +21,7 @@ namespace SGS.Entidades
         private Decimal _saldoDisponivel;
         private DateTime? _inicioVigencia;
         private DateTime? _fimVigencia;
-        private NaturezaLancamento _naturezaLancamento;
-        private OrcamentoNatureza _orcamentoNatureza;
+        private List<OrcamentoNatureza> _orcamentoNaturezaLista;
         private CasaLar _casaLar;
 
 
@@ -71,17 +75,11 @@ namespace SGS.Entidades
             set { _fimVigencia = value; }
         }
 
-        public NaturezaLancamento NaturezaLancamento
-        {
-            set { _naturezaLancamento = value; }
-            get { return _naturezaLancamento; }
-
-        }
-
-        public OrcamentoNatureza OrcamentoNatureza
+        
+        public List<OrcamentoNatureza> OrcamentoNaturezaLista
         { 
-                set { _orcamentoNatureza = value; }
-                get { return _orcamentoNatureza; }
+                set { _orcamentoNaturezaLista = value; }
+                get { return _orcamentoNaturezaLista; }
         }
 
         public CasaLar CasaLar

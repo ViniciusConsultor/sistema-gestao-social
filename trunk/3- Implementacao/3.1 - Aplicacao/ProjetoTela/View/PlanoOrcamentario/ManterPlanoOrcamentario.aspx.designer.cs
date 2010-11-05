@@ -166,6 +166,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
+        /// lblNaturezaDespesa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNaturezaDespesa;
+        
+        /// <summary>
         /// ddlNaturezaDespesa control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlNaturezaDespesa;
+        
+        /// <summary>
+        /// lblValorDespesa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorDespesa;
         
         /// <summary>
         /// txtValorDespesa control.

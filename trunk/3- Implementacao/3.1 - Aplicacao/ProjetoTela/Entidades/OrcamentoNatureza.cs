@@ -11,7 +11,7 @@ namespace SGS.Entidades
     {
         private int? _codigoNatureza;
         private int? _codigoOrcamento;
-        private Decimal _valor;
+        private Decimal? _valor;
         private DateTime _dataCriacao;
 
 
@@ -27,7 +27,7 @@ namespace SGS.Entidades
             get { return _codigoOrcamento; }
         }
 
-        public Decimal Valor
+        public Decimal? Valor
         {
             set { _valor = value; }
             get { return _valor; }

@@ -200,10 +200,12 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Natureza da Despesa</td>
+                    <asp:Label ID="lblNaturezaDespesa" runat="server" Text="Natureza da Despesa"></asp:Label>
+                </td>
                 <td>
                     <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" 
-                        CssClass="style8" DataTextField="NomeNatureza" DataValueField="CodigoNatureza">
+                        CssClass="style8" DataTextField="NomeNatureza" 
+                        DataValueField="CodigoNatureza" Height="16px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem Value="1">Reforma</asp:ListItem>
                         <asp:ListItem Value="2">Compras</asp:ListItem>
@@ -214,7 +216,8 @@
                 <td class="style10" 
                     
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Valor da Despesa</td>
+                    <asp:Label ID="lblValorDespesa" runat="server" Text="Valor da Despesa"></asp:Label>
+                </td>
                 <td class="style11">
                     <asp:TextBox ID="txtValorDespesa" runat="server" CssClass="mask-real-cifrao" Width="148px"></asp:TextBox>
                 </td>
@@ -243,10 +246,10 @@
             <td>  
                 <asp:GridView ID="gridOrcamento" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
-                    GridLines="Horizontal" Width="90%" 
-                    BorderColor="#003399" HorizontalAlign="Center" Height="147px" 
+                    GridLines="Horizontal" Width="67%" 
+                    BorderColor="#003399" HorizontalAlign="Center" Height="180px" 
                     AllowPaging="True" 
-                    PageSize="1">
+                    PageSize="1" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoOrcamento" 
@@ -254,6 +257,14 @@
                             Text="Selecionar">
                         <ItemStyle Width="75px" />
                         </asp:HyperLinkField>
+                        <asp:BoundField DataField="NomeNatureza" HeaderText="Nome da Natureza">
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="Valor" HeaderText="Valor">
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#2461BF" BorderColor="#003399" />
                     <EmptyDataRowStyle Font-Bold="True" Font-Size="Small" ForeColor="Red" 
