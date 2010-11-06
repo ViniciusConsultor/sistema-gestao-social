@@ -72,9 +72,6 @@
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="View\Alimentacao\AltAlimentacao.aspx" />
-    <Content Include="View\Alimentacao\CadAlimentacao.aspx" />
-    <Content Include="View\Alimentacao\ConAlimentacao.aspx" />
     <Content Include="View\Alimentacao\ConsultarAlimentacao.aspx" />
     <Content Include="View\Alimentacao\ManterAlimentacao.aspx" />
     <Content Include="View\Apresentacao.aspx" />
@@ -111,10 +108,7 @@
     <Content Include="View\Relatorio\RelFinancas.aspx" />
     <Content Include="View\LoginUI\Login.aspx" />
     <Content Include="View\SemPermissao.aspx" />
-    <Content Include="View\Visita\AltVisita.aspx" />
-    <Content Include="View\Visita\CadVisita.aspx" />
     <Content Include="View\Visita\ConsultarVisita.aspx" />
-    <Content Include="View\Visita\ConVisita.aspx" />
     <Content Include="View\Visita\ManterVisita.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -186,12 +180,16 @@
     <Compile Include="Entidades\Contato.cs" />
     <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\Desenvolvimento.cs" />
+    <Compile Include="Entidades\DTO\AlimentacaoDTO.cs" />
+    <Compile Include="Entidades\DTO\ConsultarEscolarDTO.cs" />
+    <Compile Include="Entidades\DTO\GradeConsultarEscolarDTO.cs" />
     <Compile Include="Entidades\DTO\EscolarDTO.cs" />
     <Compile Include="Entidades\DTO\DadosAcesso.cs" />
     <Compile Include="Entidades\DTO\DadosAssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\FinancasDTO.cs" />
     <Compile Include="Entidades\DTO\LoginDTO.cs" />
     <Compile Include="Entidades\DTO\OrcamentoDTO.cs" />
+    <Compile Include="Entidades\DTO\ParametroConsultarEscolarDTO.cs" />
     <Compile Include="Entidades\DTO\PessoaDadosBasicoDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Enum\PerfilEnum.cs" />
@@ -218,6 +216,7 @@
       <DependentUpon>SGS.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\SGSServicoDesenvolvimento.cs" />
     <Compile Include="Servicos\SGSServicoAlimentacao.cs" />
     <Compile Include="Servicos\SGSServicoEscolar.cs" />
     <Compile Include="Servicos\SGSServicoOrcamento.cs" />
@@ -231,27 +230,6 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="View\Alimentacao\AltAlimentacao.aspx.cs">
-      <DependentUpon>AltAlimentacao.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Alimentacao\AltAlimentacao.aspx.designer.cs">
-      <DependentUpon>AltAlimentacao.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Alimentacao\CadAlimentacao.aspx.cs">
-      <DependentUpon>CadAlimentacao.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Alimentacao\CadAlimentacao.aspx.designer.cs">
-      <DependentUpon>CadAlimentacao.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Alimentacao\ConAlimentacao.aspx.cs">
-      <DependentUpon>ConAlimentacao.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Alimentacao\ConAlimentacao.aspx.designer.cs">
-      <DependentUpon>ConAlimentacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Alimentacao\ConsultarAlimentacao.aspx.cs">
       <DependentUpon>ConsultarAlimentacao.aspx</DependentUpon>
@@ -457,7 +435,6 @@
     </Compile>
     <Compile Include="View\Desenvolvimento\ManterDesenvolvimento.aspx.cs">
       <DependentUpon>ManterDesenvolvimento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Desenvolvimento\ManterDesenvolvimento.aspx.designer.cs">
       <DependentUpon>ManterDesenvolvimento.aspx</DependentUpon>
@@ -504,33 +481,12 @@
     <Compile Include="View\SemPermissao.aspx.designer.cs">
       <DependentUpon>SemPermissao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Visita\AltVisita.aspx.cs">
-      <DependentUpon>AltVisita.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Visita\AltVisita.aspx.designer.cs">
-      <DependentUpon>AltVisita.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Visita\CadVisita.aspx.cs">
-      <DependentUpon>CadVisita.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Visita\CadVisita.aspx.designer.cs">
-      <DependentUpon>CadVisita.aspx</DependentUpon>
-    </Compile>
     <Compile Include="View\Visita\ConsultarVisita.aspx.cs">
       <DependentUpon>ConsultarVisita.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Visita\ConsultarVisita.aspx.designer.cs">
       <DependentUpon>ConsultarVisita.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Visita\ConVisita.aspx.cs">
-      <DependentUpon>ConVisita.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Visita\ConVisita.aspx.designer.cs">
-      <DependentUpon>ConVisita.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Visita\ManterVisita.aspx.cs">
       <DependentUpon>ManterVisita.aspx</DependentUpon>

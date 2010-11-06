@@ -40,6 +40,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
         
         /// <summary>
+        /// txtInstituicaoEnsino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInstituicaoEnsino;
+        
+        /// <summary>
         /// btnLocalizar control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLimpar;
+        
+        /// <summary>
+        /// gridEscolar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridEscolar;
     }
 }

@@ -13,6 +13,50 @@
     }
     </style>
 
+     <!-- Importa todos os script JavaScript-->
+        <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskMoney.js"> </script>
+        
+        <!-- Comandos de JavaScript-->
+        <script type="text/javascript">
+
+            //Diz que quando a página for carregada, irá ser executado o
+            //bloco de código contido entre os {};
+
+            $(document).ready(function () {
+
+                //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
+                //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
+
+                $('.mask-numero').mask('999999'); //número
+                $('.mask-numero2').maskMoney({ precision: 6 }); //número
+
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99"); //cpf
+                $(".mask-cnpj").mask("99.999.999/9999-99"); //cnpj
+                $(".mask-cep").mask("99999-999"); //cep
+                $(".mask-real-cifrao").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
+                $(".mask-real").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: false }); //real sem cifrão 1.000,00
+                $(".mask-precision").maskMoney({ precision: 3 }); //com 3 casas de precisão 1,000
+
+                /* Default options are (but you can always change that):
+                symbol:'US$',
+                decimal:'.',
+                precision:2,
+                thousands:',',
+                allowZero:false,
+                showSymbol:false */
+
+            });
+
+        </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -89,7 +133,7 @@
                     Valor</td>
                 <td>
                     <asp:TextBox ID="txtValor" runat="server" Height="22px" Width="148px" 
-                        MaxLength="16"></asp:TextBox>
+                        MaxLength="16" CssClass="mask-real-cifrao"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridValor" runat="server" 
                         ControlToValidate="txtValor" ErrorMessage="Preencha o campo Valor" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -118,7 +162,7 @@
                     Data Inicio</td>
                 <td>
                     <asp:TextBox ID="txtDataInicio" runat="server" Height="22px" MaxLength="10" 
-                        Width="148px"></asp:TextBox>
+                        Width="148px" CssClass="mask-data"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -127,7 +171,7 @@
                     Data Fim</td>
                 <td>
                     <asp:TextBox ID="txtDataFim" runat="server" Height="22px" MaxLength="10" 
-                        Width="148px"></asp:TextBox>
+                        Width="148px" CssClass="mask-data"></asp:TextBox>
                 </td>
             </tr>
             <tr>

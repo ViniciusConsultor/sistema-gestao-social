@@ -151,7 +151,7 @@
                     Alimentos</td>
                 <td class="style8">
                     <asp:ListBox ID="ltbAlimentos" runat="server" Height="105px" Width="288px">
-                        <asp:ListItem>Café</asp:ListItem>
+                        <asp:ListItem Selected="True">Café</asp:ListItem>
                         <asp:ListItem>Pão</asp:ListItem>
                         <asp:ListItem>Arroz</asp:ListItem>
                         <asp:ListItem>Feijão</asp:ListItem>

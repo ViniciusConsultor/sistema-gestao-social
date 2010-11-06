@@ -7,7 +7,7 @@ namespace SGS.Entidades.DTO
 {
 
     [Serializable]
-    public class EscolarDTO
+    public class AlimentacaoDTO
     {
 
         #region Construtores
@@ -15,35 +15,45 @@ namespace SGS.Entidades.DTO
         /// <summary>
         /// Construtor com parâmetro
         /// </summary>
-        /// <param name="umEscolar"></param>
-        public EscolarDTO(Escolar umEscolar)
+        /// <param name="umFinancas"></param>
+        public AlimentacaoDTO(Alimentacao umAlimentacao)
         {
-            this.Escolar = umEscolar;
+            this.Alimentacao = umAlimentacao;
         }
 
         /// <summary>
         /// Construtor sem parâmetro
         /// </summary>
-        public EscolarDTO()
+        public AlimentacaoDTO()
         {
-            Escolar = new Escolar();
         }
 
         #endregion
 
         #region Propriedades
 
-        Escolar _escolar;
+        Alimentacao _alimentacao;
 
         /// <summary>
-        /// Um objeto Escolar
+        /// Um objeto Alimentacao
         /// </summary>
-        public Escolar Escolar
+        public Alimentacao Alimentacao
         {
-            get { return _escolar; }
-            set { _escolar = value; }
+            get { return _alimentacao; }
+            set { _alimentacao = value; }
         }
 
+
+        List<Alimentacao> _alimentacaoLista;
+
+        /// <summary>
+        /// Lista de Alimentacao
+        /// </summary>
+        public List<Alimentacao> AlimentacaoLista
+        {
+            get { return _alimentacaoLista; }
+            set { _alimentacaoLista = value; }
+        }
 
         private List<Assistido> _assistidoLista;
 
@@ -54,6 +64,6 @@ namespace SGS.Entidades.DTO
         }
 
         #endregion
-
+        
     }
 }

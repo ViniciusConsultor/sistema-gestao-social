@@ -267,5 +267,11 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
+        public List<Assistido> Listar()
+        {
+            return new List<Assistido>();//TODO:MAYCON - CRIAR METODO LISTAR
+        }
+
+
     }
 }

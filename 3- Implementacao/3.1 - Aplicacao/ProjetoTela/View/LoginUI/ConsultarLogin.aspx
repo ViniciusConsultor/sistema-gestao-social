@@ -93,7 +93,7 @@
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoLogin" 
-                            DataNavigateUrlFormatString="ManterLogin.aspx?tipo=alt&amp;cod=9" 
+                            DataNavigateUrlFormatString="ManterLogin.aspx?tipo=alt&amp;cod={0}" 
                             Text="Selecionar">
                         <ItemStyle Width="75px" />
                         </asp:HyperLinkField>

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SGS.View.Profissional
+namespace SGS.View.Desenvolvimento
 {
     public partial class ConsultarProfissional : System.Web.UI.Page
     {
