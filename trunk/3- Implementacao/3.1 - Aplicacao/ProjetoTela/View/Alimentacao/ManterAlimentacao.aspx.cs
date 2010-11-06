@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SGS.Servicos;
+using SGS.Entidades.DTO;
 using SGS.Entidades.DTO;
 
 namespace SGS.View.Alimentacao
