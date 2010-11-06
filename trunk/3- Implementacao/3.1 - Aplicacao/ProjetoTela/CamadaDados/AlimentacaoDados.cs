@@ -140,10 +140,97 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroCodigoAlimentacao);
 
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
-            
+
             return execucao;
 
-        }
-    
+            /* }
+       
+            /// <summary>
+            /// Consulta uma Alimentacao -Terminar. Procurar entendimento.
+            /// </summary>
+            public List<Alimentacao> ConsultarAlimentacao(AlimentacaoDTO objAlimentacaoDTO)
+       {
+           SqlCommand comando = new SqlCommand();
+           comando.Connection = base.Conectar();
+
+           SqlDataReader leitorDados;
+
+           SqlParameter paramTipoLancamentoValor = new SqlParameter("@tipoLancamentoValor", objFinancasDTO.TipoLancamentoValor);
+           paramTipoLancamentoValor.DbType = System.Data.DbType.String;
+
+           SqlParameter paramDataLancamentoValor = new SqlParameter("@dataLancamentoValor", System.Data.SqlDbType.DateTime);
+           if (objFinancasDTO.DataLancamentoValor.HasValue)
+               paramDataLancamentoValor.Value = objFinancasDTO.DataLancamentoValor.Value;
+           else
+               paramDataLancamentoValor.Value = DBNull.Value;
+
+           SqlParameter paramDescricaoValor = new SqlParameter("@descricaoValor", "%" + objFinancasDTO.DescricaoValor + "%");
+           paramDescricaoValor.DbType = System.Data.DbType.String;
+
+           String sql = "select * from Alimentacao";
+
+           //Se o Tipo de Lancamento, Data Lancamento e Descricao preenchidos
+           if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
+               sql += @" where TipoLancamento = @tipoLancamentoValor and DataLancamento = @dataLancamentoValor and Observacao like @descricaoValor";
+ 
+           //Se apenas TipoLancamento e DataLancamento preenchido
+           else if (objFinancasDTO.TipoLancamentoValor != "Selecione" && objFinancasDTO.DataLancamentoValor.HasValue)
+               sql += @" where TipoLancamento = @tipoLancamentoValor and DataLancamento = @dataLancamentoValor";
+ 
+           //Se apenas DataLancamento e DescricaoValor preenchido
+           else if (objFinancasDTO.DataLancamentoValor.HasValue && objFinancasDTO.DescricaoValor != "")
+               sql += @" where DataLancamento = @dataLancamentoValor and Observacao like @descricaoValor";
+ 
+           //Se apenas Descricao e TipoLancamento preenchido
+           else if (objFinancasDTO.DescricaoValor != "" && objFinancasDTO.TipoLancamentoValor != "Selecione")
+               sql += @" where Observacao like @descricaoValor and TipoLancamento = @tipoLancamentoValor";
+ 
+           //Se apenas Descricao preenchido
+           else if (objFinancasDTO.DescricaoValor != "")
+               sql += @" where Observacao like @descricaoValor";
+ 
+           //Se apenas TipoLancamento preenchido
+           else if (objFinancasDTO.TipoLancamentoValor != "Selecione")
+               sql += @" where TipoLancamento = @tipoLancamentoValor";
+ 
+           //Se apenas DataLancamento e DescricaoValor preenchido
+           else if (objFinancasDTO.DataLancamentoValor.HasValue)
+               sql += @" where DataLancamento = @dataLancamentoValor";
+
+           comando.CommandText = sql;
+           comando.CommandType = System.Data.CommandType.Text;
+           comando.Parameters.Add(paramTipoLancamentoValor);
+           comando.Parameters.Add(paramDataLancamentoValor);
+           comando.Parameters.Add(paramDescricaoValor);
+
+           leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+
+
+           List<Financas> financasLista = new List<Financas>();
+           Financas objFinancas;
+
+           while (leitorDados.Read())
+           {
+               objFinancas = new Financas();
+
+               objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["CodigoFinancas"]);
+               //objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+               //objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+               objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
+               objFinancas.DataCriacao = Convert.ToDateTime(leitorDados["DataCriacao"]);
+               objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
+               objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+               objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
+               objFinancas.Observacao = leitorDados["Observacao"].ToString();
+                
+
+               financasLista.Add(objFinancas);
+           }
+
+           return financasLista;*/
+   }
+ 
     }
 }
+

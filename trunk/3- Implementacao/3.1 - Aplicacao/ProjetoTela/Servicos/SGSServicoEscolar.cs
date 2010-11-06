@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
 using SGS.CamadaDados;
 using SGS.Entidades;
+using SGS.Entidades.DTO;
 
 namespace SGS.Servicos
 {
@@ -38,18 +38,6 @@ namespace SGS.Servicos
             return objEscolarDados.ObterEscolar(codigoEscolar);
         }
 
-        ///// <summary>
-        ///// Este método obtém uma Escolar sem o seu código
-        ///// </summary>
-        ///// <param name="codigoEscolar"></param>
-        ///// <returns></returns>
-        //public Escolar ObterEscolar()
-        //{
-        //    EscolarDados objEscolarDados = new EscolarDados();
-
-        //    return objEscolarDados.ObterEscolar();
-        //}
-
         /// <summary>
         /// Este método exclui a Escolar e o seu respectivo contato.
         /// </summary>
@@ -61,6 +49,28 @@ namespace SGS.Servicos
             EscolarDados objEscolarDados = new EscolarDados();
 
             return objEscolarDados.ExcluirEscolar(codigoEscolar, codigoContato);
+        }
+
+        /// <summary>
+        /// Este Serviço retorna uma lista de assistido
+        /// </summary>
+        /// <returns></returns>
+        public List<Assistido> ListarAssistido()
+        {
+            AssistidoDados objAssistidoDados = new AssistidoDados();
+
+            return objAssistidoDados.Listar();
+            
+        }
+
+        /// <summary>
+        /// Consulta a tabela Escolar e retorna resultados de acordo com o preenchimento do filtro 
+        /// </summary>
+        public List<GradeConsultarEscolarDTO> ConsultarEscolar(ParametroConsultarEscolarDTO objParametroConsultarEscolarDTO)
+        {
+            EscolarDados objEscolarDados = new EscolarDados();
+            
+            return objEscolarDados.ConsultarEscolar(objParametroConsultarEscolarDTO);
         }
 
     }

@@ -30,6 +30,21 @@
        {
            height: 29px;
        }
+       .style14
+       {
+           text-align: right;
+           font-size: small;
+           height: 63px;
+       }
+       .style15
+       {
+           width: 177px;
+           height: 63px;
+       }
+       .style16
+       {
+           height: 63px;
+       }
     </style>
 
 
@@ -95,11 +110,12 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Assistido</td>
                 <td class="style10">
-                    <asp:DropDownList ID="dllAssistido" runat="server" Height="22px" Width="148px">
+                    <asp:DropDownList ID="dllAssistido" runat="server" Height="22px" Width="148px" 
+                        onselectedindexchanged="dllAssistido_SelectedIndexChanged">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>Tiago Ribeiro</asp:ListItem>
-                        <asp:ListItem>Samanta Dias</asp:ListItem>
-                        <asp:ListItem>Gabriela Ferreira</asp:ListItem>
+                        <asp:ListItem Value="1">Tiago Ribeiro</asp:ListItem>
+                        <asp:ListItem Value="2">Samanta Dias</asp:ListItem>
+                        <asp:ListItem Value="3">Gabriela Ferreira</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
                         ControlToValidate="dllAssistido" ErrorMessage="Escolha o Assistido" 
@@ -187,23 +203,25 @@
                 </td>
             </tr>
             <tr>
-                <td class="style9" 
+                <td class="style14" 
+                    
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status da Matrícula</td>
-                <td class="style10">
+                <td class="style15" valign="middle">
                     <asp:RadioButtonList ID="rbtStatusMatricula" runat="server" Height="22px" 
-                        Width="136px" Font-Size="Small">
+                        Width="136px" Font-Size="Small" RepeatLayout="Flow">
                         <asp:ListItem>Matriculado</asp:ListItem>
                         <asp:ListItem>Não Matriculado</asp:ListItem>
                     </asp:RadioButtonList>
                     <asp:RequiredFieldValidator ID="requeridStatusMatricula" runat="server" 
                         ControlToValidate="rbtStatusMatricula" ErrorMessage="Escolha o Status da Matricula" 
-                        ForeColor="Red" InitialValue="Matriculado">*</asp:RequiredFieldValidator>
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="style9" 
+                <td class="style14" 
+                    
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Formato do Ano Letivo</td>
-                <td>
+                <td class="style16">
                     <asp:DropDownList ID="ddlFormatoAnoLetivo" runat="server" Width="148px" 
                         Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
@@ -438,12 +456,12 @@
         <table width="100%">
             <tr align="center">
                 <td> 
-                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                        CausesValidation="False" />
+                        CausesValidation="False" onclick="btnCancelar_Click" />
                 </td>
             </tr>
             <tr align="center">

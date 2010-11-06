@@ -17,6 +17,11 @@ namespace SGS.CamadaDados
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
 
+            //Salva os dados de Contato do Escolar
+            ContatoDados objContatoDados = new ContatoDados();
+            objEscolar.Contato = objContatoDados.Salvar(objEscolar.Contato);
+
+            objEscolar.Contato_CodigoContato = objEscolar.Contato.CodigoContato;
 
             if (!objEscolar.CodigoEscolar.HasValue)
             {
@@ -26,18 +31,18 @@ namespace SGS.CamadaDados
                                   Materia, Professor, Nota, StatusMateria, ParteAnoLetivo)
                     VALUES (@assistido_CodigoAssistido, @contato_CodigoContato, @instituicao, @numInscricaoInstituicao, @mediaEscola,
                             @grauEscolaridade, @serieCursada, @dataMatricula, @dataSaida, @statusMatricula, @formatoAnoLetivo, @materia,
-                            @professor, @note, @statusMateria, @parteAnoLetivo)";
+                            @professor, @nota, @statusMateria, @parteAnoLetivo)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Escolar SET CodigoAssistido = @sssistido_CodigoAssistido, 
+                    @"UPDATE Escolar SET CodigoAssistido = @assistido_CodigoAssistido, 
                              CodigoContato = @contato_CodigoContato, Instituicao = @instituicao,
                              NumInscricaoInstituicao = @numInscricaoInstituicao, MediaEscola = @mediaEscola, 
                              GrauEscolaridade = @grauEscolaridade, SerieCursada = @serieCursada, DataMatricula = @dataMatricula,
                              DataSaida  = @dataSaida, StatusMatricula = @statusMatricula, FormatoAnoLetivo = @formatoAnoLetivo,
                              Materia = @materia, Professor = @professor, Nota = @nota, StatusMateria = @statusMateria,
-                             ParteAnoLetivo = @parteAnoLetivo)";
+                             ParteAnoLetivo = @parteAnoLetivo";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
@@ -65,7 +70,7 @@ namespace SGS.CamadaDados
             SqlParameter parametroContato_CodigoContato = new SqlParameter();
             if (objEscolar.Contato_CodigoContato.HasValue)
             {
-                parametroContato_CodigoContato.Value = objEscolar.Contato_CodigoContato.Value;
+                parametroContato_CodigoContato.Value = objEscolar.Contato.CodigoContato.Value;
                 parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
                 parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
             }
@@ -119,8 +124,6 @@ namespace SGS.CamadaDados
             parametroParteAnoLetivo.DbType = System.Data.DbType.String;
 
 
-
-
             comando.Parameters.Add(parametroAssistido_CodigoAssistido);
             comando.Parameters.Add(parametroContato_CodigoContato);
             comando.Parameters.Add(parametroInstituicao);
@@ -141,7 +144,59 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade Escolar com o Código do Escolar Preenchido
+            if (!objEscolar.CodigoEscolar.HasValue)
+            {
+                return ObterUltimoEscolarInserido();
+            }
+            else
+            {
+                return ObterEscolar(objEscolar.CodigoEscolar.Value);
+            }
+            
+        }
+
+        /// <summary>
+        /// Obtém o ultimo código da escola Inserida
+        /// </summary>
+        /// <param name="codigoEscolar"></param>
+        /// <returns></returns>
+        public Escolar ObterUltimoEscolarInserido()
+        {
+            SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Escolar ORDER BY CodigoEscolar DESC", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Escolar objEscolar = null;
+
+            if (leitorDados.Read())
+            {
+                objEscolar = new Escolar();
+                objEscolar.Assistido_CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                objEscolar.CodigoEscolar = Convert.ToInt32(leitorDados["CodigoEscolar"]);
+                objEscolar.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                objEscolar.DataMatricula = Convert.ToDateTime(leitorDados["DataMatricula"]);
+                objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
+                objEscolar.FormatoAnoLetivo = leitorDados["FormatoAnoLetivo"].ToString();
+                objEscolar.GrauEscolaridade = leitorDados["GrauEscolaridade"].ToString();
+                objEscolar.Instituicao = leitorDados["Instituicao"].ToString();
+                objEscolar.Materia = leitorDados["Materia"].ToString();
+                objEscolar.MediaEscola = Convert.ToInt32(leitorDados["MediaEscola"]);
+                objEscolar.Nota = Convert.ToInt32(leitorDados["Nota"]);
+                objEscolar.NumInscricaoInstituicao = leitorDados["NumInscricaoInstituicao"].ToString();
+                objEscolar.ParteAnoLetivo = leitorDados["ParteAnoLetivo"].ToString();
+                objEscolar.Professor = leitorDados["Professor"].ToString();
+                objEscolar.SerieCursada = leitorDados["SerieCursada"].ToString();
+                objEscolar.StatusMateria = leitorDados["StatusMateria"].ToString();
+                objEscolar.StatusMatricula = leitorDados["StatusMatricula"].ToString();
+                
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            ContatoDados objContatoDados = new ContatoDados();
+            objEscolar.Contato = objContatoDados.ObterContato(objEscolar.Contato_CodigoContato.Value);
+            
+
             return objEscolar;
         }
 
@@ -165,8 +220,8 @@ namespace SGS.CamadaDados
                 objEscolar = new Escolar();
 
                 objEscolar.CodigoEscolar = codigoEscolar;
-                objEscolar.Assistido_CodigoAssistido = Convert.ToInt32(leitorDados["Assistido_CodigoAssistido"]);
-                objEscolar.Contato_CodigoContato = Convert.ToInt32(leitorDados["Contato_CodigoAssistido"]);
+                objEscolar.Assistido_CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                objEscolar.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 objEscolar.Instituicao = leitorDados["Instituicao"].ToString();
                 objEscolar.NumInscricaoInstituicao = leitorDados["NumInscricaoInstituicao"].ToString();
                 objEscolar.MediaEscola = Convert.ToDecimal(leitorDados["MediaEscola"]);
@@ -187,6 +242,9 @@ namespace SGS.CamadaDados
             leitorDados.Close();
             leitorDados.Dispose();
 
+            ContatoDados objContatoDados = new ContatoDados();
+            objEscolar.Contato = objContatoDados.ObterContato(objEscolar.Contato_CodigoContato.Value);
+
             return objEscolar;
         }
 
@@ -205,8 +263,65 @@ namespace SGS.CamadaDados
 
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
 
+            ContatoDados objContatoDados = new ContatoDados();
+            objContatoDados.ExcluirContato(codigoContato);
+
             return execucao;
         }
 
+        /// <summary>
+        /// Retorna uma lista de Escolar apartir dos dados informados no ParametrosConsultarEscolarDTO
+        /// </summary>
+        public List<GradeConsultarEscolarDTO> ConsultarEscolar(ParametroConsultarEscolarDTO objParametro)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = base.Conectar();
+
+            SqlDataReader leitorDados;
+
+            //SqlParameter paramLoginValor = new SqlParameter("@loginValor", "%" + objLoginDTO.LoginValor + "%");
+            //paramLoginValor.DbType = System.Data.DbType.String;
+
+            //SqlParameter paramNomeValor = new SqlParameter("@nomeValor", "%" + objLoginDTO.NomeValor + "%");
+            //paramNomeValor.DbType = System.Data.DbType.String;
+
+            //String sql = "select * from Login";
+
+            ////Se os Login e Nome login preenchidos
+            //if (objLoginDTO.LoginValor != "" && objLoginDTO.NomeValor != "")
+            //    sql += @" where Login like @loginValor or Nome like @nomeValor";
+            ////Se apenas Login preenchido
+            //else if (objLoginDTO.LoginValor != "")
+            //    sql += @" where Login like @loginValor";
+            ////Se apenas Nome preenchido
+            //else if (objLoginDTO.NomeValor != "")
+            //    sql += @" where Nome like @nomeValor";
+
+            //comando.CommandText = sql;
+            //comando.CommandType = System.Data.CommandType.Text;
+            //comando.Parameters.Add(paramLoginValor);
+            //comando.Parameters.Add(paramNomeValor);
+
+            //leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+            //List<Login> loginLista = new List<Login>();
+            //Login objLogin;
+
+            //while (leitorDados.Read())
+            //{
+            //    objLogin = new Login();
+
+            //    objLogin.CodigoLogin = Convert.ToInt32(leitorDados["CodigoLogin"]);
+            //    objLogin.LoginUsuario = leitorDados["Login"].ToString();
+            //    objLogin.Email = leitorDados["Email"].ToString();
+            //    objLogin.Nome = leitorDados["Nome"].ToString();
+            //    objLogin.Senha = Criptografia.Descriptografar(leitorDados["Senha"].ToString(), "Protetor");
+            //    objLogin.Perfil = leitorDados["Perfil"].ToString();
+
+            //    loginLista.Add(objLogin);
+            //}
+
+            return new List<GradeConsultarEscolarDTO>();
+        }
     }
 }

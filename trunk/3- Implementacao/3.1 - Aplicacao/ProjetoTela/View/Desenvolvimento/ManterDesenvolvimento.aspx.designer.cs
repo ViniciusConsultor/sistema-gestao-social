@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SGS.View.Profissional {
+namespace SGS.View.Desenvolvimento {
     
     
     public partial class ManterProfissional {
