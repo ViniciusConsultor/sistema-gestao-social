@@ -48,11 +48,11 @@ namespace SGS.Servicos
             return objOrcamentoNatureza;
         }
 
-        public bool RemoverItemOrcamento(int codigoOrcamento)
+        public bool RemoverItemOrcamento(int codigoOrcamento, int codigoNatureza)
         {
             OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
 
-            return objOrcamentoNaturezaDados.ExcluirOrcamentoNatureza(codigoOrcamento);
+            return objOrcamentoNaturezaDados.ExcluirOrcamentoNatureza(codigoOrcamento, codigoNatureza);
         }
 
         /// <summary>
@@ -86,6 +86,18 @@ namespace SGS.Servicos
             CasaLarDados objCasaLarDados = new CasaLarDados();
 
             return objCasaLarDados.ListarCasaLar();
+
+        }
+
+
+        /// <summary>
+        /// Retorna uma lista de orcamento.
+        /// </summary>
+        public List<Orcamento> ListarOrcamento()
+        {
+            OrcamentoDados objOrcamentoDados = new OrcamentoDados();
+
+            return objOrcamentoDados.ListarOrcamento();
 
         }
 

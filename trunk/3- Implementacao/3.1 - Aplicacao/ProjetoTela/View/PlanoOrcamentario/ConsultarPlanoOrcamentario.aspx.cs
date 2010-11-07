@@ -80,6 +80,9 @@ namespace SGS.View.PlanoOrcamentario
             SGSServico objSGSServico = new SGSServico();
             SGSOrcamento = new Entidades.Orcamento();
 
+            ddlNomePlano.DataSource = objSGSServico.ListarOrcamento();
+            ddlNomePlano.DataBind();
+
             if (Request.QueryString["tipo"] == "con")
             {
                 ////* View/Orcamento/ManterPlanoOrcamentario.aspx?tipo=alt&cod=1

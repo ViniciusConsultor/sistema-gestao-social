@@ -205,7 +205,7 @@
                 <td>
                     <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" 
                         CssClass="style8" DataTextField="NomeNatureza" 
-                        DataValueField="CodigoNatureza" Height="16px">
+                        DataValueField="CodigoNatureza">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem Value="1">Reforma</asp:ListItem>
                         <asp:ListItem Value="2">Compras</asp:ListItem>
