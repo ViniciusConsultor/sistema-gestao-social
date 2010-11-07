@@ -281,8 +281,41 @@ namespace SGS.CamadaDados
 
             return orcamentoLista;
 
+        }
 
+        /// <summary>
+        /// Retorna a lista de natureza de lancamento.
+        /// </summary>
+        /// <returns></returns>
 
+        public List<Orcamento> ListarOrcamento()
+        {
+            SqlCommand comando = new SqlCommand("select * from Orcamento ORDER BY NomePlano", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            List<Orcamento> listOrcamento = new List<Orcamento>();
+            Orcamento objOrcamento = null;
+
+            while (leitorDados.Read())
+            {
+                objOrcamento = new Orcamento();
+
+                objOrcamento.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
+                //objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
+                objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
+                objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
+                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
+                objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
+                objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
+
+                listOrcamento.Add(objOrcamento);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return listOrcamento;
         }
 
     }

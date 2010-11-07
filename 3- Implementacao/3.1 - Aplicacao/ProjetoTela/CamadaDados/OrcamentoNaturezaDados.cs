@@ -12,6 +12,49 @@ namespace SGS.CamadaDados
 {
     public class OrcamentoNaturezaDados : BaseConnection
     {
+
+
+        public bool ValidarOrcamentoNatureza(OrcamentoNatureza objOrcamentoNatureza)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = base.Conectar();
+
+            //TODO: Chamar método de validação
+
+
+            comando.CommandText = @"SELECT * FROM OrcamentoNatureza 
+                                    WHERE CodigoNatureza = @codigoNatureza and CodigoOrcamento = @codigoOrcamento";
+
+            comando.CommandType = System.Data.CommandType.Text;
+
+            SqlParameter parametroCodigoNatureza = new SqlParameter("@codigoNatureza", objOrcamentoNatureza.CodigoNatureza.Value);
+            parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoNatureza);
+
+            SqlParameter parametroCodigoOrcamento = new SqlParameter("@codigoOrcamento", objOrcamentoNatureza.CodigoOrcamento.Value);
+            parametroCodigoOrcamento.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoOrcamento);
+
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+
+            if (leitorDados.Read())
+            {
+                leitorDados.Close();
+                leitorDados.Dispose();
+                return true;
+
+            }
+            else
+            {
+                leitorDados.Close();
+                leitorDados.Dispose();
+                return false;
+            }
+
+        }
+
         /// <summary>
         /// Este método salva a OrcamentoNatureza.
         /// </summary>
@@ -22,29 +65,31 @@ namespace SGS.CamadaDados
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
 
+            bool orcamentoNaturezaCadastrado = ValidarOrcamentoNatureza(objOrcamentoNatureza);
 
-            if (!objOrcamentoNatureza.CodigoNatureza.HasValue)
+            if (!orcamentoNaturezaCadastrado)
             {
                 comando.CommandText =
                     @"INSERT INTO OrcamentoNatureza (CodigoNatureza, CodigoOrcamento, Valor, DataCriacao)
-                    VALUES (@codigoNatureza, @codigoOrcamentoo, @valor, @dataCriacao)";
+                    VALUES (@codigoNatureza, @codigoOrcamento, @valor, @dataCriacao)";
             }
             else
             {
                 comando.CommandText =
                     @"UPDATE OrcamentoNatureza SET Valor = @valor, DataCriacao = @dataCriacao
-                      WHERE (CodigoNatureza = @codigoNatureza)";
+                      WHERE (CodigoNatureza = @codigoNatureza and CodigoOrcamento = @codigoOrcamento)";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
-            if (objOrcamentoNatureza.CodigoNatureza.HasValue)
-            {
-                SqlParameter parametroCodigo = new SqlParameter("@codigoNatureza", objOrcamentoNatureza.CodigoNatureza.Value);
-                parametroCodigo.DbType = System.Data.DbType.Int32;
-                comando.Parameters.Add(parametroCodigo);
-            }
 
+            SqlParameter parametroCodigoNatureza = new SqlParameter("@codigoNatureza", objOrcamentoNatureza.CodigoNatureza.Value);
+            parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoNatureza);
 
+            SqlParameter parametroCodigoOrcamento = new SqlParameter("@codigoOrcamento", objOrcamentoNatureza.CodigoOrcamento.Value);
+            parametroCodigoOrcamento.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoOrcamento);
+            
             SqlParameter parametroValor = new SqlParameter("@valor", objOrcamentoNatureza.Valor);
             parametroValor.DbType = System.Data.DbType.Decimal;
 
@@ -56,7 +101,6 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade OrcamentoNatureza com o Código Preenchido
             return objOrcamentoNatureza;
         }
 
@@ -65,12 +109,16 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoNatureza"></param>
         /// <returns></returns>
-        public OrcamentoNatureza ObterOrcamentoNatureza(int codigoNatureza) 
+        public OrcamentoNatureza ObterOrcamentoNatureza(int codigoNatureza, int codigoOrcamento)
         {
-            SqlCommand comando = new SqlCommand("select * from OrcamentoNatureza where CodigoNatureza = @codigoNatureza", base.Conectar());
+            SqlCommand comando = new SqlCommand("select * from OrcamentoNatureza where CodigoNatureza = @codigoNatureza and CodigoOrcamento = @codigoOrcamento", base.Conectar());
             SqlParameter parametroCodigoNatureza = new SqlParameter("@codigoNatureza", codigoNatureza);
             parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoNatureza);
+
+            SqlParameter parametroCodigoOrcamento = new SqlParameter("@codigoOrcamento", codigoOrcamento);
+            parametroCodigoOrcamento.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoOrcamento);
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             OrcamentoNatureza objOrcamentoNatureza = null;
@@ -80,6 +128,7 @@ namespace SGS.CamadaDados
                 objOrcamentoNatureza = new OrcamentoNatureza();
 
                 objOrcamentoNatureza.CodigoNatureza = codigoNatureza;
+                objOrcamentoNatureza.CodigoOrcamento = codigoOrcamento;
                 objOrcamentoNatureza.Valor = Convert.ToDecimal(leitorDados["Valor"]);
                 objOrcamentoNatureza.DataCriacao = Convert.ToDateTime(leitorDados["DataCriacao"]);
 
@@ -94,11 +143,15 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um DadoBancario pelo seu código
         /// </summary>
-        public bool ExcluirOrcamentoNatureza(int codigoOrcamento)
+        public bool ExcluirOrcamentoNatureza(int codigoOrcamento, int codigoNatureza)
         {
             bool execucao;
 
-            SqlCommand comando = new SqlCommand("delete from OrcamentoNatureza where CodigoOrcamento = @codigoOrcamento", base.Conectar());
+            SqlCommand comando = new SqlCommand("delete from OrcamentoNatureza where CodigoNatureza = @codigoNatureza and CodigoOrcamento = @codigoOrcamento", base.Conectar());
+
+            SqlParameter parametroCodigoNatureza = new SqlParameter("@codigoNatureza", codigoNatureza);
+            parametroCodigoNatureza.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoNatureza);
 
             SqlParameter parametroCodigoOrcamento = new SqlParameter("@codigoOrcamento", codigoOrcamento);
             parametroCodigoOrcamento.DbType = System.Data.DbType.Int32;
