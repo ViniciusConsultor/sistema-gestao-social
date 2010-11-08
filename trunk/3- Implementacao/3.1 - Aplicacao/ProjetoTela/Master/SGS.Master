@@ -116,7 +116,7 @@
                             </asp:MenuItem>
                             <asp:MenuItem Text="FINANCEIRO" Value="Financeiro">
                                 <asp:MenuItem Text="Plano Orçamentário" Value="Plano Orçamentário">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
                                         NavigateUrl="~/View/PlanoOrcamentario/ConsultarPlanoOrcamentario.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/PlanoOrcamentario/ManterPlanoOrcamentario.aspx"></asp:MenuItem>

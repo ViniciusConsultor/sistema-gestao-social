@@ -43,6 +43,24 @@ namespace SGS.View.PlanoOrcamentario
             OrcamentoDTO = new OrcamentoDTO();
 
             OrcamentoDTO.NomePlanoValor = ddlNomePlano.Text;
+
+            if (txtInicioVigencia.Text == "")
+            {
+                OrcamentoDTO.InicioVigenciaValor = null;
+            }
+            else
+            {
+                OrcamentoDTO.InicioVigenciaValor = Convert.ToDateTime(txtInicioVigencia.Text);
+            }
+
+            if (txtFimVigencia.Text == "")
+            {
+                OrcamentoDTO.FimVigenciaValor = null;
+            }
+            else
+            {
+                OrcamentoDTO.FimVigenciaValor = Convert.ToDateTime(txtFimVigencia.Text);
+            }
             
 
             OrcamentoDTO = objSGSServico.ConsultarOrcamento(OrcamentoDTO);

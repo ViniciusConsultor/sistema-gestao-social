@@ -243,16 +243,54 @@ namespace SGS.CamadaDados
             SqlParameter paramNomePlanoValor = new SqlParameter("@nomePlanoValor", "%" + objOrcamentoDTO.NomePlanoValor + "%");
             paramNomePlanoValor.DbType = System.Data.DbType.String;
 
+            SqlParameter paramInicioVigenciaValor = new SqlParameter("@inicioVigenciaValor", System.Data.SqlDbType.DateTime);
+            if (objOrcamentoDTO.InicioVigenciaValor.HasValue)
+                paramInicioVigenciaValor.Value = objOrcamentoDTO.InicioVigenciaValor.Value;
+            else
+                paramInicioVigenciaValor.Value = DBNull.Value;
+
+            SqlParameter paramFimVigenciaValor = new SqlParameter("@fimVigenciaValor", System.Data.SqlDbType.DateTime);
+            if (objOrcamentoDTO.FimVigenciaValor.HasValue)
+                paramFimVigenciaValor.Value = objOrcamentoDTO.FimVigenciaValor.Value;
+            else
+                paramFimVigenciaValor.Value = DBNull.Value;
+
             String sql = "select * from Orcamento";
 
 
+            //Se o Nome do Plano, Inicio de Vigência e Fim de Vigência preenchidos
+            if (objOrcamentoDTO.NomePlanoValor != "Selecione" && objOrcamentoDTO.InicioVigenciaValor.HasValue && objOrcamentoDTO.FimVigenciaValor.HasValue)
+                sql += @" where NomePlano = @nomePlanoValor and InicioVigencia = @inicioVigenciaValor and FimVigencia = @fimVigenciaValor";
+
+            //Se apenas Nome do Plano e Inicio de Vigência preenchidos
+            else if (objOrcamentoDTO.NomePlanoValor != "Selecione" && objOrcamentoDTO.InicioVigenciaValor.HasValue)
+                sql += @" where NomePlano = @nomePlanoValor and InicioVigencia = @inicioVigenciaValor";
+
+            //Se apenas Inicio de Vigência e Fim de Vigência preenchidos
+            else if (objOrcamentoDTO.InicioVigenciaValor.HasValue && objOrcamentoDTO.FimVigenciaValor.HasValue)
+                sql += @" where InicioVigencia = @inicioVigenciaValor and FimVigencia = @fimVigenciaValor";
+
+            //Se apenas Fim de Vigência e Nome do Plano preenchidos
+            else if (objOrcamentoDTO.FimVigenciaValor.HasValue && objOrcamentoDTO.NomePlanoValor != "Selecione")
+                sql += @" where FimVigencia = @fimVigenciaValor and NomePlano = @NomePlanoValor";
+
             //Se NomePlano preenchido
             if (objOrcamentoDTO.NomePlanoValor != "Selecione")
-                sql = @" where NomePlano = @nomePlanoValor";
+                sql += @" where NomePlano = @nomePlanoValor";
+
+            //Se apenas Inicio de Vigencia preenchido
+            else if (objOrcamentoDTO.InicioVigenciaValor.HasValue)
+                sql += @" where InicioVigencia = @inicioVigenciaValor";
+
+            //Se apenas Fim de Vigência preenchido
+            else if (objOrcamentoDTO.FimVigenciaValor.HasValue)
+                sql += @" where FimVigencia = @fimVigenciaValor";
 
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;
             comando.Parameters.Add(paramNomePlanoValor);
+            comando.Parameters.Add(paramInicioVigenciaValor);
+            comando.Parameters.Add(paramFimVigenciaValor);
 
             leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
@@ -266,8 +304,7 @@ namespace SGS.CamadaDados
                 objOrcamento = new Orcamento();
 
                 objOrcamento.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
-                //objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
-                //objOrcamento.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+                objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
@@ -301,7 +338,7 @@ namespace SGS.CamadaDados
                 objOrcamento = new Orcamento();
 
                 objOrcamento.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
-                //objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);

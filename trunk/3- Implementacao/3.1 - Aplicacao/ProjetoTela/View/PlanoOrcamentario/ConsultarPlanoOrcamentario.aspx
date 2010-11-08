@@ -2,20 +2,107 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">
-        .style8
+        .style10
+    {
+        width: 634px;
+        text-align: right;
+    }
+    .style15
     {
         text-align: right;
-        width: 279px;
+        width: 22px;
     }
-    .style9
+    .style17
     {
-        width: 279px;
+        width: 22px;
     }
-        .style6
+    .style18
+    {
+        width: 22px;
+        height: 22px;
+    }
+    .style19
+    {
+        width: 419px;
+        text-align: right;
+        height: 22px;
+    }
+    .style20
+    {
+        height: 22px;
+        width: 634px;
+    }
+    .style21
+    {
+        width: 419px;
+        text-align: right;
+    }
+        .style7
         {
-            width: 100%;
-        }
+        text-align: right;
+        font-size: small;
+    }
+        .style9
+    {
+        text-align: right;
+        font-size: smaller;
+        width: 419px;
+    }
+    .style22
+    {
+        width: 634px;
+    }
+        .mask-data
+    {
+        height: 22px;
+    }
         </style>
+
+            </style>
+
+        <!-- Importa todos os script JavaScript-->
+        <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskMoney.js"> </script>
+        
+        <!-- Comandos de JavaScript-->
+        <script type="text/javascript">
+
+            //Diz que quando a página for carregada, irá ser executado o
+            //bloco de código contido entre os {};
+
+            $(document).ready(function () {
+
+                //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
+                //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
+
+                $('.mask-numero').mask('999999'); //número
+                $('.mask-numero2').maskMoney({ precision: 6 }); //número
+
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99"); //cpf
+                $(".mask-cnpj").mask("99.999.999/9999-99"); //cnpj
+                $(".mask-cep").mask("99999-999"); //cep
+                $(".mask-real-cifrao").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
+                $(".mask-real").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: false }); //real sem cifrão 1.000,00
+                $(".mask-precision").maskMoney({ precision: 3 }); //com 3 casas de precisão 1,000
+
+                /* Default options are (but you can always change that):
+                symbol:'US$',
+                decimal:'.',
+                precision:2,
+                thousands:',',
+                allowZero:false,
+                showSymbol:false */
+
+            });
+
+        </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -32,51 +119,55 @@
 
 <table width="850px" align="left">
         <tr>
-            <td class="style9"> &nbsp;</td>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
+            <td class="style19"> &nbsp; </td>
+            <td class="style20"> &nbsp; </td>
         </tr>
         <tr>
-            <td class="style8"> &nbsp;<span class="style6"><strong 
-                    style="text-align: right; font-size: smaller; text-decoration: underline;">Filtro:</strong></span></td>
-            <td> &nbsp;</td>
-            <td> &nbsp;</td>
+            <td class="style21"> 
+                <strong 
+                    style="text-align: left; font-size: smaller; text-decoration: underline;">Filtro:</strong></td>
+            <td class="style10"> &nbsp;</td>
         </tr>
         <tr>
-            <td class="style8"> Nome do Plano</td>
-            <td> 
+            <td class="style9"> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nome do Plano</td>
+            <td class="style22">  
                 <asp:DropDownList ID="ddlNomePlano" runat="server" Height="22px" 
                     Width="148px" DataTextField="NomePlano" DataValueField="CodigoOrcamento">
                     <asp:ListItem>Selecione</asp:ListItem>
-                    <asp:ListItem Value="1">plano 2010</asp:ListItem>
-                    <asp:ListItem Value="4">plano teste</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td> &nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: right" class="style9"> &nbsp;</td>
-            <td> 
+            <td class="style9"> Inicio de Vigência</td>
+            <td class="style22"> 
+                <asp:TextBox ID="txtInicioVigencia" runat="server" Width="148px" 
+                    CssClass="mask-data"></asp:TextBox>
+            </td>
+            </tr>
+        <tr>
+            <td style="text-align: right" class="style9"> Fim de Vigência </td>
+            <td class="style22"> 
+                <asp:TextBox ID="txtFimVigencia" runat="server" Width="148px" 
+                    CssClass="mask-data"></asp:TextBox>
+            </td>
+            </tr>
+        <tr>
+            <td class="style21"> 
                 &nbsp;</td>
-            <td> &nbsp;</td>
-        </tr>
-        <tr>
-            <td style="text-align: right" class="style9"> &nbsp; </td>
-            <td> 
+            <td class="style22">  
                 <asp:Button ID="btnLocalizar" runat="server" Text="Localizar" Width="95px" 
                     onclick="btnLocalizar_Click" />
-&nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="95px" />
+                <asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="95px" />
             </td>
-            <td> &nbsp;</td>
         </tr>
         <tr>
-            <td style="text-align: right" class="style9"> &nbsp;</td>
-            <td> 
+            <td class="style21"> 
                 &nbsp;</td>
-            <td> &nbsp;</td>
+            <td class="style22"> &nbsp;</td>
         </tr>
         <tr>
-            <td colspan="3">  
+            <td colspan="2">  
                 <asp:GridView ID="gridOrcamento" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
@@ -102,7 +193,7 @@
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="FimVigencia" HeaderText="Fim Viigência">
+                        <asp:BoundField DataField="FimVigencia" HeaderText="Fim Vigência">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -125,8 +216,7 @@
                 </td>    
         </tr>
         <tr>
-            <td style="text-align: right" class="style9"> &nbsp;</td>
-            <td> &nbsp;</td>
+            <td class="style21"> &nbsp;</td>
         </tr>
     </table>
     <br />
