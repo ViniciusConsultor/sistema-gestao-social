@@ -173,7 +173,7 @@
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center" Height="147px" 
                     AllowPaging="True" onpageindexchanging="gridOrcamento_PageIndexChanging" 
-                    PageSize="2" onselectedindexchanged="gridOrcamento_SelectedIndexChanged">
+                    PageSize="2">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoFinancas" 

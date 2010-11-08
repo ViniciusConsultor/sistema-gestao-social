@@ -240,7 +240,7 @@ namespace SGS.CamadaDados
             SqlDataReader leitorDados;
 
 
-            SqlParameter paramNomePlanoValor = new SqlParameter("@nomePlanoValor", "%" + objOrcamentoDTO.NomePlanoValor + "%");
+            SqlParameter paramNomePlanoValor = new SqlParameter("@nomePlanoValor", objOrcamentoDTO.NomePlanoValor);
             paramNomePlanoValor.DbType = System.Data.DbType.String;
 
             SqlParameter paramInicioVigenciaValor = new SqlParameter("@inicioVigenciaValor", System.Data.SqlDbType.DateTime);
