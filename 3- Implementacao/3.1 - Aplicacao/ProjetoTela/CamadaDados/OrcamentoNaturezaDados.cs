@@ -162,5 +162,36 @@ namespace SGS.CamadaDados
             return execucao;
 
         }
+
+        /// <summary>
+        /// Retorna a lista de natureza de lancamento.
+        /// </summary>
+        /// <returns></returns>
+
+        public List<OrcamentoNatureza> ListarOrcamentoNatureza()
+        {
+            SqlCommand comando = new SqlCommand("select * from OrcamentoNatureza ORDER BY CodigoOrcamento", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            List<OrcamentoNatureza> listOrcamento = new List<OrcamentoNatureza>();
+            OrcamentoNatureza objOrcamentoNatureza = null;
+
+            while (leitorDados.Read())
+            {
+                objOrcamentoNatureza = new OrcamentoNatureza();
+
+                objOrcamentoNatureza.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
+                objOrcamentoNatureza.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+                objOrcamentoNatureza.Valor = Convert.ToDecimal(leitorDados["NomePlano"]);
+                objOrcamentoNatureza.DataCriacao = Convert.ToDateTime(leitorDados["StatusPlano"]);
+
+                listOrcamento.Add(objOrcamentoNatureza);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return listOrcamento;
+        }
     }
 }

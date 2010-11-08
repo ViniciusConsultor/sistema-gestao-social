@@ -40,6 +40,24 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.DropDownList ddlNomePlano;
         
         /// <summary>
+        /// txtInicioVigencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInicioVigencia;
+        
+        /// <summary>
+        /// txtFimVigencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFimVigencia;
+        
+        /// <summary>
         /// btnLocalizar control.
         /// </summary>
         /// <remarks>
