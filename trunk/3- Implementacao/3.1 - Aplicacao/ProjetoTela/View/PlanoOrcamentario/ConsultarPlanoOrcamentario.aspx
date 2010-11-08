@@ -173,7 +173,7 @@
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center" Height="147px" 
                     AllowPaging="True" onpageindexchanging="gridOrcamento_PageIndexChanging" 
-                    PageSize="2">
+                    PageSize="2" onselectedindexchanged="gridOrcamento_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoFinancas" 
@@ -185,15 +185,18 @@
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="ValorOrcamento" HeaderText="Valor do Orçamento">
+                        <asp:BoundField DataField="ValorOrcamento" HeaderText="Valor do Orçamento" 
+                            DataFormatString="{0:C2}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="InicioVigencia" HeaderText="Inicio Vigência">
+                        <asp:BoundField DataField="InicioVigencia" HeaderText="Inicio Vigência" 
+                            DataFormatString="{0:dd-M-yyyy}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="FimVigencia" HeaderText="Fim Vigência">
+                        <asp:BoundField DataField="FimVigencia" HeaderText="Fim Vigência" 
+                            DataFormatString="{0:dd-M-yyyy}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
