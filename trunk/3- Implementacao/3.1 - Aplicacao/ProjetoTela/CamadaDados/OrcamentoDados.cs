@@ -276,7 +276,7 @@ namespace SGS.CamadaDados
 
             //Se apenas Fim de Vigência e Nome do Plano preenchidos
             else if (objOrcamentoDTO.FimVigenciaValor.HasValue && objOrcamentoDTO.CodigoOrcamentoValor.HasValue)
-                sql += @" where FimVigencia = @fimVigenciaValor and CodigoOrcamento = @codigoOrcamentoValor";
+                sql += @" where FimVigencia <= @fimVigenciaValor and CodigoOrcamento = @codigoOrcamentoValor";
 
             //Se NomePlano preenchido
             else if (objOrcamentoDTO.CodigoOrcamentoValor.HasValue)
