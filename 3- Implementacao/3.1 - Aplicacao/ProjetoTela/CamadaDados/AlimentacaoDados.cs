@@ -26,14 +26,14 @@ namespace SGS.CamadaDados
             if (!objAlimentacao.CodigoAlimentacao.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Alimentacao (Assistido_CodigoAssistido, DiaSemana, Periodo, Horario, Alimento, PorcaoAlimento, Diretiva)
-                    VALUES (@assistido_CodigoAssistido, @diaSemana, @periodo, @horario, @alimento, @porcaoAlimento, @diretiva)";
+                    @"INSERT INTO Alimentacao (Assistido_CodigoAssistido, DiaSemana, Periodo, Horario, Alimento, Diretiva)
+                    VALUES (@assistido_CodigoAssistido, @diaSemana, @periodo, @horario, @alimento, @diretiva)";
             }
             else
             {
                 comando.CommandText =
                     @"UPDATE Alimentacao SET Assistido_CodigoAssistido = @assistido_CodigoAssistido, DiaSemana = @diaSemana,
-                        Periodo = @periodo, Horario = @horario, Alimento = @alimento, PorcaoAlimento = @porcaoAlimento, Diretiva = @diretiva
+                        Periodo = @periodo, Horario = @horario, Alimento = @alimento, Diretiva = @diretiva
                         WHERE (CodigoAlimentacao = @codigoAlimentacao)";
             }
 
@@ -71,10 +71,7 @@ namespace SGS.CamadaDados
             SqlParameter parametroAlimento = new SqlParameter("@alimento", objAlimentacao.Alimento);
             parametroAlimento.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroPorcaoAlimento = new SqlParameter("@porcaoAlimento", objAlimentacao.PorcaoAlimento);
-            parametroAlimento.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroDiretiva = new SqlParameter("@diretiva", objAlimentacao.PorcaoAlimento);
+            SqlParameter parametroDiretiva = new SqlParameter("@diretiva", objAlimentacao.Diretiva);
             parametroAlimento.DbType = System.Data.DbType.String;
 
             comando.Parameters.Add(parametroAssistido_CodigoAssistido);
@@ -82,7 +79,6 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroPeriodo);
             comando.Parameters.Add(parametroHorario);
             comando.Parameters.Add(parametroAlimento);
-            comando.Parameters.Add(parametroPorcaoAlimento);
             comando.Parameters.Add(parametroDiretiva);
 
             comando.ExecuteNonQuery();
@@ -116,7 +112,6 @@ namespace SGS.CamadaDados
                 objAlimentacao.Periodo = leitorDados["Periodo"].ToString();
                 objAlimentacao.Horario = Convert.ToDateTime(leitorDados["Horario"]);
                 objAlimentacao.Alimento = leitorDados["Alimento"].ToString();
-                objAlimentacao.PorcaoAlimento = leitorDados["PorcaoAlimento"].ToString();
                 objAlimentacao.Diretiva = leitorDados["Diretiva"].ToString();
             }
 

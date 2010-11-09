@@ -6,11 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SGS.Servicos;
 using SGS.Entidades.DTO;
-using SGS.Entidades.DTO;
+
 
 namespace SGS.View.Alimentacao
-{ /*
-   public partial class ManterAlimentacao : System.Web.UI.Page
+{
+    public partial class ManterAlimentacao : System.Web.UI.Page
     {
 
 
@@ -43,9 +43,9 @@ namespace SGS.View.Alimentacao
         /// <param name="e"></param>
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            //SGSServico sgsServico = new SGSServico();
+            SGSServico sgsServico = new SGSServico();
 
-            //SGSAlimentacao = sgsServico.SalvarAlimentacao(PegarDadosView());
+            SGSAlimentacao = sgsServico.SalvarAlimentacao(PegarDadosView());
 
             ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
 
@@ -76,10 +76,10 @@ namespace SGS.View.Alimentacao
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            //SGSServico objSGSServico = new SGSServico();
+            SGSServico objSGSServico = new SGSServico();
 
-            //if (objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value))
-            //    ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
+            if (objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value))
+                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
 
             Response.Redirect("ConsultarAlimentacao.aspx");
         }
@@ -90,33 +90,22 @@ namespace SGS.View.Alimentacao
         #region Metodos
 
         /// <summary>
-        /// Este método preenche os controles da tela de acordo com a operação que
-        /// está sendo executado "cadastro" ou "edição".
+        /// Este método preenche os controles da tela de acordo com a operação que está sendo executado "cadastro" ou "edição".
         /// </summary>
         public void CarregarTela()
         {
-            //SGSServico objSGSServico = new SGSServico();
+            SGSServico objSGSServico = new SGSServico();
             SGSAlimentacao = new Entidades.Alimentacao();
 
-            if (Request.QueryString["tipo"] == "alt")
+            if (Request.QueryString["dia"] != null)
             {
+                ddlDiaSemana.SelectedValue = Request.QueryString["dia"].ToString();
+                ddlPeriodo.Visible = true;
+                lblPeriodo.Visible = true;
+
+
                 lblTitulo.Text = "Alterar Alimentação";
                 lblDescricao.Text = "Descrição: Permite alterar a Alimentação da Casa Lar.";
-                btnExcluir.Visible = true;
-                SGSAlimentacao.CodigoAlimentacao = Convert.ToInt32(Request.QueryString["cod"]);
-              
-              //  SGSAlimentacao = objSGSServico.ObterAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value);
-
-                if (SGSAlimentacao != null)
-                    this.PreencherDadosView();
-                else
-                    Server.Transfer("bla.aspx"); //transfere usuário para tela "Alimentação não encontrada"
-            }
-            else
-            {
-                lblTitulo.Text = "Cadastrar Alimentacao";
-                lblDescricao.Text = "Descrição: Permite cadastrar a Alimentacao da Casa Lar.";
-                btnExcluir.Visible = false;
             }
         }
 
@@ -130,7 +119,6 @@ namespace SGS.View.Alimentacao
             objAlimentacao.DiaSemana = ddlDiaSemana.SelectedValue;
             objAlimentacao.Horario = Convert.ToDateTime(txtHorario.Text);
             objAlimentacao.Periodo = ddlPeriodo.SelectedValue;
-            objAlimentacao.PorcaoAlimento = txtPorcaoAlimento.Text;
             objAlimentacao.Alimento = ltbAlimentos.SelectedValue;
             objAlimentacao.Diretiva = txtDiretiva.Text;
 
@@ -142,14 +130,13 @@ namespace SGS.View.Alimentacao
         /// </summary>
         private void PreencherDadosView()
         {
-            
+
             ddlDiaSemana.SelectedValue = SGSAlimentacao.DiaSemana;
             txtHorario.Text = SGSAlimentacao.Horario.Value.ToString();
             ddlPeriodo.SelectedValue = SGSAlimentacao.Periodo;
-            txtPorcaoAlimento.Text = SGSAlimentacao.PorcaoAlimento;
             ltbAlimentos.SelectedValue = SGSAlimentacao.Alimento;
             txtDiretiva.Text = SGSAlimentacao.Diretiva;
-           
+
         }
 
         #endregion
@@ -181,6 +168,50 @@ namespace SGS.View.Alimentacao
 
         #endregion
 
+        protected void ddlDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlDiaSemana = (DropDownList)sender;
+
+
+            if (ddlDiaSemana.SelectedValue == "Selecione")
+            {
+                Server.Transfer("ManterAlimentacao.aspx");
+            }
+            else
+            {
+                string url;
+                url = "ManterAlimentacao.aspx?dia=" + ddlDiaSemana.SelectedValue;
+                Server.Transfer(url);
+                //TODO: Exibir Periodo
+            }
+        }
+
+        protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlPeriodo = (DropDownList)sender;
+
+            if (ddlPeriodo.SelectedValue == "Selecione")
+            {
+                txtDiretiva.Visible = false;
+                txtHorario.Visible = false;
+                btnExcluir.Visible = false;
+                ltbAlimentos.Visible = false;
+            }
+            //Qualquer outro periodo: Desjejum, Almoço, Janter, etc...
+            else
+            {
+                //TODO: Ir na base de dados 
+                txtDiretiva.Visible = true;
+                lblDiretiva.Visible = true;
+                txtHorario.Visible = true;
+                lblHorario.Visible = true;
+                ltbAlimentos.Visible = true;
+                lblAlimentos.Visible = true;
+                btnExcluir.Visible = true;
+
+            }
+        }
+
+      
     }
-    */
 }

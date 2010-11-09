@@ -86,13 +86,15 @@
 <table class="style6">
             <tr>
                 <td class="style7">
-                    Dia da semana</td>
+                    <asp:Label ID="lblDiaSemana" runat="server" Text="Dia da semana"></asp:Label>
+                </td>
                 <td class="style9">
                     <span class="style10">
-                    <asp:DropDownList ID="ddlDiaSemana" runat="server" Width="148px" Height="22px">
+                    <asp:DropDownList ID="ddlDiaSemana" runat="server" Width="148px" Height="22px" 
+                        AutoPostBack="True" onselectedindexchanged="ddlDiaSemana_SelectedIndexChanged">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
-                        <asp:ListItem Text="Domingo" Value="Domingo" ></asp:ListItem>
-                        <asp:ListItem Text="Segunda-Feira" Value="Segunda-Feira"></asp:ListItem>
+                        <asp:ListItem Text="Domingo" Value="dom" ></asp:ListItem>
+                        <asp:ListItem Text="Segunda-Feira" Value="seg"></asp:ListItem>
                         <asp:ListItem Text="Terça-Feira" Value="Segunda-Feira"></asp:ListItem>
                         <asp:ListItem Text="Quarta-Feira" Value="Segunda-Feira"></asp:ListItem>
                         <asp:ListItem Text="Quinta-Feira" Value="Segunda-Feira"></asp:ListItem>
@@ -110,10 +112,13 @@
             </tr>
             <tr>
                 <td class="style7">
-                    Período</td>
+                    <asp:Label ID="lblPeriodo" runat="server" Text="Período" Visible="False"></asp:Label>
+                </td>
                 <td class="style9">
                     <span class="style10">
-                    <asp:DropDownList ID="ddlPeriodo" runat="server" Width="148px" Height="22px">
+                    <asp:DropDownList ID="ddlPeriodo" runat="server" Width="148px" Height="22px" 
+                        AutoPostBack="True" onselectedindexchanged="ddlPeriodo_SelectedIndexChanged" 
+                        Visible="False">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
                         <asp:ListItem >Desjejum</asp:ListItem>
                         <asp:ListItem>Colação</asp:ListItem>
@@ -133,10 +138,11 @@
             </tr>
             <tr>
                 <td class="style7">
-                    Horário</td>
+                    <asp:Label ID="lblHorario" runat="server" Text="Horário" Visible="False"></asp:Label>
+                </td>
                 <td class="style8">
                     <asp:TextBox ID="txtHorario" runat="server" Height="22px" MaxLength="6" 
-                        Width="148px" CssClass="mask-hora"></asp:TextBox>
+                        Width="148px" CssClass="mask-hora" Visible="False"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridHorario" runat="server" 
                         ControlToValidate="txtHorario" ErrorMessage="Preencha o Campo Horário" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -148,9 +154,11 @@
             </tr>
             <tr>
                 <td class="style7">
-                    Alimentos</td>
+                    <asp:Label ID="lblAlimentos" runat="server" Text="Alimentos" Visible="False"></asp:Label>
+                </td>
                 <td class="style8">
-                    <asp:ListBox ID="ltbAlimentos" runat="server" Height="105px" Width="288px">
+                    <asp:ListBox ID="ltbAlimentos" runat="server" Height="105px" Width="288px" 
+                        SelectionMode="Multiple" Visible="False">
                         <asp:ListItem Selected="True">Café</asp:ListItem>
                         <asp:ListItem>Pão</asp:ListItem>
                         <asp:ListItem>Arroz</asp:ListItem>
@@ -169,27 +177,12 @@
             </tr>
             <tr>
                 <td class="style7">
-                    Porção do Alimento</td>
-                <td align="right" class="style9" style="text-align: left">
-                    <span class="style10">
-                    <asp:TextBox ID="txtPorcaoAlimento" runat="server" Height="22px" MaxLength="30" 
-                        Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridPorcaoAlimento" runat="server" 
-                        ControlToValidate="txtPorcaoAlimento" ErrorMessage="Preencha o Campo Porção do Alimento" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
-                    </span></td>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style7">
-                    Diretiva</td>
+                    <asp:Label ID="lblDiretiva" runat="server" Text="Diretiva" Visible="False"></asp:Label>
+                </td>
                 <td align="right" class="style9" style="text-align: left">
                     <span class="style10">
                     <asp:TextBox ID="txtDiretiva" runat="server" Height="86px" TextMode="MultiLine" 
-                        Width="285px" MaxLength="200"></asp:TextBox>
+                        Width="285px" MaxLength="200" Visible="False"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridDiretiva" runat="server" 
                         ControlToValidate="txtDiretiva" ErrorMessage="Preencha o Campo Diretiva" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>

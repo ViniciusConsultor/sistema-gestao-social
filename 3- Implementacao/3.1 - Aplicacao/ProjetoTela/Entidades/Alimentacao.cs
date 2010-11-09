@@ -15,9 +15,8 @@ namespace SGS.Entidades
         private string _periodo;
         private DateTime? _horario;
         private string _alimento;
-        private string _porcaoAlimento;
         private string _diretiva;
-
+        //TODO: depois de criar entidade alimento, criar uma lista de alimento aqui.
 
         public int? CodigoAlimentacao
         {
@@ -53,12 +52,6 @@ namespace SGS.Entidades
         {
             get { return _alimento; }
             set { _alimento = value; }
-        }
-
-        public string PorcaoAlimento
-        {
-            get { return _porcaoAlimento; }
-            set { _porcaoAlimento = value; }
         }
 
         public string Diretiva
