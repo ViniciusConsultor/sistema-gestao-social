@@ -272,7 +272,7 @@ namespace SGS.CamadaDados
 
             //Se apenas Inicio de Vigência e Fim de Vigência preenchidos
             else if (objOrcamentoDTO.InicioVigenciaValor.HasValue && objOrcamentoDTO.FimVigenciaValor.HasValue)
-                sql += @" where InicioVigencia => @inicioVigenciaValor and FimVigencia <= @fimVigenciaValor";
+                sql += @" where InicioVigencia >= @inicioVigenciaValor and FimVigencia <= @fimVigenciaValor";
 
             //Se apenas Fim de Vigência e Nome do Plano preenchidos
             else if (objOrcamentoDTO.FimVigenciaValor.HasValue && objOrcamentoDTO.CodigoOrcamentoValor.HasValue)
@@ -308,7 +308,7 @@ namespace SGS.CamadaDados
                 objOrcamento = new Orcamento();
 
                 objOrcamento.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
-                objOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                //bjOrcamento.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
