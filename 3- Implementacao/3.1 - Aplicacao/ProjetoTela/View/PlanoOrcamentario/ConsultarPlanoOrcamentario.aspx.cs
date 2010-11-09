@@ -42,8 +42,16 @@ namespace SGS.View.PlanoOrcamentario
 
             OrcamentoDTO = new OrcamentoDTO();
 
-            OrcamentoDTO.NomePlanoValor = ddlNomePlano.Text;
+            if (ddlNomePlano.SelectedValue != "Selecione")
+            {
+                OrcamentoDTO.CodigoOrcamentoValor = Convert.ToInt32(ddlNomePlano.SelectedValue);
+            }
+            else
+            {
+                OrcamentoDTO.CodigoOrcamentoValor = null;
+            }
 
+           
             if (txtInicioVigencia.Text == "")
             {
                 OrcamentoDTO.InicioVigenciaValor = null;
@@ -100,6 +108,7 @@ namespace SGS.View.PlanoOrcamentario
 
             ddlNomePlano.DataSource = objSGSServico.ListarOrcamento();
             ddlNomePlano.DataBind();
+            ddlNomePlano.Items.Insert(0, new ListItem("Selecione", "Selecione"));
 
             if (Request.QueryString["tipo"] == "con")
             {

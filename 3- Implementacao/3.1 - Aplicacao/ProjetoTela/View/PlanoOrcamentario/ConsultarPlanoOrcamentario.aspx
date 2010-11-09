@@ -176,8 +176,8 @@
                     PageSize="2">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:HyperLinkField DataNavigateUrlFields="CodigoFinancas" 
-                            DataNavigateUrlFormatString="ManterFinancas.aspx?tipo=alt&amp;cod={0}" 
+                        <asp:HyperLinkField DataNavigateUrlFields="CodigoOrcamento" 
+                            DataNavigateUrlFormatString="ManterPlanoOrcamentario.aspx?tipo=alt&amp;cod={0}" 
                             Text="Selecionar">
                         <ItemStyle Width="75px" />
                         </asp:HyperLinkField>
