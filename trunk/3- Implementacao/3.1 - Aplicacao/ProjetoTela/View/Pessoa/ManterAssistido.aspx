@@ -1,9 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterPessoa.aspx.cs" Inherits="SGS.View.Pessoa.ManterPessoa" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterAssistido.aspx.cs" Inherits="SGS.View.Pessoa.ManterPessoa" %>
 <%@ Register src="PessoaDadosBasico.ascx" tagname="PessoaDadosBasico" tagprefix="uc1" %>
 <%@ Register src="PessoaAssistido.ascx" tagname="PessoaAssistido" tagprefix="uc2" %>
-<%@ Register src="PessoaFuncionario.ascx" tagname="PessoaFuncionario" tagprefix="uc3" %>
-<%@ Register src="PessoaVoluntario.ascx" tagname="PessoaVoluntario" tagprefix="uc4" %>
-<%@ Register src="PessoaPatrocinador.ascx" tagname="PessoaPatrocinador" tagprefix="uc5" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style6
@@ -29,7 +27,8 @@
             <td style="text-align: right" class="style6"> Casa Lar</td>
             <td>  
                 <asp:DropDownList ID="ddlCasaLar" runat="server" Width="200px" 
-                    AutoPostBack="True">
+                    AutoPostBack="True" DataTextField="NomeCasaLar" 
+                    DataValueField="CodigoCasaLar">
                     <asp:ListItem>Selecione</asp:ListItem>
                     <asp:ListItem>Assistido</asp:ListItem>
                     <asp:ListItem Value="Funcionario">Funcionário</asp:ListItem>
@@ -39,47 +38,50 @@
             <td> &nbsp;</td>
             <td> &nbsp;</td>
         </tr>
-        <tr>
-            <td style="text-align: right" class="style6"> &nbsp; Tipo Pessoa</td>
-            <td>  
-                <asp:DropDownList ID="ddlTipoPessoa" runat="server" Width="200px" 
-                    onselectedindexchanged="ddlTipoPessoa_SelectedIndexChanged" 
-                    AutoPostBack="True">
-                    <asp:ListItem>Selecione</asp:ListItem>
-                    <asp:ListItem>Assistido</asp:ListItem>
-                    <asp:ListItem Value="Funcionario">Funcionário</asp:ListItem>
-                    <asp:ListItem Value="Voluntario">Voluntário</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
-        </tr>
-    </table>
+        </table>
+
+
+    <uc1:PessoaDadosBasico ID="ucPessoaDadosBasico" runat="server" />
 
 
     <br />
 
-      <table width="100%">
-        <tr>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
-        </tr>
-    </table>
+      
 
-    <uc1:PessoaDadosBasico ID="ucPessoaDadosBasico" runat="server" 
-        Visible="False" />
+        <uc2:PessoaAssistido ID="ucPessoaAssistido" runat="server" />
+
+      
 
         <br />
 
-        <uc2:PessoaAssistido ID="PessoaAssistido1" runat="server" />
     <br />
 
     <br />
     <br />
     <br />
     <br />
+    <br />
+
+    <table width="100%">
+            <tr align="center">
+                <td> 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                        onclick="btnSalvar_Click" /> &nbsp; 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                        onclientclick="return confirm('Deseja realmente excluir?')" 
+                        onclick="btnExcluir_Click" /> &nbsp;
+                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
+                        CausesValidation="False" onclick="btnCancelar_Click" />
+                </td>
+            </tr>
+            <tr align="center">
+                <td> 
+                    <asp:Button ID="btnCarregarDadosTela" runat="server" 
+                        onclick="btnCarregarDadosTela_Click" Text="Carregar Dados Tela" />
+                </td>
+            </tr>
+        </table>
+
       <table width="100%">
         <tr>
             <td> &nbsp; </td>

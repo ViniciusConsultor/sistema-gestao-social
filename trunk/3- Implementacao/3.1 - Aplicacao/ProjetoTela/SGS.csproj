@@ -89,7 +89,7 @@
     <Content Include="View\Pessoa\CadPessoa.aspx" />
     <Content Include="View\Pessoa\ConPessoa.aspx" />
     <Content Include="View\Pessoa\ConsultarPessoa.aspx" />
-    <Content Include="View\Pessoa\ManterPessoa.aspx" />
+    <Content Include="View\Pessoa\ManterAssistido.aspx" />
     <Content Include="View\Pessoa\PessoaAssistido.ascx" />
     <Content Include="View\Pessoa\PessoaDadosBancarios.ascx" />
     <Content Include="View\Pessoa\PessoaDadosBasico.ascx" />
@@ -350,12 +350,12 @@
     <Compile Include="View\Pessoa\ConsultarPessoa.aspx.designer.cs">
       <DependentUpon>ConsultarPessoa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Pessoa\ManterPessoa.aspx.cs">
-      <DependentUpon>ManterPessoa.aspx</DependentUpon>
+    <Compile Include="View\Pessoa\ManterAssistido.aspx.cs">
+      <DependentUpon>ManterAssistido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Pessoa\ManterPessoa.aspx.designer.cs">
-      <DependentUpon>ManterPessoa.aspx</DependentUpon>
+    <Compile Include="View\Pessoa\ManterAssistido.aspx.designer.cs">
+      <DependentUpon>ManterAssistido.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Pessoa\PessoaAssistido.ascx.cs">
       <DependentUpon>PessoaAssistido.ascx</DependentUpon>

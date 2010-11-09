@@ -48,6 +48,17 @@
     </tr>
     <tr>
         <td>
+            Cert. Nascimento</td>
+        <td>
+            <asp:TextBox ID="txtCertidaoNascimento" runat="server" MaxLength="14"></asp:TextBox>
+        </td>
+        <td>
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td>
             Nacionalidade</td>
         <td>
             <asp:TextBox ID="txtNacionalidade" runat="server" MaxLength="20"></asp:TextBox>
@@ -61,13 +72,9 @@
     <tr>
         <td>
             Foto</td>
-        <td>
-            <asp:FileUpload ID="fileUploadFoto" runat="server" />
+        <td colspan="3">
+            <asp:FileUpload ID="fileUploadFoto" runat="server" Width="215px" />
         </td>
-        <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
         <td colspan="2">
@@ -169,9 +176,10 @@
             <asp:TextBox ID="txtFax" runat="server" MaxLength="13"></asp:TextBox>
         </td>
         <td>
-            &nbsp;</td>
+            E-mail</td>
         <td>
-            &nbsp;</td>
+            <asp:TextBox ID="txtEmail" runat="server" MaxLength="13"></asp:TextBox>
+        </td>
     </tr>
     <tr>
         <td>

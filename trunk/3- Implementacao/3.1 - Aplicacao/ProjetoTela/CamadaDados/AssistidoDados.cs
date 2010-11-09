@@ -97,10 +97,10 @@ namespace SGS.CamadaDados
             SqlParameter parametroCertidaoNascimento = new SqlParameter("@certidaoNascimento", objAssistido.CertidaoNascimento);
             parametroCertidaoNascimento.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroNomePai = new SqlParameter("@nomePai", objAssistido.NomePai);
+            SqlParameter parametroNomePai = new SqlParameter("@nomePai", objAssistido.Pai);
             parametroNomePai.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroNomeMae = new SqlParameter("@nomeMae", objAssistido.NomeMae);
+            SqlParameter parametroNomeMae = new SqlParameter("@nomeMae", objAssistido.Mae);
             parametroNomeMae.DbType = System.Data.DbType.String;
 
             SqlParameter parametroCPFPai = new SqlParameter("@cpfPai", objAssistido.CPFPai);
@@ -148,16 +148,16 @@ namespace SGS.CamadaDados
             SqlParameter parametroCPFResponsavel = new SqlParameter("@cpfResponsavel", objAssistido.CPFResponsavel);
             parametroCPFResponsavel.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroTelefoneResponsavel = new SqlParameter("@telefoneResponsavel", objAssistido.TelefoneResponsavel);
+            SqlParameter parametroTelefoneResponsavel = new SqlParameter("@telefoneResponsavel", objAssistido.ContatoResponsavel.TelefoneCelular);
             parametroTelefoneResponsavel.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroLogradouroResponsavel = new SqlParameter("@logradouroResponsavel", objAssistido.LogradouroResponsavel);
+            SqlParameter parametroLogradouroResponsavel = new SqlParameter("@logradouroResponsavel", objAssistido.ContatoResponsavel.Logradouro);
             parametroLogradouroResponsavel.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroNumeroResponsavel = new SqlParameter("@numeroResponsavel", objAssistido.NumeroResponsavel);
+            SqlParameter parametroNumeroResponsavel = new SqlParameter("@numeroResponsavel", objAssistido.ContatoResponsavel.Numero);
             parametroNumeroResponsavel.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroCEPResponsavel = new SqlParameter("@cepResponsavel", objAssistido.CEPResponsavel);
+            SqlParameter parametroCEPResponsavel = new SqlParameter("@cepResponsavel", objAssistido.ContatoResponsavel.CEP);
             parametroCEPResponsavel.DbType = System.Data.DbType.String;
 
 
@@ -219,8 +219,8 @@ namespace SGS.CamadaDados
                 objAssistido.Contato_CodigoContato = Convert.ToInt32(leitorDados["Contato_CodigoContato"]);
                 objAssistido.Escolar_CodigoEscolar = Convert.ToInt32(leitorDados["Escolar_CodigoEscolar"]);
                 objAssistido.CertidaoNascimento = leitorDados["CertidaoNascimento"].ToString();
-                objAssistido.NomePai = leitorDados["NomePai"].ToString();
-                objAssistido.NomeMae = leitorDados["NomeMae"].ToString();
+                objAssistido.Pai = leitorDados["NomePai"].ToString();
+                objAssistido.Mae = leitorDados["NomeMae"].ToString();
                 objAssistido.CPFPai = leitorDados["CPFPai"].ToString();
                 objAssistido.CPFMae = leitorDados["CPFMae"].ToString();
                 objAssistido.RGPai = leitorDados["RGPai"].ToString();
@@ -235,11 +235,10 @@ namespace SGS.CamadaDados
                 objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
                 objAssistido.ResponsavelLegal = leitorDados["ResponsavelLegal"].ToString();
                 objAssistido.CPFResponsavel = leitorDados["CPFResponsavel"].ToString();
-                objAssistido.TelefoneResponsavel = leitorDados["TelefoneResponsavel"].ToString();
-                objAssistido.LogradouroResponsavel = leitorDados["LogradouroResponsavel"].ToString();
-                objAssistido.NumeroResponsavel = leitorDados["NumeroResponsavel"].ToString();
-                objAssistido.CEPResponsavel = leitorDados["CEPResponsavel"].ToString();
-
+                objAssistido.ContatoResponsavel.TelefoneConvencional = leitorDados["TelefoneResponsavel"].ToString();
+                objAssistido.ContatoResponsavel.Logradouro = leitorDados["LogradouroResponsavel"].ToString();
+                objAssistido.ContatoResponsavel.Numero = leitorDados["NumeroResponsavel"].ToString();
+                objAssistido.ContatoResponsavel.CEP = leitorDados["CEPResponsavel"].ToString();
 
             }
 

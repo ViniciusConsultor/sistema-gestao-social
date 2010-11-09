@@ -58,6 +58,15 @@ namespace SGS.View.Pessoa {
         protected global::System.Web.UI.WebControls.TextBox txtRG;
         
         /// <summary>
+        /// txtCertidaoNascimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCertidaoNascimento;
+        
+        /// <summary>
         /// txtNacionalidade control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace SGS.View.Pessoa {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFax;
+        
+        /// <summary>
+        /// txtEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
         /// txtSite control.
