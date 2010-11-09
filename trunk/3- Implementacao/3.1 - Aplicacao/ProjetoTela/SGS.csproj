@@ -181,6 +181,7 @@
     <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\Desenvolvimento.cs" />
     <Compile Include="Entidades\DTO\AlimentacaoDTO.cs" />
+    <Compile Include="Entidades\DTO\AssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\ConsultarEscolarDTO.cs" />
     <Compile Include="Entidades\DTO\GradeConsultarEscolarDTO.cs" />
     <Compile Include="Entidades\DTO\EscolarDTO.cs" />
@@ -216,6 +217,7 @@
       <DependentUpon>SGS.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\SGSServicoAssistido.cs" />
     <Compile Include="Servicos\SGSServicoDesenvolvimento.cs" />
     <Compile Include="Servicos\SGSServicoAlimentacao.cs" />
     <Compile Include="Servicos\SGSServicoEscolar.cs" />
