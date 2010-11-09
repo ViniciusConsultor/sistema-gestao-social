@@ -240,8 +240,12 @@ namespace SGS.CamadaDados
             SqlDataReader leitorDados;
 
 
-            SqlParameter paramNomePlanoValor = new SqlParameter("@nomePlanoValor", objOrcamentoDTO.NomePlanoValor);
-            paramNomePlanoValor.DbType = System.Data.DbType.String;
+            SqlParameter paramCodigoOrcamentoValor = new SqlParameter("@codigoOrcamentoValor", System.Data.DbType.Int32);
+            if (objOrcamentoDTO.CodigoOrcamentoValor.HasValue)
+                paramCodigoOrcamentoValor.Value = objOrcamentoDTO.CodigoOrcamentoValor.Value;
+            else
+                paramCodigoOrcamentoValor.Value = DBNull.Value;
+
 
             SqlParameter paramInicioVigenciaValor = new SqlParameter("@inicioVigenciaValor", System.Data.SqlDbType.DateTime);
             if (objOrcamentoDTO.InicioVigenciaValor.HasValue)
@@ -259,36 +263,36 @@ namespace SGS.CamadaDados
 
 
             //Se o Nome do Plano, Inicio de Vigência e Fim de Vigência preenchidos
-            if (objOrcamentoDTO.NomePlanoValor != "Selecione" && objOrcamentoDTO.InicioVigenciaValor.HasValue && objOrcamentoDTO.FimVigenciaValor.HasValue)
-                sql += @" where NomePlano = @nomePlanoValor and InicioVigencia = @inicioVigenciaValor and FimVigencia = @fimVigenciaValor";
+            if (objOrcamentoDTO.CodigoOrcamentoValor.HasValue && objOrcamentoDTO.InicioVigenciaValor.HasValue && objOrcamentoDTO.FimVigenciaValor.HasValue)
+                sql += @" where CodigoOrcamento = @codigoOrcamentoValor and InicioVigencia >= @inicioVigenciaValor and FimVigencia <= @fimVigenciaValor";
 
             //Se apenas Nome do Plano e Inicio de Vigência preenchidos
-            else if (objOrcamentoDTO.NomePlanoValor != "Selecione" && objOrcamentoDTO.InicioVigenciaValor.HasValue)
-                sql += @" where NomePlano = @nomePlanoValor and InicioVigencia = @inicioVigenciaValor";
+            else if (objOrcamentoDTO.CodigoOrcamentoValor.HasValue && objOrcamentoDTO.InicioVigenciaValor.HasValue)
+                sql += @" where CodigoOrcamento = @codigoOrcamentoValor and InicioVigencia >= @inicioVigenciaValor";
 
             //Se apenas Inicio de Vigência e Fim de Vigência preenchidos
             else if (objOrcamentoDTO.InicioVigenciaValor.HasValue && objOrcamentoDTO.FimVigenciaValor.HasValue)
-                sql += @" where InicioVigencia = @inicioVigenciaValor and FimVigencia = @fimVigenciaValor";
+                sql += @" where InicioVigencia => @inicioVigenciaValor and FimVigencia <= @fimVigenciaValor";
 
             //Se apenas Fim de Vigência e Nome do Plano preenchidos
-            else if (objOrcamentoDTO.FimVigenciaValor.HasValue && objOrcamentoDTO.NomePlanoValor != "Selecione")
-                sql += @" where FimVigencia = @fimVigenciaValor and NomePlano = @NomePlanoValor";
+            else if (objOrcamentoDTO.FimVigenciaValor.HasValue && objOrcamentoDTO.CodigoOrcamentoValor.HasValue)
+                sql += @" where FimVigencia = @fimVigenciaValor and CodigoOrcamento = @codigoOrcamentoValor";
 
             //Se NomePlano preenchido
-            if (objOrcamentoDTO.NomePlanoValor != "Selecione")
-                sql += @" where NomePlano = @nomePlanoValor";
+            else if (objOrcamentoDTO.CodigoOrcamentoValor.HasValue)
+                sql += @" where CodigoOrcamento = @codigoOrcamentoValor";
 
             //Se apenas Inicio de Vigencia preenchido
             else if (objOrcamentoDTO.InicioVigenciaValor.HasValue)
-                sql += @" where InicioVigencia = @inicioVigenciaValor";
+                sql += @" where InicioVigencia >= @inicioVigenciaValor";
 
             //Se apenas Fim de Vigência preenchido
             else if (objOrcamentoDTO.FimVigenciaValor.HasValue)
-                sql += @" where FimVigencia = @fimVigenciaValor";
+                sql += @" where FimVigencia <= @fimVigenciaValor";
 
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;
-            comando.Parameters.Add(paramNomePlanoValor);
+            comando.Parameters.Add(paramCodigoOrcamentoValor);
             comando.Parameters.Add(paramInicioVigenciaValor);
             comando.Parameters.Add(paramFimVigenciaValor);
 

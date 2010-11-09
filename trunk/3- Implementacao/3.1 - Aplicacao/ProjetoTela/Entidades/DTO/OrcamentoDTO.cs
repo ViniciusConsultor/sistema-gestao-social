@@ -58,11 +58,11 @@ namespace SGS.Entidades.DTO
             set { _orcamentoLista = value; }
         }
 
-        private string _nomePlanoValor;
-        public string NomePlanoValor
+        private int? _codigoOrcamentoValor;
+        public int? CodigoOrcamentoValor
         {
-            set { _nomePlanoValor = value; }
-            get { return _nomePlanoValor; }
+            set { _codigoOrcamentoValor = value; }
+            get { return _codigoOrcamentoValor; }
         }
 
         private DateTime? _inicioVigenciaValor;
