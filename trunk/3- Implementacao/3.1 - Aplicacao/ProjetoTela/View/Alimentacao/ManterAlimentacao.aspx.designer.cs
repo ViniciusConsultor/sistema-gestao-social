@@ -31,6 +31,15 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.Label lblDescricao;
         
         /// <summary>
+        /// lblDiaSemana control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDiaSemana;
+        
+        /// <summary>
         /// ddlDiaSemana control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDiaSemana;
+        
+        /// <summary>
+        /// lblPeriodo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPeriodo;
         
         /// <summary>
         /// ddlPeriodo control.
@@ -67,6 +85,15 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridPeriodo;
         
         /// <summary>
+        /// lblHorario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHorario;
+        
+        /// <summary>
         /// txtHorario control.
         /// </summary>
         /// <remarks>
@@ -83,6 +110,15 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridHorario;
+        
+        /// <summary>
+        /// lblAlimentos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAlimentos;
         
         /// <summary>
         /// ltbAlimentos control.
@@ -103,22 +139,13 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAlimentos;
         
         /// <summary>
-        /// txtPorcaoAlimento control.
+        /// lblDiretiva control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPorcaoAlimento;
-        
-        /// <summary>
-        /// requeridPorcaoAlimento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridPorcaoAlimento;
+        protected global::System.Web.UI.WebControls.Label lblDiretiva;
         
         /// <summary>
         /// txtDiretiva control.
