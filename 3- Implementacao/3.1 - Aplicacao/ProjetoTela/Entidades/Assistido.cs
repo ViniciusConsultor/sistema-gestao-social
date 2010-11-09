@@ -12,6 +12,7 @@ namespace SGS.Entidades
         private int? _pessoa_CodigoPessoa;
         private int? _contato_CodigoContato;
         private int? _escolar_CodigoEscolar;
+        private string _statusAssistido;
         private string _certidaoNascimento;
         private string _nomePai;
         private string _nomeMae;
@@ -30,12 +31,14 @@ namespace SGS.Entidades
         private int? _qtdIrmaos;
         private string _responsavelLegal;
         private string _cpfResponsavel;
-        private string _telefoneResponsavel;
-        private string _logradouroResponsavel;
-        private string _numeroResponsavel;
-        private string _cepResponsavel;
+        private Contato _contatoResponsavel;
 
 
+        public string StatusAssistido
+        {
+            get { return _statusAssistido; }
+            set { _statusAssistido = value; }
+        }
 
         public int? CodigoAssistido
         {
@@ -67,13 +70,13 @@ namespace SGS.Entidades
             set { _certidaoNascimento = value; }
         }
 
-        public string NomePai
+        public string Pai
         {
             get { return _nomePai; }
             set { _nomePai = value; }
         }
 
-        public string NomeMae
+        public string Mae
         {
             get { return _nomeMae; }
             set { _nomeMae = value; }
@@ -151,6 +154,13 @@ namespace SGS.Entidades
             set { _telefoneMae = value; }
         }
 
+        private string _telefonePai;
+        public string TelefonePai
+        {
+            get { return _telefonePai; }
+            set { _telefonePai = value; }
+        }
+
         public int? QtdIrmaos
         {
             get { return _qtdIrmaos; }
@@ -169,28 +179,88 @@ namespace SGS.Entidades
             set { _cpfResponsavel = value; }
         }
 
-        public string TelefoneResponsavel
+        private string _dataEntrada;
+        public String DataEntrada
         {
-            get { return _telefoneResponsavel; }
-            set { _telefoneResponsavel = value; }
+            get { return _dataEntrada; }
+            set { _dataEntrada = value; }
         }
 
-        public string LogradouroResponsavel
+        private string _dataSaida;
+        public String DataSaida
         {
-            get { return _logradouroResponsavel; }
-            set { _logradouroResponsavel = value; }
+            get { return _dataSaida; }
+            set { _dataSaida = value; }
         }
 
-        public string NumeroResponsavel
+        private string _estadoSaude;
+        public String EstadoSaude
         {
-            get { return _numeroResponsavel; }
-            set { _numeroResponsavel = value; }
+            get { return _estadoSaude; }
+            set { _estadoSaude = value; }
         }
 
-        public string CEPResponsavel
+        private string _dormitorio;
+        public String Dormitorio
         {
-            get { return _cepResponsavel; }
-            set { _cepResponsavel = value; }
+            get { return _dormitorio; }
+            set { _dormitorio = value; }
         }
+
+        private string _tamanhoCamisa;
+        public String TamanhoCamisa
+        {
+            get { return _tamanhoCamisa; }
+            set { _tamanhoCamisa = value; }
+        }
+
+        private string _tamanhoCalca;
+        public String TamanhoCalca
+        {
+            get { return _tamanhoCalca; }
+            set { _tamanhoCalca = value; }
+        }
+
+        private string _tamanhoCalcado;
+        public String TamanhoCalcado
+        {
+            get { return _tamanhoCalcado; }
+            set { _tamanhoCalcado = value; }
+        }
+
+        private string _deficiente;
+        public String Deficiente
+        {
+            get { return _deficiente; }
+            set { _deficiente = value; }
+        }
+
+        private string _hobby;
+        public String Hobby
+        {
+            get { return _hobby; }
+            set { _hobby = value; }
+        }
+
+        private string _paiVivo;
+        public String PaiVivo
+        {
+            get { return _paiVivo; }
+            set { _paiVivo = value; }
+        }
+
+        private string _maeViva;
+        public String MaeViva
+        {
+            get { return _maeViva; }
+            set { _maeViva = value; }
+        }
+
+        public Contato ContatoResponsavel
+        {
+            set { _contatoResponsavel = value; }
+            get { return _contatoResponsavel;  }
+        }
+
     }
 }

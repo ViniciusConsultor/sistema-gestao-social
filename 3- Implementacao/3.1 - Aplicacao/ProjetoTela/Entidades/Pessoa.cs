@@ -8,7 +8,14 @@ namespace SGS.Entidades
     [Serializable]
     public class Pessoa
     {
+
+        public Pessoa()
+        {
+            Contato = new Contato();
+        }
+
         private int? _codigoPessoa;
+        private int? _codigoCasaLar;
         private int? _contato_CodigoContato;
         private string _nome;
         private string _sexo;
@@ -19,12 +26,18 @@ namespace SGS.Entidades
         private string _naturalidade;
         private string _nacionalidade;
         private string _foto;
-
+        private Contato _contato;
 
         public int? CodigoPessoa
         {
             get { return _codigoPessoa; }
             set { _codigoPessoa = value; }
+        }
+
+        public int? CodigoCasaLar
+        {
+            get { return _codigoCasaLar; }
+            set { _codigoCasaLar = value; }
         }
 
         public int? Contato_CodigoContato
@@ -85,6 +98,12 @@ namespace SGS.Entidades
         {
             get { return _foto; }
             set { _foto = value; }
+        }
+
+        public Contato Contato
+        {
+            set { _contato = value; }
+            get { return _contato; }
         }
 
     }

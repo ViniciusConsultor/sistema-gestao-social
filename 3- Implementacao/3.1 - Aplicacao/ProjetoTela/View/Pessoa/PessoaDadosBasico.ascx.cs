@@ -59,7 +59,7 @@ namespace SGS.View.Pessoa
 
                 return obj;
             }
-            set
+            set 
             {
                 //Dados Pessoais
                 txtNome.Text = value.Nome;
@@ -89,9 +89,153 @@ namespace SGS.View.Pessoa
             }
         }
 
-        #endregion
+        
+        // Dados Pessoais 
 
-       
+        public string Nome
+        {
+            get { return txtNome.Text; }
+            set { txtNome.Text = value; }
+        }
+
+        public string Sexo
+        {
+            get { return rdbSexo.SelectedValue; }
+            set { rdbSexo.SelectedValue = value; }
+        }
+
+        public string DataNascimento
+        {
+            get { return txtDataNascimento.Text; }
+            set { txtDataNascimento.Text = value; }
+        }
+
+        public string CPF
+        {
+            get { return txtCPF.Text; }
+            set { txtCPF.Text = value; }
+        }
+
+        public string RG
+        {
+            get { return txtRG.Text; }
+            set { txtRG.Text = value; }
+        }
+        
+        public string CertidaoNascimento
+        {
+            get { return txtCertidaoNascimento.Text; }
+            set { txtCertidaoNascimento.Text = value; }
+        }
+
+        public string Nacionalidade
+        {
+            get { return txtNacionalidade.Text; }
+            set { txtNacionalidade.Text = value; }
+        }
+
+        public string Naturalidade
+        {
+            get { return txtNaturalidade.Text; }
+            set { txtNaturalidade.Text = value; }
+        }
+
+        public string Foto
+        {
+            get { return fileUploadFoto.FileName; }
+            set {  }
+        }
+
+        // Dados Endereço
+        public string CEP
+        {
+            get { return txtCEP.Text; }
+            set { txtCEP.Text = value; }
+        }
+
+        public string Logradouro
+        {
+            get { return txtLogradouro.Text; }
+            set { txtLogradouro.Text = value; }
+        }
+
+        public int? Numero
+        {
+            get 
+            { 
+                if (txtNumero.Text == "") return null; 
+                else return Convert.ToInt32(txtNumero.Text); 
+            }
+            set
+            {
+                if (value.HasValue) txtNumero.Text = value.ToString();
+                else txtNumero.Text = "";
+            }
+        }
+
+        public string Bairro
+        {
+            get { return txtBairro.Text; }
+            set { txtBairro.Text = value; }
+        }
+
+        public string Cidade
+        {
+            get { return txtCidade.Text; }
+            set { txtCidade.Text = value; }
+        }
+
+        public string Estado
+        {
+            get { return txtEstado.Text; }
+            set { txtEstado.Text = value; }
+        }
+
+        public string Pais
+        {
+            get { return txtPais.Text; }
+            set { txtPais.Text = value; }
+        }
+
+        //Dados Contato
+        
+        public string TelefoneCelular
+        {
+            get { return txtTelefoneCelular.Text; }
+            set { txtTelefoneCelular.Text = value; }
+        }
+
+        public string TelefoneConvencional
+        {
+            get { return txtTelefoneConvencional.Text; }
+            set { txtTelefoneConvencional.Text = value; }
+        }
+
+        public string Fax
+        {
+            get { return txtFax.Text; }
+            set { txtFax.Text = value; }
+        }
+
+        public string Email
+        {
+            get { return txtEmail.Text; }
+            set { txtEmail.Text = value; }
+        }
+
+        public string Site
+        {
+            get { return txtSite.Text; }
+            set { txtSite.Text = value; }
+        }
+
+        public string Blog
+        {
+            get { return txtBlog.Text; }
+            set { txtBlog.Text = value; }
+        }
+
+        #endregion
 
     }
 }

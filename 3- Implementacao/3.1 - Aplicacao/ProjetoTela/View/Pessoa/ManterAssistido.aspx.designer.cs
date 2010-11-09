@@ -40,15 +40,6 @@ namespace SGS.View.Pessoa {
         protected global::System.Web.UI.WebControls.DropDownList ddlCasaLar;
         
         /// <summary>
-        /// ddlTipoPessoa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPessoa;
-        
-        /// <summary>
         /// ucPessoaDadosBasico control.
         /// </summary>
         /// <remarks>
@@ -58,12 +49,48 @@ namespace SGS.View.Pessoa {
         protected global::SGS.View.Pessoa.PessoaDadosBasico ucPessoaDadosBasico;
         
         /// <summary>
-        /// PessoaAssistido1 control.
+        /// ucPessoaAssistido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SGS.View.Pessoa.PessoaDadosBasico PessoaAssistido1;
+        protected global::SGS.View.Pessoa.PessoaAssistido ucPessoaAssistido;
+        
+        /// <summary>
+        /// btnSalvar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSalvar;
+        
+        /// <summary>
+        /// btnExcluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcluir;
+        
+        /// <summary>
+        /// btnCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// btnCarregarDadosTela control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCarregarDadosTela;
     }
 }

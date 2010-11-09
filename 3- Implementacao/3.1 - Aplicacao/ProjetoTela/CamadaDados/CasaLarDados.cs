@@ -280,9 +280,13 @@ namespace SGS.CamadaDados
         }
 
 
+        /// <summary>
+        /// Retorna uma Lista de Casa Lar
+        /// </summary>
+        /// <returns></returns>
         public List<CasaLar> ListarCasaLar()
         {
-            SqlCommand comando = new SqlCommand("select * from CasaLar ORDER BY CodigoCasaLar", base.Conectar());
+            SqlCommand comando = new SqlCommand("select * from Casa_Lar ORDER BY CodigoCasaLar", base.Conectar());
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             List<CasaLar> listCasaLar = new List<CasaLar>();
@@ -292,7 +296,7 @@ namespace SGS.CamadaDados
             {
                 objCasaLar = new CasaLar();
 
-                objCasaLar.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objCasaLar.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasalar"]);
                 objCasaLar.CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 objCasaLar.NomeCasaLar = leitorDados["NomeCasaLar"].ToString();
                 objCasaLar.CNPJ = leitorDados["CNPJ"].ToString();
@@ -306,15 +310,16 @@ namespace SGS.CamadaDados
                 objCasaLar.TelefoneGestor = leitorDados["TelefoneGestor"].ToString();
                 objCasaLar.EmailGestor = leitorDados["EmailGestor"].ToString();
 
+                ///TODO: Maycon
+                ///objCasaLar.Foto = leitorDados["Foto"].ToString();
+
                 listCasaLar.Add(objCasaLar);
             }
 
-                leitorDados.Close();
-                leitorDados.Dispose();
+             leitorDados.Close();
+             leitorDados.Dispose();
 
-            
-
-            return listCasaLar;
+             return listCasaLar;
         }
 
 

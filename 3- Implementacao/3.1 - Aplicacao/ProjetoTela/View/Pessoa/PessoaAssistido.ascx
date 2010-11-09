@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PessoaDadosBasico.ascx.cs" Inherits="SGS.View.Pessoa.PessoaDadosBasico" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PessoaAssistido.ascx.cs" Inherits="SGS.View.Pessoa.PessoaAssistido" %>
 <table width="100%">
     <tr>
         <td colspan="4">
@@ -9,8 +9,18 @@
             &nbsp;</td>
     </tr>
     <tr>
-        <td colspan="2">
-            <strong>Dados Pessoais</strong></td>
+        <td>
+            Status Assistido</td>
+        <td>
+            <asp:DropDownList ID="ddlStatusAssistido" runat="server" Width="130px">
+                <asp:ListItem Value="Selecione">Selecione</asp:ListItem>
+                <asp:ListItem>Em Atendimento</asp:ListItem>
+                <asp:ListItem>Retornou Família</asp:ListItem>
+                <asp:ListItem>Adotado</asp:ListItem>
+                <asp:ListItem>Transferido</asp:ListItem>
+                <asp:ListItem>Desaparecido</asp:ListItem>
+            </asp:DropDownList>
+        </td>
         <td>
             &nbsp;</td>
         <td>
@@ -50,15 +60,15 @@
         <td>
             <asp:DropDownList ID="ddlCor" runat="server" Width="130px">
                 <asp:ListItem>Selecione</asp:ListItem>
-                <asp:ListItem Value="Saudavel">Branco</asp:ListItem>
+                <asp:ListItem Value="Branco">Branco</asp:ListItem>
                 <asp:ListItem>Negro</asp:ListItem>
                 <asp:ListItem>Pardo</asp:ListItem>
             </asp:DropDownList>
         </td>
         <td>
-            Dormitorio</td>
+            Altura</td>
         <td style="margin-left: 40px">
-            <asp:TextBox ID="txtDormitorio" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:TextBox ID="txtAltura" runat="server" MaxLength="6"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -96,18 +106,19 @@
             <asp:TextBox ID="txtTamanhoCalcado" runat="server" MaxLength="2"></asp:TextBox>
         </td>
         <td>
-            &nbsp;</td>
+            Dormitório</td>
         <td style="margin-left: 40px">
-            &nbsp;</td>
+            <asp:TextBox ID="txtDormitorio" runat="server" MaxLength="20"></asp:TextBox>
+        </td>
     </tr>
     <tr>
         <td>
             Deficiente</td>
         <td>
-            <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
+            <asp:RadioButtonList ID="rblDeficiente" runat="server" 
                 RepeatDirection="Horizontal">
                 <asp:ListItem>Sim</asp:ListItem>
-                <asp:ListItem>Não</asp:ListItem>
+                <asp:ListItem Value="N">Não</asp:ListItem>
             </asp:RadioButtonList>
         </td>
         <td>
@@ -175,20 +186,20 @@
         <td>
             Pai Vivo</td>
         <td>
-            <asp:DropDownList ID="ddlPaiVivo" runat="server" Width="130px">
-                <asp:ListItem>Selecione</asp:ListItem>
-                <asp:ListItem>Sim</asp:ListItem>
-                <asp:ListItem>Não</asp:ListItem>
-            </asp:DropDownList>
+            <asp:RadioButtonList ID="rblPaiVivo" runat="server" 
+                RepeatDirection="Horizontal">
+                <asp:ListItem Value="S">Sim</asp:ListItem>
+                <asp:ListItem Value="N">Não</asp:ListItem>
+            </asp:RadioButtonList>
         </td>
         <td>
             Mãe Viva</td>
         <td style="margin-left: 40px">
-            <asp:DropDownList ID="ddlMaeViva" runat="server" Width="130px">
-                <asp:ListItem>Selecione</asp:ListItem>
-                <asp:ListItem>Sim</asp:ListItem>
-                <asp:ListItem>Não</asp:ListItem>
-            </asp:DropDownList>
+            <asp:RadioButtonList ID="rblMaeViva" runat="server" 
+                RepeatDirection="Horizontal">
+                <asp:ListItem Value="S">Sim</asp:ListItem>
+                <asp:ListItem Value="N">Não</asp:ListItem>
+            </asp:RadioButtonList>
         </td>
     </tr>
     <tr>
@@ -298,7 +309,7 @@
         <td>
             Cep</td>
         <td>
-            <asp:TextBox ID="txtCEP" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:TextBox ID="txtCEPResponsavel" runat="server" MaxLength="20"></asp:TextBox>
         </td>
         <td>
             &nbsp;</td>
@@ -309,37 +320,36 @@
         <td>
             Logradouro</td>
         <td>
-            <asp:TextBox ID="txtLogradouro" runat="server" MaxLength="50"></asp:TextBox>
+            <asp:TextBox ID="txtLogradouroResponsavel" runat="server" MaxLength="50"></asp:TextBox>
         </td>
         <td>
             Número</td>
         <td style="margin-left: 40px">
-            <asp:TextBox ID="txtNumero" runat="server" MaxLength="6"></asp:TextBox>
+            <asp:TextBox ID="txtNumeroResponsavel" runat="server" MaxLength="6"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td>
             Bairro</td>
         <td>
-            <asp:TextBox ID="txtBairro" runat="server" MaxLength="25"></asp:TextBox>
+            <asp:TextBox ID="txtBairroResponsavel" runat="server" MaxLength="25"></asp:TextBox>
         </td>
         <td>
             Cidade</td>
         <td style="margin-left: 40px">
-            <asp:TextBox ID="txtCidade" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:TextBox ID="txtCidadeResponsavel" runat="server" MaxLength="20"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td>
             Estado</td>
         <td>
-            <asp:TextBox ID="txtEstado" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:TextBox ID="txtEstadoResponsavel" runat="server" MaxLength="20"></asp:TextBox>
         </td>
         <td>
             País</td>
         <td style="margin-left: 40px">
-            <asp:DropDownList ID="ddlPais" runat="server" Height="16px" Width="125px">
-            </asp:DropDownList>
+            <asp:TextBox ID="txtPaisResponsavel" runat="server" MaxLength="20"></asp:TextBox>
         </td>
     </tr>
     <tr>
