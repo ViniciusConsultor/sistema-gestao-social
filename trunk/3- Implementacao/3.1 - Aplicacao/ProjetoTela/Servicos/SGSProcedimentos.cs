@@ -8,7 +8,7 @@ using SGS.Entidades.DTO;
 
 namespace SGS.Servicos
 {
-    public partial class SGSProcedimentos
+    public partial class SGSServico
     {
 
         /// <summary>
