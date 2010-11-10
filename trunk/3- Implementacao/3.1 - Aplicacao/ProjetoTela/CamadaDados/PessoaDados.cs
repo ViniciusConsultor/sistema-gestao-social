@@ -16,32 +16,33 @@ namespace SGS.CamadaDados
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
-
+            comando.CommandType = System.Data.CommandType.Text;
 
             if (!objPessoa.CodigoPessoa.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Pessoa (Contato_CodigoContato, Nome, Sexo, CPF, RG, TituloEleitor, DataNascimento, Naturalidade,
-                           Nacionalidade, Foto)
-                    VALUES (@contato_CodigoContato, @nome, @sexo, @cpf, @rg, @tituloEleitor, @dataNascimento, @naturalidade, 
-                            @nacionalidade, @foto)";
+                    @"INSERT INTO Pessoa
+                         (CodigoContato, CodigoCasaLar, Nome, Sexo, CPF, RG, TituloEleitor, DataNascimento, Nacionalidade, Naturalidade, Foto, TipoPessoa)
+                         VALUES        (@contato_CodigoContato, @codigoCasaLar, @nome, @sexo, @cpf, @rg, @tituloEleitor, @dataNascimento, @nacionalidade, @naturalidade, 
+                                        @foto, @tipoPessoa)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Pessoa SET Contato_CodigoContato = @contato_CodigoContato, Nome = @nome, Sexo = @sexo, CPF = @cpf, RG = @rg,
-                        TituloEleitor = @tituloEleitor, DataNascimento = @dataNascimento, Naturalidade = @naturalidade,
-                        Nacionalidade = @nacionalidade, Foto = @foto
-                        WHERE (CodigoPessoa = @codigoPessoa)";
+                    @"UPDATE Pessoa
+                         SET CodigoContato = @contato_CodigoContato, CodigoCasaLar = @codigoCasaLar, Nome = @nome, Sexo = @sexo, CPF = @cpf, 
+                         RG = @rg, TituloEleitor = @tituloEleitor, DataNascimento = @dataNascimento, Nacionalidade = @nacionalidade, Naturalidade = @naturalidade, 
+                         Foto = @foto, TipoPessoa = @tipoPessoa
+                      WHERE CodigoPessoa = @codigoPessoa";
             }
 
-            comando.CommandType = System.Data.CommandType.Text;
             if (objPessoa.CodigoPessoa.HasValue)
             {
                 SqlParameter parametroCodigo = new SqlParameter("@codigoPessoa", objPessoa.CodigoPessoa.Value);
                 parametroCodigo.DbType = System.Data.DbType.Int32;
                 comando.Parameters.Add(parametroCodigo);
             }
+
 
             SqlParameter parametroContato_CodigoContato = new SqlParameter();
             if (objPessoa.Contato_CodigoContato.HasValue)
@@ -52,10 +53,16 @@ namespace SGS.CamadaDados
             }
             else
             {
-                parametroContato_CodigoContato.Value = DBNull.Value;
+                ContatoDados objContatoDados = new ContatoDados();
+                objPessoa.Contato = objContatoDados.Salvar(objPessoa.Contato);
+
+                parametroContato_CodigoContato.Value = objPessoa.Contato.CodigoContato.Value;
                 parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
                 parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
             }
+
+            SqlParameter parametroCodigoCasaLar = new SqlParameter("@codigoCasaLar", System.Data.DbType.Int32);
+            parametroCodigoCasaLar.Value = objPessoa.CodigoCasaLar.Value;
 
             SqlParameter parametroNome = new SqlParameter("@nome", objPessoa.Nome);
             parametroNome.DbType = System.Data.DbType.String;
@@ -69,24 +76,33 @@ namespace SGS.CamadaDados
             SqlParameter parametroRG = new SqlParameter("@rg", objPessoa.RG);
             parametroRG.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroTituloEleitor = new SqlParameter("@tituloEleitor", objPessoa.TituloEleitor);
-            parametroTituloEleitor.DbType = System.Data.DbType.String;
+            SqlParameter parametroTituloEleitor = new SqlParameter("@tituloEleitor", System.Data.DbType.String);
+            if (objPessoa.TituloEleitor != "")
+                parametroTituloEleitor.Value = objPessoa.TituloEleitor;
+            else
+                parametroTituloEleitor.Value = DBNull.Value;
 
             SqlParameter parametroDataNascimento = new SqlParameter("@dataNascimento", objPessoa.DataNascimento);
             parametroDataNascimento.DbType = System.Data.DbType.DateTime;
 
-            SqlParameter parametroNaturalidade = new SqlParameter("@naturalidade", objPessoa.Naturalidade);
-            parametroNaturalidade.DbType = System.Data.DbType.String;
-
             SqlParameter parametroNacionalidade = new SqlParameter("@nacionalidade", objPessoa.Nacionalidade);
             parametroNacionalidade.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroFoto = new SqlParameter("@foto", objPessoa.Foto);
-            parametroFoto.DbType = System.Data.DbType.String;
+            SqlParameter parametroNaturalidade = new SqlParameter("@naturalidade", objPessoa.Naturalidade);
+            parametroNaturalidade.DbType = System.Data.DbType.String;
 
+            //TODO: Maycon armazenar foto
+            SqlParameter parametroFoto = new SqlParameter("@foto", System.Data.DbType.String);
+            if (objPessoa.Foto != "")
+                parametroFoto.Value = objPessoa.Foto;
+            else
+                parametroFoto.Value = DBNull.Value;
 
+            SqlParameter parametroTipoPessoa = new SqlParameter("@tipoPessoa", objPessoa.TipoPessoa);
+            parametroTipoPessoa.DbType = System.Data.DbType.String;
 
             comando.Parameters.Add(parametroContato_CodigoContato);
+            comando.Parameters.Add(parametroCodigoCasaLar);
             comando.Parameters.Add(parametroNome);
             comando.Parameters.Add(parametroSexo);
             comando.Parameters.Add(parametroCPF);
@@ -96,15 +112,22 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroNaturalidade);
             comando.Parameters.Add(parametroNacionalidade);
             comando.Parameters.Add(parametroFoto);
+            comando.Parameters.Add(parametroTipoPessoa);
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade pessoa com o Código da pessoa Preenchido
-            return objPessoa;
+            if (!objPessoa.CodigoPessoa.HasValue)
+            {
+                return this.ObterUltimaPessoaInserida();
+            }
+            else
+            {
+                return objPessoa;
+            }
         }
 
         /// <summary>
-        /// Obtém a Pessoa pelo Código da Pessoa
+        /// Obtém uma Pessoa pelo Código da Pessoa
         /// </summary>
         /// <param name="codigoPessoa"></param>
         /// <returns></returns>
@@ -123,16 +146,18 @@ namespace SGS.CamadaDados
                 objPessoa = new Pessoa();
 
                 objPessoa.CodigoPessoa = codigoPessoa;
-                objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["Contato_CodigoContato"]);
+                objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objPessoa.Nome = leitorDados["Nome"].ToString();
                 objPessoa.Sexo = leitorDados["Sexo"].ToString();
                 objPessoa.CPF = leitorDados["CPF"].ToString();
                 objPessoa.RG = leitorDados["RG"].ToString();
                 objPessoa.TituloEleitor = leitorDados["TituloEleitor"].ToString();
                 objPessoa.DataNascimento = Convert.ToDateTime(leitorDados["DataNascimento"]);
-                objPessoa.Naturalidade = leitorDados["Naturalidade"].ToString();
                 objPessoa.Nacionalidade = leitorDados["Nacionalidade"].ToString();
+                objPessoa.Naturalidade = leitorDados["Naturalidade"].ToString();
                 objPessoa.Foto = leitorDados["Foto"].ToString();
+                objPessoa.TipoPessoa = leitorDados["TipoPessoa"].ToString();
             }
 
             leitorDados.Close();
@@ -141,8 +166,48 @@ namespace SGS.CamadaDados
             return objPessoa;
         }
 
+
         /// <summary>
-        /// Exclui um Login pelo seu código
+        /// Obtém uma Pessoa pelo Código da Pessoa
+        /// </summary>
+        /// <param name="codigoPessoa"></param>
+        /// <returns></returns>
+        public Pessoa ObterUltimaPessoaInserida()
+        {
+            SqlCommand comando = new SqlCommand("select top 1 * from Pessoa where CodigoPessoa = @codigoPessoa order by CodigoPessoa desc", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Pessoa objPessoa = null;
+
+            if (leitorDados.Read())
+            {
+                objPessoa = new Pessoa();
+
+                objPessoa.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]); ;
+                objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objPessoa.Nome = leitorDados["Nome"].ToString();
+                objPessoa.Sexo = leitorDados["Sexo"].ToString();
+                objPessoa.CPF = leitorDados["CPF"].ToString();
+                objPessoa.RG = leitorDados["RG"].ToString();
+                objPessoa.TituloEleitor = leitorDados["TituloEleitor"].ToString();
+                objPessoa.DataNascimento = Convert.ToDateTime(leitorDados["DataNascimento"]);
+                objPessoa.Nacionalidade = leitorDados["Nacionalidade"].ToString();
+                objPessoa.Naturalidade = leitorDados["Naturalidade"].ToString();
+                objPessoa.Foto = leitorDados["Foto"].ToString();
+                objPessoa.TipoPessoa = leitorDados["TipoPessoa"].ToString();
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objPessoa;
+        }
+
+
+
+        /// <summary>
+        /// Exclui uma Pessoa pelo seu código
         /// </summary>
         public bool ExcluirPessoa(int codigoPessoa)
         {

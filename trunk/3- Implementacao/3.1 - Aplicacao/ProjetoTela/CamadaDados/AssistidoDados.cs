@@ -14,6 +14,9 @@ namespace SGS.CamadaDados
 
         public Assistido Salvar(Assistido objAssistido)
         {
+            PessoaDados objPessoaDados = new PessoaDados();
+            objAssistido = (Assistido) objPessoaDados.Salvar(objAssistido);
+
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
 

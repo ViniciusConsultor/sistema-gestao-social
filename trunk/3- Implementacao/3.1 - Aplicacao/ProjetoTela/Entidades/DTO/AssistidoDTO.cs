@@ -15,6 +15,7 @@ namespace SGS.Entidades.DTO
         public AssistidoDTO()
         {
             this.Assistido = new Assistido();
+            this.Assistido.ContatoResponsavel = new Contato();
             this.CasaLarLista = new List<CasaLar>();
         }
         private Assistido _assistido;
