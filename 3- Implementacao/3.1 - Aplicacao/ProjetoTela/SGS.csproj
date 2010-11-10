@@ -192,6 +192,7 @@
     <Compile Include="Entidades\DTO\OrcamentoDTO.cs" />
     <Compile Include="Entidades\DTO\ParametroConsultarEscolarDTO.cs" />
     <Compile Include="Entidades\DTO\PessoaDadosBasicoDTO.cs" />
+    <Compile Include="Entidades\DTO\ProcedimentosDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Enum\PerfilEnum.cs" />
     <Compile Include="Entidades\Escolar.cs" />
@@ -217,6 +218,7 @@
       <DependentUpon>SGS.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\SGSProcedimentos.cs" />
     <Compile Include="Servicos\SGSServicoAssistido.cs" />
     <Compile Include="Servicos\SGSServicoDesenvolvimento.cs" />
     <Compile Include="Servicos\SGSServicoAlimentacao.cs" />

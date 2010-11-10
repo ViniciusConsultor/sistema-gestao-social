@@ -18,43 +18,44 @@ namespace SGS.CamadaDados
             comando.Connection = base.Conectar();
 
 
-            if (!objProcedimentos.CodigoProcedimentos.HasValue)
+            if (!objProcedimentos.CodigoProcedimento.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Procedimentos (Assistido_CodigoAssistido, TipoProcedimento, Procedimento, Descricao, StatusProcedimento,
+                    @"INSERT INTO Procedimento (CodigoAssistido, TipoProcedimento, Procedimento, Descricao, StatusProcedimento,
                                   PessoaAtendente, DataMarcada, DataRealizada, LaudoAtendente)
-                    VALUES (@assistido_CodigoAssistido, @tipoProcedimento, @procedimento, @descricao, @statusProcedimento, @pessoaAtendente,
+                    VALUES (@codigoAssistido, @tipoProcedimento, @procedimento, @descricao, @statusProcedimento, @pessoaAtendente,
                            @dataMarcada,@dataRealizada, @laudoAtendente)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Procedimentos SET Assistido_CodigoAssistido = @sssistido_CodigoAssistido, TipoProcedimento = @tipoProcedimento,
+                    @"UPDATE Procedimento SET CodigoAssistido = @codigoAssistido, TipoProcedimento = @tipoProcedimento,
                              Procedimento = @procedimento, Descricao = @descricao, StatusProcedimento = @statusProcedimento,
                              PessoaAtendente = @pessoaAtendente, DataMarcada = @dataMarcada, DataRealizada = @dataRealizada,
-                             LaudoAtendente = @laudoAtendente)";
+                             LaudoAtendente = @laudoAtendente
+                    WHERE (CodigoProcedimento = @codigoProcedimento)";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
-            if (objProcedimentos.CodigoProcedimentos.HasValue)
+            if (objProcedimentos.CodigoProcedimento.HasValue)
             {
-                SqlParameter parametroCodigo = new SqlParameter("@codigoProcedimentos", objProcedimentos.CodigoProcedimentos.Value);
+                SqlParameter parametroCodigo = new SqlParameter("@codigoProcedimento", objProcedimentos.CodigoProcedimento.Value);
                 parametroCodigo.DbType = System.Data.DbType.Int32;
                 comando.Parameters.Add(parametroCodigo);
             }
 
-            SqlParameter parametroAssistido_CodigoAssistido = new SqlParameter();
-            if (objProcedimentos.Assistido_CodigoAssistido.HasValue)
+            SqlParameter parametroCodigoAssistido = new SqlParameter();
+            if (objProcedimentos.CodigoAssistido.HasValue)
             {
-                parametroAssistido_CodigoAssistido.Value = objProcedimentos.Assistido_CodigoAssistido.Value;
-                parametroAssistido_CodigoAssistido.ParameterName = "@assistido_CodigoAssistido";
-                parametroAssistido_CodigoAssistido.DbType = System.Data.DbType.Int32;
+                parametroCodigoAssistido.Value = objProcedimentos.CodigoAssistido.Value;
+                parametroCodigoAssistido.ParameterName = "@codigoAssistido";
+                parametroCodigoAssistido.DbType = System.Data.DbType.Int32;
             }
             else
             {
-                parametroAssistido_CodigoAssistido.Value = DBNull.Value;
-                parametroAssistido_CodigoAssistido.ParameterName = "@assistido_CodigoAssistido";
-                parametroAssistido_CodigoAssistido.DbType = System.Data.DbType.Int32;
+                parametroCodigoAssistido.Value = DBNull.Value;
+                parametroCodigoAssistido.ParameterName = "@codigoAssistido";
+                parametroCodigoAssistido.DbType = System.Data.DbType.Int32;
             }
 
             SqlParameter parametroTipoProcedimento = new SqlParameter("@tipoProcedimento", objProcedimentos.TipoProcedimento);
@@ -83,7 +84,7 @@ namespace SGS.CamadaDados
 
 
 
-            comando.Parameters.Add(parametroAssistido_CodigoAssistido);
+            comando.Parameters.Add(parametroCodigoAssistido);
             comando.Parameters.Add(parametroTipoProcedimento);
             comando.Parameters.Add(parametroProcedimento);
             comando.Parameters.Add(parametroDescricao);
@@ -96,21 +97,21 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade Procedimentos com o Código do Procedimentos Preenchido
-            return objProcedimentos;
+
+            return ObterUltimoProcedimentoInserido();
         }
 
         /// <summary>
-        /// Obtém o Procedimentos pelo Código do Procedimentos
+        /// Obtém o Procedimentos pelo Código do Procedimento
         /// </summary>
-        /// <param name="codigoProcedimentos"></param>
+        /// <param name="codigoProcedimento"></param>
         /// <returns></returns>
-        public Procedimentos ObterProcedimentos(int codigoProcedimentos)
+        public Procedimentos ObterProcedimentos(int codigoProcedimento)
         {
-            SqlCommand comando = new SqlCommand("select * from Procedimentos where CodigoProcedimentos = @codigoProcedimentos", base.Conectar());
-            SqlParameter parametroCodigoProcedimentos = new SqlParameter("@codigoProcedimentos", codigoProcedimentos);
-            parametroCodigoProcedimentos.DbType = System.Data.DbType.Int32;
-            comando.Parameters.Add(parametroCodigoProcedimentos);
+            SqlCommand comando = new SqlCommand("select * from Procedimento where CodigoProcedimento = @codigoProcedimento", base.Conectar());
+            SqlParameter parametroCodigoProcedimento = new SqlParameter("@codigoProcedimento", codigoProcedimento);
+            parametroCodigoProcedimento.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoProcedimento);
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             Procedimentos objProcedimentos = null;
@@ -119,8 +120,8 @@ namespace SGS.CamadaDados
             {
                 objProcedimentos = new Procedimentos();
 
-                objProcedimentos.CodigoProcedimentos = codigoProcedimentos;
-                objProcedimentos.Assistido_CodigoAssistido = Convert.ToInt32(leitorDados["Assistido_CodigoAssistido"]);
+                objProcedimentos.CodigoProcedimento = codigoProcedimento;
+                objProcedimentos.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
                 objProcedimentos.TipoProcedimento = leitorDados["TipoProcedimento"].ToString();
                 objProcedimentos.Procedimento = leitorDados["Procedimento"].ToString();
                 objProcedimentos.Descricao = leitorDados["Descricao"].ToString();
@@ -139,17 +140,50 @@ namespace SGS.CamadaDados
         }
 
         /// <summary>
-        /// Exclui um Procedimentos pelo seu código
+        /// Obter o ultimo procedimento inserido na tabela
         /// </summary>
-        public bool ExcluirProcedimentos(int codigoProcedimentos)
+        /// <returns></returns>
+        public Procedimentos ObterUltimoProcedimentoInserido()
+        {
+            SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Procedimento ORDER BY CodigoProcedimento DESC", base.Conectar());
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Procedimentos objProcedimentos = null;
+
+            if (leitorDados.Read())
+            {
+                objProcedimentos = new Procedimentos();
+
+                objProcedimentos.CodigoProcedimento = Convert.ToInt32(leitorDados["CodigoProcedimento"]);
+                objProcedimentos.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                objProcedimentos.TipoProcedimento = leitorDados["TipoProcedimento"].ToString();
+                objProcedimentos.Procedimento = leitorDados["Procedimento"].ToString();
+                objProcedimentos.Descricao = leitorDados["Descricao"].ToString();
+                objProcedimentos.StatusProcedimento = leitorDados["StatusProcedimento"].ToString();
+                objProcedimentos.PessoaAtendente = leitorDados["PessoaAtendente"].ToString();
+                objProcedimentos.DataMarcada = Convert.ToDateTime(leitorDados["DataMarcada"]);
+                objProcedimentos.DataRealizada = Convert.ToDateTime(leitorDados["DataRealizada"]);
+                objProcedimentos.LaudoAtendente = leitorDados["LaudoAtendente"].ToString();
+
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objProcedimentos;
+        }
+
+        /// <summary>
+        /// Exclui um Procedimento pelo seu código
+        /// </summary>
+        public bool ExcluirProcedimentos(int codigoProcedimento)
         {
             bool execucao;
 
-            SqlCommand comando = new SqlCommand("delete from Procedimentos where CodigoProcedimentos = @codigoProcedimentos", base.Conectar());
+            SqlCommand comando = new SqlCommand("delete from Procedimento where CodigoProcedimento = @codigoProcedimento", base.Conectar());
 
-            SqlParameter parametroCodigoProcedimentos = new SqlParameter("@codigoProcedimentos", codigoProcedimentos);
-            parametroCodigoProcedimentos.DbType = System.Data.DbType.Int32;
-            comando.Parameters.Add(parametroCodigoProcedimentos);
+            SqlParameter parametroCodigoProcedimento = new SqlParameter("@codigoProcedimento", codigoProcedimento);
+            parametroCodigoProcedimento.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoProcedimento);
 
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
 

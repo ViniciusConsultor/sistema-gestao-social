@@ -8,28 +8,28 @@ namespace SGS.Entidades
     [Serializable]
     public class Procedimentos
     {
-        private int? _codigoProcedimentos;
-        private int? _assistido_CodigoAssistido;
+        private int? _codigoProcedimento;
+        private int? _codigoAssistido;
         private string _tipoProcedimento;
         private string _procedimento;
         private string _descrição;
         private string _statusProcedimento;
         private string _pessoaAtendente;
         private DateTime? _dataMarcada;
-        private DateTime _dataRealizada;
+        private DateTime? _dataRealizada;
         private string _laudoAtendente;
 
 
-        public int? CodigoProcedimentos
+        public int? CodigoProcedimento
         {
-            get { return _codigoProcedimentos; }
-            set { _codigoProcedimentos = value; }
+            get { return _codigoProcedimento; }
+            set { _codigoProcedimento = value; }
         }
 
-        public int? Assistido_CodigoAssistido
+        public int? CodigoAssistido
         {
-            get { return _assistido_CodigoAssistido; }
-            set { _assistido_CodigoAssistido = value; }
+            get { return _codigoAssistido; }
+            set { _codigoAssistido = value; }
         }
 
         public string TipoProcedimento
@@ -68,7 +68,7 @@ namespace SGS.Entidades
             set { _dataMarcada = value; }
         }
 
-        public DateTime DataRealizada
+        public DateTime? DataRealizada
         {
             get { return _dataRealizada; }
             set { _dataRealizada = value; }

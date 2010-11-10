@@ -6,15 +6,20 @@
         {
             width: 100%;
         }
-        .style8
-    {
-        font-family: Verdana;
-        font-size: small;
-    }
-    .style9
+        .style9
     {
         text-align: right;
         font-size: small;
+    }
+    .style10
+    {
+        text-align: right;
+        font-size: small;
+        height: 20px;
+    }
+    .style11
+    {
+        height: 20px;
     }
     </style>
 
@@ -38,9 +43,9 @@
                 <td>
                     <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>João</asp:ListItem>
-                        <asp:ListItem>Pedro</asp:ListItem>
-                        <asp:ListItem>Maria</asp:ListItem>
+                        <asp:ListItem Value="1">João</asp:ListItem>
+                        <asp:ListItem Value="2">Pedro</asp:ListItem>
+                        <asp:ListItem Value="3">Maria</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
                         ControlToValidate="ddlAssistido" ErrorMessage="Escolha o Assistido" 
@@ -140,7 +145,7 @@
                     <asp:TextBox ID="txtDataRealizada" runat="server" Height="22px" MaxLength="10" 
                         Width="148px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridDataRealizada" runat="server" 
-                        ControlToValidate="txtDataRealizada" ErrorMessage="Preencha o campo Realizada" 
+                        ControlToValidate="txtDataRealizada" ErrorMessage="Preencha o campo Data Realizada" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -163,12 +168,12 @@
         <table width="100%">
             <tr align="center">
                 <td> 
-                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                        CausesValidation="False" />
+                        CausesValidation="False" onclick="btnCancelar_Click" />
                 </td>
             </tr>
             <tr align="center">
