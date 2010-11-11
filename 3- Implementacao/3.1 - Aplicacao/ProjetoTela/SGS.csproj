@@ -178,6 +178,8 @@
     <Compile Include="Entidades\Assistido.cs" />
     <Compile Include="Entidades\CasaLar.cs" />
     <Compile Include="Entidades\Contato.cs" />
+    <Compile Include="Entidades\Alimento.cs" />
+    <Compile Include="Entidades\Alimentacao_Alimento.cs" />
     <Compile Include="Entidades\DadosBancarios.cs" />
     <Compile Include="Entidades\Desenvolvimento.cs" />
     <Compile Include="Entidades\DTO\AlimentacaoDTO.cs" />

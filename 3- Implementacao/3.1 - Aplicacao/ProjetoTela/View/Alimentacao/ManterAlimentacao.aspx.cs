@@ -104,8 +104,8 @@ namespace SGS.View.Alimentacao
                 lblPeriodo.Visible = true;
 
 
-                lblTitulo.Text = "Alterar Alimentação";
-                lblDescricao.Text = "Descrição: Permite alterar a Alimentação da Casa Lar.";
+                lblTitulo.Text = "Cadastrar Alimentação";
+                lblDescricao.Text = "Descrição: Permite Cadastrar a Alimentação da Casa Lar.";
             }
         }
 
