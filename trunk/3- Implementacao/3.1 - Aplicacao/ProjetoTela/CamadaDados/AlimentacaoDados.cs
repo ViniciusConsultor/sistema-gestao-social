@@ -26,13 +26,13 @@ namespace SGS.CamadaDados
             if (!objAlimentacao.CodigoAlimentacao.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Alimentacao (Assistido_CodigoAssistido, DiaSemana, Periodo, Horario, Alimento, Diretiva)
-                    VALUES (@assistido_CodigoAssistido, @diaSemana, @periodo, @horario, @alimento, @diretiva)";
+                    @"INSERT INTO Alimentacao (CodigoAlimentacao, DiaSemana, Periodo, Horario, Alimento, Diretiva)
+                    VALUES (@CodigoAlimentacao, @diaSemana, @periodo, @horario, @alimento, @diretiva)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Alimentacao SET Assistido_CodigoAssistido = @assistido_CodigoAssistido, DiaSemana = @diaSemana,
+                    @"UPDATE Alimentacao SET CodigoAlimentacao = @CodigoAlimentacao, DiaSemana = @diaSemana,
                         Periodo = @periodo, Horario = @horario, Alimento = @alimento, Diretiva = @diretiva
                         WHERE (CodigoAlimentacao = @codigoAlimentacao)";
             }
@@ -43,20 +43,6 @@ namespace SGS.CamadaDados
                 SqlParameter parametroCodigo = new SqlParameter("@codigoAlimentacao", objAlimentacao.CodigoAlimentacao.Value);
                 parametroCodigo.DbType = System.Data.DbType.Int32;
                 comando.Parameters.Add(parametroCodigo);
-            }
-
-            SqlParameter parametroAssistido_CodigoAssistido = new SqlParameter();
-            if (objAlimentacao.Assistido_CodigoAssistido.HasValue)
-            {
-                parametroAssistido_CodigoAssistido.Value = objAlimentacao.Assistido_CodigoAssistido.Value;
-                parametroAssistido_CodigoAssistido.ParameterName = "@assistido_CodigoAssistido";
-                parametroAssistido_CodigoAssistido.DbType = System.Data.DbType.Int32;
-            }
-            else
-            {
-                parametroAssistido_CodigoAssistido.Value = DBNull.Value;
-                parametroAssistido_CodigoAssistido.ParameterName = "@assistido_CodigoAssistido";
-                parametroAssistido_CodigoAssistido.DbType = System.Data.DbType.Int32;
             }
 
             SqlParameter parametroDiaSemana = new SqlParameter("@diaSemana", objAlimentacao.DiaSemana);
@@ -74,7 +60,6 @@ namespace SGS.CamadaDados
             SqlParameter parametroDiretiva = new SqlParameter("@diretiva", objAlimentacao.Diretiva);
             parametroAlimento.DbType = System.Data.DbType.String;
 
-            comando.Parameters.Add(parametroAssistido_CodigoAssistido);
             comando.Parameters.Add(parametroDiaSemana);
             comando.Parameters.Add(parametroPeriodo);
             comando.Parameters.Add(parametroHorario);
@@ -107,7 +92,6 @@ namespace SGS.CamadaDados
                 objAlimentacao = new Alimentacao();
 
                 objAlimentacao.CodigoAlimentacao = codigoAlimentacao;
-                objAlimentacao.Assistido_CodigoAssistido = Convert.ToInt32(leitorDados["Assistido_CodigoAssistido"]);
                 objAlimentacao.DiaSemana = leitorDados["DiaSemana"].ToString();
                 objAlimentacao.Periodo = leitorDados["Periodo"].ToString();
                 objAlimentacao.Horario = Convert.ToDateTime(leitorDados["Horario"]);

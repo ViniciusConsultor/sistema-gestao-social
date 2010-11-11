@@ -55,14 +55,6 @@ namespace SGS.Entidades.DTO
             set { _alimentacaoLista = value; }
         }
 
-        private List<Assistido> _assistidoLista;
-
-        public List<Assistido> AssistidoLista
-        {
-            set { _assistidoLista = value; }
-            get { return _assistidoLista; }
-        }
-
         #endregion
         
     }
