@@ -11,17 +11,53 @@
         text-align: right;
         font-size: small;
     }
-    .style10
-    {
-        text-align: right;
-        font-size: small;
-        height: 20px;
-    }
-    .style11
-    {
-        height: 20px;
-    }
     </style>
+
+    
+        <!-- Importa todos os script JavaScript-->
+        <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskMoney.js"> </script>
+        
+        <!-- Comandos de JavaScript-->
+        <script type="text/javascript">
+
+            //Diz que quando a página for carregada, irá ser executado o
+            //bloco de código contido entre os {};
+
+            $(document).ready(function () {
+
+                //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
+                //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
+
+                $('.mask-numero').mask('999999'); //número
+                $('.mask-numero2').maskMoney({ precision: 6 }); //número
+
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99"); //cpf
+                $(".mask-cnpj").mask("99.999.999/9999-99"); //cnpj
+                $(".mask-cep").mask("99999-999"); //cep
+                $(".mask-real-cifrao").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
+                $(".mask-real").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: false }); //real sem cifrão 1.000,00
+                $(".mask-precision").maskMoney({ precision: 3 }); //com 3 casas de precisão 1,000
+
+                /* Default options are (but you can always change that):
+                symbol:'US$',
+                decimal:'.',
+                precision:2,
+                thousands:',',
+                allowZero:false,
+                showSymbol:false */
+
+            });
+
+        </script>
+
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,7 +77,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Assistido </td>
                 <td>
-                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" Height="22px">
+                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="287px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem Value="1">João</asp:ListItem>
                         <asp:ListItem Value="2">Pedro</asp:ListItem>
@@ -61,7 +97,8 @@
                         Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Médico</asp:ListItem>
-                        <asp:ListItem>Emocional</asp:ListItem>
+                        <asp:ListItem>Psicológico</asp:ListItem>
+                        <asp:ListItem>Intelectual</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridTipoProcedimento" runat="server" 
                         ControlToValidate="ddlTipoProcedimento" ErrorMessage="Escolha o Tipo de Procedimneto" 
@@ -79,6 +116,7 @@
                         <asp:ListItem>Clinico Geral</asp:ListItem>
                         <asp:ListItem>Dentista</asp:ListItem>
                         <asp:ListItem>Reforço Escolar</asp:ListItem>
+                        <asp:ListItem>Dieta</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridProcedimento" runat="server" 
                         ControlToValidate="ddlProcedimento" ErrorMessage="Escolha o Procedimento" 
@@ -90,7 +128,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Descrição </td>
                 <td>
-                    <asp:TextBox ID="txtDescricao" runat="server" Height="22px" Width="148px" 
+                    <asp:TextBox ID="txtDescricao" runat="server" Width="148px" 
                         MaxLength="100"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridDescricao" runat="server" 
                         ControlToValidate="txtDescricao" ErrorMessage="Preencha o campo Descrição" 
@@ -104,8 +142,8 @@
                 <td>
                     <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>Criado</asp:ListItem>
-                        <asp:ListItem>Marcado</asp:ListItem>
+                        <asp:ListItem>Planejado</asp:ListItem>
+                        <asp:ListItem>Agendado</asp:ListItem>
                         <asp:ListItem>Efetuado</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridStatus" runat="server" 
@@ -120,9 +158,6 @@
                 <td>
                     <asp:TextBox ID="txtPessoaAtendente" runat="server" Height="22px" 
                         MaxLength="50" Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridPessoaAtendente" runat="server" 
-                        ControlToValidate="txtPessoaAtendente" ErrorMessage="Preencha o campo Pessoa Atendente" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -131,10 +166,7 @@
                     Data Marcada</td>
                 <td>
                     <asp:TextBox ID="txtDataMarcada" runat="server" Height="22px" MaxLength="10" 
-                        Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridDataMarcada" runat="server" 
-                        ControlToValidate="txtDataMarcada" ErrorMessage="Preencha o campo Data Marcada" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                        Width="148px" CssClass="mask-data"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -143,10 +175,7 @@
                     Data Realizada</td>
                 <td>
                     <asp:TextBox ID="txtDataRealizada" runat="server" Height="22px" MaxLength="10" 
-                        Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridDataRealizada" runat="server" 
-                        ControlToValidate="txtDataRealizada" ErrorMessage="Preencha o campo Data Realizada" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                        Width="148px" CssClass="mask-data"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -156,9 +185,6 @@
                 <td>
                     <asp:TextBox ID="txtLaudoAtendente" runat="server" Height="134px" TextMode="MultiLine" 
                         Width="301px" MaxLength="255"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridLaudoAtendente" runat="server" 
-                        ControlToValidate="txtLaudoAtendente" ErrorMessage="Preencha o campo Laudo do Atendente" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             </table>

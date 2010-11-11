@@ -128,9 +128,13 @@ namespace SGS.View.Procedimentos
             objProcedimentos.Descricao = txtDescricao.Text;
             objProcedimentos.StatusProcedimento = ddlStatus.SelectedValue;
             objProcedimentos.PessoaAtendente = txtPessoaAtendente.Text;
-            objProcedimentos.DataMarcada = Convert.ToDateTime(txtDataMarcada.Text);
-            objProcedimentos.DataRealizada = Convert.ToDateTime(txtDataRealizada.Text);
             objProcedimentos.LaudoAtendente = txtLaudoAtendente.Text;
+
+            if (txtDataMarcada.Text != "")
+                objProcedimentos.DataMarcada = Convert.ToDateTime(txtDataMarcada.Text);
+
+            if (txtDataRealizada.Text != "")
+                objProcedimentos.DataRealizada = Convert.ToDateTime(txtDataRealizada.Text);
 
 
 
@@ -150,9 +154,13 @@ namespace SGS.View.Procedimentos
             txtDescricao.Text = SGSProcedimentos.Descricao;
             ddlStatus.SelectedValue = SGSProcedimentos.StatusProcedimento;
             txtPessoaAtendente.Text = SGSProcedimentos.PessoaAtendente;
-            txtDataMarcada.Text = SGSProcedimentos.DataMarcada.Value.ToString();
-            txtDataRealizada.Text = SGSProcedimentos.DataRealizada.Value.ToString();
             txtLaudoAtendente.Text = SGSProcedimentos.LaudoAtendente;
+
+            if (SGSProcedimentos.DataMarcada.HasValue)
+                txtDataMarcada.Text = SGSProcedimentos.DataMarcada.ToString();
+
+            if (SGSProcedimentos.DataRealizada.HasValue)
+                txtDataRealizada.Text = SGSProcedimentos.DataRealizada.ToString();
 
 
         }
