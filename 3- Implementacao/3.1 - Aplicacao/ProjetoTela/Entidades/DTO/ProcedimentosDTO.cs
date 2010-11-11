@@ -54,8 +54,8 @@ namespace SGS.Entidades.DTO
             set { _procedimentosLista = value; }
         }
 
-        private int _assistidoValor;
-        public int AssistidoValor
+        private int? _assistidoValor;
+        public int? AssistidoValor
         {
             set { _assistidoValor = value; }
             get { return _assistidoValor; }
