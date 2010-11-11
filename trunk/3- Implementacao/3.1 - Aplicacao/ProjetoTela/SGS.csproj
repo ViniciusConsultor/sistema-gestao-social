@@ -207,6 +207,7 @@
     <Compile Include="Entidades\Patrocinador.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Procedimentos.cs" />
+    <Compile Include="Entidades\ProcedimentosAssistido.cs" />
     <Compile Include="Entidades\Visitacao.cs" />
     <Compile Include="Entidades\Voluntario.cs" />
     <Compile Include="Global.asax.cs">

@@ -172,7 +172,7 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Data Realizada</td>
+                    Data Efetuada</td>
                 <td>
                     <asp:TextBox ID="txtDataRealizada" runat="server" Height="22px" MaxLength="10" 
                         Width="148px" CssClass="mask-data"></asp:TextBox>

@@ -43,13 +43,13 @@ namespace SGS.Servicos
         /// Consulta a tabela Procedimentos e retorna resultados de acordo com o preenchimento do filtro
         /// </summary>
 
-   /*     public ProcedimentosDTO ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
+        public ProcedimentosDTO ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
         {
             ProcedimentosDados objProcedimentosDados = new ProcedimentosDados();
             objProcedimentosDTO.ProcedimentosLista = objProcedimentosDados.ConsultarProcedimentos(objProcedimentosDTO);
 
             return objProcedimentosDTO;
 
-        }*/
+        }
     }
 }

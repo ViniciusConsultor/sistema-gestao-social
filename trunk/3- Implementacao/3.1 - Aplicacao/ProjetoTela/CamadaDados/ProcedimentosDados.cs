@@ -222,14 +222,14 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
-   /*     public List<Procedimentos> ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
+        public List<Procedimentos> ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
 
             SqlDataReader leitorDados;
 
-            SqlParameter paramAssistidoValor = new SqlParameter("@assistidoValor", System.Data.SqlDbType.Int32);
+            SqlParameter paramAssistidoValor = new SqlParameter("@assistidoValor", System.Data.SqlDbType.Int);
             if (objProcedimentosDTO.AssistidoValor.HasValue)
                 paramAssistidoValor.Value = objProcedimentosDTO.AssistidoValor.Value;
             else
@@ -252,27 +252,27 @@ namespace SGS.CamadaDados
 
             //Se o Assistido, Data Marcada e Data Realizada preenchidos
             if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue && objProcedimentosDTO.DataRealizadaValor.HasValue)
-                sql += @" where CodigoAssistido = @codigoAssistidoValor and DataMarcada = @dataMarcadaValor and DataRealizada = @dataRealizadaValor";
+                sql += @" where CodigoAssistido = @assistidoValor and DataMarcada = @dataMarcadaValor and DataRealizada = @dataRealizadaValor";
 
             //Se apenas Assistido  e Data Marcada preenchidos
-            else if (objProcedimentosDTO.AssistidoValor != "Selecione" && objProcedimentosDTO.DataMarcadaValor.HasValue)
-                sql += @" where Assistido = @assistidoValorValor and DataMarcadaValor = @dataMarcadaValor";
+            else if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue)
+                sql += @" where CodigoAssistido = @assistidoValor and DataMarcadaValor = @dataMarcadaValor";
 
             //Se apenas Data Marcada e Data Realizada preenchidos
             else if (objProcedimentosDTO.DataMarcadaValor.HasValue && objProcedimentosDTO.DataRealizadaValor.HasValue)
                 sql += @" where DataMarcada = @dataMarcadaValor and DataRealizada = @dataRealizadaValor";
 
             //Se apenas Data Realizada e Assistidos preenchidos
-            else if (objProcedimentosDTO.DataRealizadaValor.HasValue && objProcedimentosDTO.AssistidoValor != "Selecione")
-                sql += @" where DataRealizada = @dataRealizadaValor and Assistido = @assistidoValor";
+            else if (objProcedimentosDTO.DataRealizadaValor.HasValue && objProcedimentosDTO.AssistidoValor.HasValue)
+                sql += @" where DataRealizada = @dataRealizadaValor and CodigoAssistido = @assistidoValor";
 
             //Se apenas Data Realizada preenchido
             else if (objProcedimentosDTO.DataRealizadaValor.HasValue)
                 sql += @" where DataRealizada = @dataRealizadaValor";
 
             //Se apenas Assistido preenchido
-            else if (objProcedimentosDTO.AssistidoValor != "Selecione")
-                sql += @" where Assistido = @assistidoValor";
+            else if (objProcedimentosDTO.AssistidoValor.HasValue)
+                sql += @" where CodigoAssistido = @assistidoValor";
 
             //Se apenas Data Marcada
             else if (objProcedimentosDTO.DataMarcadaValor.HasValue)
@@ -309,7 +309,7 @@ namespace SGS.CamadaDados
             }
 
             return procedimentosLista;
-        }*/
+        }
             
 
     }
