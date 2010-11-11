@@ -130,15 +130,6 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.TextBox txtPessoaAtendente;
         
         /// <summary>
-        /// requeridPessoaAtendente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridPessoaAtendente;
-        
-        /// <summary>
         /// txtDataMarcada control.
         /// </summary>
         /// <remarks>
@@ -146,15 +137,6 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataMarcada;
-        
-        /// <summary>
-        /// requeridDataMarcada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataMarcada;
         
         /// <summary>
         /// txtDataRealizada control.
@@ -166,15 +148,6 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.TextBox txtDataRealizada;
         
         /// <summary>
-        /// requeridDataRealizada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataRealizada;
-        
-        /// <summary>
         /// txtLaudoAtendente control.
         /// </summary>
         /// <remarks>
@@ -182,15 +155,6 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLaudoAtendente;
-        
-        /// <summary>
-        /// requeridLaudoAtendente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridLaudoAtendente;
         
         /// <summary>
         /// btnSalvar control.
