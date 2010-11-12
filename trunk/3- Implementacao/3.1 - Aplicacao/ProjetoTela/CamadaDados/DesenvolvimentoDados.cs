@@ -97,7 +97,7 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade Desenvolvimento com o Código do Desenvolvimento Preenchido
+            
             return ObterUltimoDesenvolvimentoInserido();
         }
 
@@ -205,6 +205,9 @@ namespace SGS.CamadaDados
             else
                 paramAssistidoValor.Value = DBNull.Value;
 
+            SqlParameter paramAtividadeValor = new SqlParameter("@atividadeValor", "%" + objDesenvolvimentoDTO.AtividadeValor + "%");
+            paramAtividadeValor.DbType = System.Data.DbType.String;
+
             SqlParameter paramDataInicioValor = new SqlParameter("@dataInicioValor", System.Data.SqlDbType.DateTime);
             if (objDesenvolvimentoDTO.DataInicioValor.HasValue)
                 paramDataInicioValor.Value = objDesenvolvimentoDTO.DataInicioValor.Value;
@@ -220,13 +223,17 @@ namespace SGS.CamadaDados
 
             String sql = "select * from Desenvolvimento PR inner join Pessoa P on P.CodigoPessoa = PR.CodigoAssistido";
 
-            //Se o Assistido, Data Inicio e Data Fim preenchidos
-            if (objDesenvolvimentoDTO.AssistidoValor.HasValue && objDesenvolvimentoDTO.DataInicioValor.HasValue && objDesenvolvimentoDTO.DataFimValor.HasValue)
-                sql += @" where CodigoAssistido = @assistidoValor and DataInicio >= @dataInicioValor and DataFim <= @dataFimValor";
+            //Se o Assistido, Atividade, Data Inicio e Data Fim preenchidos
+            if (objDesenvolvimentoDTO.AssistidoValor.HasValue && objDesenvolvimentoDTO.AtividadeValor != "" && objDesenvolvimentoDTO.DataInicioValor.HasValue && objDesenvolvimentoDTO.DataFimValor.HasValue)
+                sql += @" where CodigoAssistido = @assistidoValor and Atividade like @atividadeValor and DataInicio >= @dataInicioValor and DataFim <= @dataFimValor";
 
-            //Se apenas Assistido  e Data Inicio preenchidos
-            else if (objDesenvolvimentoDTO.AssistidoValor.HasValue && objDesenvolvimentoDTO.DataInicioValor.HasValue)
-                sql += @" where CodigoAssistido = @assistidoValor and DataInicio >= @dataInicioValor";
+            //Se apenas Assistido e Atividade preenchidos
+            else if (objDesenvolvimentoDTO.AssistidoValor.HasValue && objDesenvolvimentoDTO.AtividadeValor != "")
+                sql += @" where CodigoAssistido = @assistidoValor and Atividade like @atividadeValor";
+
+            //Se apenas Atividade e Data Inicio preenchidos
+            else if (objDesenvolvimentoDTO.AtividadeValor != "" && objDesenvolvimentoDTO.DataInicioValor.HasValue)
+                sql += @" where Atividade like @atividadeValor and DataInicio >= @dataInicioValor";
 
             //Se apenas Data Inicio e Data Fim preenchidos
             else if (objDesenvolvimentoDTO.DataInicioValor.HasValue && objDesenvolvimentoDTO.DataFimValor.HasValue)
@@ -244,13 +251,18 @@ namespace SGS.CamadaDados
             else if (objDesenvolvimentoDTO.AssistidoValor.HasValue)
                 sql += @" where CodigoAssistido = @assistidoValor";
 
-            //Se apenas Data Inicio
+            //Se apenas Data Inicio preenchida
             else if (objDesenvolvimentoDTO.DataInicioValor.HasValue)
                 sql += @" where DataInicio >= @dataInicioValor";
+
+            //Se apenas Atividade preenchida
+            else if (objDesenvolvimentoDTO.AtividadeValor != "")
+                sql += @" where Atividade like @atividadeValor";
 
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;
             comando.Parameters.Add(paramAssistidoValor);
+            comando.Parameters.Add(paramAtividadeValor);
             comando.Parameters.Add(paramDataInicioValor);
             comando.Parameters.Add(paramDataFimValor);
 

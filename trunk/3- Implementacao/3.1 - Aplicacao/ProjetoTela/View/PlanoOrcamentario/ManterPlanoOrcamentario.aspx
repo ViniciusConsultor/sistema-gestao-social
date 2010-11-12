@@ -185,7 +185,8 @@
                     <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
                         onclick="btnSalvar_Click" Height="26px" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                        onclick="btnExcluir_Click" onclientclick="return confirm('Deseja realmente excluir?')" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
                         CausesValidation="False" onclick="btnCancelar_Click" />

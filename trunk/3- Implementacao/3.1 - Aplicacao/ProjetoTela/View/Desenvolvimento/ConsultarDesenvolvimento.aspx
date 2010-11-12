@@ -31,12 +31,6 @@
     {
         width: 187px;
     }
-    .style21
-    {
-        width: 119px;
-        text-decoration: underline;
-        font-size: smaller;
-    }
     .style22
     {
         width: 119px;
@@ -55,6 +49,50 @@
     }
         </style>
 
+                <!-- Importa todos os script JavaScript-->
+        <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskMoney.js"> </script>
+        
+        <!-- Comandos de JavaScript-->
+        <script type="text/javascript">
+
+            //Diz que quando a página for carregada, irá ser executado o
+            //bloco de código contido entre os {};
+
+            $(document).ready(function () {
+
+                //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
+                //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
+
+                $('.mask-numero').mask('999999'); //número
+                $('.mask-numero2').maskMoney({ precision: 6 }); //número
+
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99"); //cpf
+                $(".mask-cnpj").mask("99.999.999/9999-99"); //cnpj
+                $(".mask-cep").mask("99999-999"); //cep
+                $(".mask-real-cifrao").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
+                $(".mask-real").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: false }); //real sem cifrão 1.000,00
+                $(".mask-precision").maskMoney({ precision: 3 }); //com 3 casas de precisão 1,000
+
+                /* Default options are (but you can always change that):
+                symbol:'US$',
+                decimal:'.',
+                precision:2,
+                thousands:',',
+                allowZero:false,
+                showSymbol:false */
+
+            });
+
+        </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -70,14 +108,9 @@
 
     <table width="850px" align="left">
         <tr>
-            <td class="style17"> &nbsp; </td>    
-            <td class="style21"> &nbsp; </td>
-            <td class="style16"> &nbsp; </td>
-        </tr>
-        <tr>
-            <td class="style17"> &nbsp;</td>    
+            <td class="style17"> </td>    
             <td class="style23"> <strong style="text-align: right">Filtro:</strong></td>
-            <td class="style16"> &nbsp;</td>
+            <td class="style16"> </td>
         </tr>
         <tr>
             <td class="style20"> &nbsp;</td>    
@@ -85,9 +118,9 @@
             <td class="style14"> 
                 <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px">
                     <asp:ListItem>Selecione</asp:ListItem>
-                    <asp:ListItem>João</asp:ListItem>
-                    <asp:ListItem>Maria</asp:ListItem>
-                    <asp:ListItem>Luiz</asp:ListItem>
+                    <asp:ListItem Value="1">João</asp:ListItem>
+                    <asp:ListItem Value="2">Maria</asp:ListItem>
+                    <asp:ListItem Value="3">Pedro</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -102,14 +135,15 @@
             <td class="style20"> &nbsp;</td>    
             <td style="text-align: right" class="style24"> Data Início</td>
             <td class="style14"> 
-                <asp:TextBox ID="txtDataInicio" runat="server" Width="148px"></asp:TextBox>
+                <asp:TextBox ID="txtDataInicio" runat="server" Width="148px" 
+                    CssClass="mask-data"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style20"> &nbsp;</td>    
             <td style="text-align: right" class="style24"> Data Fim</td>
             <td class="style14"> 
-                <asp:TextBox ID="txtDataFim" runat="server" Width="148px"></asp:TextBox>
+                <asp:TextBox ID="txtDataFim" runat="server" Width="148px" CssClass="mask-data"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -122,8 +156,10 @@
             <td class="style20"> &nbsp;</td>    
             <td style="text-align: right" class="style22"> &nbsp; </td>
             <td class="style14"> 
-                <asp:Button ID="btnLocalizar" runat="server" Text="Localizar" Width="95px" />
-&nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="95px" />
+                <asp:Button ID="btnLocalizar" runat="server" Text="Localizar" Width="95px" 
+                    onclick="btnLocalizar_Click" />
+&nbsp;<asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="95px" 
+                    onclick="btnLimpar_Click" />
             </td>
         </tr>
         <tr>
@@ -138,7 +174,8 @@
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="96%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center" Height="161px" 
-                    AllowPaging="True" PageSize="2">
+                    AllowPaging="True" PageSize="2" 
+                    onpageindexchanging="gridDesenvolvimento_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoDesenvolvimento" 
