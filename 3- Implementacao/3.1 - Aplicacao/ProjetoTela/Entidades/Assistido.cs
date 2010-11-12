@@ -9,9 +9,6 @@ namespace SGS.Entidades
     public class Assistido : Pessoa
     {
         private int? _codigoAssistido;
-        private int? _pessoa_CodigoPessoa;
-        private int? _contato_CodigoContato;
-        private int? _escolar_CodigoEscolar;
         private string _statusAssistido;
         private string _certidaoNascimento;
         private string _nomePai;
@@ -20,17 +17,15 @@ namespace SGS.Entidades
         private string _cpfMae;
         private string _rgPai;
         private string _rgMae;
-        private string _enderecoFamilia;
-        private string _telefoneFamilia;
         private Decimal? _peso;
         private Decimal? _altura;
         private string _cor;
         private string _historicoVida;
-        private string _vivo;
         private string _telefoneMae;
         private int? _qtdIrmaos;
         private string _responsavelLegal;
         private string _cpfResponsavel;
+        private int? _codigoContatoResponsavel;
         private Contato _contatoResponsavel;
 
 
@@ -44,24 +39,6 @@ namespace SGS.Entidades
         {
             get { return _codigoAssistido; }
             set { _codigoAssistido = value; }
-        }
-
-        public int? Pessoa_CodigoPessoa
-        {
-            get { return _pessoa_CodigoPessoa; }
-            set { _pessoa_CodigoPessoa = value; }
-        }
-
-        public int? Contato_CodigoContato
-        {
-            get { return _contato_CodigoContato; }
-            set { _contato_CodigoContato = value; }
-        }
-
-        public int? Escolar_CodigoEscolar
-        {
-            get { return _escolar_CodigoEscolar; }
-            set { _escolar_CodigoEscolar = value; }
         }
 
         public string CertidaoNascimento
@@ -106,18 +83,6 @@ namespace SGS.Entidades
             set { _rgMae = value; }
         }
 
-        public string EnderecoFamilia
-        {
-            get { return _enderecoFamilia; }
-            set { _enderecoFamilia = value; }
-        }
-
-        public string TelefoneFamilia
-        {
-            get { return _telefoneFamilia; }
-            set { _telefoneFamilia = value; }
-        }
-
         public Decimal? Peso
         {
             get { return _peso; }
@@ -140,12 +105,6 @@ namespace SGS.Entidades
         {
             get { return _historicoVida; }
             set { _historicoVida = value; }
-        }
-
-        public string Vivo
-        {
-            get { return _vivo; }
-            set { _vivo = value; }
         }
 
         public string TelefoneMae
@@ -179,15 +138,15 @@ namespace SGS.Entidades
             set { _cpfResponsavel = value; }
         }
 
-        private string _dataEntrada;
-        public String DataEntrada
+        private DateTime? _dataEntrada;
+        public DateTime? DataEntrada
         {
             get { return _dataEntrada; }
             set { _dataEntrada = value; }
         }
 
-        private string _dataSaida;
-        public String DataSaida
+        private DateTime? _dataSaida;
+        public DateTime? DataSaida
         {
             get { return _dataSaida; }
             set { _dataSaida = value; }
@@ -254,6 +213,12 @@ namespace SGS.Entidades
         {
             get { return _maeViva; }
             set { _maeViva = value; }
+        }
+
+        public int? CodigoContatoResponsavel
+        {
+            get { return _codigoContatoResponsavel; }
+            set { _codigoContatoResponsavel = value; }
         }
 
         public Contato ContatoResponsavel
