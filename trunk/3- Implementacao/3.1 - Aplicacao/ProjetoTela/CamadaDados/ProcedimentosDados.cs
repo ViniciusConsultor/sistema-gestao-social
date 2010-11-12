@@ -222,7 +222,7 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
-        public List<Procedimentos> ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
+        public List<ProcedimentosAssistidoDTO> ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
@@ -248,27 +248,27 @@ namespace SGS.CamadaDados
                 paramDataRealizadaValor.Value = DBNull.Value;
 
 
-            String sql = "select * from Procedimentos";
+            String sql = "select * from Procedimentos PR inner join Pessoa P on P.CodigoPessoa = PR.CodigoAssistido";
 
             //Se o Assistido, Data Marcada e Data Realizada preenchidos
             if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue && objProcedimentosDTO.DataRealizadaValor.HasValue)
-                sql += @" where CodigoAssistido = @assistidoValor and DataMarcada = @dataMarcadaValor and DataRealizada = @dataRealizadaValor";
+                sql += @" where CodigoAssistido = @assistidoValor and DataMarcada >= @dataMarcadaValor and DataRealizada <= @dataRealizadaValor";
 
             //Se apenas Assistido  e Data Marcada preenchidos
             else if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue)
-                sql += @" where CodigoAssistido = @assistidoValor and DataMarcadaValor = @dataMarcadaValor";
+                sql += @" where CodigoAssistido = @assistidoValor and DataMarcada >= @dataMarcadaValor";
 
             //Se apenas Data Marcada e Data Realizada preenchidos
             else if (objProcedimentosDTO.DataMarcadaValor.HasValue && objProcedimentosDTO.DataRealizadaValor.HasValue)
-                sql += @" where DataMarcada = @dataMarcadaValor and DataRealizada = @dataRealizadaValor";
+                sql += @" where DataMarcada >= @dataMarcadaValor and DataRealizada <= @dataRealizadaValor";
 
             //Se apenas Data Realizada e Assistidos preenchidos
             else if (objProcedimentosDTO.DataRealizadaValor.HasValue && objProcedimentosDTO.AssistidoValor.HasValue)
-                sql += @" where DataRealizada = @dataRealizadaValor and CodigoAssistido = @assistidoValor";
+                sql += @" where DataRealizada <= @dataRealizadaValor and CodigoAssistido = @assistidoValor";
 
             //Se apenas Data Realizada preenchido
             else if (objProcedimentosDTO.DataRealizadaValor.HasValue)
-                sql += @" where DataRealizada = @dataRealizadaValor";
+                sql += @" where DataRealizada <= @dataRealizadaValor";
 
             //Se apenas Assistido preenchido
             else if (objProcedimentosDTO.AssistidoValor.HasValue)
@@ -276,7 +276,7 @@ namespace SGS.CamadaDados
 
             //Se apenas Data Marcada
             else if (objProcedimentosDTO.DataMarcadaValor.HasValue)
-                sql += @" where DataMarcada = @dataMarcadaValor";
+                sql += @" where DataMarcada >= @dataMarcadaValor";
 
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;
@@ -288,29 +288,35 @@ namespace SGS.CamadaDados
 
 
 
-            List<Procedimentos> procedimentosLista = new List<Procedimentos>();
-            Procedimentos objProcedimentos;
+            List<ProcedimentosAssistidoDTO> procedimentosAssistidoDTOLista = new List<ProcedimentosAssistidoDTO>();
+            ProcedimentosAssistidoDTO objProcedimentosAssistidoDTO;
 
             while (leitorDados.Read())
             {
-                objProcedimentos = new Procedimentos();
+                objProcedimentosAssistidoDTO = new ProcedimentosAssistidoDTO();
 
-                objProcedimentos.CodigoProcedimento = Convert.ToInt32(leitorDados["CodigoProcedimento"]);
-                objProcedimentos.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
-                objProcedimentos.TipoProcedimento = leitorDados["TipoProcedimento"].ToString();
-                objProcedimentos.Procedimento = leitorDados["Procedimento"].ToString();
-                objProcedimentos.Descricao = leitorDados["Descricao"].ToString();
-                objProcedimentos.StatusProcedimento = leitorDados["StatusProcedimento"].ToString();
-                objProcedimentos.PessoaAtendente = leitorDados["PessoaAtendente"].ToString();
-                objProcedimentos.LaudoAtendente = leitorDados["LaudoAtendente"].ToString();
+                objProcedimentosAssistidoDTO.NomeAssistido = leitorDados["Nome"].ToString();
+                objProcedimentosAssistidoDTO.CodigoProcedimento = Convert.ToInt32(leitorDados["CodigoProcedimento"]);
+                objProcedimentosAssistidoDTO.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                objProcedimentosAssistidoDTO.TipoProcedimento = leitorDados["TipoProcedimento"].ToString();
+                objProcedimentosAssistidoDTO.Procedimento = leitorDados["Procedimento"].ToString();
+                objProcedimentosAssistidoDTO.Descricao = leitorDados["Descricao"].ToString();
+                objProcedimentosAssistidoDTO.StatusProcedimento = leitorDados["StatusProcedimento"].ToString();
+                objProcedimentosAssistidoDTO.PessoaAtendente = leitorDados["PessoaAtendente"].ToString();
+                objProcedimentosAssistidoDTO.LaudoAtendente = leitorDados["LaudoAtendente"].ToString();
+
+                if (leitorDados["DataMarcada"] != DBNull.Value)
+                    objProcedimentosAssistidoDTO.DataMarcada = Convert.ToDateTime(leitorDados["DataMarcada"]);
+
+                if (leitorDados["DataRealizada"] != DBNull.Value)
+                    objProcedimentosAssistidoDTO.DataRealizada = Convert.ToDateTime(leitorDados["DataRealizada"]);
 
 
-                procedimentosLista.Add(objProcedimentos);
+                procedimentosAssistidoDTOLista.Add(objProcedimentosAssistidoDTO);
             }
 
-            return procedimentosLista;
+            return procedimentosAssistidoDTOLista;
         }
-            
 
     }
 }

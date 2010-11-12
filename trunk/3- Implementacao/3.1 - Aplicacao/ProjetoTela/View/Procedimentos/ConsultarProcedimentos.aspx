@@ -6,14 +6,10 @@
     {
         width: 174px;
         text-align: right;
+        font-size: smaller;
     }
     .style12
     {
-    }
-    .style14
-    {
-        width: 174px;
-        text-align: left;
     }
     .style15
     {
@@ -22,6 +18,19 @@
     .style16
     {
         width: 486px;
+    }
+    .style17
+    {
+        width: 174px;
+        text-align: right;
+        text-decoration: underline;
+        font-size: smaller;
+    }
+    .style18
+    {
+        width: 174px;
+        text-align: right;
+        font-size: smaller;
     }
     </style>
     
@@ -74,10 +83,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Procedimentos"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" Text=""></asp:Label> 
+        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text="Descrição: Permite buscar os procedimentos cadastrar os procedimentos cadastrados no sistema."></asp:Label> 
         
         <br /><br />
         
@@ -92,26 +102,26 @@
         </tr>
         <tr>
             <td class="style15"> &nbsp;</td>    
-            <td class="style14"> <strong>Filtro:</strong></td>
+            <td class="style17"> <strong style="text-align: right" class="style8">Filtro:</strong></td>
             <td class="style16"> &nbsp;</td>
             <td> &nbsp;</td>
         </tr>
         <tr>
             <td class="style15"> &nbsp;</td>    
-            <td class="style11"> Assistido</td>
+            <td class="style18"> Assistido</td>
             <td class="style16"> 
-                <asp:DropDownList ID="ddlAssistido" runat="server" Height="21px" Width="271px">
+                <asp:DropDownList ID="ddlAssistido" runat="server" Width="200px">
                     <asp:ListItem>Selecione</asp:ListItem>
-                    <asp:ListItem>João</asp:ListItem>
-                    <asp:ListItem>Maria</asp:ListItem>
-                    <asp:ListItem>Luiz</asp:ListItem>
+                    <asp:ListItem Value="1">João</asp:ListItem>
+                    <asp:ListItem Value="2">Maria</asp:ListItem>
+                    <asp:ListItem Value="3">Pedro</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td> &nbsp;</td>
         </tr>
         <tr>
             <td class="style15"> &nbsp;</td>    
-            <td class="style11"> &nbsp;Data Agendada&nbsp; </td>
+            <td class="style18"> &nbsp;Data Marcada </td>
             <td class="style16"> 
                 <asp:TextBox ID="txtDataMarcada" runat="server" Width="200px" 
                     CssClass="mask-data"></asp:TextBox>
@@ -158,7 +168,8 @@
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="96%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center" Height="161px" 
-                    AllowPaging="True" PageSize="2">
+                    AllowPaging="True" PageSize="2" 
+                    onpageindexchanging="gridProcedimentos_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoProcedimento" 
@@ -166,7 +177,7 @@
                             Text="Selecionar">
                         <ItemStyle Width="75px" />
                         </asp:HyperLinkField>
-                        <asp:BoundField DataField="CodigoAssistido" HeaderText="Assistido">
+                        <asp:BoundField DataField="NomeAssistido" HeaderText="Assistido">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -178,13 +189,13 @@
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="DataMarcada" HeaderText="Data de Agendada" 
-                            DataFormatString="{0:dd-M-yyyy}">
+                        <asp:BoundField DataField="DataMarcada" HeaderText="Data Marcada" 
+                            DataFormatString="{0:dd-MM-yyyy}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="DataRealizada" DataFormatString="{0:dd-M-yyyy}" 
-                            HeaderText="Data Efetuada">
+                        <asp:BoundField DataField="DataRealizada" DataFormatString="{0:dd-MM-yyyy}" 
+                            HeaderText="Data Realizada">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>

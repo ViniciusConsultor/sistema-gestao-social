@@ -198,7 +198,7 @@
     <Compile Include="Entidades\DTO\ProcedimentosDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Enum\PerfilEnum.cs" />
-    <Compile Include="Entidades\Escolar.cs" />
+    <Compile Include="View\CasaLar\Escolar.cs" />
     <Compile Include="Entidades\Financas.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\Login.cs" />
@@ -208,7 +208,7 @@
     <Compile Include="Entidades\Patrocinador.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Procedimentos.cs" />
-    <Compile Include="Entidades\ProcedimentosAssistido.cs" />
+    <Compile Include="Entidades\DTO\ProcedimentosAssistidoDTO.cs" />
     <Compile Include="Entidades\Visitacao.cs" />
     <Compile Include="Entidades\Voluntario.cs" />
     <Compile Include="Global.asax.cs">
