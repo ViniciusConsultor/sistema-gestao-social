@@ -16,7 +16,6 @@ namespace SGS.CamadaDados
         public Assistido Salvar(Assistido objAssistido)
         {
             PessoaDados objPessoaDados = new PessoaDados();
-            //objAssistido = (Assistido)objPessoaDados.Salvar(objAssistido);
             objPessoaDados.Salvar(objAssistido);
 
             SqlCommand comando = new SqlCommand();
@@ -354,13 +353,13 @@ namespace SGS.CamadaDados
         {
             bool execucao;
 
-            EscolarDados objEscolarDados = new EscolarDados();
-            VisitacaoDados objVisitacaoDados = new VisitacaoDados();
-            Procedimentos objProcedimentos = new Procedimentos();
-            DesenvolvimentoDados objDesenvolvimentoDados = new DesenvolvimentoDados();
-            ContatoDados objContatoDados = new ContatoDados();
-            AssistidoDados objAssistidoDados = new AssistidoDados();
-            PessoaDados objPessoaDados = new PessoaDados();
+            //EscolarDados objEscolarDados = new EscolarDados();
+            //VisitacaoDados objVisitacaoDados = new VisitacaoDados();
+            //Procedimentos objProcedimentos = new Procedimentos();
+            //DesenvolvimentoDados objDesenvolvimentoDados = new DesenvolvimentoDados();
+            //ContatoDados objContatoDados = new ContatoDados();
+            //AssistidoDados objAssistidoDados = new AssistidoDados();
+            //PessoaDados objPessoaDados = new PessoaDados();
 
             //Sequencia Exclusão
             // 1° Deletar dados Escolares do Assistido.
@@ -374,7 +373,7 @@ namespace SGS.CamadaDados
             // 7º Excluir Pessoa
 
 
-            SqlCommand comando = new SqlCommand("delete from Assistido where CodigoAssistido = @codigoAssistido", base.Conectar());
+            SqlCommand comando = new SqlCommand("UPDATE Assistido SET Excluido = '1' where CodigoAssistido = @codigoAssistido", base.Conectar());
 
             SqlParameter parametroCodigoAssistido = new SqlParameter("@codigoAssistido", codigoAssistido);
             parametroCodigoAssistido.DbType = System.Data.DbType.Int32;

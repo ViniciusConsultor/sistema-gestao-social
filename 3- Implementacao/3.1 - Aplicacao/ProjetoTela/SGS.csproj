@@ -444,6 +444,7 @@
     </Compile>
     <Compile Include="View\Desenvolvimento\ManterDesenvolvimento.aspx.cs">
       <DependentUpon>ManterDesenvolvimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Desenvolvimento\ManterDesenvolvimento.aspx.designer.cs">
       <DependentUpon>ManterDesenvolvimento.aspx</DependentUpon>

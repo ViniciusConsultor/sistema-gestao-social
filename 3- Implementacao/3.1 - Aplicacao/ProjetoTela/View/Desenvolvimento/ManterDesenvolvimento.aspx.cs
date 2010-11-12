@@ -4,7 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-/*
+using SGS.Componentes;
+using SGS.Entidades.DTO;
+using SGS.Entidades;
+using SGS.Servicos;
+
 namespace SGS.View.Desenvolvimento
 {
     public partial class ManterDesenvolvimento : System.Web.UI.Page
@@ -124,15 +128,6 @@ namespace SGS.View.Desenvolvimento
         {
             SGS.Entidades.Desenvolvimento objDesenvolvimento = SGSDesenvolvimento;
 
-            objDesenvolvimento.Atividade = 
-            objDesenvolvimento.CargaHoraria = 
-            objDesenvolvimento.DiaSemana = ddlDiaSemana.SelectedValue;
-            objDesenvolvimento.Horario = Convert.ToDateTime(txtHorario.Text);
-            objDesenvolvimento.Periodo = ddlPeriodo.SelectedValue;
-            objDesenvolvimento.PorcaoAlimento = txtPorcaoAlimento.Text;
-            objDesenvolvimento.Alimento = ltbAlimentos.SelectedValue;
-            objDesenvolvimento.Diretiva = txtDiretiva.Text;
-
             return objDesenvolvimento;
         }
 
@@ -141,13 +136,6 @@ namespace SGS.View.Desenvolvimento
         /// </summary>
         private void PreencherDadosView()
         {
-
-            ddlDiaSemana.SelectedValue = SGSDesenvolvimento.DiaSemana;
-            txtHorario.Text = SGSDesenvolvimento.Horario.Value.ToString();
-            ddlPeriodo.SelectedValue = SGSDesenvolvimento.Periodo;
-            txtPorcaoAlimento.Text = SGSDesenvolvimento.PorcaoAlimento;
-            ltbAlimentos.SelectedValue = SGSDesenvolvimento.Alimento;
-            txtDiretiva.Text = SGSDesenvolvimento.Diretiva;
 
         }
 
@@ -181,4 +169,4 @@ namespace SGS.View.Desenvolvimento
         #endregion
 
     }
-}*/
+}
