@@ -80,7 +80,7 @@ namespace SGS.View.Desenvolvimento
             SGSServico objSGSServico = new SGSServico();
 
             if (objSGSServico.ExcluirDesenvolvimento(SGSDesenvolvimento.CodigoDesenvolvimento.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
+                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Desenvolvimento excluído com sucesso!'); </script>");
 
             Response.Redirect("ConsultarDesenvolvimento.aspx");
         }
@@ -195,11 +195,6 @@ namespace SGS.View.Desenvolvimento
         }
 
         #endregion
-
-        protected void btnExcluir_Click1(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

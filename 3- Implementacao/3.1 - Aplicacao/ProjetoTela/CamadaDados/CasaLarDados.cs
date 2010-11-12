@@ -286,7 +286,7 @@ namespace SGS.CamadaDados
         /// <returns></returns>
         public List<CasaLar> ListarCasaLar()
         {
-            SqlCommand comando = new SqlCommand("select * from Casa_Lar ORDER BY CodigoCasaLar", base.Conectar());
+            SqlCommand comando = new SqlCommand("select * from CasaLar ORDER BY CodigoCasaLar", base.Conectar());
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             List<CasaLar> listCasaLar = new List<CasaLar>();

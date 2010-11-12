@@ -13,7 +13,7 @@ namespace SGS.View.Desenvolvimento
     public partial class ConsultarDesenvolvimento : System.Web.UI.Page
     {
 
-    /*
+    
         #region Eventos
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace SGS.View.Desenvolvimento
         /// <summary>
         /// Preenche o Grid de Desenvolvimento
         /// </summary>
-        protected List<SGS.Entidades.DesenvolvimentoAssistidoDTO> GridDesenvolvimentoDataSource
+        protected List<SGS.Entidades.DTO.DesenvolvimentoAssistidoDTO> GridDesenvolvimentoDataSource
         {
             set
             {
@@ -188,6 +188,6 @@ namespace SGS.View.Desenvolvimento
         }
 
         #endregion
-     */
+     
     }
 }
