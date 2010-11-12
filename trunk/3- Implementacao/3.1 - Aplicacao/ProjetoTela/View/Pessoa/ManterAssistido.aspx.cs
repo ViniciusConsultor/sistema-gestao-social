@@ -60,7 +60,7 @@ namespace SGS.View.Pessoa
 
             SGSAssistidoDTO.Assistido = objSGSServico.SalvarAssistido(PegarDadosView());
 
-            string url = @"ManterAssitido.aspx?tipo=alt&cod=" + SGSAssistidoDTO.Assistido.CodigoAssistido.Value.ToString();
+            string url = @"ManterAssistido.aspx?tipo=alt&cod=" + SGSAssistidoDTO.Assistido.CodigoAssistido.Value.ToString();
             Response.Redirect(url);
 
             //TODO: Maycon exibir alerta na tela
@@ -135,6 +135,7 @@ namespace SGS.View.Pessoa
             else
                 SGSAssistidoDTO.Assistido.CodigoCasaLar = null;
 
+            SGSAssistidoDTO.Assistido.TipoPessoa = "Assistido";
             SGSAssistidoDTO.Assistido.Nome = ucPessoaDadosBasico.Nome;
             SGSAssistidoDTO.Assistido.Sexo = ucPessoaDadosBasico.Sexo;
 
@@ -172,14 +173,20 @@ namespace SGS.View.Pessoa
             #region Dados Assistido
 
             //Dados Assistido
-
             if (ucPessoaAssistido.StatusAssistido != "Selecione")
                 SGSAssistidoDTO.Assistido.StatusAssistido = ucPessoaAssistido.StatusAssistido;
             else
                 SGSAssistidoDTO.Assistido.StatusAssistido = "";
 
-            SGSAssistidoDTO.Assistido.DataEntrada = ucPessoaAssistido.DataEntrada;
-            SGSAssistidoDTO.Assistido.DataSaida = ucPessoaAssistido.DataSaida;
+            if (ucPessoaAssistido.DataEntrada != "")
+                SGSAssistidoDTO.Assistido.DataEntrada = Convert.ToDateTime(ucPessoaAssistido.DataEntrada);
+            else
+                SGSAssistidoDTO.Assistido.DataEntrada = null;
+
+            if (ucPessoaAssistido.DataSaida != "")
+                SGSAssistidoDTO.Assistido.DataSaida = Convert.ToDateTime(ucPessoaAssistido.DataSaida);
+            else
+                SGSAssistidoDTO.Assistido.DataSaida = null;
             SGSAssistidoDTO.Assistido.EstadoSaude = ucPessoaAssistido.EstadoSaude;
             if (ucPessoaAssistido.Peso != "")
                 SGSAssistidoDTO.Assistido.Peso = Convert.ToDecimal(ucPessoaAssistido.Peso);
@@ -200,7 +207,7 @@ namespace SGS.View.Pessoa
             SGSAssistidoDTO.Assistido.Pai = ucPessoaAssistido.Pai;
             SGSAssistidoDTO.Assistido.Mae = ucPessoaAssistido.Mae;
             SGSAssistidoDTO.Assistido.PaiVivo = ucPessoaAssistido.PaiVivo;
-            SGSAssistidoDTO.Assistido.Mae = ucPessoaAssistido.MaeViva ;
+            SGSAssistidoDTO.Assistido.MaeViva = ucPessoaAssistido.MaeViva ;
             SGSAssistidoDTO.Assistido.CPFPai = ucPessoaAssistido.CPFPai;
             SGSAssistidoDTO.Assistido.CPFMae = ucPessoaAssistido.CPFMae;
             SGSAssistidoDTO.Assistido.RGPai = ucPessoaAssistido.RGPai;
@@ -221,6 +228,15 @@ namespace SGS.View.Pessoa
             SGSAssistidoDTO.Assistido.ContatoResponsavel.Cidade = ucPessoaAssistido.CidadeResponsavel;
             SGSAssistidoDTO.Assistido.ContatoResponsavel.Estado = ucPessoaAssistido.EstadoResponsavel;
             SGSAssistidoDTO.Assistido.ContatoResponsavel.Pais = ucPessoaAssistido.PaisResponsavel;
+
+            //Verifica se algum dado de contato do Responsável foi inserido, caso não tem o Contato Responsável recebe null
+            Contato contato = SGSAssistidoDTO.Assistido.ContatoResponsavel;
+            if (String.IsNullOrEmpty(contato.TelefoneConvencional) && String.IsNullOrEmpty(contato.Email) && String.IsNullOrEmpty(contato.CEP) &&
+                String.IsNullOrEmpty(contato.Logradouro) && String.IsNullOrEmpty(contato.Numero) && String.IsNullOrEmpty(contato.Bairro) &&
+                String.IsNullOrEmpty(contato.Cidade) && String.IsNullOrEmpty(contato.Estado) && String.IsNullOrEmpty(contato.Pais))
+            {
+                SGSAssistidoDTO.Assistido.ContatoResponsavel = null;
+            }
 
             #endregion
 
@@ -276,8 +292,15 @@ namespace SGS.View.Pessoa
             //Dados Assistido
 
             ucPessoaAssistido.StatusAssistido = SGSAssistidoDTO.Assistido.StatusAssistido;
-            ucPessoaAssistido.DataEntrada = SGSAssistidoDTO.Assistido.DataEntrada;
-            ucPessoaAssistido.DataSaida = SGSAssistidoDTO.Assistido.DataSaida;
+            if (SGSAssistidoDTO.Assistido.DataEntrada.HasValue)
+                ucPessoaAssistido.DataEntrada = SGSAssistidoDTO.Assistido.DataEntrada.Value.ToString("dd/MM/yyyy");
+            else
+                ucPessoaAssistido.DataEntrada = "";
+
+            if (SGSAssistidoDTO.Assistido.DataSaida.HasValue)
+                ucPessoaAssistido.DataSaida = SGSAssistidoDTO.Assistido.DataSaida.Value.ToString("dd/MM/yyyy");
+            else
+                ucPessoaAssistido.DataSaida = "";
             ucPessoaAssistido.EstadoSaude = SGSAssistidoDTO.Assistido.EstadoSaude;
             if (SGSAssistidoDTO.Assistido.Peso.HasValue)
                 ucPessoaAssistido.Peso = SGSAssistidoDTO.Assistido.Peso.ToString();
@@ -302,7 +325,7 @@ namespace SGS.View.Pessoa
             ucPessoaAssistido.Pai = SGSAssistidoDTO.Assistido.Pai;
             ucPessoaAssistido.Mae = SGSAssistidoDTO.Assistido.Mae;
             ucPessoaAssistido.PaiVivo = SGSAssistidoDTO.Assistido.PaiVivo;
-            ucPessoaAssistido.MaeViva = SGSAssistidoDTO.Assistido.Mae;
+            ucPessoaAssistido.MaeViva = SGSAssistidoDTO.Assistido.MaeViva;
             ucPessoaAssistido.CPFPai = SGSAssistidoDTO.Assistido.CPFPai;
             ucPessoaAssistido.CPFMae = SGSAssistidoDTO.Assistido.CPFMae;
             ucPessoaAssistido.RGPai = SGSAssistidoDTO.Assistido.RGPai;
@@ -361,6 +384,7 @@ namespace SGS.View.Pessoa
         {
 
             ddlCasaLar.SelectedValue = "4";
+            ucPessoaAssistido.StatusAssistido = "Em Atendimento";
 
             ucPessoaDadosBasico.Nome = "Paulo Vitor";
             ucPessoaDadosBasico.Sexo = "Masculino";
@@ -371,13 +395,13 @@ namespace SGS.View.Pessoa
             ucPessoaDadosBasico.RG = "21.842.55.11";
             ucPessoaDadosBasico.Nacionalidade = "Brasileiro";
             ucPessoaDadosBasico.Naturalidade = "Fluminense";
-            ucPessoaDadosBasico.CEP = "23.0762-10";
+            ucPessoaDadosBasico.CEP = "230762-10";
             ucPessoaDadosBasico.Logradouro = "Rua Campo Grande";
             ucPessoaDadosBasico.Numero = 10;
 
             ucPessoaDadosBasico.Bairro = "Campo Grande";
             ucPessoaDadosBasico.Cidade = "Rio de Janeiro";
-            ucPessoaDadosBasico.Estado = "Rio de Janeiro";
+            ucPessoaDadosBasico.Estado = "RJ";
             ucPessoaDadosBasico.Pais = "Brasil";
             ucPessoaDadosBasico.TelefoneCelular = "(21) 9999-9999";
             ucPessoaDadosBasico.TelefoneConvencional = "(21) 1234-5678";

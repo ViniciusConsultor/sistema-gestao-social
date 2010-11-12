@@ -67,21 +67,32 @@ namespace SGS.CamadaDados
             SqlParameter parametroTelefoneConvencional = new SqlParameter("@telefoneConvencional", objContato.TelefoneConvencional);
             parametroTelefoneConvencional.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroTelefoneCelular = new SqlParameter("@telefoneCelular", objContato.TelefoneCelular);
-            parametroTelefoneCelular.DbType = System.Data.DbType.String;
+            SqlParameter parametroTelefoneCelular = new SqlParameter("@telefoneCelular", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objContato.TelefoneCelular))
+                parametroTelefoneCelular.Value = objContato.TelefoneCelular;
+            else
+                parametroTelefoneCelular.Value = DBNull.Value;
 
-            SqlParameter parametroFAX = new SqlParameter("@fax", objContato.FAX);
-            parametroFAX.DbType = System.Data.DbType.String;
+            SqlParameter parametroFAX = new SqlParameter("@fax", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objContato.FAX))
+                parametroFAX.Value = objContato.FAX;
+            else
+                parametroFAX.Value = DBNull.Value;
 
             SqlParameter parametroEmail = new SqlParameter("@email", objContato.Email);
             parametroEmail.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroSite = new SqlParameter("@site", objContato.Site);
-            parametroSite.DbType = System.Data.DbType.String;
+            SqlParameter parametroSite = new SqlParameter("@site", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objContato.Site))
+                parametroSite.Value = objContato.Site;
+            else
+                parametroSite.Value = DBNull.Value;
 
-            SqlParameter parametroBlog = new SqlParameter("@blog", objContato.Blog);
-            parametroBlog.DbType = System.Data.DbType.String;
-
+            SqlParameter parametroBlog = new SqlParameter("@blog", System.Data.DbType.String);
+            if(!string.IsNullOrEmpty(objContato.Blog))
+                parametroBlog.Value = objContato.Blog ;
+            else
+                parametroBlog.Value = DBNull.Value;
             
             comando.Parameters.Add(parametroLogradouro);
             comando.Parameters.Add(parametroNumero);

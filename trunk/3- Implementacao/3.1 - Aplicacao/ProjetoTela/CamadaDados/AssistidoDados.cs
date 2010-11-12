@@ -6,6 +6,7 @@ using System.Web;
 using SGS.Entidades;
 using System.Data.SqlClient;
 using SGS.Entidades.DTO;
+using SGS.Entidades.Adaptador;
 
 namespace SGS.CamadaDados
 {
@@ -15,187 +16,244 @@ namespace SGS.CamadaDados
         public Assistido Salvar(Assistido objAssistido)
         {
             PessoaDados objPessoaDados = new PessoaDados();
-            objAssistido = (Assistido) objPessoaDados.Salvar(objAssistido);
+            //objAssistido = (Assistido)objPessoaDados.Salvar(objAssistido);
+            objPessoaDados.Salvar(objAssistido);
 
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
 
-
             if (!objAssistido.CodigoAssistido.HasValue)
             {
+                objAssistido.CodigoAssistido = objAssistido.CodigoPessoa;
+
                 comando.CommandText =
-                    @"INSERT INTO Assistido (Pessoa_CodigoPessoa, Contato_CodigoContato, Escolar_CodigoEscolar, CertidaoNascimento,
-                                  NomePai, NomeMae, CPFPai, CPFMae, RGPai, RGMae, EnderecoFamilia, TelefoneFamilia, Peso, Altura, Cor,
-                                  HistoricoVida, Vivo, TelefoneMae, QtdIrmaos, ResponsavelLegal, CPFResponsavel, TelefoneResponsavel,
-                                  LogradouroResponsavel, NumeroResponsavel, CEPResponsavel)
-                    VALUES (@pessoa_CodigoPessoa, @contato_CodigoContato, @escolar_CodigoEscolar, @certidaoNascimento, @nomePai, @nomeMae,
-                            @cpfPai, @cpfMae, @rgPai, @rgMae, @enderecoFamilia, @telefoneFamilia, @peso, @altura, @cor, @historicoVida,
-                            @vivo, @telefoneMae, @qtdIrmaos, @responsavelLegal, @cpfResponsavel, @telefoneResponsavel, @logradouroResponsavel,
-                            @numeroResponsavel, @cepResponsavel)";
+                    @"
+                    INSERT INTO Assistido
+                         (CodigoAssistido, StatusAssistido, CertidaoNascimento, DataEntrada, DataSaida, EstadoSaude, 
+                          Peso, Cor, Altura, TamCamisa, TamCalca, TamCalcado, Dormitorio, Deficiente, Hobby, HistoricoVida, 
+                          NomePai, NomeMae, PaiVivo, MaeViva, CPFPai, CPFMae, RGPai, RGMae, TelefonePai, TelefoneMae,  
+                          QtdIrmaos, NomeResponsavel, CPFResponsavel, CodigoContatoResponsavel)
+                    VALUES
+                         (@codigoAssistido, @statusAssistido, @certidaoNascimento, @dataEntrada, @dataSaida, @estadoSaude,
+                          @peso, @cor, @altura, @tamCamisa, @tamCalca, @tamCalcado, @dormitorio, @Deficiente, @Hobby, @historicoVida,
+                          @nomePai, @nomeMae, @paiVivo, @maeViva, @cpfPai, @cpfMae, @rgPai, @rgMae, @telefonePai, @telefoneMae,
+                          @qtdIrmaos, @nomeResponsavel, @cpfResponsavel, @codigoContatoResponsavel)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Assistido SET Pessoa_CodigoPessoa = @pessoa_CodigoPessoa, Contato_CodigoContato = @contato_CodigoContato,
-                             Escolar_CodigoEscolar = @escolar_CodigoEscolar, CertidaoNascimento = @certidaoNascimento, NomePai = @nomePai,
-                             NomeMae = @nomeMae, CPFPai = @cpfPai, CPFMae = @cpfMae, RGPai = @rgPai, RGMae = @rgMae,
-                             EnderecoFamilia = @enderecoFamilia, TelefoneFamilia = @telefoneFamilia, Peso = @peso, Altura = @altura,
-                             Cor = @cor, HistoricoVida = @historicoVida, Vivo = @vivo, TelefoneMae = @telefoneMae, QtdIrmaos = @qtdIrmaos,
-                             ResponsavelLegal = @responsavelLegal, CPFResponsavel = @cpfResponsavel, 
-                             TelefoneResponsavel = @telefoneResponsavel, LogradouroResponsavel = LogradouroResponsavel,
-                             NumeroResponsavel = @numeroResponsavel, CEPResponsavel = @cepResponsavel)";
+                    @"
+                    UPDATE Assistido
+                    SET  StatusAssistido = @statusAssistido, CertidaoNascimento = @certidaoNascimento, DataEntrada = @dataEntrada, 
+                         DataSaida = @dataSaida, EstadoSaude = @estadoSaude, Peso = @peso, Cor = @cor, Altura = @altura, TamCamisa = @tamCamisa, 
+                         TamCalca = @tamCalca, TamCalcado = @tamCalcado, Dormitorio = @dormitorio, Deficiente = @Deficiente, Hobby = @Hobby,
+                         HistoricoVida = @historicoVida, NomePai = @nomePai, NomeMae = @nomeMae, PaiVivo = @paiVivo,  MaeViva = @maeViva, CPFPai = @cpfPai, 
+                         CPFMae = @cpfMae, RGPai = @rgPai, RGMae = @rgMae, TelefonePai = @telefonePai, TelefoneMae = @telefoneMae, 
+                         QtdIrmaos = @qtdIrmaos, NomeResponsavel = @nomeResponsavel, CPFResponsavel = @cpfResponsavel, CodigoContatoResponsavel = @codigoContatoResponsavel
+                    WHERE CodigoAssistido = @codigoAssistido";
+
             }
 
             comando.CommandType = System.Data.CommandType.Text;
             if (objAssistido.CodigoAssistido.HasValue)
             {
-                SqlParameter parametroCodigo = new SqlParameter("@codigoAssistido", objAssistido.CodigoAssistido.Value);
-                parametroCodigo.DbType = System.Data.DbType.Int32;
-                comando.Parameters.Add(parametroCodigo);
+                SqlParameter parametroCodigoAssistido = new SqlParameter("@codigoAssistido", objAssistido.CodigoAssistido.Value);
+                parametroCodigoAssistido.DbType = System.Data.DbType.Int32;
+                comando.Parameters.Add(parametroCodigoAssistido);
             }
 
-            SqlParameter parametroPessoa_CodigoPessoa = new SqlParameter();
-            if (objAssistido.Pessoa_CodigoPessoa.HasValue)
-            {
-                parametroPessoa_CodigoPessoa.Value = objAssistido.Pessoa_CodigoPessoa.Value;
-                parametroPessoa_CodigoPessoa.ParameterName = "@pessoa_CodigoPessoa";
-                parametroPessoa_CodigoPessoa.DbType = System.Data.DbType.Int32;
-            }
+            SqlParameter parametroStatusAssistido = new SqlParameter("@statusAssistido", objAssistido.StatusAssistido);
+            parametroStatusAssistido.DbType = System.Data.DbType.String;
+
+            SqlParameter parametroCertidaoNascimento = new SqlParameter("@certidaoNascimento", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.CertidaoNascimento))
+                parametroCertidaoNascimento.Value = objAssistido.CertidaoNascimento;
             else
-            {
-                parametroPessoa_CodigoPessoa.Value = DBNull.Value;
-                parametroPessoa_CodigoPessoa.ParameterName = "@pessoa_CodigoPessoa";
-                parametroPessoa_CodigoPessoa.DbType = System.Data.DbType.Int32;
-            }
+                parametroCertidaoNascimento.Value = DBNull.Value;
 
-            SqlParameter parametroContato_CodigoContato = new SqlParameter();
-            if (objAssistido.Contato_CodigoContato.HasValue)
-            {
-                parametroContato_CodigoContato.Value = objAssistido.Contato_CodigoContato.Value;
-                parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
-                parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
-            }
+            SqlParameter parametroDataEntrada = new SqlParameter("@dataEntrada", objAssistido.DataEntrada.Value);
+            parametroDataEntrada.DbType = System.Data.DbType.DateTime;
+
+            SqlParameter parametroDataSaida = new SqlParameter("@dataSaida", System.Data.DbType.DateTime);
+            if (objAssistido.DataSaida.HasValue)
+                parametroDataSaida.Value = objAssistido.DataSaida.Value;
             else
-            {
-                parametroContato_CodigoContato.Value = DBNull.Value;
-                parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
-                parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
-            }
+                parametroDataSaida.Value = DBNull.Value;
 
-            SqlParameter parametroEscolar_CodigoEscolar = new SqlParameter();
-            if (objAssistido.Escolar_CodigoEscolar.HasValue)
-            {
-                parametroEscolar_CodigoEscolar.Value = objAssistido.Escolar_CodigoEscolar.Value;
-                parametroEscolar_CodigoEscolar.ParameterName = "@escolar_CodigoEscolar";
-                parametroEscolar_CodigoEscolar.DbType = System.Data.DbType.Int32;
-            }
-            else
-            {
-                parametroEscolar_CodigoEscolar.Value = DBNull.Value;
-                parametroEscolar_CodigoEscolar.ParameterName = "@escolar_CodigoEscolar";
-                parametroEscolar_CodigoEscolar.DbType = System.Data.DbType.Int32;
-            }
-
-
-            SqlParameter parametroCertidaoNascimento = new SqlParameter("@certidaoNascimento", objAssistido.CertidaoNascimento);
-            parametroCertidaoNascimento.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroNomePai = new SqlParameter("@nomePai", objAssistido.Pai);
-            parametroNomePai.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroNomeMae = new SqlParameter("@nomeMae", objAssistido.Mae);
-            parametroNomeMae.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroCPFPai = new SqlParameter("@cpfPai", objAssistido.CPFPai);
-            parametroCPFPai.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroCPFMae = new SqlParameter("@cpfMae", objAssistido.CPFMae);
-            parametroCPFMae.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroRGPai = new SqlParameter("@rgPai", objAssistido.RGPai);
-            parametroRGPai.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroRGMae = new SqlParameter("@rgMae", objAssistido.RGMae);
-            parametroRGMae.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroEnderecoFamilia = new SqlParameter("@enderecoFamilia", objAssistido.EnderecoFamilia);
-            parametroEnderecoFamilia.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroTelefoneFamilia = new SqlParameter("@telefoneFamilia", objAssistido.TelefoneFamilia);
-            parametroTelefoneFamilia.DbType = System.Data.DbType.String;
+            SqlParameter parametroEstadoSaude = new SqlParameter("@estadoSaude", objAssistido.EstadoSaude);
+            parametroEstadoSaude.DbType = System.Data.DbType.String;
 
             SqlParameter parametroPeso = new SqlParameter("@peso", objAssistido.Peso);
             parametroPeso.DbType = System.Data.DbType.Decimal;
 
-            SqlParameter parametroAltura = new SqlParameter("@altura", objAssistido.Altura);
-            parametroAltura.DbType = System.Data.DbType.Decimal;
-
             SqlParameter parametroCor = new SqlParameter("@cor", objAssistido.Cor);
             parametroCor.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroHistoricoVida = new SqlParameter("@historicoVida", objAssistido.HistoricoVida);
-            parametroHistoricoVida.DbType = System.Data.DbType.String;
+            SqlParameter parametroAltura = new SqlParameter("@altura", objAssistido.Altura);
+            parametroAltura.DbType = System.Data.DbType.Decimal;
 
-            SqlParameter parametroVivo = new SqlParameter("@vivo", objAssistido.Vivo);
-            parametroVivo.DbType = System.Data.DbType.String;
+            SqlParameter parametroTamCamisa = new SqlParameter("@tamCamisa", objAssistido.TamanhoCamisa);
+            parametroTamCamisa.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroTelefoneMae = new SqlParameter("@telefoneMae", objAssistido.TelefoneMae);
-            parametroTelefoneMae.DbType = System.Data.DbType.String;
+            SqlParameter parametroTamCalca = new SqlParameter("@tamCalca", objAssistido.TamanhoCalca);
+            parametroTamCalca.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroQtdIrmaos = new SqlParameter("@qtdIrmaos", objAssistido.QtdIrmaos);
-            parametroQtdIrmaos.DbType = System.Data.DbType.Int32;
+            SqlParameter parametroTamCalcado = new SqlParameter("@tamCalcado", objAssistido.TamanhoCalcado);
+            parametroTamCalcado.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroResponsavelLegal = new SqlParameter("@responsavelLegal", objAssistido.ResponsavelLegal);
-            parametroResponsavelLegal.DbType = System.Data.DbType.String;
+            SqlParameter parametroDormitorio = new SqlParameter("@dormitorio", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.Dormitorio))
+                parametroDormitorio.Value= objAssistido.Dormitorio;
+            else
+                parametroDormitorio.Value= DBNull.Value;
 
-            SqlParameter parametroCPFResponsavel = new SqlParameter("@cpfResponsavel", objAssistido.CPFResponsavel);
-            parametroCPFResponsavel.DbType = System.Data.DbType.String;
+            SqlParameter parametroDeficiente = new SqlParameter("@deficiente", objAssistido.Deficiente);
+            parametroDeficiente.DbType = System.Data.DbType.String ;
 
-            SqlParameter parametroTelefoneResponsavel = new SqlParameter("@telefoneResponsavel", objAssistido.ContatoResponsavel.TelefoneCelular);
-            parametroTelefoneResponsavel.DbType = System.Data.DbType.String;
+            SqlParameter parametroHobby = new SqlParameter("@hobby", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.Hobby))
+                parametroHobby.Value = objAssistido.Hobby;
+            else
+                parametroHobby.Value = DBNull.Value;
 
-            SqlParameter parametroLogradouroResponsavel = new SqlParameter("@logradouroResponsavel", objAssistido.ContatoResponsavel.Logradouro);
-            parametroLogradouroResponsavel.DbType = System.Data.DbType.String;
+            SqlParameter parametroHistoricoVida = new SqlParameter("@historicoVida", System.Data.DbType.String);
+            if(!String.IsNullOrEmpty(objAssistido.HistoricoVida))
+                parametroHistoricoVida.Value = objAssistido.HistoricoVida;
+            else
+                parametroHistoricoVida.Value = DBNull.Value;
 
-            SqlParameter parametroNumeroResponsavel = new SqlParameter("@numeroResponsavel", objAssistido.ContatoResponsavel.Numero);
-            parametroNumeroResponsavel.DbType = System.Data.DbType.String;
+            //Dados Pais
+            SqlParameter parametroNomePai = new SqlParameter("@nomePai", System.Data.DbType.String);
+            if(!String.IsNullOrEmpty(objAssistido.Pai))
+                parametroNomePai.Value = objAssistido.Pai;
+            else
+                parametroNomePai.Value = DBNull.Value;
 
-            SqlParameter parametroCEPResponsavel = new SqlParameter("@cepResponsavel", objAssistido.ContatoResponsavel.CEP);
-            parametroCEPResponsavel.DbType = System.Data.DbType.String;
+            SqlParameter parametroNomeMae = new SqlParameter("@nomeMae", System.Data.DbType.String);
+            if(!String.IsNullOrEmpty(objAssistido.Mae))
+                parametroNomeMae.Value = objAssistido.Mae;
+            else
+                parametroNomeMae.Value = DBNull.Value;
 
+            SqlParameter parametroPaiVivo = new SqlParameter("@paiVivo", System.Data.DbType.String);
+            if(!String.IsNullOrEmpty(objAssistido.PaiVivo))
+                parametroPaiVivo.Value = objAssistido.PaiVivo;
+            else
+                parametroPaiVivo.Value = DBNull.Value;
 
+            SqlParameter parametroMaeViva = new SqlParameter("@maeViva", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.MaeViva))
+                parametroMaeViva.Value = objAssistido.MaeViva;
+            else
+                parametroMaeViva.Value = DBNull.Value;
 
-            comando.Parameters.Add(parametroPessoa_CodigoPessoa);
-            comando.Parameters.Add(parametroContato_CodigoContato);
-            comando.Parameters.Add(parametroEscolar_CodigoEscolar);
+            SqlParameter parametroCPFPai = new SqlParameter("@cpfPai", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.CPFPai))
+                parametroCPFPai.Value = objAssistido.CPFPai;
+            else
+                parametroCPFPai.Value = objAssistido.CPFPai;
+
+            SqlParameter parametroCPFMae = new SqlParameter("@cpfMae", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.CPFMae))
+                parametroCPFMae.Value = objAssistido.CPFMae;
+            else
+                parametroCPFMae.Value = DBNull.Value;
+
+            SqlParameter parametroRGPai = new SqlParameter("@rgPai", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.RGPai))
+                parametroRGPai.Value = objAssistido.RGPai;
+            else
+                parametroRGPai.Value = DBNull.Value;
+
+            SqlParameter parametroRGMae = new SqlParameter("@rgMae", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.RGMae))
+                parametroRGMae.Value = objAssistido.RGMae;
+            else
+                parametroRGMae.Value = DBNull.Value;
+
+            SqlParameter parametroTelefonePai = new SqlParameter("@telefonePai", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.TelefonePai))
+                parametroTelefonePai.Value = objAssistido.TelefonePai;
+            else
+                 parametroTelefonePai.Value = DBNull.Value;
+
+            SqlParameter parametroTelefoneMae = new SqlParameter("@telefoneMae", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objAssistido.TelefoneMae))
+                parametroTelefonePai.Value = objAssistido.TelefoneMae;
+            else
+                parametroTelefonePai.Value = DBNull.Value;
+
+            SqlParameter parametroQtdIrmaos = new SqlParameter("@qtdIrmaos", System.Data.DbType.Int32);
+            if(objAssistido.QtdIrmaos.HasValue)
+                parametroQtdIrmaos.Value = objAssistido.QtdIrmaos;    
+            else
+                parametroQtdIrmaos.Value = DBNull.Value; ;    
+            
+
+            //Dados Responsavel
+            SqlParameter parametroNomeResponsavel = new SqlParameter("@nomeResponsavel", System.Data.DbType.String);
+            if(!String.IsNullOrEmpty(objAssistido.ResponsavelLegal))
+                parametroNomeResponsavel.Value = objAssistido.ResponsavelLegal;
+            else
+                parametroNomeResponsavel.Value = DBNull.Value;
+
+            SqlParameter parametroCPFResponsavel = new SqlParameter("@cpfResponsavel", System.Data.DbType.String);
+            if(!String.IsNullOrEmpty(objAssistido.ResponsavelLegal))
+                parametroCPFResponsavel.Value = objAssistido.CPFResponsavel;
+            else
+                parametroCPFResponsavel.Value = DBNull.Value;
+
+            //Adiciona os dados de contato do Responsavel na tabela Contato
+            //TODO: Maycon verificar se os campos de contato do responsável foram preenchidos
+            if (objAssistido.ContatoResponsavel != null)
+            {
+                ContatoDados objContatoDados = new ContatoDados();
+                objAssistido.ContatoResponsavel = objContatoDados.Salvar(objAssistido.ContatoResponsavel);
+                objAssistido.CodigoContatoResponsavel = objAssistido.ContatoResponsavel.CodigoContato;
+            }
+            
+            SqlParameter parametroCodigoContatoResponsavel = new SqlParameter("@codigoContatoResponsavel", System.Data.DbType.String);
+            if(objAssistido.CodigoContatoResponsavel.HasValue)
+                parametroCodigoContatoResponsavel.Value = objAssistido.CodigoContatoResponsavel.Value;
+            else
+                parametroCodigoContatoResponsavel.Value = DBNull.Value;
+
+            //Parametros
+            comando.Parameters.Add(parametroStatusAssistido);
+            comando.Parameters.Add(parametroDataEntrada);
+            comando.Parameters.Add(parametroDataSaida);
+            comando.Parameters.Add(parametroEstadoSaude);
             comando.Parameters.Add(parametroCertidaoNascimento);
+            comando.Parameters.Add(parametroPeso);
+            comando.Parameters.Add(parametroAltura);
+            comando.Parameters.Add(parametroCor);
+            comando.Parameters.Add(parametroTamCalca);
+            comando.Parameters.Add(parametroTamCalcado);
+            comando.Parameters.Add(parametroTamCamisa);
+            comando.Parameters.Add(parametroDormitorio);
+            comando.Parameters.Add(parametroDeficiente);
+            comando.Parameters.Add(parametroHobby);
+            comando.Parameters.Add(parametroHistoricoVida);
+
             comando.Parameters.Add(parametroNomePai);
+            comando.Parameters.Add(parametroPaiVivo);
             comando.Parameters.Add(parametroNomeMae);
+            comando.Parameters.Add(parametroMaeViva);
             comando.Parameters.Add(parametroCPFPai);
             comando.Parameters.Add(parametroCPFMae);
             comando.Parameters.Add(parametroRGPai);
             comando.Parameters.Add(parametroRGMae);
-            comando.Parameters.Add(parametroEnderecoFamilia);
-            comando.Parameters.Add(parametroTelefoneFamilia);
-            comando.Parameters.Add(parametroPeso);
-            comando.Parameters.Add(parametroAltura);
-            comando.Parameters.Add(parametroCor);
-            comando.Parameters.Add(parametroHistoricoVida);
-            comando.Parameters.Add(parametroVivo);
+            comando.Parameters.Add(parametroTelefonePai);
             comando.Parameters.Add(parametroTelefoneMae);
             comando.Parameters.Add(parametroQtdIrmaos);
-            comando.Parameters.Add(parametroResponsavelLegal);
+            comando.Parameters.Add(parametroNomeResponsavel);
             comando.Parameters.Add(parametroCPFResponsavel);
-            comando.Parameters.Add(parametroTelefoneResponsavel);
-            comando.Parameters.Add(parametroLogradouroResponsavel);
-            comando.Parameters.Add(parametroNumeroResponsavel);
-            comando.Parameters.Add(parametroCEPResponsavel);
-
+            comando.Parameters.Add(parametroCodigoContatoResponsavel);
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade Assistido com o Código do Assistido Preenchido
             return objAssistido;
+
         }
 
         /// <summary>
@@ -205,44 +263,72 @@ namespace SGS.CamadaDados
         /// <returns></returns>
         public Assistido ObterAssistido(int codigoAssistido)
         {
+            PessoaDados objPessoaDados = new PessoaDados();
+            AssistidoAdaptador objAssistidoAdaptador = new AssistidoAdaptador(); 
+            Pessoa objPessoa = null;
+            Assistido objAssistido = null;
+
+            objPessoa = objPessoaDados.ObterPessoa(codigoAssistido);
+            objAssistido = objAssistidoAdaptador.AdaptarPessoaParaAssistido(objPessoa);
+
             SqlCommand comando = new SqlCommand("select * from Assistido where CodigoAssistido = @codigoAssistido", base.Conectar());
+
             SqlParameter parametroCodigoAssistido = new SqlParameter("@codigoAssistido", codigoAssistido);
             parametroCodigoAssistido.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoAssistido);
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-            Assistido objAssistido = null;
+            
 
             if (leitorDados.Read())
             {
-                objAssistido = new Assistido();
+                //(CodigoAssistido, StatusAssistido, CertidaoNascimento, DataEntrada, DataSaida, EstadoSaude, 
+                //          Peso, Cor, Altura, TamCamisa, TamCalca, TamCalcado, Dormitorio, Deficiente, Hobby, HistoricoVida, 
+                //          NomePai, NomeMae, PaiVivo, MaeViva, CPFPai, CPFMae, RGPai, RGMae, TelefonePai, TelefoneMae,  
+                //          QtdIrmaos, NomeResponsavel, CPFResponsavel, CodigoContatoResponsavel)
 
                 objAssistido.CodigoAssistido = codigoAssistido;
-                objAssistido.Pessoa_CodigoPessoa = Convert.ToInt32(leitorDados["Pessoa_CodigoPessoa"]);
-                objAssistido.Contato_CodigoContato = Convert.ToInt32(leitorDados["Contato_CodigoContato"]);
-                objAssistido.Escolar_CodigoEscolar = Convert.ToInt32(leitorDados["Escolar_CodigoEscolar"]);
-                objAssistido.CertidaoNascimento = leitorDados["CertidaoNascimento"].ToString();
+                objAssistido.StatusAssistido = leitorDados["StatusAssistido"].ToString();
+                if (leitorDados["CertidaoNascimento"] != DBNull.Value)
+                    objAssistido.CertidaoNascimento = leitorDados["CertidaoNascimento"].ToString();
+                objAssistido.DataEntrada = Convert.ToDateTime(leitorDados["DataEntrada"]);
+                if (leitorDados["DataSaida"] != DBNull.Value)
+                    objAssistido.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]); ;
+                objAssistido.EstadoSaude = leitorDados["EstadoSaude"].ToString();
+                objAssistido.Peso = Convert.ToDecimal(leitorDados["Peso"]);
+                objAssistido.Cor = leitorDados["Cor"].ToString();
+                objAssistido.Altura = Convert.ToDecimal(leitorDados["Altura"]);
+                objAssistido.TamanhoCamisa = leitorDados["TamCamisa"].ToString();
+                objAssistido.TamanhoCalca = leitorDados["TamCalca"].ToString();
+                objAssistido.TamanhoCalcado = leitorDados["TamCalcado"].ToString();
+                objAssistido.Dormitorio = leitorDados["Dormitorio"].ToString(); ;
+                objAssistido.Deficiente = leitorDados["Deficiente"].ToString();
+                objAssistido.Hobby = leitorDados["Hobby"].ToString();
+                objAssistido.HistoricoVida = leitorDados["HistoricoVida"].ToString();
                 objAssistido.Pai = leitorDados["NomePai"].ToString();
                 objAssistido.Mae = leitorDados["NomeMae"].ToString();
+                objAssistido.PaiVivo = leitorDados["PaiVivo"].ToString();
+                objAssistido.MaeViva = leitorDados["MaeViva"].ToString();
                 objAssistido.CPFPai = leitorDados["CPFPai"].ToString();
                 objAssistido.CPFMae = leitorDados["CPFMae"].ToString();
                 objAssistido.RGPai = leitorDados["RGPai"].ToString();
                 objAssistido.RGMae = leitorDados["RGMae"].ToString();
-                objAssistido.EnderecoFamilia = leitorDados["EnderecoFamilia"].ToString();
-                objAssistido.TelefoneFamilia = leitorDados["TelefoneFamilia"].ToString();
-                objAssistido.Peso = Convert.ToDecimal(leitorDados["Peso"]);
-                objAssistido.Altura = Convert.ToDecimal(leitorDados["Altura"]);
-                objAssistido.HistoricoVida = leitorDados["HistoricoVida"].ToString();
-                objAssistido.Vivo = leitorDados["Vivo"].ToString();
+                objAssistido.TelefonePai = leitorDados["TelefonePai"].ToString();
                 objAssistido.TelefoneMae = leitorDados["TelefoneMae"].ToString();
                 objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
-                objAssistido.ResponsavelLegal = leitorDados["ResponsavelLegal"].ToString();
-                objAssistido.CPFResponsavel = leitorDados["CPFResponsavel"].ToString();
-                objAssistido.ContatoResponsavel.TelefoneConvencional = leitorDados["TelefoneResponsavel"].ToString();
-                objAssistido.ContatoResponsavel.Logradouro = leitorDados["LogradouroResponsavel"].ToString();
-                objAssistido.ContatoResponsavel.Numero = leitorDados["NumeroResponsavel"].ToString();
-                objAssistido.ContatoResponsavel.CEP = leitorDados["CEPResponsavel"].ToString();
+                objAssistido.ResponsavelLegal = leitorDados["NomeResponsavel"].ToString();
+                objAssistido.CPFResponsavel = leitorDados["NomeResponsavel"].ToString();
+                if (leitorDados["CodigoContatoResponsavel"] != DBNull.Value)
+                    objAssistido.CodigoContatoResponsavel = Convert.ToInt32(leitorDados["CodigoContatoResponsavel"]);
+                else
+                    objAssistido.CodigoContatoResponsavel = null;
+            }
 
+            //Todo: MAYCON Pegar os dados das tabelas auxiliares
+            if (objAssistido.CodigoContatoResponsavel.HasValue)
+            {
+                ContatoDados objContatoDados = new ContatoDados();
+                objAssistido.ContatoResponsavel = objContatoDados.ObterContato(objAssistido.CodigoContatoResponsavel.Value);
             }
 
             leitorDados.Close();
@@ -252,11 +338,41 @@ namespace SGS.CamadaDados
         }
 
         /// <summary>
+        /// Obtém os assistidos pelo Código do Assistido.
+        /// </summary>
+        /// <param name="codigoAssistido"></param>
+        /// <returns></returns>
+        public Assistido ObterUltimoAssistidoInserido(int codigoAssistido)
+        {
+            return new Assistido();
+        }
+
+        /// <summary>
         /// Exclui o Assistido pelo seu código
         /// </summary>
         public bool ExcluirAssistido(int codigoAssistido)
         {
             bool execucao;
+
+            EscolarDados objEscolarDados = new EscolarDados();
+            VisitacaoDados objVisitacaoDados = new VisitacaoDados();
+            Procedimentos objProcedimentos = new Procedimentos();
+            DesenvolvimentoDados objDesenvolvimentoDados = new DesenvolvimentoDados();
+            ContatoDados objContatoDados = new ContatoDados();
+            AssistidoDados objAssistidoDados = new AssistidoDados();
+            PessoaDados objPessoaDados = new PessoaDados();
+
+            //Sequencia Exclusão
+            // 1° Deletar dados Escolares do Assistido.
+            //objEscolarDados.ExcluirEscolar(
+            // 2° Excluir Visitacao
+            // 3° Excluir Procedimentos
+            // 4° Excluir Desenvolvimento
+            // 4° Excluir Contato Responsável
+            // 5° Excluir Assistido
+            // 6° Excluir Contato Pessoa
+            // 7º Excluir Pessoa
+
 
             SqlCommand comando = new SqlCommand("delete from Assistido where CodigoAssistido = @codigoAssistido", base.Conectar());
 

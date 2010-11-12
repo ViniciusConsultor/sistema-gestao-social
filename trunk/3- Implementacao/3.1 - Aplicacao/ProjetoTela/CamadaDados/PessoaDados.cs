@@ -44,12 +44,10 @@ namespace SGS.CamadaDados
             }
 
 
-            SqlParameter parametroContato_CodigoContato = new SqlParameter();
+            SqlParameter parametroContato_CodigoContato = new SqlParameter("@contato_CodigoContato", System.Data.DbType.Int32);
             if (objPessoa.Contato_CodigoContato.HasValue)
             {
                 parametroContato_CodigoContato.Value = objPessoa.Contato_CodigoContato.Value;
-                parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
-                parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
             }
             else
             {
@@ -57,8 +55,6 @@ namespace SGS.CamadaDados
                 objPessoa.Contato = objContatoDados.Salvar(objPessoa.Contato);
 
                 parametroContato_CodigoContato.Value = objPessoa.Contato.CodigoContato.Value;
-                parametroContato_CodigoContato.ParameterName = "@contato_CodigoContato";
-                parametroContato_CodigoContato.DbType = System.Data.DbType.Int32;
             }
 
             SqlParameter parametroCodigoCasaLar = new SqlParameter("@codigoCasaLar", System.Data.DbType.Int32);
@@ -77,7 +73,7 @@ namespace SGS.CamadaDados
             parametroRG.DbType = System.Data.DbType.String;
 
             SqlParameter parametroTituloEleitor = new SqlParameter("@tituloEleitor", System.Data.DbType.String);
-            if (objPessoa.TituloEleitor != "")
+            if (!String.IsNullOrEmpty(objPessoa.TituloEleitor))
                 parametroTituloEleitor.Value = objPessoa.TituloEleitor;
             else
                 parametroTituloEleitor.Value = DBNull.Value;
@@ -93,7 +89,7 @@ namespace SGS.CamadaDados
 
             //TODO: Maycon armazenar foto
             SqlParameter parametroFoto = new SqlParameter("@foto", System.Data.DbType.String);
-            if (objPessoa.Foto != "")
+            if (!String.IsNullOrEmpty(objPessoa.Foto))
                 parametroFoto.Value = objPessoa.Foto;
             else
                 parametroFoto.Value = DBNull.Value;
@@ -118,7 +114,10 @@ namespace SGS.CamadaDados
 
             if (!objPessoa.CodigoPessoa.HasValue)
             {
-                return this.ObterUltimaPessoaInserida();
+                Pessoa objPessoaInserida = this.ObterUltimaPessoaInserida();
+                objPessoa.CodigoPessoa = objPessoaInserida.CodigoPessoa;
+                return objPessoa;
+                //return this.ObterUltimaPessoaInserida();
             }
             else
             {
@@ -133,8 +132,9 @@ namespace SGS.CamadaDados
         /// <returns></returns>
         public Pessoa ObterPessoa(int codigoPessoa)
         {
+            ContatoDados objContatoDados = new ContatoDados();
             SqlCommand comando = new SqlCommand("select * from Pessoa where CodigoPessoa = @codigoPessoa", base.Conectar());
-            SqlParameter parametroCodigoPessoa = new SqlParameter("@codigoLogin", codigoPessoa);
+            SqlParameter parametroCodigoPessoa = new SqlParameter("@codigoPessoa", codigoPessoa);
             parametroCodigoPessoa.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoPessoa);
 
@@ -147,6 +147,8 @@ namespace SGS.CamadaDados
 
                 objPessoa.CodigoPessoa = codigoPessoa;
                 objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                if (objPessoa.Contato_CodigoContato.HasValue)
+                    objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objPessoa.Nome = leitorDados["Nome"].ToString();
                 objPessoa.Sexo = leitorDados["Sexo"].ToString();
@@ -174,7 +176,8 @@ namespace SGS.CamadaDados
         /// <returns></returns>
         public Pessoa ObterUltimaPessoaInserida()
         {
-            SqlCommand comando = new SqlCommand("select top 1 * from Pessoa where CodigoPessoa = @codigoPessoa order by CodigoPessoa desc", base.Conectar());
+            ContatoDados objContatoDados = new ContatoDados();
+            SqlCommand comando = new SqlCommand("select top 1 * from Pessoa order by CodigoPessoa desc", base.Conectar());
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             Pessoa objPessoa = null;
@@ -185,6 +188,8 @@ namespace SGS.CamadaDados
 
                 objPessoa.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]); ;
                 objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                if (objPessoa.Contato_CodigoContato.HasValue)
+                    objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objPessoa.Nome = leitorDados["Nome"].ToString();
                 objPessoa.Sexo = leitorDados["Sexo"].ToString();
@@ -223,6 +228,50 @@ namespace SGS.CamadaDados
 
             return execucao;
         }
-     
+
+        /// <summary>
+        /// Este método retorna uma lista de Pessoa
+        /// </summary>
+        /// <returns></returns>
+        public List<Pessoa> ListarPessoa()
+        {
+            ContatoDados objContatoDados = new ContatoDados();
+            SqlCommand comando = new SqlCommand("select * from Pessoa order by Nome asc ", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            List<Pessoa> pessoaLista = new List<Pessoa>();
+            Pessoa objPessoa = null;
+            
+            while (leitorDados.Read())
+            {
+                objPessoa = new Pessoa();
+
+                objPessoa.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]);
+                objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                if (objPessoa.Contato_CodigoContato.HasValue)
+                    objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
+                objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objPessoa.Nome = leitorDados["Nome"].ToString();
+                objPessoa.Sexo = leitorDados["Sexo"].ToString();
+                objPessoa.CPF = leitorDados["CPF"].ToString();
+                objPessoa.RG = leitorDados["RG"].ToString();
+                objPessoa.TituloEleitor = leitorDados["TituloEleitor"].ToString();
+                objPessoa.DataNascimento = Convert.ToDateTime(leitorDados["DataNascimento"]);
+                objPessoa.Nacionalidade = leitorDados["Nacionalidade"].ToString();
+                objPessoa.Naturalidade = leitorDados["Naturalidade"].ToString();
+                objPessoa.Foto = leitorDados["Foto"].ToString();
+                objPessoa.TipoPessoa = leitorDados["TipoPessoa"].ToString();
+
+                pessoaLista.Add(objPessoa);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return pessoaLista;
+
+
+        }
+
     }
 }
