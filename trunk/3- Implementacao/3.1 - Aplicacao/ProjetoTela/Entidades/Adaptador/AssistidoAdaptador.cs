@@ -31,6 +31,7 @@ namespace SGS.Entidades.Adaptador
             objAssistido.Sexo = objPessoa.Sexo;
             objAssistido.TipoPessoa = objPessoa.TipoPessoa;
             objAssistido.TituloEleitor = objPessoa.TituloEleitor;
+            objAssistido.Ativo = objPessoa.Ativo;
 
             return objAssistido;
         }

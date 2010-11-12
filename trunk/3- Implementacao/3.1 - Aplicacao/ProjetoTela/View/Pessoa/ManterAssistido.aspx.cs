@@ -79,14 +79,26 @@ namespace SGS.View.Pessoa
 
         }
 
-        protected void btnExcluir_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Este evento Ativa ou Desativa o Assistido
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnAtivarDesativar_Click(object sender, EventArgs e)
         {
-            SGSServico umSGSServico = new SGSServico();
+            SGSServico objSGSServico = new SGSServico();
 
-            umSGSServico.ExcluirAssistido(SGSAssistidoDTO.Assistido);
-            ClientScript.RegisterStartupScript(Page.GetType(), "excluir", "<script> alert('Dados excluídos com sucesso!'); </script>");
+            SGSAssistidoDTO.Assistido = PegarDadosView();
+            SGSAssistidoDTO.Assistido.Ativo = !SGSAssistidoDTO.Assistido.Ativo;
+            SGSAssistidoDTO.Assistido = objSGSServico.SalvarAssistido(SGSAssistidoDTO.Assistido);
 
-            Server.Transfer("ConPessoa.aspx");
+            if (SGSAssistidoDTO.Assistido.Ativo == true)
+                ClientScript.RegisterStartupScript(Page.GetType(), "AtivarDesativar", "<script> alert('Assistido ativado com sucesso!'); </script>");
+            else
+                ClientScript.RegisterStartupScript(Page.GetType(), "AtivarDesativar", "<script> alert('Assistido desativado com sucesso!'); </script>");
+
+            string url = @"ManterAssistido.aspx?tipo=alt&cod=" + SGSAssistidoDTO.Assistido.CodigoAssistido.Value.ToString();
+            Response.Redirect(url);
         }
 
         #endregion
@@ -108,7 +120,17 @@ namespace SGS.View.Pessoa
                 int codigoAssistido = Convert.ToInt32(Request.QueryString["cod"]);
                 SGSAssistidoDTO.Assistido = objSGSServico.ObterAssistido(codigoAssistido);
 
-                btnExcluir.Visible = true;
+                btnAtivarDesativar.Visible = true;
+                if (SGSAssistidoDTO.Assistido.Ativo == true)
+                {
+                    btnAtivarDesativar.Text = "Desativar";
+                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente desativar este assistido?')";
+                }
+                else
+                {
+                    btnAtivarDesativar.Text = "Ativar";
+                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente ativar este assistido?')";
+                }
 
                 PreencherDadosView();
             }
@@ -117,7 +139,7 @@ namespace SGS.View.Pessoa
                 lblTitulo.Text = "Cadastrar Assistido";
                 lblDescricao.Text = "Descrição: Permite cadastrar um Assistido.";
 
-                btnExcluir.Visible = false;
+                btnAtivarDesativar.Visible = false;
 
                 PreencherDadosView();
             }

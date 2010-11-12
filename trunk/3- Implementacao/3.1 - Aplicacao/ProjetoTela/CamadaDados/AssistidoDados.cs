@@ -316,7 +316,7 @@ namespace SGS.CamadaDados
                 objAssistido.TelefoneMae = leitorDados["TelefoneMae"].ToString();
                 objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
                 objAssistido.ResponsavelLegal = leitorDados["NomeResponsavel"].ToString();
-                objAssistido.CPFResponsavel = leitorDados["NomeResponsavel"].ToString();
+                objAssistido.CPFResponsavel = leitorDados["CpfResponsavel"].ToString();
                 if (leitorDados["CodigoContatoResponsavel"] != DBNull.Value)
                     objAssistido.CodigoContatoResponsavel = Convert.ToInt32(leitorDados["CodigoContatoResponsavel"]);
                 else

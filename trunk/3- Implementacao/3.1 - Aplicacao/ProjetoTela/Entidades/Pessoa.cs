@@ -28,6 +28,7 @@ namespace SGS.Entidades
         private string _foto;
         private Contato _contato;
         private string _tipoPessoa;
+        private bool? _ativo;
 
         public int? CodigoPessoa
         {
@@ -111,6 +112,12 @@ namespace SGS.Entidades
         {
             get { return _tipoPessoa; }
             set { _tipoPessoa = value; }
+        }
+
+        public bool? Ativo
+        {
+            get { return _ativo; }
+            set { _ativo = value; }
         }
 
     }
