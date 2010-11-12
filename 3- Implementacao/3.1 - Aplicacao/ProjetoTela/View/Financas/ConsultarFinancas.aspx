@@ -179,7 +179,7 @@
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         <asp:BoundField DataField="DataLancamento" HeaderText="Data de Lançamento" 
-                            DataFormatString="{0:dd-M-yyyy}">
+                            DataFormatString="{0:dd-MM-yyyy}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>

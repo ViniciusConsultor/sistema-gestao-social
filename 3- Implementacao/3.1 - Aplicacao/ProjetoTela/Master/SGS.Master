@@ -96,7 +96,7 @@
                             </asp:MenuItem>
                             <asp:MenuItem Text="ASSISTIDO" Value="Assistido">
                                 <asp:MenuItem Text="Procedimentos" Value="Procedimentos">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
                                         NavigateUrl="~/View/Procedimentos/ConsultarProcedimentos.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Procedimentos/ManterProcedimentos.aspx"></asp:MenuItem>

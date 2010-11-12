@@ -72,7 +72,7 @@ namespace SGS.View.Procedimentos
             ProcedimentosDTO = objSGSServico.ConsultarProcedimentos(ProcedimentosDTO);
 
 
-            GridProcedimentosDataSource = ProcedimentosDTO.ProcedimentosLista;
+            GridProcedimentosDataSource = ProcedimentosDTO.ProcedimentosAssistidoDTOLista;
 
         }
 
@@ -93,7 +93,7 @@ namespace SGS.View.Procedimentos
         protected void gridProcedimentos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gridProcedimentos.PageIndex = e.NewPageIndex;
-            GridProcedimentosDataSource = ProcedimentosDTO.ProcedimentosLista;
+            GridProcedimentosDataSource = ProcedimentosDTO.ProcedimentosAssistidoDTOLista;
         }
 
         #endregion
@@ -145,7 +145,7 @@ namespace SGS.View.Procedimentos
         /// <summary>
         /// Preenche o Grid de Procedimentos
         /// </summary>
-        protected List<SGS.Entidades.Procedimentos> GridProcedimentosDataSource
+        protected List<SGS.Entidades.ProcedimentosAssistidoDTO> GridProcedimentosDataSource
         {
             set
             {

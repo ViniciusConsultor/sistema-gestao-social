@@ -46,7 +46,7 @@ namespace SGS.Servicos
         public ProcedimentosDTO ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
         {
             ProcedimentosDados objProcedimentosDados = new ProcedimentosDados();
-            objProcedimentosDTO.ProcedimentosLista = objProcedimentosDados.ConsultarProcedimentos(objProcedimentosDTO);
+            objProcedimentosDTO.ProcedimentosAssistidoDTOLista = objProcedimentosDados.ConsultarProcedimentos(objProcedimentosDTO);
 
             return objProcedimentosDTO;
 

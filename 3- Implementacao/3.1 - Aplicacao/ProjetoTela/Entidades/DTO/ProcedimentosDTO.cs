@@ -119,6 +119,18 @@ namespace SGS.Entidades.DTO
             get { return _laudoAtendenteValor; }
         }
 
+        
+        List<ProcedimentosAssistidoDTO> _procedimentosAssistidoDTOLista;
+
+        /// <summary>
+        /// Lista de Orcamento
+        /// </summary>
+        public List<ProcedimentosAssistidoDTO> ProcedimentosAssistidoDTOLista
+        {
+            get { return _procedimentosAssistidoDTOLista; }
+            set { _procedimentosAssistidoDTOLista = value; }
+        }
+
 
         #endregion
     }
