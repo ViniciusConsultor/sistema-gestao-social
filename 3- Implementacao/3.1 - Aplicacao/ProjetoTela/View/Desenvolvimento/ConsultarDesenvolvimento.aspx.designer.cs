@@ -10,7 +10,7 @@
 namespace SGS.View.Desenvolvimento {
     
     
-    public partial class ConsultarProfissional {
+    public partial class ConsultarDesenvolvimento {
         
         /// <summary>
         /// lblTitulo control.
@@ -40,13 +40,31 @@ namespace SGS.View.Desenvolvimento {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
         
         /// <summary>
-        /// ddlAtividade control.
+        /// txtAtividade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAtividade;
+        protected global::System.Web.UI.WebControls.TextBox txtAtividade;
+        
+        /// <summary>
+        /// txtDataInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataInicio;
+        
+        /// <summary>
+        /// txtDataFim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataFim;
         
         /// <summary>
         /// btnLocalizar control.
@@ -65,5 +83,14 @@ namespace SGS.View.Desenvolvimento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLimpar;
+        
+        /// <summary>
+        /// gridDesenvolvimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridDesenvolvimento;
     }
 }

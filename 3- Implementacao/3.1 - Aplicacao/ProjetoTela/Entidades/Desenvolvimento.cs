@@ -9,7 +9,7 @@ namespace SGS.Entidades
     public class Desenvolvimento
     {
         private int? _codigoDesenvolvimento;
-        private int? _assistido_CodigoAssistido;
+        private int? _codigoAssistido;
         private string _atividade;
         private string _tipoAtividade;
         private string _descricaoAtividade;
@@ -26,10 +26,10 @@ namespace SGS.Entidades
             set { _codigoDesenvolvimento = value; }
         }
 
-        public int? Assistido_CodigoAssistido
+        public int? CodigoAssistido
         {
-            get { return _assistido_CodigoAssistido; }
-            set { _assistido_CodigoAssistido = value; }
+            get { return _codigoAssistido; }
+            set { _codigoAssistido = value; }
         }
 
         public string Atividade
