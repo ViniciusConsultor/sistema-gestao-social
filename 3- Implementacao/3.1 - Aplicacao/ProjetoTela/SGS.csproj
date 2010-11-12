@@ -198,7 +198,7 @@
     <Compile Include="Entidades\DTO\ProcedimentosDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Enum\PerfilEnum.cs" />
-    <Compile Include="View\CasaLar\Escolar.cs" />
+    <Compile Include="Entidades\Escolar.cs" />
     <Compile Include="Entidades\Financas.cs" />
     <Compile Include="Entidades\Funcionario.cs" />
     <Compile Include="Entidades\Login.cs" />

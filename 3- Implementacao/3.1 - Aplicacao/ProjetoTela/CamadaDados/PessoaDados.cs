@@ -11,7 +11,7 @@ namespace SGS.CamadaDados
 {
     public class PessoaDados : BaseConnection
     {
- 
+
         public Pessoa Salvar(Pessoa objPessoa)
         {
             SqlCommand comando = new SqlCommand();
@@ -22,9 +22,9 @@ namespace SGS.CamadaDados
             {
                 comando.CommandText =
                     @"INSERT INTO Pessoa
-                         (CodigoContato, CodigoCasaLar, Nome, Sexo, CPF, RG, TituloEleitor, DataNascimento, Nacionalidade, Naturalidade, Foto, TipoPessoa)
+                         (CodigoContato, CodigoCasaLar, Nome, Sexo, CPF, RG, TituloEleitor, DataNascimento, Nacionalidade, Naturalidade, Foto, TipoPessoa, ativo)
                          VALUES        (@contato_CodigoContato, @codigoCasaLar, @nome, @sexo, @cpf, @rg, @tituloEleitor, @dataNascimento, @nacionalidade, @naturalidade, 
-                                        @foto, @tipoPessoa)";
+                                        @foto, @tipoPessoa, @ativo)";
             }
             else
             {
@@ -32,7 +32,7 @@ namespace SGS.CamadaDados
                     @"UPDATE Pessoa
                          SET CodigoContato = @contato_CodigoContato, CodigoCasaLar = @codigoCasaLar, Nome = @nome, Sexo = @sexo, CPF = @cpf, 
                          RG = @rg, TituloEleitor = @tituloEleitor, DataNascimento = @dataNascimento, Nacionalidade = @nacionalidade, Naturalidade = @naturalidade, 
-                         Foto = @foto, TipoPessoa = @tipoPessoa
+                         Foto = @foto, TipoPessoa = @tipoPessoa, Ativo = @ativo
                       WHERE CodigoPessoa = @codigoPessoa";
             }
 
@@ -97,6 +97,12 @@ namespace SGS.CamadaDados
             SqlParameter parametroTipoPessoa = new SqlParameter("@tipoPessoa", objPessoa.TipoPessoa);
             parametroTipoPessoa.DbType = System.Data.DbType.String;
 
+            SqlParameter parametroAtivo = new SqlParameter("@ativo", System.Data.DbType.String);
+            if (objPessoa.Ativo.HasValue)
+                parametroAtivo.Value = objPessoa.Ativo.Value;
+            else
+                parametroAtivo.Value = true;
+
             comando.Parameters.Add(parametroContato_CodigoContato);
             comando.Parameters.Add(parametroCodigoCasaLar);
             comando.Parameters.Add(parametroNome);
@@ -109,6 +115,7 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroNacionalidade);
             comando.Parameters.Add(parametroFoto);
             comando.Parameters.Add(parametroTipoPessoa);
+            comando.Parameters.Add(parametroAtivo);
 
             comando.ExecuteNonQuery();
 
@@ -160,6 +167,7 @@ namespace SGS.CamadaDados
                 objPessoa.Naturalidade = leitorDados["Naturalidade"].ToString();
                 objPessoa.Foto = leitorDados["Foto"].ToString();
                 objPessoa.TipoPessoa = leitorDados["TipoPessoa"].ToString();
+                objPessoa.Ativo = Convert.ToBoolean(leitorDados["Ativo"]);
             }
 
             leitorDados.Close();
@@ -201,6 +209,7 @@ namespace SGS.CamadaDados
                 objPessoa.Naturalidade = leitorDados["Naturalidade"].ToString();
                 objPessoa.Foto = leitorDados["Foto"].ToString();
                 objPessoa.TipoPessoa = leitorDados["TipoPessoa"].ToString();
+                objPessoa.Ativo = Convert.ToBoolean(leitorDados["Ativo"]);
             }
 
             leitorDados.Close();
@@ -261,6 +270,7 @@ namespace SGS.CamadaDados
                 objPessoa.Naturalidade = leitorDados["Naturalidade"].ToString();
                 objPessoa.Foto = leitorDados["Foto"].ToString();
                 objPessoa.TipoPessoa = leitorDados["TipoPessoa"].ToString();
+                objPessoa.Ativo = Convert.ToBoolean(leitorDados["Ativo"]);
 
                 pessoaLista.Add(objPessoa);
             }
@@ -269,8 +279,6 @@ namespace SGS.CamadaDados
             leitorDados.Dispose();
 
             return pessoaLista;
-
-
         }
 
     }
