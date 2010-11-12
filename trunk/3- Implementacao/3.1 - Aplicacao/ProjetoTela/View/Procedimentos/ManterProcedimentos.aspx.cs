@@ -43,10 +43,10 @@ namespace SGS.View.Procedimentos
 
             SGSProcedimentos = sgsServico.SalvarProcedimentos(PegarDadosView());
 
+            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+
             string url = @"ManterProcedimentos.aspx?tipo=alt&cod=" + SGSProcedimentos.CodigoProcedimento.Value.ToString();
             Response.Redirect(url);
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
         }
 
         /// <summary>
@@ -69,13 +69,15 @@ namespace SGS.View.Procedimentos
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
 
-            string url;
             if (Request.QueryString["tipo"] == "alt")
-                url = @"ManterProcedimentos.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
-            else
-                url = "ManterProcedimentos.aspx";
+            {
+                Server.Transfer("ManterProcedimentos.aspx?tipo=alt&cod=" + SGSProcedimentos.CodigoProcedimento.Value.ToString());
 
-            Server.Transfer(url);
+            }
+            else
+            {
+                Server.Transfer("ManterProcedimentos.aspx");
+            }
 
         }
 

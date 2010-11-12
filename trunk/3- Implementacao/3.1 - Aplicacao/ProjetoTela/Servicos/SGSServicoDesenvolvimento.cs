@@ -43,14 +43,14 @@ namespace SGS.Servicos
        /// Consulta a tabela Desenvolvimento e retorna resultados de acordo com o preenchimento do filtro - Terminar o Consultar Primeiro.depois descomentar
        /// </summary>
 
-        /*public DesenvolvimentoDTO ConsultarDesenvolvimento(DesenvolvimentoDTO objDesenvolvimentoDTO)
+        public DesenvolvimentoDTO ConsultarDesenvolvimento(DesenvolvimentoDTO objDesenvolvimentoDTO)
         {
             DesenvolvimentoDados objDesenvolvimentoDados = new DesenvolvimentoDados();
-            objDesenvolvimentoDTO.DesenvolvimentoLista = objDesenvolvimentoDados.ConsultarDesenvolvimento(objDesenvolvimentoDTO);
+            objDesenvolvimentoDTO.DesenvolvimentoAssistidoDTOLista = objDesenvolvimentoDados.ConsultarDesenvolvimento(objDesenvolvimentoDTO);
 
             return objDesenvolvimentoDTO;
 
-        }*/
+        }
 
     }
 }

@@ -23,14 +23,14 @@ namespace SGS.View.Desenvolvimento
         protected void Page_Load(object sender, EventArgs e)
         {
             // Valida se o usuário logado possui acesso.
-            if (DadosAcesso.Perfil == "Gestor")
+            if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
             {
                 if (!Page.IsPostBack)
                 {
                     this.CarregarTela();
                 }
             }
-            // Caso usuário logado não possua acesso redireciona usuário para tela que informa que ele não possui acesso.
+            // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
             else
             {
                 Server.Transfer("../SemPermissao.aspx");
@@ -111,7 +111,7 @@ namespace SGS.View.Desenvolvimento
                 if (SGSDesenvolvimento != null)
                     this.PreencherDadosView();
                 else
-                    Server.Transfer("bla.aspx"); //transfere usuário para tela "Alimentação não encontrada"
+                    Server.Transfer("bla.aspx"); //transfere usuário para tela "Dados não encontrado"
             }
             else
             {
@@ -128,6 +128,22 @@ namespace SGS.View.Desenvolvimento
         {
             SGS.Entidades.Desenvolvimento objDesenvolvimento = SGSDesenvolvimento;
 
+            objDesenvolvimento.CodigoAssistido = Convert.ToInt32(ddlAssistido.SelectedValue);
+            objDesenvolvimento.TipoAtividade = ddlTipoAtividade.SelectedValue;
+            objDesenvolvimento.Atividade = txtAtividade.Text;
+            objDesenvolvimento.DescricaoAtividade = txtDescricao.Text;
+            objDesenvolvimento.Valor = Convert.ToDecimal(txtValor.Text);
+            objDesenvolvimento.StatusAtividade = ddlStatus.SelectedValue;
+            objDesenvolvimento.CargaHoraria = txtCargaHoraria.Text;
+            
+            if (txtDataInicio.Text != "")
+                objDesenvolvimento.DataInicio = Convert.ToDateTime(txtDataInicio.Text);
+
+            if (txtDataFim.Text != "")
+                objDesenvolvimento.DataFim = Convert.ToDateTime(txtDataFim.Text);
+
+
+
             return objDesenvolvimento;
         }
 
@@ -136,7 +152,19 @@ namespace SGS.View.Desenvolvimento
         /// </summary>
         private void PreencherDadosView()
         {
+            ddlAssistido.SelectedValue = SGSDesenvolvimento.CodigoAssistido.Value.ToString();
+            ddlTipoAtividade.SelectedValue = SGSDesenvolvimento.TipoAtividade;
+            txtAtividade.Text = SGSDesenvolvimento.Atividade;
+            txtDescricao.Text = SGSDesenvolvimento.DescricaoAtividade;
+            txtValor.Text = SGSDesenvolvimento.Valor.ToString();
+            ddlStatus.SelectedValue = SGSDesenvolvimento.StatusAtividade;
+            txtCargaHoraria.Text = SGSDesenvolvimento.CargaHoraria;
 
+            if (SGSDesenvolvimento.DataInicio.HasValue)
+                txtDataInicio.Text = SGSDesenvolvimento.DataInicio.ToString();
+
+            if (SGSDesenvolvimento.DataFim.HasValue)
+                txtDataFim.Text = SGSDesenvolvimento.DataFim.ToString();
         }
 
         #endregion
@@ -167,6 +195,11 @@ namespace SGS.View.Desenvolvimento
         }
 
         #endregion
+
+        protected void btnExcluir_Click1(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

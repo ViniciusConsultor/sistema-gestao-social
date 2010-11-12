@@ -143,7 +143,7 @@ namespace SGS.View.Procedimentos
 
 
         /// <summary>
-        /// Preenche o Grid de Procedimentos
+        /// Preenche o Grid de desenvolvimento
         /// </summary>
         protected List<SGS.Entidades.ProcedimentosAssistidoDTO> GridProcedimentosDataSource
         {

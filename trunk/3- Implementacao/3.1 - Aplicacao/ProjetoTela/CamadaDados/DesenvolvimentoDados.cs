@@ -21,17 +21,18 @@ namespace SGS.CamadaDados
             if (!objDesenvolvimento.CodigoDesenvolvimento.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Desenvolvimento (Assistido_CodigoAssistido, Atividade, TipoAtividade,  DescricaoAtividade,
+                    @"INSERT INTO Desenvolvimento (CodigoAssistido, Atividade, TipoAtividade,  DescricaoAtividade,
                                   Valor, DataInicio, DataFim, CargaHoraria, StatusAtividade)
-                    VALUES (@assistido_CodigoAssistido, @atividade, @tipoAtividade, @descricaoAtividade, @valor,
-                           @dataInicio,@dataFim, @lcargaHoraria, @statusAtividade)";
+                    VALUES (@codigoAssistido, @atividade, @tipoAtividade, @descricaoAtividade, @valor,
+                           @dataInicio,@dataFim, @cargaHoraria, @statusAtividade)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Desenvolvimento SET Assistido_CodigoAssistido = @sssistido_CodigoAssistido, Atividade = @atividade,
+                    @"UPDATE Desenvolvimento SET CodigoAssistido = @codigoAssistido, Atividade = @atividade,
                              TipoAtividade = @tipoAtividade, DescricaoAtividade = @descricaoAtividade, Valor = @valor,
-                             DataInicio = @dataInicio, DataFim = @dataFim, CargaHoraria = @cargaHoraria, StatusAtividade = @statusAtividade)";
+                             DataInicio = @dataInicio, DataFim = @dataFim, CargaHoraria = @cargaHoraria, StatusAtividade = @statusAtividade
+                             WHERE (CodigoDesenvolvimento = @codigoDesenvolvimento)"; 
             }
 
             comando.CommandType = System.Data.CommandType.Text;
@@ -42,18 +43,18 @@ namespace SGS.CamadaDados
                 comando.Parameters.Add(parametroCodigo);
             }
 
-            SqlParameter parametroAssistido_CodigoAssistido = new SqlParameter();
-            if (objDesenvolvimento.Assistido_CodigoAssistido.HasValue)
+            SqlParameter parametroCodigoAssistido = new SqlParameter();
+            if (objDesenvolvimento.CodigoAssistido.HasValue)
             {
-                parametroAssistido_CodigoAssistido.Value = objDesenvolvimento.Assistido_CodigoAssistido.Value;
-                parametroAssistido_CodigoAssistido.ParameterName = "@assistido_CodigoAssistido";
-                parametroAssistido_CodigoAssistido.DbType = System.Data.DbType.Int32;
+                parametroCodigoAssistido.Value = objDesenvolvimento.CodigoAssistido.Value;
+                parametroCodigoAssistido.ParameterName = "@codigoAssistido";
+                parametroCodigoAssistido.DbType = System.Data.DbType.Int32;
             }
             else
             {
-                parametroAssistido_CodigoAssistido.Value = DBNull.Value;
-                parametroAssistido_CodigoAssistido.ParameterName = "@assistido_CodigoAssistido";
-                parametroAssistido_CodigoAssistido.DbType = System.Data.DbType.Int32;
+                parametroCodigoAssistido.Value = DBNull.Value;
+                parametroCodigoAssistido.ParameterName = "@codigoAssistido";
+                parametroCodigoAssistido.DbType = System.Data.DbType.Int32;
             }
 
             SqlParameter parametroAtividade = new SqlParameter("@atividade", objDesenvolvimento.Atividade);
@@ -83,7 +84,7 @@ namespace SGS.CamadaDados
 
 
 
-            comando.Parameters.Add(parametroAssistido_CodigoAssistido);
+            comando.Parameters.Add(parametroCodigoAssistido);
             comando.Parameters.Add(parametroAtividade);
             comando.Parameters.Add(parametroTipoAtividade);
             comando.Parameters.Add(parametroDescricaoAtividade);
@@ -97,7 +98,7 @@ namespace SGS.CamadaDados
             comando.ExecuteNonQuery();
 
             //TODO: retorno entidade Desenvolvimento com o Código do Desenvolvimento Preenchido
-            return objDesenvolvimento;
+            return ObterUltimoDesenvolvimentoInserido();
         }
 
         /// <summary>
@@ -120,7 +121,7 @@ namespace SGS.CamadaDados
                 objDesenvolvimento = new Desenvolvimento();
 
                 objDesenvolvimento.CodigoDesenvolvimento = codigoDesenvolvimento;
-                objDesenvolvimento.Assistido_CodigoAssistido = Convert.ToInt32(leitorDados["Assistido_CodigoAssistido"]);
+                objDesenvolvimento.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
                 objDesenvolvimento.Atividade = leitorDados["Atividade"].ToString();
                 objDesenvolvimento.TipoAtividade = leitorDados["TipoAtividade"].ToString();
                 objDesenvolvimento.DescricaoAtividade = leitorDados["DescricaoAtividade"].ToString();
@@ -129,6 +130,41 @@ namespace SGS.CamadaDados
                 objDesenvolvimento.DataFim = Convert.ToDateTime(leitorDados["DataFim"]);
                 objDesenvolvimento.CargaHoraria = leitorDados["CargaHoraria"].ToString();
                 objDesenvolvimento.StatusAtividade = leitorDados["StatusAtividade"].ToString();
+
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objDesenvolvimento;
+        }
+
+        public Desenvolvimento ObterUltimoDesenvolvimentoInserido()
+        {
+            SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Desenvolvimento ORDER BY CodigoDesenvolvimento DESC", base.Conectar());
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Desenvolvimento objDesenvolvimento = null;
+
+            if (leitorDados.Read())
+            {
+                objDesenvolvimento = new Desenvolvimento();
+
+                objDesenvolvimento.CodigoDesenvolvimento = Convert.ToInt32(leitorDados["CodigoDesenvolvimento"]);
+                objDesenvolvimento.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                objDesenvolvimento.Atividade = leitorDados["Atividade"].ToString();
+                objDesenvolvimento.TipoAtividade = leitorDados["TipoAtividade"].ToString();
+                objDesenvolvimento.DescricaoAtividade = leitorDados["DescricaoAtividade"].ToString();
+                objDesenvolvimento.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                objDesenvolvimento.CargaHoraria = leitorDados["CargaHoraria"].ToString();
+                objDesenvolvimento.StatusAtividade = leitorDados["StatusAtividade"].ToString();
+
+                if (leitorDados["DataInicio"] != DBNull.Value)
+                    objDesenvolvimento.DataInicio = Convert.ToDateTime(leitorDados["DataInicio"]);
+
+                if (leitorDados["DataFim"] != DBNull.Value)
+                    objDesenvolvimento.DataFim = Convert.ToDateTime(leitorDados["DataFim"]);
+
+
 
             }
 
@@ -154,6 +190,102 @@ namespace SGS.CamadaDados
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
 
             return execucao;
+        }
+
+        public List<DesenvolvimentoAssistidoDTO> ConsultarDesenvolvimento(DesenvolvimentoDTO objDesenvolvimentoDTO)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = base.Conectar();
+
+            SqlDataReader leitorDados;
+
+            SqlParameter paramAssistidoValor = new SqlParameter("@assistidoValor", System.Data.SqlDbType.Int);
+            if (objDesenvolvimentoDTO.AssistidoValor.HasValue)
+                paramAssistidoValor.Value = objDesenvolvimentoDTO.AssistidoValor.Value;
+            else
+                paramAssistidoValor.Value = DBNull.Value;
+
+            SqlParameter paramDataInicioValor = new SqlParameter("@dataInicioValor", System.Data.SqlDbType.DateTime);
+            if (objDesenvolvimentoDTO.DataInicioValor.HasValue)
+                paramDataInicioValor.Value = objDesenvolvimentoDTO.DataInicioValor.Value;
+            else
+                paramDataInicioValor.Value = DBNull.Value;
+
+            SqlParameter paramDataFimValor = new SqlParameter("@dataFimValor", System.Data.SqlDbType.DateTime);
+            if (objDesenvolvimentoDTO.DataFimValor.HasValue)
+                paramDataFimValor.Value = objDesenvolvimentoDTO.DataFimValor.Value;
+            else
+                paramDataFimValor.Value = DBNull.Value;
+
+
+            String sql = "select * from Desenvolvimento PR inner join Pessoa P on P.CodigoPessoa = PR.CodigoAssistido";
+
+            //Se o Assistido, Data Inicio e Data Fim preenchidos
+            if (objDesenvolvimentoDTO.AssistidoValor.HasValue && objDesenvolvimentoDTO.DataInicioValor.HasValue && objDesenvolvimentoDTO.DataFimValor.HasValue)
+                sql += @" where CodigoAssistido = @assistidoValor and DataInicio >= @dataInicioValor and DataFim <= @dataFimValor";
+
+            //Se apenas Assistido  e Data Inicio preenchidos
+            else if (objDesenvolvimentoDTO.AssistidoValor.HasValue && objDesenvolvimentoDTO.DataInicioValor.HasValue)
+                sql += @" where CodigoAssistido = @assistidoValor and DataInicio >= @dataInicioValor";
+
+            //Se apenas Data Inicio e Data Fim preenchidos
+            else if (objDesenvolvimentoDTO.DataInicioValor.HasValue && objDesenvolvimentoDTO.DataFimValor.HasValue)
+                sql += @" where DataInicio >= @dataInicioValor and DataFim <= @dataFimValor";
+
+            //Se apenas Data Fim e Assistidos preenchidos
+            else if (objDesenvolvimentoDTO.DataFimValor.HasValue && objDesenvolvimentoDTO.AssistidoValor.HasValue)
+                sql += @" where DataFim <= @dataFimValor and CodigoAssistido = @assistidoValor";
+
+            //Se apenas Data Fim preenchido
+            else if (objDesenvolvimentoDTO.DataFimValor.HasValue)
+                sql += @" where DataFim <= @dataFimValor";
+
+            //Se apenas Assistido preenchido
+            else if (objDesenvolvimentoDTO.AssistidoValor.HasValue)
+                sql += @" where CodigoAssistido = @assistidoValor";
+
+            //Se apenas Data Inicio
+            else if (objDesenvolvimentoDTO.DataInicioValor.HasValue)
+                sql += @" where DataInicio >= @dataInicioValor";
+
+            comando.CommandText = sql;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.Parameters.Add(paramAssistidoValor);
+            comando.Parameters.Add(paramDataInicioValor);
+            comando.Parameters.Add(paramDataFimValor);
+
+            leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+
+
+            List<DesenvolvimentoAssistidoDTO> procedimentosAssistidoDTOLista = new List<DesenvolvimentoAssistidoDTO>();
+            DesenvolvimentoAssistidoDTO objDesenvolvimentoAssistidoDTO;
+
+            while (leitorDados.Read())
+            {
+                objDesenvolvimentoAssistidoDTO = new DesenvolvimentoAssistidoDTO();
+
+                objDesenvolvimentoAssistidoDTO.NomeAssistido = leitorDados["Nome"].ToString();
+                objDesenvolvimentoAssistidoDTO.CodigoDesenvolvimento = Convert.ToInt32(leitorDados["CodigoDesenvolvimento"]);
+                objDesenvolvimentoAssistidoDTO.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                objDesenvolvimentoAssistidoDTO.TipoAtividade = leitorDados["TipoAtividade"].ToString();
+                objDesenvolvimentoAssistidoDTO.Atividade = leitorDados["Atividade"].ToString();
+                objDesenvolvimentoAssistidoDTO.DescricaoAtividade = leitorDados["DescricaoAtividade"].ToString();
+                objDesenvolvimentoAssistidoDTO.StatusAtividade = leitorDados["StatusAtividade"].ToString();
+                objDesenvolvimentoAssistidoDTO.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                objDesenvolvimentoAssistidoDTO.CargaHoraria = leitorDados["CargaHoraria"].ToString();
+
+                if (leitorDados["DataInicio"] != DBNull.Value)
+                    objDesenvolvimentoAssistidoDTO.DataInicio = Convert.ToDateTime(leitorDados["DataInicio"]);
+
+                if (leitorDados["DataFim"] != DBNull.Value)
+                    objDesenvolvimentoAssistidoDTO.DataFim = Convert.ToDateTime(leitorDados["DataFim"]);
+
+
+                procedimentosAssistidoDTOLista.Add(objDesenvolvimentoAssistidoDTO);
+            }
+
+            return procedimentosAssistidoDTOLista;
         }
 
     }

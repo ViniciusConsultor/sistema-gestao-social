@@ -186,6 +186,8 @@
     <Compile Include="Entidades\DTO\AlimentacaoDTO.cs" />
     <Compile Include="Entidades\DTO\AssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\ConsultarEscolarDTO.cs" />
+    <Compile Include="Entidades\DTO\DesenvolvimentoAssistidoDTO.cs" />
+    <Compile Include="Entidades\DTO\DesenvolvimentoDTO.cs" />
     <Compile Include="Entidades\DTO\GradeConsultarEscolarDTO.cs" />
     <Compile Include="Entidades\DTO\EscolarDTO.cs" />
     <Compile Include="Entidades\DTO\DadosAcesso.cs" />
@@ -222,7 +224,7 @@
       <DependentUpon>SGS.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicos\SGSProcedimentos.cs" />
+    <Compile Include="Servicos\SGSServicoProcedimentos.cs" />
     <Compile Include="Servicos\SGSServicoAssistido.cs" />
     <Compile Include="Servicos\SGSServicoDesenvolvimento.cs" />
     <Compile Include="Servicos\SGSServicoAlimentacao.cs" />

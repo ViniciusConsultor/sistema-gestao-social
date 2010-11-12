@@ -77,25 +77,13 @@
                 <td>
                     <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>João</asp:ListItem>
-                        <asp:ListItem>Pedro</asp:ListItem>
-                        <asp:ListItem>Maria</asp:ListItem>
+                        <asp:ListItem Value="1">João</asp:ListItem>
+                        <asp:ListItem Value="2">Pedro</asp:ListItem>
+                        <asp:ListItem Value="3">Maria</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
                         ControlToValidate="ddlAssistido" ErrorMessage="Escolha o Assistido" 
                         ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Atividade </td>
-                <td>
-                    <asp:TextBox ID="txtAtividade" runat="server" Height="22px" Width="148px" 
-                        MaxLength="50"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridAtividade" runat="server" 
-                        ControlToValidate="txtAtividade" ErrorMessage="Preencha o campo Atividade " 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -113,6 +101,18 @@
                     <asp:RequiredFieldValidator ID="requeridTipoAtividade" runat="server" 
                         ControlToValidate="ddlTipoAtividade" ErrorMessage="Escolha o Tipo de Atividade" 
                         ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Atividade </td>
+                <td>
+                    <asp:TextBox ID="txtAtividade" runat="server" Height="22px" Width="148px" 
+                        MaxLength="50"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="requeridAtividade" runat="server" 
+                        ControlToValidate="txtAtividade" ErrorMessage="Preencha o campo Atividade " 
+                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -159,7 +159,7 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Data Inicio</td>
+                    Data Início</td>
                 <td>
                     <asp:TextBox ID="txtDataInicio" runat="server" Height="22px" MaxLength="10" 
                         Width="148px" CssClass="mask-data"></asp:TextBox>
@@ -190,12 +190,12 @@
         <table width="100%">
             <tr align="center">
                 <td> 
-                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                        CausesValidation="False" />
+                        CausesValidation="False" onclick="btnCancelar_Click" />
                 </td>
             </tr>
             <tr align="center">
@@ -206,7 +206,7 @@
                 <td> 
                 <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
                     BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
-                    HeaderText="Validação:" Width="350px" />
+                    HeaderText="Validação:" Width="350px" style="text-align: left" />
                 </td>
             </tr>
         </table>

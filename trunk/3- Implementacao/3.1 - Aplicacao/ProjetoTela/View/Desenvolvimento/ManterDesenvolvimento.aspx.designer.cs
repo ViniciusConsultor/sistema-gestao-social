@@ -49,24 +49,6 @@ namespace SGS.View.Desenvolvimento {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAssistido;
         
         /// <summary>
-        /// txtAtividade control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAtividade;
-        
-        /// <summary>
-        /// requeridAtividade control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAtividade;
-        
-        /// <summary>
         /// ddlTipoAtividade control.
         /// </summary>
         /// <remarks>
@@ -83,6 +65,24 @@ namespace SGS.View.Desenvolvimento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridTipoAtividade;
+        
+        /// <summary>
+        /// txtAtividade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAtividade;
+        
+        /// <summary>
+        /// requeridAtividade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAtividade;
         
         /// <summary>
         /// txtDescricao control.
