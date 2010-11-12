@@ -10,7 +10,7 @@
 namespace SGS.View.Desenvolvimento {
     
     
-    public partial class ManterProfissional {
+    public partial class ManterDesenvolvimento {
         
         /// <summary>
         /// lblTitulo control.
