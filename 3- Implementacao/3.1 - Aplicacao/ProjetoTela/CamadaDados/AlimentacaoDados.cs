@@ -26,21 +26,21 @@ namespace SGS.CamadaDados
             if (!objAlimentacao.CodigoAlimentacao.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Alimentacao (CodigoAlimentacao, DiaSemana, Periodo, Horario, Alimento, Diretiva)
-                    VALUES (@CodigoAlimentacao, @diaSemana, @periodo, @horario, @alimento, @diretiva)";
+                    @"INSERT INTO Alimentacao (DiaSemana, Periodo, Horario, Alimento, Diretiva)
+                    VALUES (@diaSemana, @periodo, @horario, @alimento, @diretiva)";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Alimentacao SET CodigoAlimentacao = @CodigoAlimentacao, DiaSemana = @diaSemana,
+                    @"UPDATE Alimentacao SET DiaSemana = @diaSemana,
                         Periodo = @periodo, Horario = @horario, Alimento = @alimento, Diretiva = @diretiva
-                        WHERE (CodigoAlimentacao = @codigoAlimentacao)";
+                        WHERE (CodigoAlimentacao = @CodigoAlimentacao)";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
             if (objAlimentacao.CodigoAlimentacao.HasValue)
             {
-                SqlParameter parametroCodigo = new SqlParameter("@codigoAlimentacao", objAlimentacao.CodigoAlimentacao.Value);
+                SqlParameter parametroCodigo = new SqlParameter("@CodigoAlimentacao", objAlimentacao.CodigoAlimentacao.Value);
                 parametroCodigo.DbType = System.Data.DbType.Int32;
                 comando.Parameters.Add(parametroCodigo);
             }
@@ -68,8 +68,14 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade alimentacao com o Código da Alimentacao Preenchido
-            return objAlimentacao;
+            if (!objAlimentacao.CodigoAlimentacao.HasValue)
+            {
+                return ObterUltimaAlimentacaoInserida();
+            }
+            else
+            {
+                return ObterAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
+            }
         }
 
             /// <summary>
@@ -77,10 +83,10 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoAlimentacao"></param>
         /// <returns></returns>
-        public Alimentacao ObterAlimentacao(int codigoAlimentacao)
+        public Alimentacao ObterAlimentacao(int CodigoAlimentacao)
         {
-            SqlCommand comando = new SqlCommand("select * from Alimentacao where CodigoAlimentacao = @codigoAlimentacao", base.Conectar());
-            SqlParameter parametroCodigoAlimentacao = new SqlParameter("@codigoAlimentacao", codigoAlimentacao);
+            SqlCommand comando = new SqlCommand("select * from Alimentacao where CodigoAlimentacao = @CodigoAlimentacao", base.Conectar());
+            SqlParameter parametroCodigoAlimentacao = new SqlParameter("@CodigoAlimentacao", CodigoAlimentacao);
             parametroCodigoAlimentacao.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoAlimentacao);
 
@@ -91,11 +97,34 @@ namespace SGS.CamadaDados
             {
                 objAlimentacao = new Alimentacao();
 
-                objAlimentacao.CodigoAlimentacao = codigoAlimentacao;
+                objAlimentacao.CodigoAlimentacao = CodigoAlimentacao;
                 objAlimentacao.DiaSemana = leitorDados["DiaSemana"].ToString();
                 objAlimentacao.Periodo = leitorDados["Periodo"].ToString();
-                objAlimentacao.Horario = Convert.ToDateTime(leitorDados["Horario"]);
+                objAlimentacao.Horario = Convert.ToString(leitorDados["Horario"]);
                 objAlimentacao.Alimento = leitorDados["Alimento"].ToString();
+                objAlimentacao.Diretiva = leitorDados["Diretiva"].ToString();
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objAlimentacao;
+        }
+
+        public Alimentacao ObterUltimaAlimentacaoInserida()
+        {
+            SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Alimentacao ORDER BY CodigoAlimentacao DESC", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Alimentacao objAlimentacao = null;
+
+            if (leitorDados.Read())
+            {
+                objAlimentacao = new Alimentacao();
+                objAlimentacao.CodigoAlimentacao = Convert.ToInt32(leitorDados["CodigoAlimentacao"]);
+                objAlimentacao.DiaSemana = leitorDados["DiaSemana"].ToString();
+                objAlimentacao.Periodo = leitorDados["Periodo"].ToString();
+                objAlimentacao.Horario = Convert.ToString(leitorDados["Horario"]);
                 objAlimentacao.Diretiva = leitorDados["Diretiva"].ToString();
             }
 
@@ -108,13 +137,13 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui uma Alimentacao pelo seu código
         /// </summary>
-        public bool ExcluirAlimentacao(int codigoAlimentacao)
+        public bool ExcluirAlimentacao(int CodigoAlimentacao)
         {
             bool execucao;
 
-            SqlCommand comando = new SqlCommand("delete from Alimentacao where CodigoAlimentacao = @codigoAlimentacao", base.Conectar());
+            SqlCommand comando = new SqlCommand("delete from Alimentacao where CodigoAlimentacao = @CodigoAlimentacao", base.Conectar());
 
-            SqlParameter parametroCodigoAlimentacao = new SqlParameter("@codigoAlimentacao", codigoAlimentacao);
+            SqlParameter parametroCodigoAlimentacao = new SqlParameter("@CodigoAlimentacao", CodigoAlimentacao);
             parametroCodigoAlimentacao.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoAlimentacao);
 

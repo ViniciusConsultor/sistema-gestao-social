@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SGS.Servicos;
+using SGS.Entidades;
 using SGS.Entidades.DTO;
 
 
@@ -22,7 +23,7 @@ namespace SGS.View.Alimentacao
         protected void Page_Load(object sender, EventArgs e)
         {
             // Valida se o usuário logado possui acesso.
-            if (DadosAcesso.Perfil == "Gestor")
+            if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
             {
                 if (!Page.IsPostBack)
                 {
@@ -47,11 +48,10 @@ namespace SGS.View.Alimentacao
 
             SGSAlimentacao = sgsServico.SalvarAlimentacao(PegarDadosView());
 
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
-
             string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + SGSAlimentacao.CodigoAlimentacao.Value.ToString();
             Server.Transfer(url);
 
+            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
         }
 
         /// <summary>
@@ -97,7 +97,13 @@ namespace SGS.View.Alimentacao
             SGSServico objSGSServico = new SGSServico();
             SGSAlimentacao = new Entidades.Alimentacao();
 
-            if (Request.QueryString["dia"] != null)
+            if (Request.QueryString["tipo"] != null && Request.QueryString["cod"] != null)
+            {
+                int codigoAlimentacao = Convert.ToInt32(Request.QueryString["cod"]);
+                SGSAlimentacao = objSGSServico.ObterAlimentacao(codigoAlimentacao);
+                PreencherDadosView();
+            }
+            else if (Request.QueryString["dia"] != null)
             {
                 ddlDiaSemana.SelectedValue = Request.QueryString["dia"].ToString();
                 ddlPeriodo.Visible = true;
@@ -117,7 +123,7 @@ namespace SGS.View.Alimentacao
             SGS.Entidades.Alimentacao objAlimentacao = SGSAlimentacao;
 
             objAlimentacao.DiaSemana = ddlDiaSemana.SelectedValue;
-            objAlimentacao.Horario = Convert.ToDateTime(txtHorario.Text);
+            objAlimentacao.Horario = txtHorario.Text;
             objAlimentacao.Periodo = ddlPeriodo.SelectedValue;
             objAlimentacao.Alimento = ltbAlimentos.SelectedValue;
             objAlimentacao.Diretiva = txtDiretiva.Text;
@@ -132,7 +138,7 @@ namespace SGS.View.Alimentacao
         {
 
             ddlDiaSemana.SelectedValue = SGSAlimentacao.DiaSemana;
-            txtHorario.Text = SGSAlimentacao.Horario.Value.ToString();
+            txtHorario.Text = SGSAlimentacao.Horario;
             ddlPeriodo.SelectedValue = SGSAlimentacao.Periodo;
             ltbAlimentos.SelectedValue = SGSAlimentacao.Alimento;
             txtDiretiva.Text = SGSAlimentacao.Diretiva;

@@ -95,11 +95,11 @@
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
                         <asp:ListItem Text="Domingo" Value="dom" ></asp:ListItem>
                         <asp:ListItem Text="Segunda-Feira" Value="seg"></asp:ListItem>
-                        <asp:ListItem Text="Terça-Feira" Value="Segunda-Feira"></asp:ListItem>
-                        <asp:ListItem Text="Quarta-Feira" Value="Segunda-Feira"></asp:ListItem>
-                        <asp:ListItem Text="Quinta-Feira" Value="Segunda-Feira"></asp:ListItem>
-                        <asp:ListItem Text="Sexta-Feira" Value="Segunda-Feira"></asp:ListItem>
-                        <asp:ListItem>Sábado</asp:ListItem>
+                        <asp:ListItem Text="Terça-Feira" Value="ter"></asp:ListItem>
+                        <asp:ListItem Text="Quarta-Feira" Value="qua"></asp:ListItem>
+                        <asp:ListItem Text="Quinta-Feira" Value="qui"></asp:ListItem>
+                        <asp:ListItem Text="Sexta-Feira" Value="sex"></asp:ListItem>
+                        <asp:ListItem Value="sab">Sábado</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridDiaSemana" runat="server" 
                         ControlToValidate="ddlDiaSemana" ErrorMessage="Escolha o Dia da Semana" 
@@ -200,7 +200,7 @@
         <table width="100%">
             <tr align="center">
                 <td> 
-                    <asp:Button ID="Button1" runat="server" Text="Salvar" Width="110px" 
+                    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
                     <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
                         /> &nbsp;
