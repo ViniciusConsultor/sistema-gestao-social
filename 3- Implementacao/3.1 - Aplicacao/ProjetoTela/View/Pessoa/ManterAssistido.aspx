@@ -28,7 +28,7 @@
             <td>  
                 <asp:DropDownList ID="ddlCasaLar" runat="server" Width="200px" 
                     AutoPostBack="True" DataTextField="NomeCasaLar" 
-                    DataValueField="CodigoCasaLar">
+                    DataValueField="CodigoCasaLar" Enabled="False">
                     <asp:ListItem Value="13">Casa Lar David Gomes</asp:ListItem>
                 </asp:DropDownList>
             </td>

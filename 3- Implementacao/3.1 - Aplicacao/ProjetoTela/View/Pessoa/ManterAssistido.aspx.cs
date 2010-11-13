@@ -36,7 +36,7 @@ namespace SGS.View.Pessoa
             //    Server.Transfer("../SemPermissao.aspx");
             //}
         }
-        
+
         protected void ddlTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList objDropDownList = (DropDownList)sender;
@@ -85,13 +85,13 @@ namespace SGS.View.Pessoa
 
             List<Assistido> lista = objSGSServico.ListarAssistido(true);
 
-          /*  string url;
-            if (Request.QueryString["tipo"] == "alt")
-                url = @"ManterAssistido.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
-            else
-                url = "ManterAssistido.aspx";
+            /*  string url;
+              if (Request.QueryString["tipo"] == "alt")
+                  url = @"ManterAssistido.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
+              else
+                  url = "ManterAssistido.aspx";
 
-            Server.Transfer(url); */
+              Server.Transfer(url); */
 
         }
 
@@ -116,307 +116,6 @@ namespace SGS.View.Pessoa
             string url = @"ManterAssistido.aspx?tipo=alt&cod=" + SGSAssistidoDTO.Assistido.CodigoAssistido.Value.ToString();
             Response.Redirect(url);
         }
-
-        #endregion
-
-        #region Métodos
-
-        public void CarregarPagina()
-        {
-            SGSAssistidoDTO = new Entidades.DTO.AssistidoDTO();
-            SGSServico objSGSServico = new SGSServico();
-
-            SGSAssistidoDTO.CasaLarLista = objSGSServico.ListarCasaLar();
-
-            if (Request.QueryString["tipo"] == "alt")
-            {
-                lblTitulo.Text = "Alterar Assistido";
-                lblDescricao.Text = "Descrição: Permite alterar um Assistido.";
-
-                int codigoAssistido = Convert.ToInt32(Request.QueryString["cod"]);
-                SGSAssistidoDTO.Assistido = objSGSServico.ObterAssistido(codigoAssistido);
-
-                btnAtivarDesativar.Visible = true;
-                if (SGSAssistidoDTO.Assistido.Ativo == true)
-                {
-                    btnAtivarDesativar.Text = "Desativar";
-                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente desativar este assistido?')";
-                }
-                else
-                {
-                    btnAtivarDesativar.Text = "Ativar";
-                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente ativar este assistido?')";
-                }
-
-                PreencherDadosView();
-            }
-            else
-            {
-                lblTitulo.Text = "Cadastrar Assistido";
-                lblDescricao.Text = "Descrição: Permite cadastrar um Assistido.";
-
-                btnAtivarDesativar.Visible = false;
-
-                PreencherDadosView();
-            }
-            
-        }
-
-        public Assistido PegarDadosView()
-        {
-            AssistidoDTO objSGSAssistidoDTO = SGSAssistidoDTO;
-
-            #region Pessoa Dados Basico 
-           
-            if (ddlCasaLar.SelectedValue != "Selecione")
-                SGSAssistidoDTO.Assistido.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
-            else
-                SGSAssistidoDTO.Assistido.CodigoCasaLar = null;
-
-            SGSAssistidoDTO.Assistido.TipoPessoa = "Assistido";
-            SGSAssistidoDTO.Assistido.Nome = ucPessoaDadosBasico.Nome;
-            SGSAssistidoDTO.Assistido.Sexo = ucPessoaDadosBasico.Sexo;
-
-            if (ucPessoaDadosBasico.DataNascimento != "")
-                SGSAssistidoDTO.Assistido.DataNascimento = Convert.ToDateTime(ucPessoaDadosBasico.DataNascimento);
-            else
-                SGSAssistidoDTO.Assistido.DataNascimento = null;
-
-            SGSAssistidoDTO.Assistido.CPF = ucPessoaDadosBasico.CPF;
-            SGSAssistidoDTO.Assistido.RG = ucPessoaDadosBasico.RG;
-            SGSAssistidoDTO.Assistido.CertidaoNascimento = ucPessoaDadosBasico.CertidaoNascimento;
-            SGSAssistidoDTO.Assistido.Nacionalidade = ucPessoaDadosBasico.Nacionalidade;
-            SGSAssistidoDTO.Assistido.Naturalidade = ucPessoaDadosBasico.Naturalidade;
-            SGSAssistidoDTO.Assistido.Contato.CEP = ucPessoaDadosBasico.CEP;
-            SGSAssistidoDTO.Assistido.Contato.Logradouro = ucPessoaDadosBasico.Logradouro;
-
-            if (ucPessoaDadosBasico.Numero.HasValue)
-                SGSAssistidoDTO.Assistido.Contato.Numero = ucPessoaDadosBasico.Numero.Value.ToString();
-            else
-                SGSAssistidoDTO.Assistido.Contato.Numero = "";
-            
-            SGSAssistidoDTO.Assistido.Contato.Bairro = ucPessoaDadosBasico.Bairro;
-            SGSAssistidoDTO.Assistido.Contato.Cidade = ucPessoaDadosBasico.Cidade;
-            SGSAssistidoDTO.Assistido.Contato.Estado = ucPessoaDadosBasico.Estado;
-            SGSAssistidoDTO.Assistido.Contato.Pais = ucPessoaDadosBasico.Pais;
-            SGSAssistidoDTO.Assistido.Contato.TelefoneCelular = ucPessoaDadosBasico.TelefoneCelular;
-            SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional = ucPessoaDadosBasico.TelefoneConvencional;
-            SGSAssistidoDTO.Assistido.Contato.FAX = ucPessoaDadosBasico.Fax;
-            SGSAssistidoDTO.Assistido.Contato.Email = ucPessoaDadosBasico.Email;
-            SGSAssistidoDTO.Assistido.Contato.Site = ucPessoaDadosBasico.Site;
-            SGSAssistidoDTO.Assistido.Contato.Blog = ucPessoaDadosBasico.Blog;
-          
-            #endregion
-
-            #region Dados Assistido
-
-            //Dados Assistido
-            if (ucPessoaAssistido.StatusAssistido != "Selecione")
-                SGSAssistidoDTO.Assistido.StatusAssistido = ucPessoaAssistido.StatusAssistido;
-            else
-                SGSAssistidoDTO.Assistido.StatusAssistido = "";
-
-            if (ucPessoaAssistido.DataEntrada != "")
-                SGSAssistidoDTO.Assistido.DataEntrada = Convert.ToDateTime(ucPessoaAssistido.DataEntrada);
-            else
-                SGSAssistidoDTO.Assistido.DataEntrada = null;
-
-            if (ucPessoaAssistido.DataSaida != "")
-                SGSAssistidoDTO.Assistido.DataSaida = Convert.ToDateTime(ucPessoaAssistido.DataSaida);
-            else
-                SGSAssistidoDTO.Assistido.DataSaida = null;
-            SGSAssistidoDTO.Assistido.EstadoSaude = ucPessoaAssistido.EstadoSaude;
-            if (ucPessoaAssistido.Peso != "")
-                SGSAssistidoDTO.Assistido.Peso = Convert.ToDecimal(ucPessoaAssistido.Peso);
-            else
-                SGSAssistidoDTO.Assistido.Peso = null;
-            SGSAssistidoDTO.Assistido.Cor = ucPessoaAssistido.Cor;
-            if (ucPessoaAssistido.Altura != "")
-                SGSAssistidoDTO.Assistido.Altura = Convert.ToDecimal(ucPessoaAssistido.Altura);
-            SGSAssistidoDTO.Assistido.Dormitorio = ucPessoaAssistido.Dormitorio;
-            SGSAssistidoDTO.Assistido.TamanhoCamisa = ucPessoaAssistido.TamanhoCamisa;
-            SGSAssistidoDTO.Assistido.TamanhoCalca = ucPessoaAssistido.TamanhoCalca;
-            SGSAssistidoDTO.Assistido.TamanhoCalcado = ucPessoaAssistido.TamanhoCalcado;
-            SGSAssistidoDTO.Assistido.Deficiente = ucPessoaAssistido.Deficiente;
-            SGSAssistidoDTO.Assistido.Hobby = ucPessoaAssistido.Hobby;
-            SGSAssistidoDTO.Assistido.HistoricoVida = ucPessoaAssistido.HistoricoVida;
-
-            //Dados Família
-            SGSAssistidoDTO.Assistido.Pai = ucPessoaAssistido.Pai;
-            SGSAssistidoDTO.Assistido.Mae = ucPessoaAssistido.Mae;
-            SGSAssistidoDTO.Assistido.PaiVivo = ucPessoaAssistido.PaiVivo;
-            SGSAssistidoDTO.Assistido.MaeViva = ucPessoaAssistido.MaeViva ;
-            SGSAssistidoDTO.Assistido.CPFPai = ucPessoaAssistido.CPFPai;
-            SGSAssistidoDTO.Assistido.CPFMae = ucPessoaAssistido.CPFMae;
-            SGSAssistidoDTO.Assistido.RGPai = ucPessoaAssistido.RGPai;
-            SGSAssistidoDTO.Assistido.RGMae = ucPessoaAssistido.RGMae;
-            SGSAssistidoDTO.Assistido.TelefonePai = ucPessoaAssistido.TelPai;
-            SGSAssistidoDTO.Assistido.TelefoneMae = ucPessoaAssistido.TelMae;
-            SGSAssistidoDTO.Assistido.QtdIrmaos = ucPessoaAssistido.QtdIrmaos;
-
-            //Dados do Responsável
-            SGSAssistidoDTO.Assistido.ResponsavelLegal = ucPessoaAssistido.Responsavel;
-            SGSAssistidoDTO.Assistido.CPFResponsavel = ucPessoaAssistido.CPFResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.TelefoneConvencional = ucPessoaAssistido.TelResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.Email = ucPessoaAssistido.EmailResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.CEP = ucPessoaAssistido.CEPResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.Logradouro = ucPessoaAssistido.LogradouroResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.Numero = ucPessoaAssistido.NumeroResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.Bairro = ucPessoaAssistido.BairroResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.Cidade = ucPessoaAssistido.CidadeResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.Estado = ucPessoaAssistido.EstadoResponsavel;
-            SGSAssistidoDTO.Assistido.ContatoResponsavel.Pais = ucPessoaAssistido.PaisResponsavel;
-
-            //Verifica se algum dado de contato do Responsável foi inserido, caso não tem o Contato Responsável recebe null
-            Contato contato = SGSAssistidoDTO.Assistido.ContatoResponsavel;
-            if (String.IsNullOrEmpty(contato.TelefoneConvencional) && String.IsNullOrEmpty(contato.Email) && String.IsNullOrEmpty(contato.CEP) &&
-                String.IsNullOrEmpty(contato.Logradouro) && String.IsNullOrEmpty(contato.Numero) && String.IsNullOrEmpty(contato.Bairro) &&
-                String.IsNullOrEmpty(contato.Cidade) && String.IsNullOrEmpty(contato.Estado) && String.IsNullOrEmpty(contato.Pais))
-            {
-                SGSAssistidoDTO.Assistido.ContatoResponsavel = null;
-            }
-
-            #endregion
-
-            return SGSAssistidoDTO.Assistido;
-
-        }
-
-        public void PreencherDadosView()
-        {
-            ddlCasaLar.DataSource = SGSAssistidoDTO.CasaLarLista;
-            ddlCasaLar.DataBind();
-
-
-            if (SGSAssistidoDTO.Assistido.CodigoCasaLar.HasValue)
-                ddlCasaLar.SelectedValue = SGSAssistidoDTO.Assistido.CodigoCasaLar.Value.ToString();
-            else
-                ddlCasaLar.SelectedValue = "Selecione";
-
-            ucPessoaDadosBasico.Nome = SGSAssistidoDTO.Assistido.Nome;
-            ucPessoaDadosBasico.Sexo = SGSAssistidoDTO.Assistido.Sexo;
-           
-            if (SGSAssistidoDTO.Assistido.DataNascimento.HasValue)
-                ucPessoaDadosBasico.DataNascimento = SGSAssistidoDTO.Assistido.DataNascimento.Value.ToString("dd/MM/yyyy");
-            else
-                ucPessoaDadosBasico.DataNascimento = "";
-
-            ucPessoaDadosBasico.CPF = SGSAssistidoDTO.Assistido.CPF;
-            ucPessoaDadosBasico.RG = SGSAssistidoDTO.Assistido.RG;
-            ucPessoaDadosBasico.CertidaoNascimento = SGSAssistidoDTO.Assistido.CertidaoNascimento;
-            ucPessoaDadosBasico.Nacionalidade = SGSAssistidoDTO.Assistido.Nacionalidade;
-            ucPessoaDadosBasico.Naturalidade = SGSAssistidoDTO.Assistido.Naturalidade;
-            ucPessoaDadosBasico.CEP = SGSAssistidoDTO.Assistido.Contato.CEP;
-            ucPessoaDadosBasico.Logradouro = SGSAssistidoDTO.Assistido.Contato.Logradouro;
-            if (SGSAssistidoDTO.Assistido.Contato.Numero != "")
-                ucPessoaDadosBasico.Numero = Convert.ToInt32(SGSAssistidoDTO.Assistido.Contato.Numero);
-            else
-                ucPessoaDadosBasico.Numero = null;
-
-            ucPessoaDadosBasico.Bairro = SGSAssistidoDTO.Assistido.Contato.Bairro;
-            ucPessoaDadosBasico.Cidade = SGSAssistidoDTO.Assistido.Contato.Cidade;
-            ucPessoaDadosBasico.Estado  = SGSAssistidoDTO.Assistido.Contato.Estado;
-            ucPessoaDadosBasico.Pais = SGSAssistidoDTO.Assistido.Contato.Pais;
-            ucPessoaDadosBasico.TelefoneCelular = SGSAssistidoDTO.Assistido.Contato.TelefoneCelular;
-            ucPessoaDadosBasico.TelefoneConvencional  = SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional;
-            ucPessoaDadosBasico.Fax = SGSAssistidoDTO.Assistido.Contato.FAX;
-            ucPessoaDadosBasico.Email = SGSAssistidoDTO.Assistido.Contato.Email;
-            ucPessoaDadosBasico.Site = SGSAssistidoDTO.Assistido.Contato.Site;
-            ucPessoaDadosBasico.Blog = SGSAssistidoDTO.Assistido.Contato.Blog;
-
-
-            #region Dados Assistido
-
-            //Dados Assistido
-
-            ucPessoaAssistido.StatusAssistido = SGSAssistidoDTO.Assistido.StatusAssistido;
-            if (SGSAssistidoDTO.Assistido.DataEntrada.HasValue)
-                ucPessoaAssistido.DataEntrada = SGSAssistidoDTO.Assistido.DataEntrada.Value.ToString("dd/MM/yyyy");
-            else
-                ucPessoaAssistido.DataEntrada = "";
-
-            if (SGSAssistidoDTO.Assistido.DataSaida.HasValue)
-                ucPessoaAssistido.DataSaida = SGSAssistidoDTO.Assistido.DataSaida.Value.ToString("dd/MM/yyyy");
-            else
-                ucPessoaAssistido.DataSaida = "";
-            ucPessoaAssistido.EstadoSaude = SGSAssistidoDTO.Assistido.EstadoSaude;
-            if (SGSAssistidoDTO.Assistido.Peso.HasValue)
-                ucPessoaAssistido.Peso = SGSAssistidoDTO.Assistido.Peso.ToString();
-            else
-                ucPessoaAssistido.Peso = "";
-            ucPessoaAssistido.Cor = SGSAssistidoDTO.Assistido.Cor;
-            
-            if (SGSAssistidoDTO.Assistido.Altura.HasValue)
-                ucPessoaAssistido.Altura = SGSAssistidoDTO.Assistido.Altura.ToString();
-            else
-                ucPessoaAssistido.Altura = null;
-
-            ucPessoaAssistido.Dormitorio = SGSAssistidoDTO.Assistido.Dormitorio;
-            ucPessoaAssistido.TamanhoCamisa = SGSAssistidoDTO.Assistido.TamanhoCamisa;
-            ucPessoaAssistido.TamanhoCalca = SGSAssistidoDTO.Assistido.TamanhoCalca;
-            ucPessoaAssistido.TamanhoCalcado = SGSAssistidoDTO.Assistido.TamanhoCalcado;
-            ucPessoaAssistido.Deficiente = SGSAssistidoDTO.Assistido.Deficiente;
-            ucPessoaAssistido.Hobby = SGSAssistidoDTO.Assistido.Hobby;
-            ucPessoaAssistido.HistoricoVida = SGSAssistidoDTO.Assistido.HistoricoVida;
-
-            //Dados Família
-            ucPessoaAssistido.Pai = SGSAssistidoDTO.Assistido.Pai;
-            ucPessoaAssistido.Mae = SGSAssistidoDTO.Assistido.Mae;
-            ucPessoaAssistido.PaiVivo = SGSAssistidoDTO.Assistido.PaiVivo;
-            ucPessoaAssistido.MaeViva = SGSAssistidoDTO.Assistido.MaeViva;
-            ucPessoaAssistido.CPFPai = SGSAssistidoDTO.Assistido.CPFPai;
-            ucPessoaAssistido.CPFMae = SGSAssistidoDTO.Assistido.CPFMae;
-            ucPessoaAssistido.RGPai = SGSAssistidoDTO.Assistido.RGPai;
-            ucPessoaAssistido.RGMae = SGSAssistidoDTO.Assistido.RGMae;
-            ucPessoaAssistido.TelPai = SGSAssistidoDTO.Assistido.TelefonePai;
-            ucPessoaAssistido.TelMae = SGSAssistidoDTO.Assistido.TelefoneMae;
-            ucPessoaAssistido.QtdIrmaos = SGSAssistidoDTO.Assistido.QtdIrmaos;
-
-
-            //Dados do Responsável
-            ucPessoaAssistido.Responsavel = SGSAssistidoDTO.Assistido.ResponsavelLegal;
-            ucPessoaAssistido.CPFResponsavel = SGSAssistidoDTO.Assistido.CPFResponsavel;
-            ucPessoaAssistido.TelResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.TelefoneCelular;
-            ucPessoaAssistido.EmailResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Email;
-            ucPessoaAssistido.CEPResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.CEP;
-            ucPessoaAssistido.LogradouroResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Logradouro;
-            ucPessoaAssistido.NumeroResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Numero;
-            ucPessoaAssistido.BairroResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Bairro;
-            ucPessoaAssistido.CidadeResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Cidade;
-            ucPessoaAssistido.EstadoResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Estado;
-            ucPessoaAssistido.PaisResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Pais;
-
-            #endregion
-
-
-        }
-
-        #endregion
-
-        #region Propriedades
-
-        /// <summary>
-        /// Esta propriedade representa o AssistidoDTO e fica em memória
-        /// </summary>
-        public AssistidoDTO SGSAssistidoDTO
-        {
-            set
-            {
-                if (ViewState["SGSAssistidoDTO"] == null)
-                    ViewState.Add("SGSAssistidoDTO", value);
-                else
-                    ViewState["SGSAssistidoDTO"] = value;
-            }
-            get
-            {
-                if (ViewState["SGSAssistidoDTO"] == null)
-                    return null;
-                else
-                    return (AssistidoDTO)ViewState["SGSAssistidoDTO"];
-            }
-        }
-
-        #endregion
 
         protected void btnCarregarDadosTela_Click(object sender, EventArgs e)
         {
@@ -496,8 +195,321 @@ namespace SGS.View.Pessoa
 
         }
 
+        #endregion
 
-  
+        #region Métodos
+
+        public void CarregarPagina()
+        {
+            SGSAssistidoDTO = new Entidades.DTO.AssistidoDTO();
+            SGSServico objSGSServico = new SGSServico();
+
+            SGSAssistidoDTO.CasaLarLista = objSGSServico.ListarCasaLar();
+            CasaLarDataSource = SGSAssistidoDTO.CasaLarLista;
+
+            if (Request.QueryString["tipo"] == "alt")
+            {
+                lblTitulo.Text = "Alterar Assistido";
+                lblDescricao.Text = "Descrição: Permite alterar um Assistido.";
+
+                int codigoAssistido = Convert.ToInt32(Request.QueryString["cod"]);
+                SGSAssistidoDTO.Assistido = objSGSServico.ObterAssistido(codigoAssistido);
+
+                btnAtivarDesativar.Visible = true;
+                if (SGSAssistidoDTO.Assistido.Ativo == true)
+                {
+                    btnAtivarDesativar.Text = "Desativar";
+                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente desativar este assistido?')";
+                }
+                else
+                {
+                    btnAtivarDesativar.Text = "Ativar";
+                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente ativar este assistido?')";
+                }
+
+                PreencherDadosView();
+            }
+            else
+            {
+                lblTitulo.Text = "Cadastrar Assistido";
+                lblDescricao.Text = "Descrição: Permite cadastrar um Assistido.";
+
+                btnAtivarDesativar.Visible = false;
+
+                PreencherDadosView();
+            }
+
+        }
+
+        public Assistido PegarDadosView()
+        {
+            AssistidoDTO objSGSAssistidoDTO = SGSAssistidoDTO;
+
+            #region Pessoa Dados Basico
+
+            if (ddlCasaLar.SelectedValue != "Selecione")
+                SGSAssistidoDTO.Assistido.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
+            else
+                SGSAssistidoDTO.Assistido.CodigoCasaLar = null;
+
+            SGSAssistidoDTO.Assistido.TipoPessoa = "Assistido";
+            SGSAssistidoDTO.Assistido.Nome = ucPessoaDadosBasico.Nome;
+            SGSAssistidoDTO.Assistido.Sexo = ucPessoaDadosBasico.Sexo;
+
+            if (ucPessoaDadosBasico.DataNascimento != "")
+                SGSAssistidoDTO.Assistido.DataNascimento = Convert.ToDateTime(ucPessoaDadosBasico.DataNascimento);
+            else
+                SGSAssistidoDTO.Assistido.DataNascimento = null;
+
+            SGSAssistidoDTO.Assistido.CPF = ucPessoaDadosBasico.CPF;
+            SGSAssistidoDTO.Assistido.RG = ucPessoaDadosBasico.RG;
+            SGSAssistidoDTO.Assistido.CertidaoNascimento = ucPessoaDadosBasico.CertidaoNascimento;
+            SGSAssistidoDTO.Assistido.Nacionalidade = ucPessoaDadosBasico.Nacionalidade;
+            SGSAssistidoDTO.Assistido.Naturalidade = ucPessoaDadosBasico.Naturalidade;
+            SGSAssistidoDTO.Assistido.Contato.CEP = ucPessoaDadosBasico.CEP;
+            SGSAssistidoDTO.Assistido.Contato.Logradouro = ucPessoaDadosBasico.Logradouro;
+
+            if (ucPessoaDadosBasico.Numero.HasValue)
+                SGSAssistidoDTO.Assistido.Contato.Numero = ucPessoaDadosBasico.Numero.Value.ToString();
+            else
+                SGSAssistidoDTO.Assistido.Contato.Numero = "";
+
+            SGSAssistidoDTO.Assistido.Contato.Bairro = ucPessoaDadosBasico.Bairro;
+            SGSAssistidoDTO.Assistido.Contato.Cidade = ucPessoaDadosBasico.Cidade;
+            SGSAssistidoDTO.Assistido.Contato.Estado = ucPessoaDadosBasico.Estado;
+            SGSAssistidoDTO.Assistido.Contato.Pais = ucPessoaDadosBasico.Pais;
+            SGSAssistidoDTO.Assistido.Contato.TelefoneCelular = ucPessoaDadosBasico.TelefoneCelular;
+            SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional = ucPessoaDadosBasico.TelefoneConvencional;
+            SGSAssistidoDTO.Assistido.Contato.FAX = ucPessoaDadosBasico.Fax;
+            SGSAssistidoDTO.Assistido.Contato.Email = ucPessoaDadosBasico.Email;
+            SGSAssistidoDTO.Assistido.Contato.Site = ucPessoaDadosBasico.Site;
+            SGSAssistidoDTO.Assistido.Contato.Blog = ucPessoaDadosBasico.Blog;
+
+            #endregion
+
+            #region Dados Assistido
+
+            //Dados Assistido
+            if (ucPessoaAssistido.StatusAssistido != "Selecione")
+                SGSAssistidoDTO.Assistido.StatusAssistido = ucPessoaAssistido.StatusAssistido;
+            else
+                SGSAssistidoDTO.Assistido.StatusAssistido = "";
+
+            if (ucPessoaAssistido.DataEntrada != "")
+                SGSAssistidoDTO.Assistido.DataEntrada = Convert.ToDateTime(ucPessoaAssistido.DataEntrada);
+            else
+                SGSAssistidoDTO.Assistido.DataEntrada = null;
+
+            if (ucPessoaAssistido.DataSaida != "")
+                SGSAssistidoDTO.Assistido.DataSaida = Convert.ToDateTime(ucPessoaAssistido.DataSaida);
+            else
+                SGSAssistidoDTO.Assistido.DataSaida = null;
+            SGSAssistidoDTO.Assistido.EstadoSaude = ucPessoaAssistido.EstadoSaude;
+            if (ucPessoaAssistido.Peso != "")
+                SGSAssistidoDTO.Assistido.Peso = Convert.ToDecimal(ucPessoaAssistido.Peso);
+            else
+                SGSAssistidoDTO.Assistido.Peso = null;
+            SGSAssistidoDTO.Assistido.Cor = ucPessoaAssistido.Cor;
+            if (ucPessoaAssistido.Altura != "")
+                SGSAssistidoDTO.Assistido.Altura = Convert.ToDecimal(ucPessoaAssistido.Altura);
+            SGSAssistidoDTO.Assistido.Dormitorio = ucPessoaAssistido.Dormitorio;
+            SGSAssistidoDTO.Assistido.TamanhoCamisa = ucPessoaAssistido.TamanhoCamisa;
+            SGSAssistidoDTO.Assistido.TamanhoCalca = ucPessoaAssistido.TamanhoCalca;
+            SGSAssistidoDTO.Assistido.TamanhoCalcado = ucPessoaAssistido.TamanhoCalcado;
+            SGSAssistidoDTO.Assistido.Deficiente = ucPessoaAssistido.Deficiente;
+            SGSAssistidoDTO.Assistido.Hobby = ucPessoaAssistido.Hobby;
+            SGSAssistidoDTO.Assistido.HistoricoVida = ucPessoaAssistido.HistoricoVida;
+
+            //Dados Família
+            SGSAssistidoDTO.Assistido.Pai = ucPessoaAssistido.Pai;
+            SGSAssistidoDTO.Assistido.Mae = ucPessoaAssistido.Mae;
+            SGSAssistidoDTO.Assistido.PaiVivo = ucPessoaAssistido.PaiVivo;
+            SGSAssistidoDTO.Assistido.MaeViva = ucPessoaAssistido.MaeViva;
+            SGSAssistidoDTO.Assistido.CPFPai = ucPessoaAssistido.CPFPai;
+            SGSAssistidoDTO.Assistido.CPFMae = ucPessoaAssistido.CPFMae;
+            SGSAssistidoDTO.Assistido.RGPai = ucPessoaAssistido.RGPai;
+            SGSAssistidoDTO.Assistido.RGMae = ucPessoaAssistido.RGMae;
+            SGSAssistidoDTO.Assistido.TelefonePai = ucPessoaAssistido.TelPai;
+            SGSAssistidoDTO.Assistido.TelefoneMae = ucPessoaAssistido.TelMae;
+            SGSAssistidoDTO.Assistido.QtdIrmaos = ucPessoaAssistido.QtdIrmaos;
+
+            //Dados do Responsável
+            SGSAssistidoDTO.Assistido.ResponsavelLegal = ucPessoaAssistido.Responsavel;
+            SGSAssistidoDTO.Assistido.CPFResponsavel = ucPessoaAssistido.CPFResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.TelefoneConvencional = ucPessoaAssistido.TelResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.Email = ucPessoaAssistido.EmailResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.CEP = ucPessoaAssistido.CEPResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.Logradouro = ucPessoaAssistido.LogradouroResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.Numero = ucPessoaAssistido.NumeroResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.Bairro = ucPessoaAssistido.BairroResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.Cidade = ucPessoaAssistido.CidadeResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.Estado = ucPessoaAssistido.EstadoResponsavel;
+            SGSAssistidoDTO.Assistido.ContatoResponsavel.Pais = ucPessoaAssistido.PaisResponsavel;
+
+            //Verifica se algum dado de contato do Responsável foi inserido, caso não tem o Contato Responsável recebe null
+            Contato contato = SGSAssistidoDTO.Assistido.ContatoResponsavel;
+            if (String.IsNullOrEmpty(contato.TelefoneConvencional) && String.IsNullOrEmpty(contato.Email) && String.IsNullOrEmpty(contato.CEP) &&
+                String.IsNullOrEmpty(contato.Logradouro) && String.IsNullOrEmpty(contato.Numero) && String.IsNullOrEmpty(contato.Bairro) &&
+                String.IsNullOrEmpty(contato.Cidade) && String.IsNullOrEmpty(contato.Estado) && String.IsNullOrEmpty(contato.Pais))
+            {
+                SGSAssistidoDTO.Assistido.ContatoResponsavel = null;
+            }
+
+            #endregion
+
+            return SGSAssistidoDTO.Assistido;
+
+        }
+
+        public void PreencherDadosView()
+        {
+            ddlCasaLar.DataSource = SGSAssistidoDTO.CasaLarLista;
+            ddlCasaLar.DataBind();
+
+
+            if (SGSAssistidoDTO.Assistido.CodigoCasaLar.HasValue)
+                ddlCasaLar.SelectedValue = SGSAssistidoDTO.Assistido.CodigoCasaLar.Value.ToString();
+            else
+                ddlCasaLar.SelectedValue = "Selecione";
+
+            ucPessoaDadosBasico.Nome = SGSAssistidoDTO.Assistido.Nome;
+            ucPessoaDadosBasico.Sexo = SGSAssistidoDTO.Assistido.Sexo;
+
+            if (SGSAssistidoDTO.Assistido.DataNascimento.HasValue)
+                ucPessoaDadosBasico.DataNascimento = SGSAssistidoDTO.Assistido.DataNascimento.Value.ToString("dd/MM/yyyy");
+            else
+                ucPessoaDadosBasico.DataNascimento = "";
+
+            ucPessoaDadosBasico.CPF = SGSAssistidoDTO.Assistido.CPF;
+            ucPessoaDadosBasico.RG = SGSAssistidoDTO.Assistido.RG;
+            ucPessoaDadosBasico.CertidaoNascimento = SGSAssistidoDTO.Assistido.CertidaoNascimento;
+            ucPessoaDadosBasico.Nacionalidade = SGSAssistidoDTO.Assistido.Nacionalidade;
+            ucPessoaDadosBasico.Naturalidade = SGSAssistidoDTO.Assistido.Naturalidade;
+            ucPessoaDadosBasico.CEP = SGSAssistidoDTO.Assistido.Contato.CEP;
+            ucPessoaDadosBasico.Logradouro = SGSAssistidoDTO.Assistido.Contato.Logradouro;
+            if (SGSAssistidoDTO.Assistido.Contato.Numero != "")
+                ucPessoaDadosBasico.Numero = Convert.ToInt32(SGSAssistidoDTO.Assistido.Contato.Numero);
+            else
+                ucPessoaDadosBasico.Numero = null;
+
+            ucPessoaDadosBasico.Bairro = SGSAssistidoDTO.Assistido.Contato.Bairro;
+            ucPessoaDadosBasico.Cidade = SGSAssistidoDTO.Assistido.Contato.Cidade;
+            ucPessoaDadosBasico.Estado = SGSAssistidoDTO.Assistido.Contato.Estado;
+            ucPessoaDadosBasico.Pais = SGSAssistidoDTO.Assistido.Contato.Pais;
+            ucPessoaDadosBasico.TelefoneCelular = SGSAssistidoDTO.Assistido.Contato.TelefoneCelular;
+            ucPessoaDadosBasico.TelefoneConvencional = SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional;
+            ucPessoaDadosBasico.Fax = SGSAssistidoDTO.Assistido.Contato.FAX;
+            ucPessoaDadosBasico.Email = SGSAssistidoDTO.Assistido.Contato.Email;
+            ucPessoaDadosBasico.Site = SGSAssistidoDTO.Assistido.Contato.Site;
+            ucPessoaDadosBasico.Blog = SGSAssistidoDTO.Assistido.Contato.Blog;
+
+
+            #region Dados Assistido
+
+            //Dados Assistido
+
+            ucPessoaAssistido.StatusAssistido = SGSAssistidoDTO.Assistido.StatusAssistido;
+            if (SGSAssistidoDTO.Assistido.DataEntrada.HasValue)
+                ucPessoaAssistido.DataEntrada = SGSAssistidoDTO.Assistido.DataEntrada.Value.ToString("dd/MM/yyyy");
+            else
+                ucPessoaAssistido.DataEntrada = "";
+
+            if (SGSAssistidoDTO.Assistido.DataSaida.HasValue)
+                ucPessoaAssistido.DataSaida = SGSAssistidoDTO.Assistido.DataSaida.Value.ToString("dd/MM/yyyy");
+            else
+                ucPessoaAssistido.DataSaida = "";
+            ucPessoaAssistido.EstadoSaude = SGSAssistidoDTO.Assistido.EstadoSaude;
+            if (SGSAssistidoDTO.Assistido.Peso.HasValue)
+                ucPessoaAssistido.Peso = SGSAssistidoDTO.Assistido.Peso.ToString();
+            else
+                ucPessoaAssistido.Peso = "";
+            ucPessoaAssistido.Cor = SGSAssistidoDTO.Assistido.Cor;
+
+            if (SGSAssistidoDTO.Assistido.Altura.HasValue)
+                ucPessoaAssistido.Altura = SGSAssistidoDTO.Assistido.Altura.ToString();
+            else
+                ucPessoaAssistido.Altura = null;
+
+            ucPessoaAssistido.Dormitorio = SGSAssistidoDTO.Assistido.Dormitorio;
+            ucPessoaAssistido.TamanhoCamisa = SGSAssistidoDTO.Assistido.TamanhoCamisa;
+            ucPessoaAssistido.TamanhoCalca = SGSAssistidoDTO.Assistido.TamanhoCalca;
+            ucPessoaAssistido.TamanhoCalcado = SGSAssistidoDTO.Assistido.TamanhoCalcado;
+            ucPessoaAssistido.Deficiente = SGSAssistidoDTO.Assistido.Deficiente;
+            ucPessoaAssistido.Hobby = SGSAssistidoDTO.Assistido.Hobby;
+            ucPessoaAssistido.HistoricoVida = SGSAssistidoDTO.Assistido.HistoricoVida;
+
+            //Dados Família
+            ucPessoaAssistido.Pai = SGSAssistidoDTO.Assistido.Pai;
+            ucPessoaAssistido.Mae = SGSAssistidoDTO.Assistido.Mae;
+            ucPessoaAssistido.PaiVivo = SGSAssistidoDTO.Assistido.PaiVivo;
+            ucPessoaAssistido.MaeViva = SGSAssistidoDTO.Assistido.MaeViva;
+            ucPessoaAssistido.CPFPai = SGSAssistidoDTO.Assistido.CPFPai;
+            ucPessoaAssistido.CPFMae = SGSAssistidoDTO.Assistido.CPFMae;
+            ucPessoaAssistido.RGPai = SGSAssistidoDTO.Assistido.RGPai;
+            ucPessoaAssistido.RGMae = SGSAssistidoDTO.Assistido.RGMae;
+            ucPessoaAssistido.TelPai = SGSAssistidoDTO.Assistido.TelefonePai;
+            ucPessoaAssistido.TelMae = SGSAssistidoDTO.Assistido.TelefoneMae;
+            ucPessoaAssistido.QtdIrmaos = SGSAssistidoDTO.Assistido.QtdIrmaos;
+
+
+            //Dados do Responsável
+            ucPessoaAssistido.Responsavel = SGSAssistidoDTO.Assistido.ResponsavelLegal;
+            ucPessoaAssistido.CPFResponsavel = SGSAssistidoDTO.Assistido.CPFResponsavel;
+            ucPessoaAssistido.TelResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.TelefoneCelular;
+            ucPessoaAssistido.EmailResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Email;
+            ucPessoaAssistido.CEPResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.CEP;
+            ucPessoaAssistido.LogradouroResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Logradouro;
+            ucPessoaAssistido.NumeroResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Numero;
+            ucPessoaAssistido.BairroResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Bairro;
+            ucPessoaAssistido.CidadeResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Cidade;
+            ucPessoaAssistido.EstadoResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Estado;
+            ucPessoaAssistido.PaisResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Pais;
+
+            #endregion
+
+
+        }
+
+        #endregion
+
+        #region Propriedades
+
+        /// <summary>
+        /// Esta propriedade representa o AssistidoDTO e fica em memória
+        /// </summary>
+        public AssistidoDTO SGSAssistidoDTO
+        {
+            set
+            {
+                if (ViewState["SGSAssistidoDTO"] == null)
+                    ViewState.Add("SGSAssistidoDTO", value);
+                else
+                    ViewState["SGSAssistidoDTO"] = value;
+            }
+            get
+            {
+                if (ViewState["SGSAssistidoDTO"] == null)
+                    return null;
+                else
+                    return (AssistidoDTO)ViewState["SGSAssistidoDTO"];
+            }
+        }
+
+        /// <summary>
+        /// Preenche o campo ddlCasaLar
+        /// </summary>
+        public List<Entidades.CasaLar> CasaLarDataSource
+        {
+            set
+            {
+                ddlCasaLar.DataSource = value;
+                ddlCasaLar.DataBind();
+            }
+        }
+
+
+
+        #endregion
 
     }
 }
