@@ -144,7 +144,7 @@ namespace SGS.View.Escolar
             objSGSEscolarDTO.Escolar.Contato.Cidade = txtCidade.Text;
             objSGSEscolarDTO.Escolar.Contato.Email = txtEmail.Text;
             objSGSEscolarDTO.Escolar.Contato.Estado = ddlEstado.SelectedValue;
-            objSGSEscolarDTO.Escolar.Contato.FAX = txtFax.Text;
+            objSGSEscolarDTO.Escolar.Contato.Fax = txtFax.Text;
             objSGSEscolarDTO.Escolar.Contato.Logradouro = txtLogradouro.Text;
             objSGSEscolarDTO.Escolar.Contato.Numero = txtNumero.Text;
             objSGSEscolarDTO.Escolar.Contato.Pais = ddlPais.SelectedValue;
@@ -182,7 +182,7 @@ namespace SGS.View.Escolar
             txtCEP.Text = SGSEscolarDTO.Escolar.Contato.CEP;
             txtCidade.Text = SGSEscolarDTO.Escolar.Contato.Cidade;
             txtEmail.Text = SGSEscolarDTO.Escolar.Contato.Email;
-            txtFax.Text = SGSEscolarDTO.Escolar.Contato.FAX;
+            txtFax.Text = SGSEscolarDTO.Escolar.Contato.Fax;
             ddlEstado.SelectedValue = SGSEscolarDTO.Escolar.Contato.Estado;
             ddlPais.SelectedValue = SGSEscolarDTO.Escolar.Contato.Pais;
             txtLogradouro.Text = SGSEscolarDTO.Escolar.Contato.Logradouro;

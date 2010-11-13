@@ -173,7 +173,7 @@ namespace ProjetoTela.View.CasaLar
             objCasaLar.Contato.Cidade = txtCidade.Text;
             objCasaLar.Contato.Email = txtEmail.Text;
             objCasaLar.Contato.Estado = ddlEstado.SelectedValue;
-            objCasaLar.Contato.FAX = txtFax.Text;
+            objCasaLar.Contato.Fax = txtFax.Text;
             objCasaLar.Contato.Logradouro = txtLogradouro.Text;
             objCasaLar.Contato.Numero = txtNumero.Text;
             objCasaLar.Contato.Pais = ddlPais.SelectedValue;
@@ -200,7 +200,7 @@ namespace ProjetoTela.View.CasaLar
             txtDataFundacao.Text = SGSCasaLar.DataFundacao.Value.ToString();
             txtEmail.Text = SGSCasaLar.Contato.Email;
             txtEmailGestor.Text = SGSCasaLar.EmailGestor;
-            txtFax.Text = SGSCasaLar.Contato.FAX;
+            txtFax.Text = SGSCasaLar.Contato.Fax;
             ddlEstado.SelectedValue = SGSCasaLar.Contato.Estado;
             ddlPais.SelectedValue = SGSCasaLar.Contato.Pais;
             ddlStatus.SelectedValue = SGSCasaLar.StatusCasaLar;

@@ -94,7 +94,7 @@ namespace SGS.Entidades
             set { _telefoneCelular = value; }
         }
 
-        public string FAX
+        public string Fax
         {
             get { return _fax; }
             set { _fax = value; }
