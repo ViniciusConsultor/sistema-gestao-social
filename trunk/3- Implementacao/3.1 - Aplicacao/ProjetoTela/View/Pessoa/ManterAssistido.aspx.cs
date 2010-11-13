@@ -17,24 +17,24 @@ namespace SGS.View.Pessoa
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!Page.IsPostBack)
-            //{
-            //    this.CarregarPagina();
-            //}
+            if (!Page.IsPostBack)
+            {
+                this.CarregarPagina();
+            }
 
-            // Valida se o usuário logado possui acesso.
-            if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
-            {
-                if (!Page.IsPostBack)
-                {
-                    this.CarregarPagina();
-                }
-            }
-            // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
-            else
-            {
-                Server.Transfer("../SemPermissao.aspx");
-            }
+            //// Valida se o usuário logado possui acesso.
+            //if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
+            //{
+            //    if (!Page.IsPostBack)
+            //    {
+            //        this.CarregarPagina();
+            //    }
+            //}
+            // //Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
+            //else
+            //{
+            //    Server.Transfer("../SemPermissao.aspx");
+            //}
         }
         
         protected void ddlTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -421,7 +421,7 @@ namespace SGS.View.Pessoa
         protected void btnCarregarDadosTela_Click(object sender, EventArgs e)
         {
 
-            ddlCasaLar.SelectedValue = "4";
+            ddlCasaLar.SelectedValue = "13";
             ucPessoaAssistido.StatusAssistido = "Em Atendimento";
 
             ucPessoaDadosBasico.Nome = "Paulo Vitor";
