@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PessoaDadosBasico.ascx.cs" Inherits="SGS.View.Pessoa.PessoaDadosBasico" %>
-<table width="100%">
+<table width="100%" style="font-size: small; font-family: Verdana;">
     <tr>
         <td colspan="2">
             <strong>Dados Pessoais</strong></td>

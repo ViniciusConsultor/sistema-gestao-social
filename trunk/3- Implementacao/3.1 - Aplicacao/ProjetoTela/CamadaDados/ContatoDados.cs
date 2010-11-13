@@ -22,8 +22,8 @@ namespace SGS.CamadaDados
             {
                 comando.CommandText =
                     @"INSERT INTO Contato (Logradouro, Numero, Bairro, Cidade, Estado, Pais, CEP, TelefoneConvencional, TelefoneCelular,
-                           FAX, Email, Site, Blog)
-                    VALUES (@logradouro, @numero, @bairro, @cidade, @estado, @pais, @cep, @telefoneConvencional, @telefoneCelular, @fax, 
+                           Fax, Email, Site, Blog)
+                    VALUES (@logradouro, @numero, @bairro, @cidade, @estado, @pais, @cep, @telefoneConvencional, @telefoneCelular, @Fax, 
                            @email, @site, @blog)";
             }
             else
@@ -31,7 +31,7 @@ namespace SGS.CamadaDados
                 comando.CommandText =
                     @"UPDATE Contato SET Logradouro = @logradouro, Numero = @numero, Bairro = @bairro, Cidade = @cidade, Estado = @estado, 
                         Pais = @pais, CEP = @cep, TelefoneConvencional = @telefoneConvencional, TelefoneCelular = @telefoneCelular,
-                        FAX = @fax, Email = @email, Site = @site, Blog = @blog
+                        Fax = @Fax, Email = @email, Site = @site, Blog = @blog
                         WHERE (CodigoContato = @codigocontato)";
             }
 
@@ -73,11 +73,11 @@ namespace SGS.CamadaDados
             else
                 parametroTelefoneCelular.Value = DBNull.Value;
 
-            SqlParameter parametroFAX = new SqlParameter("@fax", System.Data.DbType.String);
-            if (!String.IsNullOrEmpty(objContato.FAX))
-                parametroFAX.Value = objContato.FAX;
+            SqlParameter parametroFax = new SqlParameter("@Fax", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objContato.Fax))
+                parametroFax.Value = objContato.Fax;
             else
-                parametroFAX.Value = DBNull.Value;
+                parametroFax.Value = DBNull.Value;
 
             SqlParameter parametroEmail = new SqlParameter("@email", objContato.Email);
             parametroEmail.DbType = System.Data.DbType.String;
@@ -103,7 +103,7 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroCEP);
             comando.Parameters.Add(parametroTelefoneConvencional);
             comando.Parameters.Add(parametroTelefoneCelular);
-            comando.Parameters.Add(parametroFAX);
+            comando.Parameters.Add(parametroFax);
             comando.Parameters.Add(parametroEmail);
             comando.Parameters.Add(parametroSite);
             comando.Parameters.Add(parametroBlog);
@@ -147,7 +147,7 @@ namespace SGS.CamadaDados
                 objContato.CEP = leitorDados["CEP"].ToString();
                 objContato.TelefoneConvencional = leitorDados["TelefoneConvencional"].ToString();
                 objContato.TelefoneCelular = leitorDados["TelefoneCelular"].ToString();
-                objContato.FAX = leitorDados["FAX"].ToString();
+                objContato.Fax = leitorDados["Fax"].ToString();
                 objContato.Email = leitorDados["Email"].ToString();
                 objContato.Site = leitorDados["Site"].ToString();
                 objContato.Blog = leitorDados["Blog"].ToString();
@@ -189,7 +189,7 @@ namespace SGS.CamadaDados
                 objContato.CEP = leitorDados["CEP"].ToString();
                 objContato.TelefoneConvencional = leitorDados["TelefoneConvencional"].ToString();
                 objContato.TelefoneCelular = leitorDados["TelefoneCelular"].ToString();
-                objContato.FAX = leitorDados["FAX"].ToString();
+                objContato.Fax = leitorDados["Fax"].ToString();
                 objContato.Email = leitorDados["Email"].ToString();
                 objContato.Site = leitorDados["Site"].ToString();
                 objContato.Blog = leitorDados["Blog"].ToString();
