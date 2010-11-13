@@ -88,7 +88,7 @@ namespace SGS.CamadaDados
             parametroNaturalidade.DbType = System.Data.DbType.String;
 
             //TODO: Maycon armazenar foto
-            SqlParameter parametroFoto = new SqlParameter("@foto", System.Data.DbType.String);
+            SqlParameter parametroFoto = new SqlParameter("@foto", System.Data.SqlDbType.Image);
             if (!String.IsNullOrEmpty(objPessoa.Foto))
                 parametroFoto.Value = objPessoa.Foto;
             else

@@ -29,10 +29,7 @@
                 <asp:DropDownList ID="ddlCasaLar" runat="server" Width="200px" 
                     AutoPostBack="True" DataTextField="NomeCasaLar" 
                     DataValueField="CodigoCasaLar">
-                    <asp:ListItem>Selecione</asp:ListItem>
-                    <asp:ListItem>Assistido</asp:ListItem>
-                    <asp:ListItem Value="Funcionario">Funcionário</asp:ListItem>
-                    <asp:ListItem Value="Voluntario">Voluntário</asp:ListItem>
+                    <asp:ListItem Value="13">Casa Lar David Gomes</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td> &nbsp;</td>
