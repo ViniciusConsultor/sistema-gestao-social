@@ -7,8 +7,6 @@ using System.Web.UI.WebControls;
 using SGS.Entidades;
 using SGS.Entidades.DTO;
 using SGS.Servicos;
-using SGS.Entidades.DTO;
-using SGS.Entidades;
 
 namespace SGS.View.Pessoa
 {
@@ -19,9 +17,23 @@ namespace SGS.View.Pessoa
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            //if (!Page.IsPostBack)
+            //{
+            //    this.CarregarPagina();
+            //}
+
+            // Valida se o usuário logado possui acesso.
+            if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
             {
-                this.CarregarPagina();
+                if (!Page.IsPostBack)
+                {
+                    this.CarregarPagina();
+                }
+            }
+            // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
+            else
+            {
+                Server.Transfer("../SemPermissao.aspx");
             }
         }
         
@@ -69,13 +81,17 @@ namespace SGS.View.Pessoa
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            string url;
+            SGSServico objSGSServico = new SGSServico();
+
+            List<Assistido> lista = objSGSServico.ListarAssistido(true);
+
+          /*  string url;
             if (Request.QueryString["tipo"] == "alt")
                 url = @"ManterAssistido.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
             else
                 url = "ManterAssistido.aspx";
 
-            Server.Transfer(url);
+            Server.Transfer(url); */
 
         }
 

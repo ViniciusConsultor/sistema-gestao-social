@@ -23,18 +23,6 @@ namespace SGS.Servicos
         }
 
         /// <summary>
-        /// Este serviço exclui um Assistido e seus respectivos
-        /// </summary>
-        /// <param name="objAssistido"></param>
-        /// <returns></returns>
-        public bool ExcluirAssistido(Assistido objAssistido)
-        {
-            AssistidoDados objAssistidoDados = new AssistidoDados();
-
-            return objAssistidoDados.ExcluirAssistido(objAssistido.CodigoAssistido.Value);
-        }
-
-        /// <summary>
         /// Este serviço obtém um Assistido pelo seu código
         /// </summary>
         /// <param name="codigoAssistido"></param>
