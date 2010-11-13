@@ -93,13 +93,13 @@
                     <asp:DropDownList ID="ddlDiaSemana" runat="server" Width="148px" Height="22px" 
                         AutoPostBack="True" onselectedindexchanged="ddlDiaSemana_SelectedIndexChanged">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
-                        <asp:ListItem Text="Domingo" Value="dom" ></asp:ListItem>
-                        <asp:ListItem Text="Segunda-Feira" Value="seg"></asp:ListItem>
-                        <asp:ListItem Text="Terça-Feira" Value="ter"></asp:ListItem>
-                        <asp:ListItem Text="Quarta-Feira" Value="qua"></asp:ListItem>
-                        <asp:ListItem Text="Quinta-Feira" Value="qui"></asp:ListItem>
-                        <asp:ListItem Text="Sexta-Feira" Value="sex"></asp:ListItem>
-                        <asp:ListItem Value="sab">Sábado</asp:ListItem>
+                        <asp:ListItem Text="Domingo" Value="Domingo" ></asp:ListItem>
+                        <asp:ListItem Text="Segunda-Feira" Value="Segunda-Feira"></asp:ListItem>
+                        <asp:ListItem Text="Terça-Feira" Value="Terca-Feira"></asp:ListItem>
+                        <asp:ListItem Text="Quarta-Feira" Value="Quarta-Feira"></asp:ListItem>
+                        <asp:ListItem Text="Quinta-Feira" Value="Quarta-Feira"></asp:ListItem>
+                        <asp:ListItem Text="Sexta-Feira" Value="Sexta-Feira"></asp:ListItem>
+                        <asp:ListItem Value="Sabado">Sábado</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridDiaSemana" runat="server" 
                         ControlToValidate="ddlDiaSemana" ErrorMessage="Escolha o Dia da Semana" 
@@ -158,13 +158,8 @@
                 </td>
                 <td class="style8">
                     <asp:ListBox ID="ltbAlimentos" runat="server" Height="105px" Width="288px" 
-                        SelectionMode="Multiple" Visible="False">
-                        <asp:ListItem Selected="True">Café</asp:ListItem>
-                        <asp:ListItem>Pão</asp:ListItem>
-                        <asp:ListItem>Arroz</asp:ListItem>
-                        <asp:ListItem>Feijão</asp:ListItem>
-                        <asp:ListItem>Salada</asp:ListItem>
-                        <asp:ListItem>Gelatina</asp:ListItem>
+                        SelectionMode="Multiple" Visible="False" DataTextField="NomeAlimento" 
+                        DataValueField="CodigoAlimento">
                     </asp:ListBox>
                     <asp:RequiredFieldValidator ID="requeridAlimentos" runat="server" 
                         ControlToValidate="ltbAlimentos" ErrorMessage="Escolha os Alimentos" 

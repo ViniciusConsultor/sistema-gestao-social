@@ -39,6 +39,14 @@ namespace SGS.Servicos
             return objAlimentacaoDados.ExcluirAlimentacao(codigoAlimentacao);
         }
 
+        public List<Alimento> ListarAlimento()
+        {
+            AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
+
+            return objAlimentacaoDados.Listar();
+            
+        }
+
        /// <summary>
        /// Consulta a tabela Alimentacao e retorna resultados de acordo com o preenchimento do filtro - Terminar o Consultar Primeiro.depois descomentar
        /// </summary>

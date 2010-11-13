@@ -63,5 +63,16 @@ namespace SGS.Entidades
             set { _alimentoLista = value; }
         }
 
+        List<AlimentacaoAlimento> _alimentacaoAlimentoLista;
+
+        /// <summary>
+        /// Lista de AlimetacaoAlimento
+        /// </summary>
+        public List<AlimentacaoAlimento> AlimentacaoAlimentoLista
+        {
+            get { return _alimentacaoAlimentoLista; }
+            set { _alimentacaoAlimentoLista = value; }
+        }
+
     }
 }
