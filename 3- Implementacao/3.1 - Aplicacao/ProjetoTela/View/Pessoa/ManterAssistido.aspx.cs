@@ -280,7 +280,7 @@ namespace SGS.View.Pessoa
             SGSAssistidoDTO.Assistido.Contato.Pais = ucPessoaDadosBasico.Pais;
             SGSAssistidoDTO.Assistido.Contato.TelefoneCelular = ucPessoaDadosBasico.TelefoneCelular;
             SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional = ucPessoaDadosBasico.TelefoneConvencional;
-            SGSAssistidoDTO.Assistido.Contato.FAX = ucPessoaDadosBasico.Fax;
+            SGSAssistidoDTO.Assistido.Contato.Fax = ucPessoaDadosBasico.Fax;
             SGSAssistidoDTO.Assistido.Contato.Email = ucPessoaDadosBasico.Email;
             SGSAssistidoDTO.Assistido.Contato.Site = ucPessoaDadosBasico.Site;
             SGSAssistidoDTO.Assistido.Contato.Blog = ucPessoaDadosBasico.Blog;
@@ -398,7 +398,7 @@ namespace SGS.View.Pessoa
             ucPessoaDadosBasico.Pais = SGSAssistidoDTO.Assistido.Contato.Pais;
             ucPessoaDadosBasico.TelefoneCelular = SGSAssistidoDTO.Assistido.Contato.TelefoneCelular;
             ucPessoaDadosBasico.TelefoneConvencional = SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional;
-            ucPessoaDadosBasico.Fax = SGSAssistidoDTO.Assistido.Contato.FAX;
+            ucPessoaDadosBasico.Fax = SGSAssistidoDTO.Assistido.Contato.Fax;
             ucPessoaDadosBasico.Email = SGSAssistidoDTO.Assistido.Contato.Email;
             ucPessoaDadosBasico.Site = SGSAssistidoDTO.Assistido.Contato.Site;
             ucPessoaDadosBasico.Blog = SGSAssistidoDTO.Assistido.Contato.Blog;
