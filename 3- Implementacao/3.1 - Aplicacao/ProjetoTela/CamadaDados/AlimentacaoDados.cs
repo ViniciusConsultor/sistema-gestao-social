@@ -52,7 +52,7 @@ namespace SGS.CamadaDados
             parametroPeriodo.DbType = System.Data.DbType.String;
 
             SqlParameter parametroHorario = new SqlParameter("@horario", objAlimentacao.Horario);
-            parametroHorario.DbType = System.Data.DbType.DateTime;
+            parametroHorario.DbType = System.Data.DbType.String;
 
             SqlParameter parametroAlimento = new SqlParameter("@alimento", objAlimentacao.Alimento);
             parametroAlimento.DbType = System.Data.DbType.String;
