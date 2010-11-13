@@ -7,7 +7,7 @@ using System.Web;
 namespace SGS.Entidades
 {
     [Serializable]
-    public class Alimentacao_Alimento
+    public class AlimentacaoAlimento
     {
         private int? _codigoAlimentacao;
         private int? _codigoAlimento;

@@ -148,6 +148,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CamadaDados\AlimentacaoAlimentoDados.cs" />
     <Compile Include="CamadaDados\AlimentacaoDados.cs" />
     <Compile Include="CamadaDados\AssistidoDados.cs" />
     <Compile Include="CamadaDados\BaseConnection.cs" />

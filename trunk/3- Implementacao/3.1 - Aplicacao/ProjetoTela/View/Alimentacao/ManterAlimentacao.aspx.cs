@@ -96,19 +96,32 @@ namespace SGS.View.Alimentacao
         {
             SGSServico objSGSServico = new SGSServico();
             SGSAlimentacao = new Entidades.Alimentacao();
-
+            //Alterar Alimentação
             if (Request.QueryString["tipo"] != null && Request.QueryString["cod"] != null)
             {
                 int codigoAlimentacao = Convert.ToInt32(Request.QueryString["cod"]);
                 SGSAlimentacao = objSGSServico.ObterAlimentacao(codigoAlimentacao);
                 PreencherDadosView();
-            }
-            else if (Request.QueryString["dia"] != null)
-            {
-                ddlDiaSemana.SelectedValue = Request.QueryString["dia"].ToString();
-                ddlPeriodo.Visible = true;
-                lblPeriodo.Visible = true;
 
+                lblTitulo.Text = "Alterar Alimentação";
+                lblDescricao.Text = "Descrição: Permite Alterar a Alimentação da Casa Lar.";
+
+                ddlPeriodo.Visible = true;
+                txtDiretiva.Visible = true;
+                txtHorario.Visible = true;
+                ltbAlimentos.Visible = true;
+            }
+            //exibe periodo depois de escolher o dia
+            else 
+            {
+                if (Request.QueryString["dia"] != null)
+                {
+                    ddlDiaSemana.SelectedValue = Request.QueryString["dia"].ToString();
+                    ddlPeriodo.Visible = true;
+                    lblPeriodo.Visible = true;
+                }
+               
+                btnExcluir.Visible = false;
 
                 lblTitulo.Text = "Cadastrar Alimentação";
                 lblDescricao.Text = "Descrição: Permite Cadastrar a Alimentação da Casa Lar.";
@@ -128,6 +141,17 @@ namespace SGS.View.Alimentacao
             objAlimentacao.Alimento = ltbAlimentos.SelectedValue;
             objAlimentacao.Diretiva = txtDiretiva.Text;
 
+            objAlimentacao.AlimentacaoAlimentoLista = new List<AlimentacaoAlimento>();
+            AlimentacaoAlimento objAlimentacaoAlimento = new AlimentacaoAlimento();
+            foreach (ListItem objListItem in ltbAlimentos.Items)
+            {
+                if (objListItem.Selected == true)
+                {
+                    objAlimentacaoAlimento.CodigoAlimento = Convert.ToInt32(objListItem.Value);
+                    objAlimentacao.AlimentacaoAlimentoLista.Add(objAlimentacaoAlimento);
+                }
+            }
+
             return objAlimentacao;
         }
 
@@ -143,6 +167,11 @@ namespace SGS.View.Alimentacao
             ltbAlimentos.SelectedValue = SGSAlimentacao.Alimento;
             txtDiretiva.Text = SGSAlimentacao.Diretiva;
 
+            foreach (AlimentacaoAlimento item in SGSAlimentacao.AlimentacaoAlimentoLista)
+            {
+                //TODO Maycon verificar se Esta funcionando
+                ltbAlimentos.SelectedValue = item.CodigoAlimento.ToString();
+            }
         }
 
         #endregion
@@ -181,14 +210,13 @@ namespace SGS.View.Alimentacao
 
             if (ddlDiaSemana.SelectedValue == "Selecione")
             {
-                Server.Transfer("ManterAlimentacao.aspx");
+                Response.Redirect("ManterAlimentacao.aspx");
             }
             else
             {
                 string url;
                 url = "ManterAlimentacao.aspx?dia=" + ddlDiaSemana.SelectedValue;
-                Server.Transfer(url);
-                //TODO: Exibir Periodo
+                Response.Redirect(url);
             }
         }
 
@@ -199,13 +227,22 @@ namespace SGS.View.Alimentacao
             if (ddlPeriodo.SelectedValue == "Selecione")
             {
                 txtDiretiva.Visible = false;
+                lblDiretiva.Visible = false;
                 txtHorario.Visible = false;
-                btnExcluir.Visible = false;
+                lblHorario.Visible = false;
+                lblAlimentos.Visible = false;
                 ltbAlimentos.Visible = false;
+                btnExcluir.Visible = false;
             }
             //Qualquer outro periodo: Desjejum, Almoço, Janter, etc...
             else
             {
+                SGSServico objSGSServico = new SGSServico();
+                SGSAlimentacao.AlimentoLista = objSGSServico.ListarAlimento();
+
+                ltbAlimentos.DataSource = SGSAlimentacao.AlimentoLista;
+                ltbAlimentos.DataBind();
+
                 //TODO: Ir na base de dados 
                 txtDiretiva.Visible = true;
                 lblDiretiva.Visible = true;
@@ -213,7 +250,7 @@ namespace SGS.View.Alimentacao
                 lblHorario.Visible = true;
                 ltbAlimentos.Visible = true;
                 lblAlimentos.Visible = true;
-                btnExcluir.Visible = true;
+                btnExcluir.Visible = false;
 
             }
         }
