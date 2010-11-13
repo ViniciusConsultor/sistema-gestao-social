@@ -6,9 +6,11 @@
     <style type="text/css">
         .style6
         {
-            width: 170px;
+            width: 140px;
+            font-size: small;
         }
     </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -29,7 +31,6 @@
                 <asp:DropDownList ID="ddlCasaLar" runat="server" Width="200px" 
                     AutoPostBack="True" DataTextField="NomeCasaLar" 
                     DataValueField="CodigoCasaLar" Enabled="False">
-                    <asp:ListItem Value="13">Casa Lar David Gomes</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td> &nbsp;</td>
@@ -68,17 +69,20 @@
             <tr align="center">
                 <td> 
                     <asp:Button ID="btnCarregarDadosTela" runat="server" 
-                        onclick="btnCarregarDadosTela_Click" Text="Carregar Dados Tela" />
+                        onclick="btnCarregarDadosTela_Click" Text="Carregar Dados Tela" 
+                        CausesValidation="False" />
                 </td>
             </tr>
         </table>
 
-      <table width="100%">
+   <br />
+    <table align="center">
         <tr>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
-            <td> &nbsp; </td>
+            <td>
+                <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
+                    BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
+                    HeaderText="Validação:" Width="350px" />
+            </td>
         </tr>
     </table>
 

@@ -244,14 +244,14 @@ namespace SGS.View.Pessoa
 
         public string EstadoResponsavel
         {
-            get { return txtEstadoResponsavel.Text; }
-            set { txtEstadoResponsavel.Text = value; }
+            get { return ddlEstadoResponsavel.SelectedValue; }
+            set { ddlEstadoResponsavel.SelectedValue = value; }
         }
 
         public string PaisResponsavel
         {
-            get { return txtPaisResponsavel.Text; }
-            set { txtPaisResponsavel.Text = value; }
+            get { return ddlPaisResponsavel.SelectedValue; }
+            set { ddlPaisResponsavel.SelectedValue = value; }
         }
 
         #endregion

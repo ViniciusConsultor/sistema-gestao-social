@@ -377,8 +377,9 @@ namespace SGS.CamadaDados
                 objAssistido = new Assistido();
                 
                 //Dados Tabela Pessoa
-                objAssistido.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]); ;
-                objAssistido.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                objAssistido.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]); 
+                if (leitorDados["CodigoContato"] != DBNull.Value)
+                    objAssistido.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 if (objAssistido.Contato_CodigoContato.HasValue)
                     objAssistido.Contato = objContatoDados.ObterContato(objAssistido.Contato_CodigoContato.Value);
                 objAssistido.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
