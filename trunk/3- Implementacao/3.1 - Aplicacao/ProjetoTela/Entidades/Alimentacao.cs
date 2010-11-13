@@ -12,7 +12,7 @@ namespace SGS.Entidades
         private int? _codigoAlimentacao;
         private string _diaSemana;
         private string _periodo;
-        private DateTime? _horario;
+        private string _horario;
         private string _alimento;
         private string _diretiva;
 
@@ -34,7 +34,7 @@ namespace SGS.Entidades
             set { _periodo = value; }
         }
 
-        public DateTime? Horario
+        public string Horario
         {
             get { return _horario; }
             set { _horario = value; }
