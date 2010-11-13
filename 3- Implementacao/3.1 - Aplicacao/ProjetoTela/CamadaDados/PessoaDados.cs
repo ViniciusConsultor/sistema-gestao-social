@@ -43,7 +43,7 @@ namespace SGS.CamadaDados
                 comando.Parameters.Add(parametroCodigo);
             }
 
-
+            //Salva o Contato
             SqlParameter parametroContato_CodigoContato = new SqlParameter("@contato_CodigoContato", System.Data.DbType.Int32);
             if (objPessoa.Contato_CodigoContato.HasValue)
             {
@@ -51,10 +51,18 @@ namespace SGS.CamadaDados
             }
             else
             {
-                ContatoDados objContatoDados = new ContatoDados();
-                objPessoa.Contato = objContatoDados.Salvar(objPessoa.Contato);
-
-                parametroContato_CodigoContato.Value = objPessoa.Contato.CodigoContato.Value;
+                //Caso possua entidade Contato possua valor Cadastra
+                if (objPessoa.Contato != null)
+                {
+                    ContatoDados objContatoDados = new ContatoDados();
+                    objPessoa.Contato = objContatoDados.Salvar(objPessoa.Contato);
+                    parametroContato_CodigoContato.Value = objPessoa.Contato.CodigoContato.Value;
+                }
+                //Caso não possua entidade Contato possua valor não Cadastra
+                else
+                {
+                    parametroContato_CodigoContato.Value = DBNull.Value;
+                }
             }
 
             SqlParameter parametroCodigoCasaLar = new SqlParameter("@codigoCasaLar", System.Data.DbType.Int32);
@@ -153,9 +161,14 @@ namespace SGS.CamadaDados
                 objPessoa = new Pessoa();
 
                 objPessoa.CodigoPessoa = codigoPessoa;
-                objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                if (leitorDados["CodigoContato"] != DBNull.Value)
+                    objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                else
+                    objPessoa.Contato_CodigoContato = null;
                 if (objPessoa.Contato_CodigoContato.HasValue)
                     objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
+                else
+                    objPessoa.Contato = null;
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objPessoa.Nome = leitorDados["Nome"].ToString();
                 objPessoa.Sexo = leitorDados["Sexo"].ToString();
@@ -195,9 +208,15 @@ namespace SGS.CamadaDados
                 objPessoa = new Pessoa();
 
                 objPessoa.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]); ;
-                objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                if (leitorDados["CodigoContato"] != DBNull.Value)
+                    objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                else
+                    objPessoa.Contato_CodigoContato = null;
+
                 if (objPessoa.Contato_CodigoContato.HasValue)
                     objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
+                else
+                    objPessoa.Contato = null;
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objPessoa.Nome = leitorDados["Nome"].ToString();
                 objPessoa.Sexo = leitorDados["Sexo"].ToString();
@@ -256,9 +275,15 @@ namespace SGS.CamadaDados
                 objPessoa = new Pessoa();
 
                 objPessoa.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]);
-                objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                if (leitorDados["CodigoContato"] != DBNull.Value)
+                    objPessoa.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                else
+                    objPessoa.Contato_CodigoContato = null;
+
                 if (objPessoa.Contato_CodigoContato.HasValue)
                     objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
+                else
+                    objPessoa.Contato = null;
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objPessoa.Nome = leitorDados["Nome"].ToString();
                 objPessoa.Sexo = leitorDados["Sexo"].ToString();

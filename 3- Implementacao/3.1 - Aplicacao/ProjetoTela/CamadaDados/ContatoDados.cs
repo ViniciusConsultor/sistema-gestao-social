@@ -46,8 +46,15 @@ namespace SGS.CamadaDados
             SqlParameter parametroLogradouro = new SqlParameter("@logradouro", objContato.Logradouro);
             parametroLogradouro.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroNumero = new SqlParameter("@numero", objContato.Numero);
-            parametroNumero.DbType = System.Data.DbType.Int32;
+            SqlParameter parametroNumero = new SqlParameter("@numero", System.Data.DbType.Int32);
+            if (!String.IsNullOrEmpty(objContato.Numero))
+            {
+                parametroNumero.Value = Convert.ToInt32(objContato.Numero);
+            }
+            else
+            {
+                parametroNumero.Value = DBNull.Value;
+            }
 
             SqlParameter parametroBairro = new SqlParameter("@bairro", objContato.Bairro);
             parametroBairro.DbType = System.Data.DbType.String;

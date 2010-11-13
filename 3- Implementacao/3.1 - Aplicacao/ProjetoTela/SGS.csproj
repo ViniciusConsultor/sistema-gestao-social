@@ -91,6 +91,7 @@
     <Content Include="View\Pessoa\ConsultarPessoa.aspx" />
     <Content Include="View\Pessoa\ManterAssistido.aspx" />
     <Content Include="View\Pessoa\PessoaAssistido.ascx" />
+    <Content Include="View\Pessoa\PessoaContato.ascx" />
     <Content Include="View\Pessoa\PessoaDadosBancarios.ascx" />
     <Content Include="View\Pessoa\PessoaDadosBasico.ascx" />
     <Content Include="View\Pessoa\PessoaFuncionario.ascx" />
@@ -196,6 +197,7 @@
     <Compile Include="Entidades\DTO\LoginDTO.cs" />
     <Compile Include="Entidades\DTO\OrcamentoDTO.cs" />
     <Compile Include="Entidades\DTO\ParametroConsultarEscolarDTO.cs" />
+    <Compile Include="Entidades\DTO\PessoaContatoDTO.cs" />
     <Compile Include="Entidades\DTO\PessoaDadosBasicoDTO.cs" />
     <Compile Include="Entidades\DTO\ProcedimentosDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
@@ -373,6 +375,13 @@
     </Compile>
     <Compile Include="View\Pessoa\PessoaAssistido.ascx.designer.cs">
       <DependentUpon>PessoaAssistido.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaContato.ascx.cs">
+      <DependentUpon>PessoaContato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Pessoa\PessoaContato.ascx.designer.cs">
+      <DependentUpon>PessoaContato.ascx</DependentUpon>
     </Compile>
     <Compile Include="View\Pessoa\PessoaDadosBancarios.ascx.cs">
       <DependentUpon>PessoaDadosBancarios.ascx</DependentUpon>

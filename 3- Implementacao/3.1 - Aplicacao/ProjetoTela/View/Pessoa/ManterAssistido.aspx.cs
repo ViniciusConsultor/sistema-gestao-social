@@ -132,20 +132,7 @@ namespace SGS.View.Pessoa
             ucPessoaDadosBasico.RG = "21.842.55.11";
             ucPessoaDadosBasico.Nacionalidade = "Brasileiro";
             ucPessoaDadosBasico.Naturalidade = "Fluminense";
-            ucPessoaDadosBasico.CEP = "230762-10";
-            ucPessoaDadosBasico.Logradouro = "Rua Campo Grande";
-            ucPessoaDadosBasico.Numero = 10;
-
-            ucPessoaDadosBasico.Bairro = "Campo Grande";
-            ucPessoaDadosBasico.Cidade = "Rio de Janeiro";
-            ucPessoaDadosBasico.Estado = "RJ";
-            ucPessoaDadosBasico.Pais = "Brasil";
-            ucPessoaDadosBasico.TelefoneCelular = "(21) 9999-9999";
-            ucPessoaDadosBasico.TelefoneConvencional = "(21) 1234-5678";
-            ucPessoaDadosBasico.Fax = "(21) 5432-9876";
-            ucPessoaDadosBasico.Site = @"http://www.davidgomes.com";
-            ucPessoaDadosBasico.Blog = "blogspost.com";
-
+           
             #region Dados Assistido
 
             //Dados Assistido
@@ -266,25 +253,7 @@ namespace SGS.View.Pessoa
             SGSAssistidoDTO.Assistido.CertidaoNascimento = ucPessoaDadosBasico.CertidaoNascimento;
             SGSAssistidoDTO.Assistido.Nacionalidade = ucPessoaDadosBasico.Nacionalidade;
             SGSAssistidoDTO.Assistido.Naturalidade = ucPessoaDadosBasico.Naturalidade;
-            SGSAssistidoDTO.Assistido.Contato.CEP = ucPessoaDadosBasico.CEP;
-            SGSAssistidoDTO.Assistido.Contato.Logradouro = ucPessoaDadosBasico.Logradouro;
-
-            if (ucPessoaDadosBasico.Numero.HasValue)
-                SGSAssistidoDTO.Assistido.Contato.Numero = ucPessoaDadosBasico.Numero.Value.ToString();
-            else
-                SGSAssistidoDTO.Assistido.Contato.Numero = "";
-
-            SGSAssistidoDTO.Assistido.Contato.Bairro = ucPessoaDadosBasico.Bairro;
-            SGSAssistidoDTO.Assistido.Contato.Cidade = ucPessoaDadosBasico.Cidade;
-            SGSAssistidoDTO.Assistido.Contato.Estado = ucPessoaDadosBasico.Estado;
-            SGSAssistidoDTO.Assistido.Contato.Pais = ucPessoaDadosBasico.Pais;
-            SGSAssistidoDTO.Assistido.Contato.TelefoneCelular = ucPessoaDadosBasico.TelefoneCelular;
-            SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional = ucPessoaDadosBasico.TelefoneConvencional;
-            SGSAssistidoDTO.Assistido.Contato.Fax = ucPessoaDadosBasico.Fax;
-            SGSAssistidoDTO.Assistido.Contato.Email = ucPessoaDadosBasico.Email;
-            SGSAssistidoDTO.Assistido.Contato.Site = ucPessoaDadosBasico.Site;
-            SGSAssistidoDTO.Assistido.Contato.Blog = ucPessoaDadosBasico.Blog;
-
+           
             #endregion
 
             #region Dados Assistido
@@ -385,25 +354,7 @@ namespace SGS.View.Pessoa
             ucPessoaDadosBasico.CertidaoNascimento = SGSAssistidoDTO.Assistido.CertidaoNascimento;
             ucPessoaDadosBasico.Nacionalidade = SGSAssistidoDTO.Assistido.Nacionalidade;
             ucPessoaDadosBasico.Naturalidade = SGSAssistidoDTO.Assistido.Naturalidade;
-            ucPessoaDadosBasico.CEP = SGSAssistidoDTO.Assistido.Contato.CEP;
-            ucPessoaDadosBasico.Logradouro = SGSAssistidoDTO.Assistido.Contato.Logradouro;
-            if (SGSAssistidoDTO.Assistido.Contato.Numero != "")
-                ucPessoaDadosBasico.Numero = Convert.ToInt32(SGSAssistidoDTO.Assistido.Contato.Numero);
-            else
-                ucPessoaDadosBasico.Numero = null;
-
-            ucPessoaDadosBasico.Bairro = SGSAssistidoDTO.Assistido.Contato.Bairro;
-            ucPessoaDadosBasico.Cidade = SGSAssistidoDTO.Assistido.Contato.Cidade;
-            ucPessoaDadosBasico.Estado = SGSAssistidoDTO.Assistido.Contato.Estado;
-            ucPessoaDadosBasico.Pais = SGSAssistidoDTO.Assistido.Contato.Pais;
-            ucPessoaDadosBasico.TelefoneCelular = SGSAssistidoDTO.Assistido.Contato.TelefoneCelular;
-            ucPessoaDadosBasico.TelefoneConvencional = SGSAssistidoDTO.Assistido.Contato.TelefoneConvencional;
-            ucPessoaDadosBasico.Fax = SGSAssistidoDTO.Assistido.Contato.Fax;
-            ucPessoaDadosBasico.Email = SGSAssistidoDTO.Assistido.Contato.Email;
-            ucPessoaDadosBasico.Site = SGSAssistidoDTO.Assistido.Contato.Site;
-            ucPessoaDadosBasico.Blog = SGSAssistidoDTO.Assistido.Contato.Blog;
-
-
+            
             #region Dados Assistido
 
             //Dados Assistido
@@ -466,7 +417,6 @@ namespace SGS.View.Pessoa
             ucPessoaAssistido.PaisResponsavel = SGSAssistidoDTO.Assistido.ContatoResponsavel.Pais;
 
             #endregion
-
 
         }
 

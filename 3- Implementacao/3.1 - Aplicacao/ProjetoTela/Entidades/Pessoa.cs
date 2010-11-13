@@ -11,7 +11,6 @@ namespace SGS.Entidades
 
         public Pessoa()
         {
-            Contato = new Contato();
         }
 
         private int? _codigoPessoa;
