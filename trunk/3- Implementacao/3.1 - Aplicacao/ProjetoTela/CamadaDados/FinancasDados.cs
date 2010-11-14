@@ -103,7 +103,15 @@ namespace SGS.CamadaDados
             
         comando.ExecuteNonQuery();
 
-        return ObterUltimaFinancasInserida();
+
+        if (!objFinancas.CodigoFinancas.HasValue)
+        {
+            return ObterUltimaFinancasInserida();
+        }
+        else
+        {
+            return objFinancas;
+        }
     }
 
    public Financas ObterFinancas(int codigoFinancas)

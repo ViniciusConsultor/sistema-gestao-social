@@ -58,7 +58,6 @@ namespace SGS.CamadaDados
                 parametroCodigoAssistido.DbType = System.Data.DbType.Int32;
             }
 
-
             SqlParameter parametroTipoProcedimento = new SqlParameter("@tipoProcedimento", objProcedimentos.TipoProcedimento);
             parametroTipoProcedimento.DbType = System.Data.DbType.String;
 
@@ -111,7 +110,6 @@ namespace SGS.CamadaDados
                 parametroDataRealizada.DbType = System.Data.DbType.DateTime;
             }
 
-
             comando.Parameters.Add(parametroCodigoAssistido);
             comando.Parameters.Add(parametroTipoProcedimento);
             comando.Parameters.Add(parametroProcedimento);
@@ -122,11 +120,16 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroDataRealizada);
             comando.Parameters.Add(parametroLaudoAtendente);
 
-
             comando.ExecuteNonQuery();
 
-
-            return ObterUltimoProcedimentoInserido();
+            if(!objProcedimentos.CodigoProcedimento.HasValue)
+            {
+                return ObterUltimoProcedimentoInserido();
+            }
+            else
+            {
+                return objProcedimentos;
+            }
         }
 
         /// <summary>
