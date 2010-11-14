@@ -25,10 +25,10 @@ namespace SGS.CamadaDados
 
             comando.CommandText =
                     @"INSERT INTO AlimentacaoAlimento  (CodigoAlimentacao, CodigoAlimento)
-                     VALUES ( @codigoAlimentacao, @codigoAlimento)";  
+                     VALUES ( @codigoAlimentacao, @codigoAlimento)";
 
             comando.CommandType = System.Data.CommandType.Text;
-           
+
             SqlParameter parametroCodigoAlimentacao = new SqlParameter("@codigoAlimentacao", objAlimentacaoAlimento.CodigoAlimentacao.Value);
             parametroCodigoAlimentacao.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoAlimentacao);
@@ -82,5 +82,36 @@ namespace SGS.CamadaDados
 
             return Convert.ToBoolean(comando.ExecuteNonQuery());
         }
+
+        /// <summary>
+        /// Lista AlimentacaoAlimento por Código da Alimentação
+        /// </summary>
+        /// <param name="codigoAlimentacao"></param>
+        /// <returns></returns>
+        public List<AlimentacaoAlimento> ListarPorCodigoAlimentacao(int codigoAlimentacao)
+        {
+            List<AlimentacaoAlimento> objAlimentacaoAlimentoLista = new List<AlimentacaoAlimento>();
+            AlimentacaoAlimento objAlimentacaoAlimento = null;
+
+            SqlCommand comando = new SqlCommand(@"select * from AlimentacaoAlimento", base.Conectar());
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+            while (leitorDados.Read())
+            {
+                objAlimentacaoAlimento = new AlimentacaoAlimento();
+
+                objAlimentacaoAlimento.CodigoAlimentacao = Convert.ToInt32(leitorDados["CodigoAlimentacao"]);
+                objAlimentacaoAlimento.CodigoAlimento = Convert.ToInt32(leitorDados["CodigoAlimento"]);
+
+                objAlimentacaoAlimentoLista.Add(objAlimentacaoAlimento);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objAlimentacaoAlimentoLista;
+        }
+
     }
 }
