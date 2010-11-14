@@ -54,11 +54,11 @@ namespace SGS.View.Desenvolvimento
 
             if (txtAtividade.Text == "")
             {
-                DesenvolvimentoDTO.AtividadeValor = null;
+                DesenvolvimentoDTO.AtividadeValor = "";
             }
             else
             {
-                DesenvolvimentoDTO.AtividadeValor = txtDataInicio.Text;
+                DesenvolvimentoDTO.AtividadeValor = txtAtividade.Text;
             }
 
 

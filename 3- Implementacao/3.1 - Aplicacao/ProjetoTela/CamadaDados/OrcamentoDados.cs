@@ -94,9 +94,11 @@ namespace SGS.CamadaDados
             {
                 return ObterUltimoOrcamentoInserido();
             }
+            else
+            {
+                return objOrcamento;
+            }
 
-            //TODO: retorno entidade Orcamento com o Código do Orcamento Preenchido
-            return objOrcamento;
         }
 
         /// <summary>
