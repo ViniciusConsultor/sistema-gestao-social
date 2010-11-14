@@ -69,14 +69,11 @@ namespace SGS.Servicos
         /// <param name="dia"></param>
         /// <param name="periodo"></param>
         /// <returns></returns>
-        public Alimentacao ListarAlimentacaoPorDiaPeriodo(string dia, string periodo)
+        public Alimentacao ObterAlimentacaoPorDiaPeriodo(string dia, string periodo)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
 
-            //objAlimentacaoDado
-
-            //Todo Maycon Desenvolver
-            return new Alimentacao();
+            return objAlimentacaoDados.ObterAlimentacaoPorDiaPeriodo(dia, periodo);
         }
 
 
