@@ -168,7 +168,8 @@ namespace SGS.View.Escolar
 
             ddlAssistido.SelectedValue = Convert.ToString(SGSEscolarDTO.Escolar.Assistido_CodigoAssistido);
             txtDataMatricula.Text = SGSEscolarDTO.Escolar.DataMatricula.Value.ToString();
-            txtDataSaida.Text = SGSEscolarDTO.Escolar.DataSaida.Value.ToString();
+            if (SGSEscolarDTO.Escolar.DataSaida.HasValue)
+                txtDataSaida.Text = SGSEscolarDTO.Escolar.DataSaida.Value.ToString();
             txtInstituicaoEnsino.Text = SGSEscolarDTO.Escolar.Instituicao;
             txtMateria.Text = SGSEscolarDTO.Escolar.Materia;
             txtMediaEscolar.Text = Convert.ToString(SGSEscolarDTO.Escolar.MediaEscola);

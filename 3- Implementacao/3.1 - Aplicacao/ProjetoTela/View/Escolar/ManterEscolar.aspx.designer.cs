@@ -157,15 +157,6 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.TextBox txtDataSaida;
         
         /// <summary>
-        /// requeridDataSaida control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataSaida;
-        
-        /// <summary>
         /// rbtStatusMatricula control.
         /// </summary>
         /// <remarks>

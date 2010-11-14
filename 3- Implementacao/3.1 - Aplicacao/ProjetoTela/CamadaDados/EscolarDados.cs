@@ -100,7 +100,10 @@ namespace SGS.CamadaDados
             parametroDataMatricula.DbType = System.Data.DbType.DateTime;
 
             SqlParameter parametroDataSaida = new SqlParameter("@dataSaida", objEscolar.DataSaida);
-            parametroDataSaida.DbType = System.Data.DbType.DateTime;
+            if (objEscolar.DataSaida.HasValue)
+                parametroDataSaida.Value = objEscolar.DataSaida;
+            else
+                parametroDataSaida.Value = DBNull.Value;
 
             SqlParameter parametroStatusMatricula = new SqlParameter("@statusMatricula", objEscolar.StatusMatricula);
             parametroStatusMatricula.DbType = System.Data.DbType.String;
@@ -174,7 +177,8 @@ namespace SGS.CamadaDados
                 objEscolar.CodigoEscolar = Convert.ToInt32(leitorDados["CodigoEscolar"]);
                 objEscolar.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 objEscolar.DataMatricula = Convert.ToDateTime(leitorDados["DataMatricula"]);
-                objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
+                if (leitorDados["DataMatricula"] != DBNull.Value)
+                    objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
                 objEscolar.FormatoAnoLetivo = leitorDados["FormatoAnoLetivo"].ToString();
                 objEscolar.GrauEscolaridade = leitorDados["GrauEscolaridade"].ToString();
                 objEscolar.Instituicao = leitorDados["Instituicao"].ToString();
@@ -228,7 +232,8 @@ namespace SGS.CamadaDados
                 objEscolar.GrauEscolaridade = leitorDados["GrauEscolaridade"].ToString();
                 objEscolar.SerieCursada = leitorDados["SerieCursada"].ToString();
                 objEscolar.DataMatricula = Convert.ToDateTime(leitorDados["DataMatricula"]);
-                objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
+                if (leitorDados["DataMatricula"] != DBNull.Value)
+                    objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
                 objEscolar.StatusMatricula = leitorDados["StatusMatricula"].ToString();
                 objEscolar.FormatoAnoLetivo = leitorDados["FormatoAnoLetivo"].ToString();
                 objEscolar.Materia = leitorDados["Materia"].ToString();
