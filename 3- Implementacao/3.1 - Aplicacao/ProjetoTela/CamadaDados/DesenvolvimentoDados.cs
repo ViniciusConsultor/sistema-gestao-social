@@ -121,6 +121,18 @@ namespace SGS.CamadaDados
 
 
             comando.ExecuteNonQuery();
+<<<<<<< .mine
+
+            if (!objDesenvolvimento.CodigoDesenvolvimento.HasValue)
+            {
+                return ObterUltimoDesenvolvimentoInserido();
+            }
+            else
+            {
+                return objDesenvolvimento;
+            }
+          
+=======
             if (!objDesenvolvimento.CodigoAssistido.HasValue)
             {
                 return ObterUltimoDesenvolvimentoInserido();
@@ -129,6 +141,7 @@ namespace SGS.CamadaDados
             {
                 return objDesenvolvimento;
             }
+>>>>>>> .r257
         }
 
         /// <summary>
@@ -262,6 +275,10 @@ namespace SGS.CamadaDados
             //Se apenas Assistido e Atividade preenchidos
             else if (objDesenvolvimentoDTO.AssistidoValor.HasValue && objDesenvolvimentoDTO.AtividadeValor != "")
                 sql += @" where CodigoAssistido = @assistidoValor and Atividade like @atividadeValor";
+
+            //Se apenas Atividade e Data Inicio preenchidos
+            else if (objDesenvolvimentoDTO.AtividadeValor != "" && objDesenvolvimentoDTO.DataInicioValor.HasValue && objDesenvolvimentoDTO.DataFimValor.HasValue)
+                sql += @" where Atividade like @atividadeValor and DataInicio >= @dataInicioValor and DataFim <= @dataFimValor  ";
 
             //Se apenas Atividade e Data Inicio preenchidos
             else if (objDesenvolvimentoDTO.AtividadeValor != "" && objDesenvolvimentoDTO.DataInicioValor.HasValue)
