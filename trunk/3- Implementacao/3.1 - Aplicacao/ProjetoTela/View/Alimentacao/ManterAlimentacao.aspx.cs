@@ -167,7 +167,7 @@ namespace SGS.View.Alimentacao
         /// </summary>
         private void PreencherDadosView()
         {
-            ddlDiaSemana.SelectedValue = SGSAlimentacao.DiaSemana;
+        http://localhost:49217/View/Alimentacao/ManterAlimentacao.aspx?tipo=alt&cod=7ddlDiaSemana.SelectedValue = SGSAlimentacao.DiaSemana;
             txtHorario.Text = SGSAlimentacao.Horario;
             ddlPeriodo.SelectedValue = SGSAlimentacao.Periodo;
             txtDiretiva.Text = SGSAlimentacao.Diretiva;
@@ -175,8 +175,6 @@ namespace SGS.View.Alimentacao
             foreach (AlimentacaoAlimento item in SGSAlimentacao.AlimentacaoAlimentoLista)
             {
                 //TODO Maycon verificar se Esta funcionando
-                ltbAlimentos.SelectedValue = item.CodigoAlimento.ToString();
-
                 foreach (ListItem itemltbAlimentos in ltbAlimentos.Items)
                 {
                     if (itemltbAlimentos.Value == item.CodigoAlimento.ToString())

@@ -93,7 +93,11 @@ namespace SGS.CamadaDados
             List<AlimentacaoAlimento> objAlimentacaoAlimentoLista = new List<AlimentacaoAlimento>();
             AlimentacaoAlimento objAlimentacaoAlimento = null;
 
-            SqlCommand comando = new SqlCommand(@"select * from AlimentacaoAlimento", base.Conectar());
+            SqlCommand comando = new SqlCommand(@"select * from AlimentacaoAlimento where CodigoAlimentacao = @codigoAlimentacao", base.Conectar());
+
+            SqlParameter parametroCodigoAlimentacao = new SqlParameter("@codigoAlimentacao", codigoAlimentacao);
+            parametroCodigoAlimentacao.DbType = System.Data.DbType.Int32;
+            comando.Parameters.Add(parametroCodigoAlimentacao);
 
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 

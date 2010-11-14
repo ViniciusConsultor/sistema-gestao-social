@@ -110,6 +110,7 @@ namespace SGS.CamadaDados
                 objAlimentacao.Horario = Convert.ToString(leitorDados["Horario"]);
                 objAlimentacao.Diretiva = leitorDados["Diretiva"].ToString();
 
+                //Pega os alimentos contidos na alimentação
                 AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
                 objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodigoAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
             }
