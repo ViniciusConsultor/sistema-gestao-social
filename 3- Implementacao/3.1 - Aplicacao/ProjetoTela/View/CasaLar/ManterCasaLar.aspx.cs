@@ -91,7 +91,7 @@ namespace ProjetoTela.View.CasaLar
             {
                 lblTitulo.Text = "Alterar Casa Lar";
                 lblDescricao.Text = "Descrição: Permite alterar os dados da Casa Lar.";
-                btnExcluir.Visible = true;
+                btnExcluir.Visible = false;
                
                 //Preencha a propriedade Casa Lar
                 SGSCasaLar = objSGSServico.ObterCasaLar();
