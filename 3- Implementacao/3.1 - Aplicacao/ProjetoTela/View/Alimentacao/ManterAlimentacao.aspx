@@ -197,7 +197,7 @@
                 <td> 
                     <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
                         /> &nbsp;
                     <asp:Button ID="Button2" runat="server" Text="Cancelar" Width="110px" 
                         CausesValidation="False" />
