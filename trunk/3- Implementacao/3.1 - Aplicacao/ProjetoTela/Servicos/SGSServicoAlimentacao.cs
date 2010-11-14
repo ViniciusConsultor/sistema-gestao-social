@@ -32,6 +32,7 @@ namespace SGS.Servicos
             return objAlimentacaoDados.ObterAlimentacao(codigoAlimentacao);
         }
 
+
         public bool ExcluirAlimentacao(int codigoAlimentacao)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
@@ -39,11 +40,15 @@ namespace SGS.Servicos
             return objAlimentacaoDados.ExcluirAlimentacao(codigoAlimentacao);
         }
 
+        /// <summary>
+        /// Este método retorna uma lista de Alimento
+        /// </summary>
+        /// <returns></returns>
         public List<Alimento> ListarAlimento()
         {
-            AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
+            AlimentoDados objAlimentoDados = new AlimentoDados();
 
-            return objAlimentacaoDados.Listar();
+            return objAlimentoDados.Listar();
             
         }
 

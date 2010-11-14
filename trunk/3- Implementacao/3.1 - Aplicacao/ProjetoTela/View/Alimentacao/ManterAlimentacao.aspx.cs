@@ -96,6 +96,12 @@ namespace SGS.View.Alimentacao
         {
             SGSServico objSGSServico = new SGSServico();
             SGSAlimentacao = new Entidades.Alimentacao();
+
+            SGSAlimentacao.AlimentoLista = objSGSServico.ListarAlimento();
+
+            ltbAlimentos.DataSource = SGSAlimentacao.AlimentoLista;
+            ltbAlimentos.DataBind();
+
             //Alterar Alimentação
             if (Request.QueryString["tipo"] != null && Request.QueryString["cod"] != null)
             {
@@ -138,13 +144,14 @@ namespace SGS.View.Alimentacao
             objAlimentacao.DiaSemana = ddlDiaSemana.SelectedValue;
             objAlimentacao.Horario = txtHorario.Text;
             objAlimentacao.Periodo = ddlPeriodo.SelectedValue;
-            objAlimentacao.Alimento = ltbAlimentos.SelectedValue;
             objAlimentacao.Diretiva = txtDiretiva.Text;
 
             objAlimentacao.AlimentacaoAlimentoLista = new List<AlimentacaoAlimento>();
             AlimentacaoAlimento objAlimentacaoAlimento = new AlimentacaoAlimento();
             foreach (ListItem objListItem in ltbAlimentos.Items)
             {
+                objAlimentacaoAlimento = new AlimentacaoAlimento();
+
                 if (objListItem.Selected == true)
                 {
                     objAlimentacaoAlimento.CodigoAlimento = Convert.ToInt32(objListItem.Value);
@@ -160,17 +167,21 @@ namespace SGS.View.Alimentacao
         /// </summary>
         private void PreencherDadosView()
         {
-
             ddlDiaSemana.SelectedValue = SGSAlimentacao.DiaSemana;
             txtHorario.Text = SGSAlimentacao.Horario;
             ddlPeriodo.SelectedValue = SGSAlimentacao.Periodo;
-            ltbAlimentos.SelectedValue = SGSAlimentacao.Alimento;
             txtDiretiva.Text = SGSAlimentacao.Diretiva;
 
             foreach (AlimentacaoAlimento item in SGSAlimentacao.AlimentacaoAlimentoLista)
             {
                 //TODO Maycon verificar se Esta funcionando
                 ltbAlimentos.SelectedValue = item.CodigoAlimento.ToString();
+
+                foreach (ListItem itemltbAlimentos in ltbAlimentos.Items)
+                {
+                    if (itemltbAlimentos.Value == item.CodigoAlimento.ToString())
+                        itemltbAlimentos.Selected = true;
+                }
             }
         }
 
@@ -207,7 +218,6 @@ namespace SGS.View.Alimentacao
         {
             DropDownList ddlDiaSemana = (DropDownList)sender;
 
-
             if (ddlDiaSemana.SelectedValue == "Selecione")
             {
                 Response.Redirect("ManterAlimentacao.aspx");
@@ -237,13 +247,6 @@ namespace SGS.View.Alimentacao
             //Qualquer outro periodo: Desjejum, Almoço, Janter, etc...
             else
             {
-                SGSServico objSGSServico = new SGSServico();
-                SGSAlimentacao.AlimentoLista = objSGSServico.ListarAlimento();
-
-                ltbAlimentos.DataSource = SGSAlimentacao.AlimentoLista;
-                ltbAlimentos.DataBind();
-
-                //TODO: Ir na base de dados 
                 txtDiretiva.Visible = true;
                 lblDiretiva.Visible = true;
                 txtHorario.Visible = true;
