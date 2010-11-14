@@ -120,6 +120,12 @@
                 <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" 
                     DataTextField="Nome" DataValueField="CodigoAssistido">
                     <asp:ListItem>Selecione</asp:ListItem>
+<<<<<<< .mine
+                    <asp:ListItem Value="1">João</asp:ListItem>
+                    <asp:ListItem Value="2">Pedro</asp:ListItem>
+                    <asp:ListItem Value="3">Maria</asp:ListItem>
+=======
+>>>>>>> .r257
                 </asp:DropDownList>
             </td>
         </tr>
