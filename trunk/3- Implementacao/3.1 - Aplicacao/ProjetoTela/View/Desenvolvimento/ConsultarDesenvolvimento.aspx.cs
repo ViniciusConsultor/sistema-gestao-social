@@ -116,17 +116,9 @@ namespace SGS.View.Desenvolvimento
             SGSServico objSGSServico = new SGSServico();
             SGSDesenvolvimento = new Entidades.Desenvolvimento();
 
-            if (Request.QueryString["tipo"] == "con")
-            {
-                ////* View/Desenvolvimento/ManterDesenvolvimento.aspx?tipo=alt&cod=1
-                lblTitulo.Text = "Consultar Finanças";
-                lblDescricao.Text = "Descrição: Permite consultar Desenvolvimentos cadastrados no sistema.";
-                btnLimpar.Visible = true;
-                SGSDesenvolvimento.CodigoDesenvolvimento = Convert.ToInt32(Request.QueryString["cod"]);
-                //SGSDesenvolvimento.CodigoDesenvolvimento = 1;
+            objSGSServico.ListarAssistido(true);
 
-                SGSDesenvolvimento = objSGSServico.ObterDesenvolvimento(SGSDesenvolvimento.CodigoDesenvolvimento.Value);
-            }
+            this.AssistidoLista = objSGSServico.ListarAssistido(true);
 
         }
 
@@ -185,6 +177,19 @@ namespace SGS.View.Desenvolvimento
                     return (SGS.Entidades.Desenvolvimento)ViewState["SGSDesenvolvimento"];
             }
 
+        }
+
+        /// <summary>
+        /// Esta Propiedade recebe uma lista de assistido
+        /// </summary>
+        public List<Assistido> AssistidoLista
+        {
+            set
+            {
+                ddlAssistido.DataSource = value;
+                ddlAssistido.DataBind();
+                ddlAssistido.Items.Insert(0, new ListItem("Selecione", "Selecione"));
+            }
         }
 
         #endregion

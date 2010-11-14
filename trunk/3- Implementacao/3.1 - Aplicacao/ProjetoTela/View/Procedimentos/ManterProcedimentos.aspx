@@ -77,11 +77,9 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Assistido </td>
                 <td>
-                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="200px">
+                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="200px" 
+                        DataTextField="Nome" DataValueField="CodigoAssistido">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem Value="1">João</asp:ListItem>
-                        <asp:ListItem Value="2">Pedro</asp:ListItem>
-                        <asp:ListItem Value="3">Maria</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
                         ControlToValidate="ddlAssistido" ErrorMessage="Escolha o Assistido" 

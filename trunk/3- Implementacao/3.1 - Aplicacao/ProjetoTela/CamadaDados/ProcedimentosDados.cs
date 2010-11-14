@@ -72,10 +72,16 @@ namespace SGS.CamadaDados
             parametroStatusProcedimento.DbType = System.Data.DbType.String;
 
             SqlParameter parametroPessoaAtendente = new SqlParameter("@pessoaAtendente", objProcedimentos.PessoaAtendente);
-            parametroPessoaAtendente.DbType = System.Data.DbType.String;
+            if (!String.IsNullOrEmpty(objProcedimentos.PessoaAtendente))
+                parametroPessoaAtendente.Value = objProcedimentos.PessoaAtendente;
+            else
+                parametroPessoaAtendente.Value = DBNull.Value;
 
             SqlParameter parametroLaudoAtendente = new SqlParameter("@laudoAtendente", objProcedimentos.LaudoAtendente);
-            parametroLaudoAtendente.DbType = System.Data.DbType.String;
+            if (!String.IsNullOrEmpty(objProcedimentos.LaudoAtendente))
+                parametroLaudoAtendente.Value = objProcedimentos.LaudoAtendente;
+            else
+                parametroLaudoAtendente.Value = DBNull.Value;
 
             SqlParameter parametroDataMarcada = new SqlParameter();
             if (objProcedimentos.DataMarcada.HasValue)

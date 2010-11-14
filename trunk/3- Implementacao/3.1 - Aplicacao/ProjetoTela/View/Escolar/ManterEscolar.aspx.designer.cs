@@ -31,13 +31,13 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.Label lblDescricao;
         
         /// <summary>
-        /// dllAssistido control.
+        /// ddlAssistido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dllAssistido;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
         
         /// <summary>
         /// requeridAssistido control.

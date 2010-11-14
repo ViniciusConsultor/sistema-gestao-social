@@ -86,8 +86,9 @@
         <asp:Label ID="lblTitulo" runat="server" Text="Consultar Procedimentos"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
-        Text="Descrição: Permite buscar os procedimentos cadastrar os procedimentos cadastrados no sistema."></asp:Label> 
+        &nbsp;&nbsp; 
+    <asp:Label ID="lblDescricao" runat="server" 
+        Text="Descrição: Permite buscar os procedimentos cadastrados no sistema."></asp:Label> 
         
         <br /><br />
         
@@ -110,11 +111,9 @@
             <td class="style15"> &nbsp;</td>    
             <td class="style18"> Assistido</td>
             <td class="style16"> 
-                <asp:DropDownList ID="ddlAssistido" runat="server" Width="200px">
+                <asp:DropDownList ID="ddlAssistido" runat="server" Width="200px" 
+                    DataTextField="Nome" DataValueField="CodigoAssistido">
                     <asp:ListItem>Selecione</asp:ListItem>
-                    <asp:ListItem Value="1">João</asp:ListItem>
-                    <asp:ListItem Value="2">Maria</asp:ListItem>
-                    <asp:ListItem Value="3">Pedro</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td> &nbsp;</td>
