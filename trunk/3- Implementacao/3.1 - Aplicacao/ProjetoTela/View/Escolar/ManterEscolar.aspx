@@ -142,7 +142,7 @@
                     Média Escolar</td>
                 <td>
                     <asp:TextBox ID="txtMediaEscolar" runat="server" 
-                        MaxLength="4" Height="22px" Width="148px"></asp:TextBox>
+                        MaxLength="2" Height="22px" Width="148px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridMediaEscolar" runat="server" 
                         ControlToValidate="txtMediaEscolar" ErrorMessage="Preencha o campo Media Escolar" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -194,9 +194,6 @@
                 <td>
                     <asp:TextBox ID="txtDataSaida" runat="server" Height="22px" MaxLength="10" 
                         Width="148px" CssClass="mask-data"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridDataSaida" runat="server" 
-                        ControlToValidate="txtDataSaida" ErrorMessage="Preencha o campo Data de Saída" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
