@@ -99,7 +99,10 @@ namespace SGS.CamadaDados
             }
 
             SqlParameter parametroCargaHoraria = new SqlParameter("@cargaHoraria", objDesenvolvimento.CargaHoraria);
-            parametroCargaHoraria.DbType = System.Data.DbType.String;
+            if (!String.IsNullOrEmpty(objDesenvolvimento.CargaHoraria))
+                parametroCargaHoraria.Value = objDesenvolvimento.CargaHoraria;
+            else
+                parametroCargaHoraria.Value = DBNull.Value;
 
             SqlParameter parametroStatusAtividade = new SqlParameter("@statusAtividade", objDesenvolvimento.StatusAtividade);
             parametroStatusAtividade.DbType = System.Data.DbType.String;
@@ -118,9 +121,14 @@ namespace SGS.CamadaDados
 
 
             comando.ExecuteNonQuery();
-
-            
-            return ObterUltimoDesenvolvimentoInserido();
+            if (!objDesenvolvimento.CodigoAssistido.HasValue)
+            {
+                return ObterUltimoDesenvolvimentoInserido();
+            }
+            else
+            {
+                return objDesenvolvimento;
+            }
         }
 
         /// <summary>
@@ -148,8 +156,10 @@ namespace SGS.CamadaDados
                 objDesenvolvimento.TipoAtividade = leitorDados["TipoAtividade"].ToString();
                 objDesenvolvimento.DescricaoAtividade = leitorDados["DescricaoAtividade"].ToString();
                 objDesenvolvimento.Valor = Convert.ToDecimal(leitorDados["Valor"]);
-                objDesenvolvimento.DataInicio = Convert.ToDateTime(leitorDados["DataInicio"]);
-                objDesenvolvimento.DataFim = Convert.ToDateTime(leitorDados["DataFim"]);
+                if (leitorDados["DataInicio"] != DBNull.Value)
+                    objDesenvolvimento.DataInicio = Convert.ToDateTime(leitorDados["DataInicio"]); ;
+                if (leitorDados["DataFim"] != DBNull.Value)
+                    objDesenvolvimento.DataFim = Convert.ToDateTime(leitorDados["DataFim"]); ;
                 objDesenvolvimento.CargaHoraria = leitorDados["CargaHoraria"].ToString();
                 objDesenvolvimento.StatusAtividade = leitorDados["StatusAtividade"].ToString();
 

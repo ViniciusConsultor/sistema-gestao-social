@@ -87,7 +87,7 @@
                 Nome
             </td>
             <td class="style9" colspan="2">
-                <asp:TextBox ID="txtNome" runat="server" Width="330px" MaxLength="6" 
+                <asp:TextBox ID="txtNome" runat="server" Width="330px" MaxLength="50" 
                     CssClass="MaskInteiro" ></asp:TextBox>
                 &nbsp;<asp:RequiredFieldValidator ID="validatorNome" runat="server" 
                     ErrorMessage="Preencha o Nome" ControlToValidate="txtNome" SetFocusOnError="True" 
