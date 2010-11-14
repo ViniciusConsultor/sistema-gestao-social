@@ -103,7 +103,7 @@ namespace SGS.View.LoginUI
             if (Request.QueryString["tipo"] == "alt")
             {
                 lblTitulo.Text = "Alterar Login";
-                lblDescricao.Text = "Descrição: Permite cadastrar os logins de acesso ao sistema.";
+                lblDescricao.Text = "Descrição: Permite alterar os logins de acesso ao sistema.";
                 btnExcluir.Visible = true;
                 validatorSenha.Enabled = false;
                 SGSLogin.CodigoLogin = Convert.ToInt32(Request.QueryString["cod"]);

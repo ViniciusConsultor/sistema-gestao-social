@@ -91,7 +91,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Tipo de Procedimento </td>
                 <td>
-                    <asp:DropDownList ID="ddlTipoProcedimento" runat="server" Width="148px" 
+                    <asp:DropDownList ID="ddlTipoProcedimento" runat="server" Width="155px" 
                         Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Médico</asp:ListItem>
@@ -108,7 +108,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Procedimento</td>
                 <td>
-                    <asp:DropDownList ID="ddlProcedimento" runat="server" Width="148px" 
+                    <asp:DropDownList ID="ddlProcedimento" runat="server" Width="155px" 
                         Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Clinico Geral</asp:ListItem>
@@ -138,7 +138,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status</td>
                 <td>
-                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" Height="22px">
+                    <asp:DropDownList ID="ddlStatus" runat="server" Width="155px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Planejado</asp:ListItem>
                         <asp:ListItem>Agendado</asp:ListItem>
@@ -204,13 +204,17 @@
                 <td> 
                     &nbsp;</td>
             </tr>
-            <tr align="center">
-                <td> 
+        </table>
+        <table align="center">
+        <tr>
+            <td>
                 <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
                     BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
                     HeaderText="Validação:" Width="350px" />
-                </td>
-            </tr>
-        </table>
+            </td>
+        </tr>
+    </table>
+
+    <br />
 
 </asp:Content>

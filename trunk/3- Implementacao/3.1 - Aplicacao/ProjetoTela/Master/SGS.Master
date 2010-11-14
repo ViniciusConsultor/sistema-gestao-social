@@ -74,16 +74,10 @@
                                         Value="Cadastrar"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Alimentação" Value="Alimentação">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
                                         NavigateUrl="~/View/Alimentacao/ConsultarAlimentacao.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Alimentacao/ManterAlimentacao.aspx"></asp:MenuItem>
-                                </asp:MenuItem>
-                                <asp:MenuItem Text="Visita" Value="Visita">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
-                                        NavigateUrl="~/View/Visita/ConsultarVisita.aspx"></asp:MenuItem>
-                                    <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
-                                        NavigateUrl="~/View/Visita/ManterVisita.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="PESSOA" Value="Pessoa">
@@ -102,7 +96,7 @@
                                         NavigateUrl="~/View/Procedimentos/ManterProcedimentos.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Dados Escolares" Value="Dados Escolares">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
                                         NavigateUrl="~/View/Escolar/ConsultarEscolar.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Escolar/ManterEscolar.aspx"></asp:MenuItem>
