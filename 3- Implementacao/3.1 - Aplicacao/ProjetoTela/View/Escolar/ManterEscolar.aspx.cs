@@ -82,6 +82,10 @@ namespace SGS.View.Escolar
             SGSServico objSGSServico = new SGSServico();
             SGSEscolarDTO = new SGS.Entidades.DTO.EscolarDTO();
 
+            objSGSServico.ListarAssistido(true);
+
+            this.AssistidoLista = objSGSServico.ListarAssistido(true);
+
             //Alterar Escolar
             if (Request.QueryString["tipo"] == "alt" && (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario"))
             {
@@ -103,10 +107,10 @@ namespace SGS.View.Escolar
             //Cadastrar Escolar
             else if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
             {
-                    SGSEscolarDTO = new SGS.Entidades.DTO.EscolarDTO();
-                    lblTitulo.Text = "Cadastrar Dados Escolares";
-                    lblDescricao.Text = "Descrição: Permite cadastrar os dados escolares dos assistidos.";
-                    btnExcluir.Visible = false;
+                SGSEscolarDTO = new SGS.Entidades.DTO.EscolarDTO();
+                lblTitulo.Text = "Cadastrar Dados Escolares";
+                lblDescricao.Text = "Descrição: Permite cadastrar os dados escolares dos assistidos.";
+                btnExcluir.Visible = false;
             }
 
             //Usuário sem permissão
@@ -122,8 +126,8 @@ namespace SGS.View.Escolar
         private SGS.Entidades.Escolar PegarDadosView()
         {
             SGS.Entidades.DTO.EscolarDTO objSGSEscolarDTO = SGSEscolarDTO;
-           
-            objSGSEscolarDTO.Escolar.Assistido_CodigoAssistido = Convert.ToInt32(dllAssistido.SelectedValue);
+
+            objSGSEscolarDTO.Escolar.Assistido_CodigoAssistido = Convert.ToInt32(ddlAssistido.SelectedValue);
             objSGSEscolarDTO.Escolar.DataMatricula = Convert.ToDateTime(txtDataMatricula.Text);
             objSGSEscolarDTO.Escolar.DataSaida = Convert.ToDateTime(txtDataSaida.Text);
             objSGSEscolarDTO.Escolar.FormatoAnoLetivo = ddlFormatoAnoLetivo.SelectedValue;
@@ -161,13 +165,13 @@ namespace SGS.View.Escolar
         /// </summary>
         private void PreencherDadosView()
         {
-         
-            dllAssistido.SelectedValue = Convert.ToString(SGSEscolarDTO.Escolar.Assistido_CodigoAssistido);
+
+            ddlAssistido.SelectedValue = Convert.ToString(SGSEscolarDTO.Escolar.Assistido_CodigoAssistido);
             txtDataMatricula.Text = SGSEscolarDTO.Escolar.DataMatricula.Value.ToString();
             txtDataSaida.Text = SGSEscolarDTO.Escolar.DataSaida.Value.ToString();
             txtInstituicaoEnsino.Text = SGSEscolarDTO.Escolar.Instituicao;
             txtMateria.Text = SGSEscolarDTO.Escolar.Materia;
-            txtMediaEscolar.Text = Convert.ToString(SGSEscolarDTO.Escolar.MediaEscola);            
+            txtMediaEscolar.Text = Convert.ToString(SGSEscolarDTO.Escolar.MediaEscola);
             txtNota.Text = Convert.ToString(SGSEscolarDTO.Escolar.Nota);
             txtNumeroInscricao.Text = SGSEscolarDTO.Escolar.NumInscricaoInstituicao;
             txtProfessor.Text = SGSEscolarDTO.Escolar.Professor;
@@ -192,7 +196,7 @@ namespace SGS.View.Escolar
             txtTelefoneCelular.Text = SGSEscolarDTO.Escolar.Contato.TelefoneCelular;
         }
 
-        
+
         #endregion
 
         #region Propriedades
@@ -220,11 +224,20 @@ namespace SGS.View.Escolar
 
         }
 
+        /// <summary>
+        /// Esta Propiedade recebe uma lista de assistido
+        /// </summary>
+        public List<Assistido> AssistidoLista
+        {
+            set
+            {
+                ddlAssistido.DataSource = value;
+                ddlAssistido.DataBind();
+                ddlAssistido.Items.Insert(0, new ListItem("Selecione", "Selecione"));
+            }
+        }
+
         #endregion
 
-        protected void dllAssistido_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

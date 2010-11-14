@@ -97,10 +97,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Desenvolvimento"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" Text=""></asp:Label> 
+        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text="Descrição: Permite buscar os desenvolvimentos profissionais cadastrados no sistema."></asp:Label> 
         
         <br /><br />
         
@@ -116,11 +117,9 @@
             <td class="style20"> &nbsp;</td>    
             <td class="style19"> Assistido</td>
             <td class="style14"> 
-                <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px">
+                <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" 
+                    DataTextField="Nome" DataValueField="CodigoAssistido">
                     <asp:ListItem>Selecione</asp:ListItem>
-                    <asp:ListItem Value="1">João</asp:ListItem>
-                    <asp:ListItem Value="2">Maria</asp:ListItem>
-                    <asp:ListItem Value="3">Pedro</asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>

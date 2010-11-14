@@ -6,12 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SGS.Servicos;
 using SGS.Entidades.DTO;
+using SGS.Entidades;
 
 namespace SGS.View.Procedimentos
 {
     public partial class ManterProcedimentos : System.Web.UI.Page
     {
-        
+
         #region Eventos
 
         /// <summary>
@@ -82,10 +83,10 @@ namespace SGS.View.Procedimentos
         }
 
         #endregion
-        
+
         #region
 
-               /// <summary>
+        /// <summary>
         /// Este método preenche os controles da tela de acordo com a operação que
         /// está sendo executado "cadastro" ou "edição".
         /// </summary>
@@ -94,10 +95,14 @@ namespace SGS.View.Procedimentos
             SGSServico objSGSServico = new SGSServico();
             SGSProcedimentos = new Entidades.Procedimentos();
 
+            objSGSServico.ListarAssistido(true);
+
+            this.AssistidoLista = objSGSServico.ListarAssistido(true);
+
             if (Request.QueryString["tipo"] == "alt")
             {
                 lblTitulo.Text = "Alterar Procedimentos";
-                lblDescricao.Text = "Descrição: Permite cadastrar os logins de acesso ao sistema.";
+                lblDescricao.Text = "Descrição: Permite Alterar os procedimentos dos assistidos.";
                 btnExcluir.Visible = true;
 
                 SGSProcedimentos.CodigoProcedimento = Convert.ToInt32(Request.QueryString["cod"]);
@@ -107,12 +112,12 @@ namespace SGS.View.Procedimentos
                 if (SGSProcedimentos != null)
                     this.PreencherDadosView();
                 else
-                    Server.Transfer("bla.aspx"); 
+                    Server.Transfer("bla.aspx");
             }
             else
             {
                 lblTitulo.Text = "Cadastrar Procedimentos";
-                lblDescricao.Text = "Descrição: Permite cadastrar os logins de acesso ao sistema.";
+                lblDescricao.Text = "Descrição: Permite Cadatrar os procedimentos dos assistidos";
                 btnExcluir.Visible = false;
             }
         }
@@ -166,7 +171,7 @@ namespace SGS.View.Procedimentos
 
 
         }
-        
+
         #endregion
 
         #region Propriedades
@@ -191,6 +196,19 @@ namespace SGS.View.Procedimentos
                     return (SGS.Entidades.Procedimentos)ViewState["SGSProcedimentos"];
             }
 
+        }
+         
+        /// <summary>
+        /// Esta Propiedade recebe uma lista de assistido
+        /// </summary>
+        public List<Assistido> AssistidoLista
+        {
+            set
+            {
+                ddlAssistido.DataSource = value;
+                ddlAssistido.DataBind();
+                ddlAssistido.Items.Insert(0, new ListItem("Selecione", "Selecione"));
+            }
         }
 
         #endregion

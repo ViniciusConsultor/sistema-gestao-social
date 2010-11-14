@@ -110,15 +110,12 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Assistido</td>
                 <td class="style10">
-                    <asp:DropDownList ID="dllAssistido" runat="server" Height="22px" Width="148px" 
-                        onselectedindexchanged="dllAssistido_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlAssistido" runat="server" Height="22px" Width="148px" 
+                        DataTextField="Nome" DataValueField="CodigoAssistido">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem Value="1">Tiago Ribeiro</asp:ListItem>
-                        <asp:ListItem Value="2">Samanta Dias</asp:ListItem>
-                        <asp:ListItem Value="3">Gabriela Ferreira</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridAssistido" runat="server" 
-                        ControlToValidate="dllAssistido" ErrorMessage="Escolha o Assistido" 
+                        ControlToValidate="ddlAssistido" ErrorMessage="Escolha o Assistido" 
                         ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="style9" 

@@ -70,11 +70,33 @@ namespace SGS.CamadaDados
             parametroValor.DbType = System.Data.DbType.Decimal;
 
 
-            SqlParameter parametroDataInicio = new SqlParameter("@dataInicio", objDesenvolvimento.DataInicio);
-            parametroDataInicio.DbType = System.Data.DbType.DateTime;
+            SqlParameter parametroDataInicio = new SqlParameter();
+            if (objDesenvolvimento.DataInicio.HasValue)
+            {
+                parametroDataInicio.Value = objDesenvolvimento.DataInicio.Value;
+                parametroDataInicio.ParameterName = "@dataInicio";
+                parametroDataInicio.DbType = System.Data.DbType.Int32;
+            }
+            else
+            {
+                parametroDataInicio.Value = DBNull.Value;
+                parametroDataInicio.ParameterName = "@dataInicio";
+                parametroDataInicio.DbType = System.Data.DbType.Int32;
+            }
 
-            SqlParameter parametroDataFim = new SqlParameter("@dataFim", objDesenvolvimento.DataFim);
-            parametroDataFim.DbType = System.Data.DbType.DateTime;
+            SqlParameter parametroDataFim = new SqlParameter();
+            if (objDesenvolvimento.DataFim.HasValue)
+            {
+                parametroDataFim.Value = objDesenvolvimento.DataFim.Value;
+                parametroDataFim.ParameterName = "@dataFim";
+                parametroDataFim.DbType = System.Data.DbType.Int32;
+            }
+            else
+            {
+                parametroDataFim.Value = DBNull.Value;
+                parametroDataFim.ParameterName = "@dataFim";
+                parametroDataFim.DbType = System.Data.DbType.Int32;
+            }
 
             SqlParameter parametroCargaHoraria = new SqlParameter("@cargaHoraria", objDesenvolvimento.CargaHoraria);
             parametroCargaHoraria.DbType = System.Data.DbType.String;

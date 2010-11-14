@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SGS.Entidades.DTO;
 using SGS.Servicos;
+using SGS.Entidades;
 
 namespace SGS.View.Procedimentos
 {
@@ -105,17 +106,9 @@ namespace SGS.View.Procedimentos
             SGSServico objSGSServico = new SGSServico();
             SGSProcedimentos = new Entidades.Procedimentos();
 
-            if (Request.QueryString["tipo"] == "con")
-            {
-                ////* View/Procedimentos/ManterProcedimentos.aspx?tipo=alt&cod=1
-                lblTitulo.Text = "Consultar Finanças";
-                lblDescricao.Text = "Descrição: Permite consultar as Finanças da Casa Lar.";
-                btnLimpar.Visible = true;
-                SGSProcedimentos.CodigoProcedimento = Convert.ToInt32(Request.QueryString["cod"]);
-                //SGSProcedimentos.CodigoProcedimentos = 1;
+            objSGSServico.ListarAssistido(true);
 
-                SGSProcedimentos = objSGSServico.ObterProcedimentos(SGSProcedimentos.CodigoProcedimento.Value);
-            }
+            this.AssistidoLista = objSGSServico.ListarAssistido(true);
 
         }
 
@@ -174,6 +167,19 @@ namespace SGS.View.Procedimentos
                     return (SGS.Entidades.Procedimentos)ViewState["SGSProcedimentos"];
             }
 
+        }
+
+        /// <summary>
+        /// Esta Propiedade recebe uma lista de assistido
+        /// </summary>
+        public List<Assistido> AssistidoLista
+        {
+            set
+            {
+                ddlAssistido.DataSource = value;
+                ddlAssistido.DataBind();
+                ddlAssistido.Items.Insert(0, new ListItem("Selecione", "Selecione"));
+            }
         }
 
         #endregion

@@ -99,6 +99,10 @@ namespace SGS.View.Desenvolvimento
             SGSServico objSGSServico = new SGSServico();
             SGSDesenvolvimento = new Entidades.Desenvolvimento();
 
+            objSGSServico.ListarAssistido(true);
+
+            this.AssistidoLista = objSGSServico.ListarAssistido(true);
+
             if (Request.QueryString["tipo"] == "alt")
             {
                 lblTitulo.Text = "Alterar Desenvolvimento";
@@ -192,6 +196,19 @@ namespace SGS.View.Desenvolvimento
                     return (SGS.Entidades.Desenvolvimento)ViewState["SGSDesenvolvimento"];
             }
 
+        }
+
+        /// <summary>
+        /// Esta Propiedade recebe uma lista de assistido
+        /// </summary>
+        public List<Assistido> AssistidoLista
+        {
+            set
+            {
+                ddlAssistido.DataSource = value;
+                ddlAssistido.DataBind();
+                ddlAssistido.Items.Insert(0, new ListItem("Selecione", "Selecione"));
+            }
         }
 
         #endregion

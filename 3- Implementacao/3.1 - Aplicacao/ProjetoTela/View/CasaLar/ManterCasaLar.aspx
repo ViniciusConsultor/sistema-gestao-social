@@ -101,7 +101,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status</td>
                 <td>
-                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" Height="22px">
+                    <asp:DropDownList ID="ddlStatus" runat="server" Width="155px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Legal</asp:ListItem>
                         <asp:ListItem Value="Ilegal">Ilegal</asp:ListItem>
@@ -206,7 +206,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     País</td>
                 <td>
-                    <asp:DropDownList ID="ddlPais" runat="server" Width="148px" Enabled="False">
+                    <asp:DropDownList ID="ddlPais" runat="server" Width="155px" Enabled="False">
                         <asp:ListItem>Brasil</asp:ListItem>
                     </asp:DropDownList>
                 </td>
@@ -217,7 +217,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Estado</td>
                 <td class="style11">
-                    <asp:DropDownList ID="ddlEstado" runat="server" Width="148px" Height="22px">
+                    <asp:DropDownList ID="ddlEstado" runat="server" Width="155px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>AC</asp:ListItem>
                         <asp:ListItem>AL</asp:ListItem>
