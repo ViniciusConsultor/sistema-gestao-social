@@ -97,7 +97,7 @@
                         <asp:ListItem Text="Segunda-Feira" Value="Segunda-Feira"></asp:ListItem>
                         <asp:ListItem Text="Terça-Feira" Value="Terca-Feira"></asp:ListItem>
                         <asp:ListItem Text="Quarta-Feira" Value="Quarta-Feira"></asp:ListItem>
-                        <asp:ListItem Text="Quinta-Feira" Value="Quarta-Feira"></asp:ListItem>
+                        <asp:ListItem Text="Quinta-Feira" Value="Quinta-Feira"></asp:ListItem>
                         <asp:ListItem Text="Sexta-Feira" Value="Sexta-Feira"></asp:ListItem>
                         <asp:ListItem Value="Sabado">Sábado</asp:ListItem>
                     </asp:DropDownList>

@@ -176,6 +176,48 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
+        /// <summary>
+        /// Este método retorna uma alimentação pelo dia da semana e pelo período 
+        /// </summary>
+        /// <param name="dia"></param>
+        /// <param name="periodo"></param>
+        /// <returns></returns>
+        public Alimentacao ObterAlimentacaoPorDiaPeriodo(string dia, string periodo)
+        {
+            SqlCommand comando = new SqlCommand("select * from Alimentacao where DiaSemana = @diaSemana and Periodo = @periodo", base.Conectar());
+
+            SqlParameter parametroDiaSemana = new SqlParameter("@diaSemana ", dia);
+            parametroDiaSemana.DbType = System.Data.DbType.String;
+            comando.Parameters.Add(parametroDiaSemana);
+
+            SqlParameter parametroPeriodo = new SqlParameter("@periodo", periodo);
+            parametroPeriodo.DbType = System.Data.DbType.String;
+            comando.Parameters.Add(parametroPeriodo);
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Alimentacao objAlimentacao = null;
+
+            if (leitorDados.Read())
+            {
+                objAlimentacao = new Alimentacao();
+
+                objAlimentacao.CodigoAlimentacao = Convert.ToInt32(leitorDados["CodigoAlimentacao"]);
+                objAlimentacao.DiaSemana = leitorDados["DiaSemana"].ToString();
+                objAlimentacao.Periodo = leitorDados["Periodo"].ToString();
+                objAlimentacao.Horario = Convert.ToString(leitorDados["Horario"]);
+                objAlimentacao.Diretiva = leitorDados["Diretiva"].ToString();
+
+                //Pega os alimentos contidos na alimentação
+                AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
+                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodigoAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objAlimentacao;
+        }
+
     }
 }
 
