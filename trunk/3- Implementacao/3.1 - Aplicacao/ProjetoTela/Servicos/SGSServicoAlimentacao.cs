@@ -25,6 +25,11 @@ namespace SGS.Servicos
             return objAlimentacao;
         }
 
+        /// <summary>
+        /// Este método obtem uma alimentação pelo seu código
+        /// </summary>
+        /// <param name="codigoAlimentacao"></param>
+        /// <returns></returns>
         public Alimentacao ObterAlimentacao(int codigoAlimentacao)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
@@ -33,6 +38,11 @@ namespace SGS.Servicos
         }
 
 
+        /// <summary>
+        /// Este método exclui todos os dados de uma Alimentação pelo seu código
+        /// </summary>
+        /// <param name="codigoAlimentacao"></param>
+        /// <returns></returns>
         public bool ExcluirAlimentacao(int codigoAlimentacao)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
@@ -40,6 +50,7 @@ namespace SGS.Servicos
             return objAlimentacaoDados.ExcluirAlimentacao(codigoAlimentacao);
         }
 
+        
         /// <summary>
         /// Este método retorna uma lista de Alimento
         /// </summary>
@@ -51,6 +62,23 @@ namespace SGS.Servicos
             return objAlimentoDados.Listar();
             
         }
+
+        /// <summary>
+        /// Este método retorna uma Alimentação pelo dia da semana e pelo período 
+        /// </summary>
+        /// <param name="dia"></param>
+        /// <param name="periodo"></param>
+        /// <returns></returns>
+        public Alimentacao ListarAlimentacaoPorDiaPeriodo(string dia, string periodo)
+        {
+            AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
+
+            //objAlimentacaoDado
+
+            //Todo Maycon Desenvolver
+            return new Alimentacao();
+        }
+
 
        /// <summary>
        /// Consulta a tabela Alimentacao e retorna resultados de acordo com o preenchimento do filtro - Terminar o Consultar Primeiro.depois descomentar

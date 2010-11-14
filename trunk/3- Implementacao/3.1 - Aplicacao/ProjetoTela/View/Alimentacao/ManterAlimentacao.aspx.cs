@@ -49,7 +49,7 @@ namespace SGS.View.Alimentacao
             SGSAlimentacao = sgsServico.SalvarAlimentacao(PegarDadosView());
 
             string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + SGSAlimentacao.CodigoAlimentacao.Value.ToString();
-            Server.Transfer(url);
+            Response.Redirect(url);
 
             ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
         }
@@ -118,7 +118,7 @@ namespace SGS.View.Alimentacao
                 ltbAlimentos.Visible = true;
             }
             //exibe periodo depois de escolher o dia
-            else 
+            else
             {
                 if (Request.QueryString["dia"] != null)
                 {
@@ -126,7 +126,7 @@ namespace SGS.View.Alimentacao
                     ddlPeriodo.Visible = true;
                     lblPeriodo.Visible = true;
                 }
-               
+
                 btnExcluir.Visible = false;
 
                 lblTitulo.Text = "Cadastrar Alimentação";
@@ -245,17 +245,27 @@ namespace SGS.View.Alimentacao
             //Qualquer outro periodo: Desjejum, Almoço, Janter, etc...
             else
             {
-                txtDiretiva.Visible = true;
-                lblDiretiva.Visible = true;
-                txtHorario.Visible = true;
-                lblHorario.Visible = true;
-                ltbAlimentos.Visible = true;
-                lblAlimentos.Visible = true;
-                btnExcluir.Visible = false;
+                SGSServico objSGSServico = new SGSServico();
 
+                Entidades.Alimentacao objAlimentacao = objSGSServico.ListarAlimentacaoPorDiaPeriodo(ddlDiaSemana.SelectedValue, ddlPeriodo.SelectedValue);
+                if (objAlimentacao != null)
+                {
+                    string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + objAlimentacao.CodigoAlimentacao.Value.ToString();
+                    Response.Redirect(url);
+                }
+                else
+                {
+                    txtDiretiva.Visible = true;
+                    lblDiretiva.Visible = true;
+                    txtHorario.Visible = true;
+                    lblHorario.Visible = true;
+                    ltbAlimentos.Visible = true;
+                    lblAlimentos.Visible = true;
+                    btnExcluir.Visible = false;
+                }
             }
         }
 
-      
+
     }
 }
