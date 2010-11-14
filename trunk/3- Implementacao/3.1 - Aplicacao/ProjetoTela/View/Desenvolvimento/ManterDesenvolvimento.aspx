@@ -106,7 +106,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Atividade </td>
                 <td>
-                    <asp:TextBox ID="txtAtividade" runat="server" Height="22px" Width="148px" 
+                    <asp:TextBox ID="txtAtividade" runat="server" Height="22px" Width="315px" 
                         MaxLength="50"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridAtividade" runat="server" 
                         ControlToValidate="txtAtividade" ErrorMessage="Preencha o campo Atividade " 
@@ -119,7 +119,7 @@
                     Descrição </td>
                 <td>
                     <asp:TextBox ID="txtDescricao" runat="server" Height="136px" Width="315px" 
-                        MaxLength="500"></asp:TextBox>
+                        MaxLength="500" TextMode="MultiLine"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridDescricao" runat="server" 
                         ControlToValidate="txtDescricao" ErrorMessage="Preencha o campo Descrição" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
