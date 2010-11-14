@@ -81,7 +81,7 @@ namespace SGS.View.Alimentacao
             if (objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value))
                 ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
 
-            Response.Redirect("ConsultarAlimentacao.aspx");
+            Response.Redirect("ManterAlimentacao.aspx");
         }
 
         #endregion
@@ -112,15 +112,22 @@ namespace SGS.View.Alimentacao
                 lblTitulo.Text = "Alterar Alimentação";
                 lblDescricao.Text = "Descrição: Permite Alterar a Alimentação da Casa Lar.";
 
-                ddlPeriodo.Visible = true;
-                txtDiretiva.Visible = true;
-                txtHorario.Visible = true;
-                ltbAlimentos.Visible = true;
+                HabilitarControles();
             }
             //exibe periodo depois de escolher o dia
             else
             {
-                if (Request.QueryString["dia"] != null)
+                lblTitulo.Text = "Cadastrar Alimentação";
+                lblDescricao.Text = "Descrição: Permite Cadastrar a Alimentação da Casa Lar.";
+
+                if (Request.QueryString["dia"] != null && Request.QueryString["periodo"] != null)
+                {
+                    ddlDiaSemana.SelectedValue = Request.QueryString["dia"].ToString();
+                    ddlPeriodo.SelectedValue = Request.QueryString["periodo"].ToString();
+
+                    HabilitarControles();
+                }
+                else if (Request.QueryString["dia"] != null)
                 {
                     ddlDiaSemana.SelectedValue = Request.QueryString["dia"].ToString();
                     ddlPeriodo.Visible = true;
@@ -128,10 +135,22 @@ namespace SGS.View.Alimentacao
                 }
 
                 btnExcluir.Visible = false;
-
-                lblTitulo.Text = "Cadastrar Alimentação";
-                lblDescricao.Text = "Descrição: Permite Cadastrar a Alimentação da Casa Lar.";
             }
+        }
+
+        /// <summary>
+        /// Habilita controles da tela
+        /// </summary>
+        private void HabilitarControles()
+        {
+            lblPeriodo.Visible = true;
+            ddlPeriodo.Visible = true;
+            lblHorario.Visible = true;
+            txtHorario.Visible = true;
+            lblDiretiva.Visible = true;
+            txtDiretiva.Visible = true;
+            lblAlimentos.Visible = true;
+            ltbAlimentos.Visible = true;
         }
 
         /// <summary>
@@ -167,14 +186,13 @@ namespace SGS.View.Alimentacao
         /// </summary>
         private void PreencherDadosView()
         {
-        http://localhost:49217/View/Alimentacao/ManterAlimentacao.aspx?tipo=alt&cod=7ddlDiaSemana.SelectedValue = SGSAlimentacao.DiaSemana;
-            txtHorario.Text = SGSAlimentacao.Horario;
+            ddlDiaSemana.SelectedValue = SGSAlimentacao.DiaSemana;
             ddlPeriodo.SelectedValue = SGSAlimentacao.Periodo;
+            txtHorario.Text = SGSAlimentacao.Horario;
             txtDiretiva.Text = SGSAlimentacao.Diretiva;
 
             foreach (AlimentacaoAlimento item in SGSAlimentacao.AlimentacaoAlimentoLista)
             {
-                //TODO Maycon verificar se Esta funcionando
                 foreach (ListItem itemltbAlimentos in ltbAlimentos.Items)
                 {
                     if (itemltbAlimentos.Value == item.CodigoAlimento.ToString())
@@ -247,7 +265,8 @@ namespace SGS.View.Alimentacao
             {
                 SGSServico objSGSServico = new SGSServico();
 
-                Entidades.Alimentacao objAlimentacao = objSGSServico.ListarAlimentacaoPorDiaPeriodo(ddlDiaSemana.SelectedValue, ddlPeriodo.SelectedValue);
+                Entidades.Alimentacao objAlimentacao = objSGSServico.ObterAlimentacaoPorDiaPeriodo(ddlDiaSemana.SelectedValue, ddlPeriodo.SelectedValue);
+                //Caso este Dia e Período já possuam  
                 if (objAlimentacao != null)
                 {
                     string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + objAlimentacao.CodigoAlimentacao.Value.ToString();
@@ -255,13 +274,10 @@ namespace SGS.View.Alimentacao
                 }
                 else
                 {
-                    txtDiretiva.Visible = true;
-                    lblDiretiva.Visible = true;
-                    txtHorario.Visible = true;
-                    lblHorario.Visible = true;
-                    ltbAlimentos.Visible = true;
-                    lblAlimentos.Visible = true;
-                    btnExcluir.Visible = false;
+                    string url = @"ManterAlimentacao.aspx?dia=" + ddlDiaSemana.SelectedValue + "&periodo=" + ddlPeriodo.SelectedValue;
+                    Response.Redirect(url);
+
+                    
                 }
             }
         }

@@ -121,8 +121,8 @@
                         Visible="False">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
                         <asp:ListItem >Desjejum</asp:ListItem>
-                        <asp:ListItem>Colação</asp:ListItem>
-                        <asp:ListItem>Almoço</asp:ListItem>
+                        <asp:ListItem Value="Colacao">Colação</asp:ListItem>
+                        <asp:ListItem Value="Almoco">Almoço</asp:ListItem>
                         <asp:ListItem>Lanche</asp:ListItem>
                         <asp:ListItem>Jantar</asp:ListItem>
                         <asp:ListItem>Ceia</asp:ListItem>
@@ -197,7 +197,8 @@
                 <td> 
                     <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
-                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" onclick="btnExcluir_Click" 
+                    <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
+                        onclick="btnExcluir_Click" onclientclick="return confirm('Deseja realmente excluir?')" 
                         /> &nbsp;
                     <asp:Button ID="Button2" runat="server" Text="Cancelar" Width="110px" 
                         CausesValidation="False" />
