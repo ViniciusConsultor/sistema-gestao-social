@@ -187,6 +187,7 @@
     <Compile Include="Entidades\Desenvolvimento.cs" />
     <Compile Include="Entidades\DTO\AlimentacaoDTO.cs" />
     <Compile Include="Entidades\DTO\AssistidoDTO.cs" />
+    <Compile Include="Entidades\DTO\ConsultarAssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\ConsultarEscolarDTO.cs" />
     <Compile Include="Entidades\DTO\DesenvolvimentoAssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\DesenvolvimentoDTO.cs" />
