@@ -85,9 +85,8 @@
     <Content Include="View\Financas\ManterFinancas.aspx" />
     <Content Include="View\LoginUI\ConsultarLogin.aspx" />
     <Content Include="View\LoginUI\ManterLogin.aspx" />
-    <Content Include="View\Pessoa\AltPessoa.aspx" />
-    <Content Include="View\Pessoa\CadPessoa.aspx" />
     <Content Include="View\Pessoa\ConPessoa.aspx" />
+    <Content Include="View\Pessoa\ConsultarAssistido.aspx" />
     <Content Include="View\Pessoa\ConsultarPessoa.aspx" />
     <Content Include="View\Pessoa\ManterAssistido.aspx" />
     <Content Include="View\Pessoa\PessoaAssistido.ascx" />
@@ -336,26 +335,19 @@
     <Compile Include="View\LoginUI\ManterLogin.aspx.designer.cs">
       <DependentUpon>ManterLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Pessoa\AltPessoa.aspx.cs">
-      <DependentUpon>AltPessoa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Pessoa\AltPessoa.aspx.designer.cs">
-      <DependentUpon>AltPessoa.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pessoa\CadPessoa.aspx.cs">
-      <DependentUpon>CadPessoa.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Pessoa\CadPessoa.aspx.designer.cs">
-      <DependentUpon>CadPessoa.aspx</DependentUpon>
-    </Compile>
     <Compile Include="View\Pessoa\ConPessoa.aspx.cs">
       <DependentUpon>ConPessoa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Pessoa\ConPessoa.aspx.designer.cs">
       <DependentUpon>ConPessoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pessoa\ConsultarAssistido.aspx.cs">
+      <DependentUpon>ConsultarAssistido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Pessoa\ConsultarAssistido.aspx.designer.cs">
+      <DependentUpon>ConsultarAssistido.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Pessoa\ConsultarPessoa.aspx.cs">
       <DependentUpon>ConsultarPessoa.aspx</DependentUpon>
