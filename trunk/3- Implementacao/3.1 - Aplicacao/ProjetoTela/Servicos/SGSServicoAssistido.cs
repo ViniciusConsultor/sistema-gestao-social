@@ -38,12 +38,22 @@ namespace SGS.Servicos
         /// Este Serviço retorna uma lista de assistido
         /// </summary>
         /// <returns></returns>
-        public List<Assistido> ListarAssistido(bool assistidoAtivado)
+        public List<Assistido> ListarAssistido(bool? assistidoAtivado)
         {
             AssistidoDados objAssistidoDados = new AssistidoDados();
 
             return objAssistidoDados.Listar(assistidoAtivado);
+        }
 
+        /// <summary>
+        /// Este Serviço consulta assistidos pelos dados do filtro
+        /// </summary>
+        /// <returns></returns>
+        public List<Assistido> ConsultarAssistido(ConsultarAssistidoDTO objConsultarAssistidoDTO)
+        {
+            AssistidoDados objAssistidoDados = new AssistidoDados();
+
+            return objAssistidoDados.ConsultarAssistido(objConsultarAssistidoDTO);
         }
 
     }

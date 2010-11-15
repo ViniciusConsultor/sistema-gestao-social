@@ -356,20 +356,28 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="assistidoAtivado"></param>
         /// <returns></returns>
-        public List<Assistido> Listar(bool assistidoAtivado)
+        public List<Assistido> Listar(bool? assistidoAtivado)
         {
+            SqlCommand comando = new SqlCommand();
+
             List<Assistido> assistidoLista = new List<Assistido>();
             Assistido objAssistido = null;
             PessoaDados objPessoaDados = new PessoaDados();
             ContatoDados objContatoDados = new ContatoDados();
 
-            SqlCommand comando = new SqlCommand(@"select * from Assistido A inner join Pessoa P 
-                                                             ON A.CodigoAssistido = P.CodigoPessoa where Ativo = @ativo", base.Conectar());
-            
-            SqlParameter parametroAtivo = new SqlParameter("@ativo", System.Data.DbType.Boolean);
-            parametroAtivo.Value = assistidoAtivado;
-            comando.Parameters.Add(parametroAtivo);
+            string sql = @"select * from Assistido A inner join Pessoa P ON A.CodigoAssistido = P.CodigoPessoa"; 
+                                                             
+            if (assistidoAtivado.HasValue)
+            {
+                sql += " where Ativo = @ativo";
+                SqlParameter parametroAtivo = new SqlParameter("@ativo", System.Data.DbType.Boolean);
+                parametroAtivo.Value = assistidoAtivado;
+                comando.Parameters.Add(parametroAtivo);
+            }
 
+            comando.Connection = base.Conectar();
+            comando.CommandText = sql;
+            
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
             while (leitorDados.Read())
@@ -448,6 +456,158 @@ namespace SGS.CamadaDados
             return assistidoLista;
         }
 
+        /// <summary>
+        /// Consulta os assistido pelos dados contidos no ConsultarAssistidoDTO
+        /// </summary>
+        /// <param name="objConsultarAssistidoDTO"></param>
+        /// <returns></returns>
+        public List<Assistido> ConsultarAssistido(ConsultarAssistidoDTO objConsultarAssistidoDTO)
+        {
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = base.Conectar();
+
+            SqlDataReader leitorDados;
+
+            SqlParameter paramCodigoAssistido = new SqlParameter("@codigoAssistido", System.Data.DbType.Int32);
+            if (objConsultarAssistidoDTO.CodigoAssisitoValor.HasValue)
+                paramCodigoAssistido.Value = objConsultarAssistidoDTO.CodigoAssisitoValor.Value;
+            else
+                paramCodigoAssistido.Value = DBNull.Value;
+
+            SqlParameter paramNome = new SqlParameter("@nome", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor))
+                paramNome.Value = "%" + objConsultarAssistidoDTO.NomeAssistidoValor + "%";
+            else
+                paramNome.Value = DBNull.Value;
+
+            SqlParameter paramStatusAssistido = new SqlParameter("@statusAssistido", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor))
+                paramStatusAssistido.Value = objConsultarAssistidoDTO.StatusAssistidoValor;
+            else
+                paramStatusAssistido.Value = DBNull.Value;
+
+            SqlParameter paramStatusCadastro = new SqlParameter("@statusCadastro", System.Data.DbType.Boolean);
+            if (objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+                paramStatusCadastro.Value = objConsultarAssistidoDTO.StatusCadastroValor.Value;
+            else
+                paramStatusCadastro.Value = DBNull.Value;
+
+
+            String sql = "select * from Assistido A inner join Pessoa P on A.CodigoAssistido = P.CodigoPessoa ";
+
+            //Se Assistido Escolhido
+            if (objConsultarAssistidoDTO.CodigoAssisitoValor.HasValue)
+                sql += @" where A.CodigoAssistido = @codigoAssistido";
+            //Se informou Nome, Status Assistido e Assistido Ativo
+            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor) && !String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor) 
+                     && objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+                sql += @" where P.Nome like @nome and StatusAssistido = @statusAssistido and P.Ativo = @statusCadastro";
+            //Se informou Nome, Status Assistido
+            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor) && !String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor))
+                sql += @" where P.Nome like @nome and StatusAssistido = @statusAssistido";
+            //Se informou Nome e Assistido Ativo
+            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor) && objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+                sql += @" where P.Nome like @nome and P.Ativo = @statusCadastro";
+            //Se informou Status Assistido e Assistido Ativo
+            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor) && objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+                sql += @" where StatusAssistido = @statusAssistido and P.Ativo = @statusCadastro";
+            //Se informou Status Assistido
+            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor))
+                sql += @" where StatusAssistido = @statusAssistido";
+            //Se informou Assistido Ativo
+            else if (objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+                sql += @" where P.Ativo = @statusCadastro";
+            //Se informou Nome
+            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor))
+                sql += @" where P.Nome like @nome";
+
+            comando.CommandText = sql;
+            comando.CommandType = System.Data.CommandType.Text;
+
+            comando.Parameters.Add(paramCodigoAssistido);
+            comando.Parameters.Add(paramNome);
+            comando.Parameters.Add(paramStatusAssistido);
+            comando.Parameters.Add(paramStatusCadastro);
+
+            leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+            List<Assistido> assistidoLista = new List<Assistido>();
+            Assistido objAssistido;
+            ContatoDados objContatoDados = new ContatoDados();
+
+            while (leitorDados.Read())
+            {
+                objAssistido = new Assistido();
+
+                //Dados Tabela Pessoa
+                objAssistido.CodigoPessoa = Convert.ToInt32(leitorDados["CodigoPessoa"]);
+                if (leitorDados["CodigoContato"] != DBNull.Value)
+                    objAssistido.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
+                if (objAssistido.Contato_CodigoContato.HasValue)
+                    objAssistido.Contato = objContatoDados.ObterContato(objAssistido.Contato_CodigoContato.Value);
+                objAssistido.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+                objAssistido.Nome = leitorDados["Nome"].ToString();
+                objAssistido.Sexo = leitorDados["Sexo"].ToString();
+                objAssistido.CPF = leitorDados["CPF"].ToString();
+                objAssistido.RG = leitorDados["RG"].ToString();
+                objAssistido.TituloEleitor = leitorDados["TituloEleitor"].ToString();
+                objAssistido.DataNascimento = Convert.ToDateTime(leitorDados["DataNascimento"]);
+                objAssistido.Nacionalidade = leitorDados["Nacionalidade"].ToString();
+                objAssistido.Naturalidade = leitorDados["Naturalidade"].ToString();
+                objAssistido.Foto = leitorDados["Foto"].ToString();
+                objAssistido.TipoPessoa = leitorDados["TipoPessoa"].ToString();
+                objAssistido.Ativo = Convert.ToBoolean(leitorDados["Ativo"]);
+
+                //Dados Tabela Assistido
+                objAssistido.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                objAssistido.StatusAssistido = leitorDados["StatusAssistido"].ToString();
+                if (leitorDados["CertidaoNascimento"] != DBNull.Value)
+                    objAssistido.CertidaoNascimento = leitorDados["CertidaoNascimento"].ToString();
+                objAssistido.DataEntrada = Convert.ToDateTime(leitorDados["DataEntrada"]);
+                if (leitorDados["DataSaida"] != DBNull.Value)
+                    objAssistido.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]); ;
+                objAssistido.EstadoSaude = leitorDados["EstadoSaude"].ToString();
+                objAssistido.Peso = Convert.ToDecimal(leitorDados["Peso"]);
+                objAssistido.Cor = leitorDados["Cor"].ToString();
+                objAssistido.Altura = Convert.ToDecimal(leitorDados["Altura"]);
+                objAssistido.TamanhoCamisa = leitorDados["TamCamisa"].ToString();
+                objAssistido.TamanhoCalca = leitorDados["TamCalca"].ToString();
+                objAssistido.TamanhoCalcado = leitorDados["TamCalcado"].ToString();
+                objAssistido.Dormitorio = leitorDados["Dormitorio"].ToString(); ;
+                objAssistido.Deficiente = leitorDados["Deficiente"].ToString();
+                objAssistido.Hobby = leitorDados["Hobby"].ToString();
+                objAssistido.HistoricoVida = leitorDados["HistoricoVida"].ToString();
+                objAssistido.Pai = leitorDados["NomePai"].ToString();
+                objAssistido.Mae = leitorDados["NomeMae"].ToString();
+                objAssistido.PaiVivo = leitorDados["PaiVivo"].ToString();
+                objAssistido.MaeViva = leitorDados["MaeViva"].ToString();
+                objAssistido.CPFPai = leitorDados["CPFPai"].ToString();
+                objAssistido.CPFMae = leitorDados["CPFMae"].ToString();
+                objAssistido.RGPai = leitorDados["RGPai"].ToString();
+                objAssistido.RGMae = leitorDados["RGMae"].ToString();
+                objAssistido.TelefonePai = leitorDados["TelefonePai"].ToString();
+                objAssistido.TelefoneMae = leitorDados["TelefoneMae"].ToString();
+                objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
+                objAssistido.ResponsavelLegal = leitorDados["NomeResponsavel"].ToString();
+                objAssistido.CPFResponsavel = leitorDados["CpfResponsavel"].ToString();
+
+                if (leitorDados["CodigoContatoResponsavel"] != DBNull.Value)
+                    objAssistido.CodigoContatoResponsavel = Convert.ToInt32(leitorDados["CodigoContatoResponsavel"]);
+                else
+                    objAssistido.CodigoContatoResponsavel = null;
+
+                //Obtém dados de Contato do Responsável
+                if (objAssistido.CodigoContatoResponsavel.HasValue)
+                {
+                    objAssistido.ContatoResponsavel = objContatoDados.ObterContato(objAssistido.CodigoContatoResponsavel.Value);
+                }
+
+                assistidoLista.Add(objAssistido);
+            }
+
+
+            return assistidoLista;
+        }
 
     }
 }

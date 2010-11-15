@@ -227,5 +227,26 @@ namespace SGS.Entidades
             get { return _contatoResponsavel;  }
         }
 
+        /// <summary>
+        /// Esta propriedade traduz o True e False para Sim ou Não
+        /// </summary>
+        public string AssistidoAtivo
+        {
+            get
+            {
+                if (base.Ativo.HasValue)
+                {
+                    if (base.Ativo == true)
+                        return "Sim";
+                    else
+                        return "Não";
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
+
     }
 }

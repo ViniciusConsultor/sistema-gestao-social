@@ -84,7 +84,7 @@ namespace SGS.View.Procedimentos
 
         #endregion
 
-        #region
+        #region Métodos
 
         /// <summary>
         /// Este método preenche os controles da tela de acordo com a operação que
@@ -212,5 +212,6 @@ namespace SGS.View.Procedimentos
         }
 
         #endregion
+
     }
 }

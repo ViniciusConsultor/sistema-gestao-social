@@ -43,9 +43,7 @@ namespace SGS.View.LoginUI
 
             LoginDTO = objSGSServico.ConsultarLogin(LoginDTO);
 
-
             GridLoginDataSource = LoginDTO.LoginLista;
-
         }
 
         /// <summary>
