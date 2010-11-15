@@ -61,8 +61,7 @@ namespace SGS.View.Alimentacao
         {
             if (Request.QueryString["tipo"] == "alt")
             {
-                Server.Transfer("ManterAlimentacao.aspx?tipo=alt&cod=" + SGSAlimentacao.CodigoAlimentacao.Value.ToString());
-
+                Response.Redirect("ManterAlimentacao.aspx?tipo=alt&cod=" + SGSAlimentacao.CodigoAlimentacao.Value.ToString());
             }
             else
             {

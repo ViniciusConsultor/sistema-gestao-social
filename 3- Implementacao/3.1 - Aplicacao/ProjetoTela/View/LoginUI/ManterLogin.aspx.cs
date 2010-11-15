@@ -61,7 +61,7 @@ namespace SGS.View.LoginUI
             else
                 url = "ManterLogin.aspx";
 
-            Server.Transfer(url);
+            Response.Redirect(url);
         }
 
         /// <summary>

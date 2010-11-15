@@ -121,7 +121,6 @@ namespace SGS.CamadaDados
 
 
             comando.ExecuteNonQuery();
-<<<<<<< .mine
 
             if (!objDesenvolvimento.CodigoDesenvolvimento.HasValue)
             {
@@ -132,7 +131,6 @@ namespace SGS.CamadaDados
                 return objDesenvolvimento;
             }
           
-=======
             if (!objDesenvolvimento.CodigoAssistido.HasValue)
             {
                 return ObterUltimoDesenvolvimentoInserido();
@@ -141,7 +139,6 @@ namespace SGS.CamadaDados
             {
                 return objDesenvolvimento;
             }
->>>>>>> .r257
         }
 
         /// <summary>
