@@ -51,17 +51,7 @@ namespace SGS.Servicos
             return objEscolarDados.ExcluirEscolar(codigoEscolar, codigoContato);
         }
 
-        /// <summary>
-        /// Este Serviço retorna uma lista de assistido
-        /// </summary>
-        /// <returns></returns>
-        public List<Assistido> ListarAssistido(bool assistidoAtivado)
-        {
-            AssistidoDados objAssistidoDados = new AssistidoDados();
-
-            return objAssistidoDados.Listar(assistidoAtivado);
-            
-        }
+       
 
         /// <summary>
         /// Consulta a tabela Escolar e retorna resultados de acordo com o preenchimento do filtro 
