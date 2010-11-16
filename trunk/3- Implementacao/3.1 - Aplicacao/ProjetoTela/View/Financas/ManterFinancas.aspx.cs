@@ -94,8 +94,11 @@ namespace SGS.View.Financas
         {
             SGSServico objSGSServico = new SGSServico();
             SGSFinancas = new Entidades.Financas();
+            
             ddlNaturezaFinanca.DataSource = objSGSServico.ListarNaturezaLancamento();
             ddlNaturezaFinanca.DataBind();
+            ddlNaturezaFinanca.Items.Insert(0, new ListItem("Selecione", "Selecione"));
+            
             ddlCasaLar.DataSource = objSGSServico.ListarCasaLar();
             ddlCasaLar.DataBind();
 
@@ -137,7 +140,10 @@ namespace SGS.View.Financas
             objFinancas.TipoLancamento = ddlTipoLancamento.SelectedValue;
             objFinancas.DataLancamento = Convert.ToDateTime(txtDataLancamento.Text);
             objFinancas.DataCriacao = DateTime.Now;
-            objFinancas.Valor = Convert.ToDecimal(txtValor.Text);
+            if (ddlTipoLancamento.SelectedValue == "Receita")
+                objFinancas.Valor = Convert.ToDecimal(txtValor.Text);
+            else
+                objFinancas.Valor = -1 * Convert.ToDecimal(txtValor.Text);
             objFinancas.LancadoPor = txtLancadoPor.Text;
             objFinancas.Observacao = txtObservacao.Text;
             objFinancas.CodigoNatureza = Convert.ToInt32(ddlNaturezaFinanca.SelectedValue);

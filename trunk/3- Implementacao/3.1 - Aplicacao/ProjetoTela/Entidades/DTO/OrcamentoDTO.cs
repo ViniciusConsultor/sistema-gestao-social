@@ -8,6 +8,7 @@ namespace SGS.Entidades.DTO
         [Serializable]
     public class OrcamentoDTO
     {
+
         #region Construtores
 
         /// <summary>

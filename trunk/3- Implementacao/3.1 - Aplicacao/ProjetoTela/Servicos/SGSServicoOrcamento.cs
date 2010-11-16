@@ -11,7 +11,7 @@ namespace SGS.Servicos
     public partial class SGSServico
     {
 
-      /// <summary>
+        /// <summary>
       /// Este método salva e atualiza a tabela orcamento
       /// </summary>
       /// <param name="objOrcamento"></param>
@@ -25,6 +25,11 @@ namespace SGS.Servicos
             return objOrcamento;
         }
 
+        /// <summary>
+        /// Este método obtém um Orçamento pelo seu código
+        /// </summary>
+        /// <param name="codigoOrcamento"></param>
+        /// <returns></returns>
         public Orcamento ObterOrcamento(int codigoOrcamento)
         {
             OrcamentoDados objOrcamentoDados = new OrcamentoDados();
@@ -32,13 +37,40 @@ namespace SGS.Servicos
             return objOrcamentoDados.ObterOrcamento(codigoOrcamento);
         }
 
+        /// <summary>
+        /// Este método exclui um Orçamento pelo seu código
+        /// </summary>
+        /// <param name="codigoOrcamento"></param>
+        /// <returns></returns>
         public bool ExcluirOrcamento(int codigoOrcamento)
         {
+            OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
             OrcamentoDados objOrcamentoDados = new OrcamentoDados();
 
+            //Exclui todos os itens do orçamento
+            objOrcamentoNaturezaDados.ExcluirPorCodigoOrcamento(codigoOrcamento);
+
+            //Exclui o orçamento
             return objOrcamentoDados.ExcluirOrcamento(codigoOrcamento);
         }
 
+        /// <summary>
+        /// Este método exclui um OrçamentoNatureza pelo seu código orçamento e código natureza
+        /// </summary>
+        /// <param name="codigoOrcamento"></param>
+        /// <returns></returns>
+        public bool ExcluirOrcamentoNatureza(int codigoOrcamento, int codigoNatureza)
+        {
+            OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+
+            return objOrcamentoNaturezaDados.Excluir(codigoOrcamento, codigoNatureza);
+        }
+
+        /// <summary>
+        /// Este método inclui um Item de Orçamento no Orçamento Geral
+        /// </summary>
+        /// <param name="objOrcamentoNatureza"></param>
+        /// <returns></returns>
         public OrcamentoNatureza IncluirItemOrcamento(OrcamentoNatureza objOrcamentoNatureza)
         {
             OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
@@ -52,7 +84,7 @@ namespace SGS.Servicos
         {
             OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
 
-            return objOrcamentoNaturezaDados.ExcluirOrcamentoNatureza(codigoOrcamento, codigoNatureza);
+            return objOrcamentoNaturezaDados.Excluir(codigoOrcamento, codigoNatureza);
         }
 
         /// <summary>
@@ -89,7 +121,6 @@ namespace SGS.Servicos
 
         }
 
-
         /// <summary>
         /// Retorna uma lista de orcamento.
         /// </summary>
@@ -101,6 +132,30 @@ namespace SGS.Servicos
 
         }
 
+        /// <summary>
+        /// Este método obtém um ObterOrcamentoNatureza pelo codigoNaturezaLancamento e codigoOrcamento
+        /// </summary>
+        /// <param name="codigoNaturezaLancamento"></param>
+        /// <param name="codigoOrcamento"></param>
+        /// <returns></returns>
+        public OrcamentoNatureza ObterOrcamentoNatureza(int codigoNaturezaLancamento, int codigoOrcamento)
+        {
+            OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+
+            return objOrcamentoNaturezaDados.ObterOrcamentoNatureza(codigoNaturezaLancamento, codigoOrcamento);
+        }
+
+        /// <summary>
+        /// Lista o OrcamentoNatureza pelo código orçamento
+        /// </summary>
+        /// <param name="codigoOrcamento"></param>
+        /// <returns></returns>
+        public List<OrcamentoNatureza> ListarOrcamentoNatureza(int codigoOrcamento)
+        {
+            OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+            
+            return objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(codigoOrcamento);
+        }
 
         
     }
