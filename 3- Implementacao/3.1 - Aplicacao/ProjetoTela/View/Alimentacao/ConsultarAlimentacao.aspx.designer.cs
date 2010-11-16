@@ -31,22 +31,13 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.Label lblDescricao;
         
         /// <summary>
-        /// ddlAssistido control.
+        /// ddlDiaSemana control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
-        
-        /// <summary>
-        /// ddlDiadaSemana control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDiadaSemana;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDiaSemana;
         
         /// <summary>
         /// btnLocalizar control.
@@ -65,5 +56,23 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLimpar;
+        
+        /// <summary>
+        /// rptDia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDia;
+        
+        /// <summary>
+        /// pnlInformacao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlInformacao;
     }
 }

@@ -218,6 +218,47 @@ namespace SGS.CamadaDados
             return objAlimentacao;
         }
 
+        /// <summary>
+        /// Retorna o nome do dia caso o dia informado possui alimentação
+        /// </summary>
+        /// <param name="diaSemana"></param>
+        /// <returns></returns>
+        public List<Alimentacao> ListarPorDiaSemana(string diaSemana)
+        {
+            SqlCommand comando = new SqlCommand("select * from Alimentacao where DiaSemana = @diaSemana order by Horario", base.Conectar());
+
+            SqlParameter parametroDiaSemana = new SqlParameter("@diaSemana", diaSemana);
+            parametroDiaSemana.DbType = System.Data.DbType.String;
+            comando.Parameters.Add(parametroDiaSemana);
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            List<Alimentacao> objAlimentacaoLista = new List<Alimentacao>();
+            Alimentacao objAlimentacao = null;
+
+            while (leitorDados.Read())
+            {
+                objAlimentacao = new Alimentacao();
+
+                objAlimentacao.CodigoAlimentacao = Convert.ToInt32(leitorDados["CodigoAlimentacao"]); 
+                objAlimentacao.DiaSemana = leitorDados["DiaSemana"].ToString();
+                objAlimentacao.Periodo = leitorDados["Periodo"].ToString();
+                objAlimentacao.Horario = Convert.ToString(leitorDados["Horario"]);
+                objAlimentacao.Diretiva = leitorDados["Diretiva"].ToString();
+
+                //Pega os alimentos contidos na alimentação
+                AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
+                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodigoAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
+
+                objAlimentacaoLista.Add(objAlimentacao);
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return objAlimentacaoLista;
+
+        }
+
     }
 }
 

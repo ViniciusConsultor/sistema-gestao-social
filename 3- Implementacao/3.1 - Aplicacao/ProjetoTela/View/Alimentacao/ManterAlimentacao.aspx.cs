@@ -83,8 +83,59 @@ namespace SGS.View.Alimentacao
             Response.Redirect("ManterAlimentacao.aspx");
         }
 
-        #endregion
+        protected void ddlDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlDiaSemana = (DropDownList)sender;
 
+            if (ddlDiaSemana.SelectedValue == "Selecione")
+            {
+                Response.Redirect("ManterAlimentacao.aspx");
+            }
+            else
+            {
+                string url;
+                url = "ManterAlimentacao.aspx?dia=" + ddlDiaSemana.SelectedValue;
+                Response.Redirect(url);
+            }
+        }
+
+        protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlPeriodo = (DropDownList)sender;
+
+            if (ddlPeriodo.SelectedValue == "Selecione")
+            {
+                txtDiretiva.Visible = false;
+                lblDiretiva.Visible = false;
+                txtHorario.Visible = false;
+                lblHorario.Visible = false;
+                lblAlimentos.Visible = false;
+                ltbAlimentos.Visible = false;
+                btnExcluir.Visible = false;
+            }
+            //Qualquer outro periodo: Desjejum, Almoço, Janter, etc...
+            else
+            {
+                SGSServico objSGSServico = new SGSServico();
+
+                Entidades.Alimentacao objAlimentacao = objSGSServico.ObterAlimentacaoPorDiaPeriodo(ddlDiaSemana.SelectedValue, ddlPeriodo.SelectedValue);
+                //Caso este Dia e Período já possuam  
+                if (objAlimentacao != null)
+                {
+                    string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + objAlimentacao.CodigoAlimentacao.Value.ToString();
+                    Response.Redirect(url);
+                }
+                else
+                {
+                    string url = @"ManterAlimentacao.aspx?dia=" + ddlDiaSemana.SelectedValue + "&periodo=" + ddlPeriodo.SelectedValue;
+                    Response.Redirect(url);
+
+
+                }
+            }
+        }
+
+        #endregion
 
         #region Metodos
 
@@ -202,7 +253,6 @@ namespace SGS.View.Alimentacao
 
         #endregion
 
-
         #region Propriedades
 
         /// <summary>
@@ -228,58 +278,6 @@ namespace SGS.View.Alimentacao
         }
 
         #endregion
-
-        protected void ddlDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownList ddlDiaSemana = (DropDownList)sender;
-
-            if (ddlDiaSemana.SelectedValue == "Selecione")
-            {
-                Response.Redirect("ManterAlimentacao.aspx");
-            }
-            else
-            {
-                string url;
-                url = "ManterAlimentacao.aspx?dia=" + ddlDiaSemana.SelectedValue;
-                Response.Redirect(url);
-            }
-        }
-
-        protected void ddlPeriodo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownList ddlPeriodo = (DropDownList)sender;
-
-            if (ddlPeriodo.SelectedValue == "Selecione")
-            {
-                txtDiretiva.Visible = false;
-                lblDiretiva.Visible = false;
-                txtHorario.Visible = false;
-                lblHorario.Visible = false;
-                lblAlimentos.Visible = false;
-                ltbAlimentos.Visible = false;
-                btnExcluir.Visible = false;
-            }
-            //Qualquer outro periodo: Desjejum, Almoço, Janter, etc...
-            else
-            {
-                SGSServico objSGSServico = new SGSServico();
-
-                Entidades.Alimentacao objAlimentacao = objSGSServico.ObterAlimentacaoPorDiaPeriodo(ddlDiaSemana.SelectedValue, ddlPeriodo.SelectedValue);
-                //Caso este Dia e Período já possuam  
-                if (objAlimentacao != null)
-                {
-                    string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + objAlimentacao.CodigoAlimentacao.Value.ToString();
-                    Response.Redirect(url);
-                }
-                else
-                {
-                    string url = @"ManterAlimentacao.aspx?dia=" + ddlDiaSemana.SelectedValue + "&periodo=" + ddlPeriodo.SelectedValue;
-                    Response.Redirect(url);
-
-                    
-                }
-            }
-        }
 
 
     }

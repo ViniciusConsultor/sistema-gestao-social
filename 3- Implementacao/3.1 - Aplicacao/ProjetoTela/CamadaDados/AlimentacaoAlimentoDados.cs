@@ -93,7 +93,8 @@ namespace SGS.CamadaDados
             List<AlimentacaoAlimento> objAlimentacaoAlimentoLista = new List<AlimentacaoAlimento>();
             AlimentacaoAlimento objAlimentacaoAlimento = null;
 
-            SqlCommand comando = new SqlCommand(@"select * from AlimentacaoAlimento where CodigoAlimentacao = @codigoAlimentacao", base.Conectar());
+            SqlCommand comando = new SqlCommand(@"select AA.CodigoAlimentacao, AA.CodigoAlimento, A.NomeAlimento from AlimentacaoAlimento AA inner join Alimento A on AA.CodigoAlimento = A.CodigoAlimento
+                                                    where AA.CodigoAlimentacao = @codigoAlimentacao", base.Conectar());
 
             SqlParameter parametroCodigoAlimentacao = new SqlParameter("@codigoAlimentacao", codigoAlimentacao);
             parametroCodigoAlimentacao.DbType = System.Data.DbType.Int32;
@@ -107,6 +108,7 @@ namespace SGS.CamadaDados
 
                 objAlimentacaoAlimento.CodigoAlimentacao = Convert.ToInt32(leitorDados["CodigoAlimentacao"]);
                 objAlimentacaoAlimento.CodigoAlimento = Convert.ToInt32(leitorDados["CodigoAlimento"]);
+                objAlimentacaoAlimento.NomeAlimento = leitorDados["NomeAlimento"].ToString();
 
                 objAlimentacaoAlimentoLista.Add(objAlimentacaoAlimento);
             }
