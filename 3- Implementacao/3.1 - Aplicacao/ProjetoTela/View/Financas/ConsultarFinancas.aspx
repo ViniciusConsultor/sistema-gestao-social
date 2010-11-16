@@ -156,7 +156,7 @@
                 <asp:GridView ID="gridFinancas" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
-                    BorderColor="#003399" HorizontalAlign="Center" Height="147px" 
+                    BorderColor="#003399" HorizontalAlign="Center" 
                     AllowPaging="True" onpageindexchanging="gridFinancas_PageIndexChanging" 
                     PageSize="2">
                     <AlternatingRowStyle BackColor="White" />

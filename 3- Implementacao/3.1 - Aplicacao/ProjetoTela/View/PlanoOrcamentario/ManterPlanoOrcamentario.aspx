@@ -245,10 +245,10 @@
             </tr>
             <tr>
             <td>  
-                <asp:GridView ID="gridOrcamento" runat="server" CellPadding="4" 
+                <asp:GridView ID="gridOrcamento" runat="server" CellPadding="0" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="67%" 
-                    BorderColor="#003399" HorizontalAlign="Center" Height="180px" 
+                    BorderColor="#003399" HorizontalAlign="Center"  
                     AllowPaging="True" 
                     PageSize="1" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="White" />

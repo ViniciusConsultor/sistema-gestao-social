@@ -172,7 +172,7 @@
                 <asp:GridView ID="gridProcedimentos" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="96%" AutoGenerateColumns="False" 
-                    BorderColor="#003399" HorizontalAlign="Center" Height="161px" 
+                    BorderColor="#003399" HorizontalAlign="Center" 
                     AllowPaging="True" PageSize="2" 
                     onpageindexchanging="gridProcedimentos_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
