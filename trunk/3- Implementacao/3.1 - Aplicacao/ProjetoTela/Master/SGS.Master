@@ -80,15 +80,13 @@
                                         NavigateUrl="~/View/Alimentacao/ManterAlimentacao.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
-                            <asp:MenuItem Text="PESSOA" Value="Pessoa">
-                                <asp:MenuItem Text="Pessoa" Value="Pessoa">
-                                    <asp:MenuItem NavigateUrl="~/View/Pessoa/ManterPessoa.aspx" Text="Cadastrar" 
-                                        Value="Cadastrar"></asp:MenuItem>
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/Pessoa/ConsultarPessoa.aspx"></asp:MenuItem>
-                                </asp:MenuItem>
-                            </asp:MenuItem>
                             <asp:MenuItem Text="ASSISTIDO" Value="Assistido">
+                                <asp:MenuItem Text="Assistido" Value="Assistido">
+                                    <asp:MenuItem NavigateUrl="~/View/Pessoa/ManterAssistido.aspx" Text="Cadastrar" 
+                                        Value="Cadastrar"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/View/Pessoa/ConsultarAssistido.aspx" 
+                                        Text="Consultar" Value="Consultar"></asp:MenuItem>
+                                </asp:MenuItem>
                                 <asp:MenuItem Text="Procedimentos" Value="Procedimentos">
                                     <asp:MenuItem Text="Consultar" Value="Consultar" 
                                         NavigateUrl="~/View/Procedimentos/ConsultarProcedimentos.aspx"></asp:MenuItem>

@@ -77,22 +77,53 @@ namespace SGS.Servicos
         }
 
 
-       /// <summary>
-       /// Consulta a tabela Alimentacao e retorna resultados de acordo com o preenchimento do filtro - Terminar o Consultar Primeiro.depois descomentar
-       /// </summary>
-
-        /*public AlimentacaoDTO ConsultarAlimentacao(AlimentacaoDTO objAlimentacaoDTO)
         /// <summary>
-        /// Consulta a tabela Alimentacao e retorna resultados de acordo com o preenchimento do filtro
+        /// Consulta a Alimentação conforme o Dia Escolhido
         /// </summary>
-  /*      public AlimentacaoDTO ConsultarAlimentacao(AlimentacaoDTO objAlimentacaoDTO)
+        /// <param name="diaSemana"></param>
+        public List<ConsultarAlimentacaoDTO.DiaSemanaDTO> ConsultarAlimentacao(string diaSemana)
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
-            //objAlimentacaoDTO.AlimentacaoLista = objAlimentacaoDados.ConsultarAlimentacao(objAlimentacaoDTO);
+            List<Alimentacao> objalimentacaoLista = new List<Alimentacao>();
+            List<ConsultarAlimentacaoDTO.DiaSemanaDTO> objDiaSemanaDTOLista = new List<ConsultarAlimentacaoDTO.DiaSemanaDTO>();
+            ConsultarAlimentacaoDTO.DiaSemanaDTO objDiaSemanaDTO = new ConsultarAlimentacaoDTO.DiaSemanaDTO();
 
-            return objAlimentacaoDTO;
+            //Obtem a Alimentação lista por um dia da semana
+            objalimentacaoLista = objAlimentacaoDados.ListarPorDiaSemana(diaSemana);
 
-        }*/
+
+            if (objalimentacaoLista.Count > 0)
+            {
+                //Todas as alimentações são do mesmo dia
+                objDiaSemanaDTO.DiaSemana = objalimentacaoLista[0].DiaSemana;
+
+                //Adiciona os Períodos de Alimentação do dia
+                ConsultarAlimentacaoDTO.PeriodoDTO objPeriodoDTO = null; 
+                foreach (Alimentacao itemAlimentacao in objalimentacaoLista)
+                {
+                    objPeriodoDTO = new ConsultarAlimentacaoDTO.PeriodoDTO();
+
+                    objPeriodoDTO.Diretiva = itemAlimentacao.Diretiva;
+                    objPeriodoDTO.Horario = itemAlimentacao.Horario;
+                    objPeriodoDTO.NomePeriodo = itemAlimentacao.Periodo;
+
+                    //Concatena os alimentos da alimentação
+                    foreach (AlimentacaoAlimento itemAlimentacaoAlimento in itemAlimentacao.AlimentacaoAlimentoLista)
+                    {
+                        objPeriodoDTO.Alimentos += itemAlimentacaoAlimento.NomeAlimento + ", ";
+                    }
+                    //Apaga a última vírgula
+                    objPeriodoDTO.Alimentos = objPeriodoDTO.Alimentos.Remove(objPeriodoDTO.Alimentos.Length - 2);
+
+                    //Insere os períodos do dia
+                    objDiaSemanaDTO.PeriodoDTOLista.Add(objPeriodoDTO);
+                }
+
+                objDiaSemanaDTOLista.Add(objDiaSemanaDTO);
+            }
+
+            return objDiaSemanaDTOLista;
+        }
 
 
     }
