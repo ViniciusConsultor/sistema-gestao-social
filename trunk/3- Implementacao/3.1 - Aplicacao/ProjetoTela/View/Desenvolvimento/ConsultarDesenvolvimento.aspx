@@ -119,13 +119,6 @@
             <td class="style14"> 
                 <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" 
                     DataTextField="Nome" DataValueField="CodigoAssistido">
-                    <asp:ListItem>Selecione</asp:ListItem>
-<<<<<<< .mine
-                    <asp:ListItem Value="1">João</asp:ListItem>
-                    <asp:ListItem Value="2">Pedro</asp:ListItem>
-                    <asp:ListItem Value="3">Maria</asp:ListItem>
-=======
->>>>>>> .r257
                 </asp:DropDownList>
             </td>
         </tr>
@@ -178,7 +171,7 @@
                 <asp:GridView ID="gridDesenvolvimento" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="96%" AutoGenerateColumns="False" 
-                    BorderColor="#003399" HorizontalAlign="Center" Height="161px" 
+                    BorderColor="#003399" HorizontalAlign="Center" 
                     AllowPaging="True" PageSize="2" 
                     onpageindexchanging="gridDesenvolvimento_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
