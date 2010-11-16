@@ -32,6 +32,11 @@
     }
     .mask-real-cifrao
     {}
+    .style13
+    {
+        text-align: left;
+        font-size: small;
+    }
     </style>
 
             <!-- Importa todos os script JavaScript-->
@@ -152,6 +157,15 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    Valor Orçado</td>
+                <td>
+                    <asp:TextBox ID="txtValorOrcado" runat="server" CssClass="mask-real-cifrao" 
+                        Width="148px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Saldo Disponível</td>
                 <td>
                     <asp:TextBox ID="txtSaldoDisponivel" runat="server" Width="148px" CssClass="mask-real-cifrao" Enabled="False">0</asp:TextBox>
@@ -165,9 +179,9 @@
                     <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" 
                         CssClass="style8">
                         <asp:ListItem>Selecione</asp:ListItem>
+                        <asp:ListItem>A Realizar</asp:ListItem>
                         <asp:ListItem>Em Vigor</asp:ListItem>
                         <asp:ListItem>Realizado</asp:ListItem>
-                        <asp:ListItem>A Realizar</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="validatorStatus" runat="server" ControlToValidate="ddlStatus" ErrorMessage="Selecione o Status" 
                         ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
@@ -195,8 +209,17 @@
         </table>
 
  <br />
-
+ <hr width="80%"/>
  <table class="style6" align="center">
+            
+            <tr>
+                <td class="style13" 
+                    
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    <strong>&nbsp;&nbsp; Item Orçamento</strong></td>
+                <td>
+                    &nbsp;</td>
+            </tr>
             
             <tr>
                 <td class="style9" 
@@ -206,66 +229,95 @@
                 <td>
                     <asp:DropDownList ID="ddlNaturezaDespesa" runat="server" Width="148px" 
                         CssClass="style8" DataTextField="NomeNatureza" 
-                        DataValueField="CodigoNatureza">
+                        DataValueField="CodigoNatureza" AutoPostBack="True" 
+                        onselectedindexchanged="ddlNaturezaDespesa_SelectedIndexChanged">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem Value="1">Reforma</asp:ListItem>
                         <asp:ListItem Value="2">Compras</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="validatorNaturezaDespesa" runat="server" 
+                        ControlToValidate="ddlNaturezaDespesa" ErrorMessage="Escolha a Natureza da Despesa" 
+                        ForeColor="Red" InitialValue="Selecione" ValidationGroup="Item">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="style10" 
                     
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    <asp:Label ID="lblValorDespesa" runat="server" Text="Valor da Despesa"></asp:Label>
+                    <asp:Label ID="lblValorDespesa" runat="server" Text="Valor Orçado Despesa"></asp:Label>
                 </td>
                 <td class="style11">
                     <asp:TextBox ID="txtValorDespesa" runat="server" CssClass="mask-real-cifrao" Width="148px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="validatorValorOrcado" runat="server" 
+                        ControlToValidate="txtValorDespesa" ErrorMessage="Preencha o Valor Orçado da Despesa" 
+                        ForeColor="Red" ValidationGroup="Item">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             </table>
-
-        <br />
 
         <table width="100%" align="center">
             <tr>
                 <td style="text-align: center"> 
                     <asp:Button ID="btnIncluir" runat="server" Text="Incluir Item" Width="110px" 
-                        onclick="btnIncluir_Click" Height="26px" 
+                        onclick="btnIncluir_Click" Height="26px" ValidationGroup="Item" 
                         /> &nbsp; 
-                    <asp:Button ID="btnRemover" runat="server" Text="Remover Item" Width="110px" onclick="btnRemover_Click" 
+                    <asp:Button ID="btnRemover" runat="server" Text="Remover Item" Width="110px" 
+                        onclick="btnRemover_Click" Enabled="False" 
                         /> &nbsp;
-                    <asp:Button ID="btnLimpar" runat="server" Text="Limpar" Width="110px" 
-                        CausesValidation="False" onclick="btnLimpar_Click" />
-                </td>
+                    </td>
             </tr>
             <tr>
             <td>  
                 &nbsp;</td>    
             </tr>
+            
+            <tr align="center">
+                <td class="style12"> 
+                    <asp:ValidationSummary ID="sumarioErro" runat="server" Height="190px" 
+                        Width="340px" BorderColor="#0066FF" BorderStyle="Double" BorderWidth="1px" 
+                        ForeColor="Red" HeaderText="Validação:" style="text-align: left" 
+                        Font-Size="Small" />
+
+                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" Height="100px" 
+                        Width="340px" BorderColor="#0066FF" BorderStyle="Double" BorderWidth="1px" 
+                        ForeColor="Red" HeaderText="Validação:" style="text-align: left" 
+                        Font-Size="Small" ValidationGroup="Item" />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr width="80%"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: small; font-family: Verdana">
+                    <b> &nbsp;&nbsp; Visualizar Itens do Orçamento </b> <br /><br />
+                </td>
+            </tr>
             <tr>
             <td>  
                 <asp:GridView ID="gridOrcamento" runat="server" CellPadding="0" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
-                    GridLines="Horizontal" Width="67%" 
+                    GridLines="Horizontal" Width="90%" 
                     BorderColor="#003399" HorizontalAlign="Center"  
                     AllowPaging="True" 
                     PageSize="1" AutoGenerateColumns="False">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:HyperLinkField DataNavigateUrlFields="CodigoOrcamento" 
-                            DataNavigateUrlFormatString="ManterPlanoOrcamentario.aspx?tipo=alt&amp;cod={0}" 
-                            Text="Selecionar">
-                        <ItemStyle Width="75px" />
-                        </asp:HyperLinkField>
                         <asp:BoundField DataField="NomeNatureza" HeaderText="Nome da Natureza">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="Valor" HeaderText="Valor">
+                        <asp:BoundField DataField="Valor" HeaderText="Valor Orçado" 
+                            DataFormatString="{0:c2}">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
+                        <asp:BoundField HeaderText="Valor Real" DataField="BalancoFinancas" 
+                            DataFormatString="{0:c2}" />
+                        <asp:BoundField HeaderText="Saldo Disponível" DataField="SaldoOrcamento" 
+                            DataFormatString="{0:c2}" />
                     </Columns>
                     <EditRowStyle BackColor="#2461BF" BorderColor="#003399" />
                     <EmptyDataRowStyle Font-Bold="True" Font-Size="Small" ForeColor="Red" 
@@ -283,18 +335,6 @@
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
                 </td>    
-            </tr>
-            <tr align="center">
-                <td> 
-                    &nbsp;</td>
-            </tr>
-            <tr align="center">
-                <td class="style12"> 
-                    <asp:ValidationSummary ID="sumarioErro" runat="server" Height="190px" 
-                        Width="340px" BorderColor="#0066FF" BorderStyle="Double" BorderWidth="1px" 
-                        ForeColor="Red" HeaderText="Validação:" style="text-align: left" 
-                        Font-Size="Small" />
-                </td>
             </tr>
         </table>
 

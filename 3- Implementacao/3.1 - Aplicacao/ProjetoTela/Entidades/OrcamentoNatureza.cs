@@ -7,7 +7,7 @@ using SGS.Componentes;
 namespace SGS.Entidades
 {
     [Serializable]
-    public class OrcamentoNatureza
+    public class OrcamentoNatureza : NaturezaLancamento
     {
         private int? _codigoNatureza;
         private int? _codigoOrcamento;
@@ -38,5 +38,20 @@ namespace SGS.Entidades
             set { _dataCriacao = value; }
             get { return _dataCriacao; }
         }
+
+        private decimal? _balancoFinancas;
+        public decimal? BalancoFinancas
+        {
+            get { return _balancoFinancas; }
+            set { _balancoFinancas = value; }
+        }
+
+        private decimal? _saldoOrcamento;
+        public decimal? SaldoOrcamento
+        {
+            get { return _saldoOrcamento; }
+            set { _saldoOrcamento = value; }
+        }
+
     }
 }
