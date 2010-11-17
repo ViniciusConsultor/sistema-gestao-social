@@ -26,13 +26,13 @@ namespace SGS.CamadaDados
             if (!objOrcamento.CodigoOrcamento.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Orcamento (CodigoCasaLar, NomePlano, StatusPlano, ValorOrcamento, SaldoDisponivel, InicioVigencia, FimVigencia)
-                    VALUES (@codigoCasaLar, @nomePlano, @statusPlano, @valorOrcamento, @saldoDisponivel, @inicioVigencia, @fimVigencia )";
+                    @"INSERT INTO Orcamento (CodigoCasaLar, NomePlano, StatusPlano, ValorOrcamento, InicioVigencia, FimVigencia)
+                    VALUES (@codigoCasaLar, @nomePlano, @statusPlano, @valorOrcamento, @inicioVigencia, @fimVigencia )";
             }
             else
             {
                 comando.CommandText =
-                    @"UPDATE Orcamento SET  CodigoCasaLar = @codigoCasaLar, NomePlano = @nomePlano, StatusPlano = @statusPlano, SaldoDisponivel = @saldoDisponivel,
+                    @"UPDATE Orcamento SET  CodigoCasaLar = @codigoCasaLar, NomePlano = @nomePlano, StatusPlano = @statusPlano, 
                              ValorOrcamento = @valorOrcamento, InicioVigencia = @inicioVigencia, FimVigencia = @fimVigencia
                         WHERE (CodigoOrcamento = @codigoOrcamento) ";
             }
@@ -69,9 +69,6 @@ namespace SGS.CamadaDados
             SqlParameter parametroValorOrcamento = new SqlParameter("@valorOrcamento", objOrcamento.ValorOrcamento);
             parametroValorOrcamento.DbType = System.Data.DbType.Decimal;
 
-            SqlParameter parametroSaldoDisponivel = new SqlParameter("@saldoDisponivel", objOrcamento.SaldoDisponivel);
-            parametroValorOrcamento.DbType = System.Data.DbType.Decimal;
-
             SqlParameter parametroInicioVigencia = new SqlParameter("@inicioVigencia", objOrcamento.InicioVigencia);
             parametroInicioVigencia.DbType = System.Data.DbType.DateTime;
 
@@ -83,7 +80,6 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroNomePlano);
             comando.Parameters.Add(parametroStatusPlano);
             comando.Parameters.Add(parametroValorOrcamento);
-            comando.Parameters.Add(parametroSaldoDisponivel);
             comando.Parameters.Add(parametroInicioVigencia);
             comando.Parameters.Add(parametroFimVigencia);
 
@@ -126,7 +122,6 @@ namespace SGS.CamadaDados
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
-                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
                 objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 
@@ -161,13 +156,8 @@ namespace SGS.CamadaDados
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
-                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
                 objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
-
-
-
-
             }
 
             if (objOrcamento != null && objOrcamento.CodigoCasaLar != null)
@@ -202,7 +192,6 @@ namespace SGS.CamadaDados
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
-                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
                 objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 
@@ -292,6 +281,8 @@ namespace SGS.CamadaDados
             else if (objOrcamentoDTO.FimVigenciaValor.HasValue)
                 sql += @" where FimVigencia <= @fimVigenciaValor";
 
+            sql += @" order by InicioVigencia asc, FimVigencia asc";
+
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;
             comando.Parameters.Add(paramCodigoOrcamentoValor);
@@ -314,7 +305,6 @@ namespace SGS.CamadaDados
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
-                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
                 objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 
@@ -348,7 +338,6 @@ namespace SGS.CamadaDados
                 objOrcamento.NomePlano = leitorDados["NomePlano"].ToString();
                 objOrcamento.StatusPlano = leitorDados["StatusPlano"].ToString();
                 objOrcamento.ValorOrcamento = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
-                objOrcamento.SaldoDisponivel = Convert.ToDecimal(leitorDados["SaldoDisponivel"]);
                 objOrcamento.InicioVigencia = Convert.ToDateTime(leitorDados["InicioVigencia"]);
                 objOrcamento.FimVigencia = Convert.ToDateTime(leitorDados["FimVigencia"]);
 

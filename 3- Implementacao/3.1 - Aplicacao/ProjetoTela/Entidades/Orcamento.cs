@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SGS.CamadaDados;
 
 namespace SGS.Entidades
 {
@@ -10,21 +11,17 @@ namespace SGS.Entidades
     {
         public Orcamento()
         {
-    //        this.NaturezaLancamento = new NaturezaLancamento();
         }
 
         private int? _codigoOrcamento;
         private int? _CodigoCasaLar;
         private string _nomePlano;
         private string _statusPlano;
-        private Decimal _valorOrcamento;
-        private Decimal _saldoDisponivel;
+        private Decimal? _valorOrcamento;
         private DateTime? _inicioVigencia;
         private DateTime? _fimVigencia;
         private List<OrcamentoNatureza> _orcamentoNaturezaLista;
         private CasaLar _casaLar;
-
-
 
         public int? CodigoOrcamento
         {
@@ -50,18 +47,11 @@ namespace SGS.Entidades
             set { _statusPlano = value; }
         }
 
-        public Decimal ValorOrcamento
+        public Decimal? ValorOrcamento
         {
             get { return _valorOrcamento; }
             set { _valorOrcamento = value; }
         }
-
-        public Decimal SaldoDisponivel
-        {
-            get { return _saldoDisponivel; }
-            set { _saldoDisponivel = value; }
-        }
-
 
         public DateTime? InicioVigencia
         {
@@ -88,8 +78,94 @@ namespace SGS.Entidades
             set { _casaLar = value; }
         }
 
+        /// <summary>
+        /// Esta propriedade retorna a soma de todos os Itens de um Crçamento
+        /// </summary>
+        public decimal ValorOrcado
+        {
+            get 
+            {
+                if (this.CodigoOrcamento.HasValue)
+                {
+                    OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+
+                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(this.CodigoOrcamento.Value);
+
+                    decimal valor = 0;
+                    foreach (OrcamentoNatureza item in orcamentoNaturezaLista)
+                    {
+                        valor += item.Valor.Value;
+                    }
+
+                    //retorna o somatório de todos os itens do orçamento
+                    return valor;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
 
 
+        /// <summary>
+        /// Esta propriedade retorna o saldo disponível do orçamento
+        /// </summary>
+        public decimal SaldoDisponivelOrcamento
+        {
+            get
+            {
+                if (this.CodigoOrcamento.HasValue)
+                {
+                    OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+
+                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(this.CodigoOrcamento.Value);
+
+                    decimal valorFinancas = 0;
+                    foreach (OrcamentoNatureza item in orcamentoNaturezaLista)
+                    {
+                        valorFinancas += item.BalancoFinancas.Value;
+                    }
+
+                    //Retorna o saldo disponível do Orcamento
+                    return (this.ValorOrcamento.Value - valorFinancas);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Esta propriedade retorna o verdadeiro valor que foi recebido e gasto de um determinado orçamento
+        /// </summary>
+        public decimal ValorFinanceiroReal
+        {
+            get
+            {
+                if (this.CodigoOrcamento.HasValue)
+                {
+                    OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
+
+                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(this.CodigoOrcamento.Value);
+
+                    decimal valorFinancas = 0;
+                    foreach (OrcamentoNatureza item in orcamentoNaturezaLista)
+                    {
+                        valorFinancas += item.BalancoFinancas.Value;
+                    }
+
+                    //Retorna o valor financeiro que realmente foi recebido e gasto no mesmo período do Orçamento.
+                    return (valorFinancas);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
 
     }
 }

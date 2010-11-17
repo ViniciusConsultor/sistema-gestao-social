@@ -7,23 +7,9 @@
         width: 634px;
         text-align: right;
     }
-    .style15
-    {
-        text-align: right;
-        width: 22px;
-    }
-    .style17
-    {
-        width: 22px;
-    }
-    .style18
-    {
-        width: 22px;
-        height: 22px;
-    }
     .style19
     {
-        width: 419px;
+        width: 485px;
         text-align: right;
         height: 22px;
     }
@@ -34,19 +20,14 @@
     }
     .style21
     {
-        width: 419px;
+        width: 485px;
         text-align: right;
-    }
-        .style7
-        {
-        text-align: right;
-        font-size: small;
     }
         .style9
     {
         text-align: right;
         font-size: smaller;
-        width: 419px;
+        width: 485px;
     }
     .style22
     {
@@ -54,7 +35,6 @@
     }
         .mask-data
     {
-        height: 22px;
     }
         </style>
 
@@ -127,7 +107,7 @@
         <tr>
             <td class="style21"> 
                 <strong 
-                    style="text-align: left; font-size: smaller; text-decoration: underline;">Filtro:</strong></td>
+                    style="text-align: left; font-size: smaller; text-decoration: underline;">Filtro</strong></td>
             <td class="style10"> &nbsp;</td>
         </tr>
         <tr>
@@ -135,7 +115,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nome do Plano</td>
             <td class="style22">  
                 <asp:DropDownList ID="ddlNomePlano" runat="server" Height="22px" 
-                    Width="148px" DataTextField="NomePlano" DataValueField="CodigoOrcamento">
+                    Width="195px" DataTextField="NomePlano" DataValueField="CodigoOrcamento">
                     <asp:ListItem>Selecione</asp:ListItem>
                 </asp:DropDownList>
             </td>
@@ -143,14 +123,14 @@
         <tr>
             <td class="style9"> Inicio de Vigência</td>
             <td class="style22"> 
-                <asp:TextBox ID="txtInicioVigencia" runat="server" Width="148px" 
+                <asp:TextBox ID="txtInicioVigencia" runat="server" Width="189px" 
                     CssClass="mask-data"></asp:TextBox>
             </td>
             </tr>
         <tr>
             <td style="text-align: right" class="style9"> Fim de Vigência </td>
             <td class="style22"> 
-                <asp:TextBox ID="txtFimVigencia" runat="server" Width="148px" 
+                <asp:TextBox ID="txtFimVigencia" runat="server" Width="189px" 
                     CssClass="mask-data"></asp:TextBox>
             </td>
             </tr>
@@ -174,8 +154,7 @@
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center"  
-                    AllowPaging="True" onpageindexchanging="gridOrcamento_PageIndexChanging" 
-                    PageSize="2">
+                    AllowPaging="True" onpageindexchanging="gridOrcamento_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoOrcamento" 
