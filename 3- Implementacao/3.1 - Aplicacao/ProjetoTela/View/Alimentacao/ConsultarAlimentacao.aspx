@@ -30,8 +30,9 @@
         <asp:Label ID="lblTitulo" runat="server" Text="Consultar Alimentação"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
-        Text=" Descrição: Permite visualizar a alimentação da casa lar."></asp:Label> 
+        &nbsp;&nbsp; 
+    <asp:Label ID="lblDescricao" runat="server" 
+        Text=" Descrição: Permite consultar a Alimentação da Casa Lar."></asp:Label> 
         
         <br /><br />
 </span>
