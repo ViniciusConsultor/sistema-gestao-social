@@ -58,6 +58,24 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorNomePlano;
         
         /// <summary>
+        /// ddlStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+        
+        /// <summary>
+        /// validatorStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorStatus;
+        
+        /// <summary>
         /// txtInicioVigencia control.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorInicioVigencia;
         
         /// <summary>
+        /// compareInicioVigenciaData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator compareInicioVigenciaData;
+        
+        /// <summary>
         /// txtFimVigencia control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtFimVigencia;
         
         /// <summary>
+        /// compareSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator compareSenha;
+        
+        /// <summary>
         /// validatorFimVigencia control.
         /// </summary>
         /// <remarks>
@@ -92,6 +128,15 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorFimVigencia;
+        
+        /// <summary>
+        /// compareFimVigenciaData0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator compareFimVigenciaData0;
         
         /// <summary>
         /// txtValorOrcamento control.
@@ -121,6 +166,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtValorOrcado;
         
         /// <summary>
+        /// txtValorFinanceiroReal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValorFinanceiroReal;
+        
+        /// <summary>
         /// txtSaldoDisponivel control.
         /// </summary>
         /// <remarks>
@@ -128,24 +182,6 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSaldoDisponivel;
-        
-        /// <summary>
-        /// ddlStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
-        
-        /// <summary>
-        /// validatorStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorStatus;
         
         /// <summary>
         /// btnSalvar control.
@@ -173,6 +209,24 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// pnlItemOrcamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlItemOrcamento;
+        
+        /// <summary>
+        /// lblItemOrcamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItemOrcamento;
         
         /// <summary>
         /// lblNaturezaDespesa control.
@@ -247,22 +301,31 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.Button btnRemover;
         
         /// <summary>
-        /// sumarioErro control.
+        /// pnlHR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
+        protected global::System.Web.UI.WebControls.Panel pnlHR;
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// pnlGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.Panel pnlGrid;
+        
+        /// <summary>
+        /// lblVisualizarItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVisualizarItem;
         
         /// <summary>
         /// gridOrcamento control.
@@ -272,5 +335,14 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridOrcamento;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }

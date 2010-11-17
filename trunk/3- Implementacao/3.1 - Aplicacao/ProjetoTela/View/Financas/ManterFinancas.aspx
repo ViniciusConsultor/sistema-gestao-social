@@ -8,10 +8,10 @@
         }
         .style8
         {
-            width: 171px;
-            text-align: right;
-            font-size: small;
-        }
+        width: 282px;
+        text-align: right;
+        font-size: small;
+    }
         .style9
         {
             width: 243px;

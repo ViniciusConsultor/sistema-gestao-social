@@ -185,7 +185,7 @@ namespace SGS.CamadaDados
         /// Retorna a lista de OrcamentoNatureza.
         /// </summary>
         /// <returns></returns>
-        public List<OrcamentoNatureza> ListarOrcamentoNatureza()
+        public List<OrcamentoNatureza> Listar()
         {
             SqlCommand comando = new SqlCommand("select * from OrcamentoNatureza ORDER BY NomePlano", base.Conectar());
 
@@ -254,7 +254,6 @@ namespace SGS.CamadaDados
 
             return listOrcamento;
         }
-
 
     }
 }

@@ -143,7 +143,7 @@
                 <asp:CompareValidator ID="compareSenha" runat="server" 
                     ControlToCompare="txtSenhaConfirma" ControlToValidate="txtSenha" 
                     
-                    ErrorMessage="Preencha o campo e-mail e confirme o e-mail com o memso e-mail." 
+                    ErrorMessage="Preencha o campo e-mail e confirme o e-mail com o mesmo e-mail." 
                     style="font-size: small" ForeColor="Red">* Esta senha não está igual a senha acima</asp:CompareValidator>
             </td>
             <td>
