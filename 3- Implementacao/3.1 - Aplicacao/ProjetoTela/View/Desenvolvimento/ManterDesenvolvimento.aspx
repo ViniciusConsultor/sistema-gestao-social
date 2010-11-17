@@ -75,7 +75,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Assistido </td>
                 <td>
-                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" Height="22px" 
+                    <asp:DropDownList ID="ddlAssistido" runat="server" Width="155px" Height="22px" 
                         DataTextField="Nome" DataValueField="CodigoAssistido">
                         <asp:ListItem>Selecione</asp:ListItem>
                     </asp:DropDownList>
@@ -89,7 +89,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Tipo de Atividade</td>
                 <td>
-                    <asp:DropDownList ID="ddlTipoAtividade" runat="server" Width="148px" 
+                    <asp:DropDownList ID="ddlTipoAtividade" runat="server" Width="155px" 
                         Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Curso</asp:ListItem>
@@ -142,7 +142,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status </td>
                 <td>
-                    <asp:DropDownList ID="ddlStatus" runat="server" Width="148px" Height="22px">
+                    <asp:DropDownList ID="ddlStatus" runat="server" Width="155px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Criado</asp:ListItem>
                         <asp:ListItem>Parado</asp:ListItem>

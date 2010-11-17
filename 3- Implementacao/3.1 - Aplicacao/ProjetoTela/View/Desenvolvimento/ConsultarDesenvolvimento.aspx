@@ -117,7 +117,7 @@
             <td class="style20"> &nbsp;</td>    
             <td class="style19"> Assistido</td>
             <td class="style14"> 
-                <asp:DropDownList ID="ddlAssistido" runat="server" Width="148px" 
+                <asp:DropDownList ID="ddlAssistido" runat="server" Width="155px" 
                     DataTextField="Nome" DataValueField="CodigoAssistido">
                 </asp:DropDownList>
             </td>

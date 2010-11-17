@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using SGS.Servicos;
 using SGS.Entidades;
 using SGS.Entidades.DTO;
@@ -105,8 +104,8 @@ namespace ProjetoTela.View.CasaLar
             //Vizualizar Casa Lar
             else if (Request.QueryString["tipo"] == "viz" && (DadosAcesso.Perfil=="Gestor" || DadosAcesso.Perfil=="Funcionario"))
             {
-                lblTitulo.Text = "Vizualizar Casa Lar";
-                lblDescricao.Text = "Descrição: Permite vizualizar os dados da Casa Lar.";
+                lblTitulo.Text = "Visualizar Casa Lar";
+                lblDescricao.Text = "Descrição: Permite visualizar os dados da Casa Lar.";
                 btnExcluir.Visible = false;
                 btnSalvar.Visible = false;
                 btnCancelar.Visible = false;
@@ -280,8 +279,6 @@ namespace ProjetoTela.View.CasaLar
         }
 
         #endregion
-
-        
 
     }
 }

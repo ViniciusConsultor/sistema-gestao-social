@@ -90,8 +90,9 @@
                 </td>
                 <td class="style9">
                     <span class="style10">
-                    <asp:DropDownList ID="ddlDiaSemana" runat="server" Width="148px" Height="22px" 
-                        AutoPostBack="True" onselectedindexchanged="ddlDiaSemana_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlDiaSemana" runat="server" Width="155px" Height="22px" 
+                        AutoPostBack="True" 
+                        onselectedindexchanged="ddlDiaSemana_SelectedIndexChanged">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>
                         <asp:ListItem Text="Domingo" Value="Domingo" ></asp:ListItem>
                         <asp:ListItem Text="Segunda-Feira" Value="Segunda-Feira"></asp:ListItem>
@@ -116,7 +117,7 @@
                 </td>
                 <td class="style9">
                     <span class="style10">
-                    <asp:DropDownList ID="ddlPeriodo" runat="server" Width="148px" Height="22px" 
+                    <asp:DropDownList ID="ddlPeriodo" runat="server" Width="155px" Height="22px" 
                         AutoPostBack="True" onselectedindexchanged="ddlPeriodo_SelectedIndexChanged" 
                         Visible="False">
                         <asp:ListItem Text="Selecione" Value="Selecione" ></asp:ListItem>

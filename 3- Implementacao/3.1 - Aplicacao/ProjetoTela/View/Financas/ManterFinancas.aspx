@@ -82,7 +82,7 @@
                     Casa Lar</td>
                 <td class="style9">
                     <asp:DropDownList ID="ddlCasaLar" runat="server" Enabled="False" Height="22px" 
-                        Width="148px" DataTextField="NomeCasaLar" DataValueField="CodigoCasaLar" 
+                        Width="155px" DataTextField="NomeCasaLar" DataValueField="CodigoCasaLar" 
                         onselectedindexchanged="ddlCasaLar_SelectedIndexChanged">
                         <asp:ListItem Selected="True" Value="13">Minha Casa</asp:ListItem>
                     </asp:DropDownList>
@@ -98,7 +98,7 @@
                     Tipo Lançamento</td>
                 <td class="style9">
                     <asp:DropDownList ID="ddlTipoLancamento" runat="server" Height="22px" 
-                        Width="148px">
+                        Width="155px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Receita</asp:ListItem>
                         <asp:ListItem>Despesa</asp:ListItem>
@@ -119,7 +119,7 @@
                     Natureza da Finança</td>
                 <td class="style9">
                     <asp:DropDownList ID="ddlNaturezaFinanca" runat="server" Height="22px" 
-                        Width="148px" DataTextField="NomeNatureza" DataValueField="CodigoNatureza">
+                        Width="155px" DataTextField="NomeNatureza" DataValueField="CodigoNatureza">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem Value="2">Compras</asp:ListItem>
                         <asp:ListItem Value="1">Reforma</asp:ListItem>
