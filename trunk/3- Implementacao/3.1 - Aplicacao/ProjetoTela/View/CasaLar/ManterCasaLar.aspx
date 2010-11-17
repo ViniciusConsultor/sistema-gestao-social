@@ -6,12 +6,7 @@
         {
             width: 100%;
         }
-        .style8
-    {
-        font-family: Verdana;
-        font-size: small;
-    }
-    .style9
+        .style9
     {
         text-align: right;
         font-size: small;
@@ -140,7 +135,7 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Data fundação</td>
+                    Data Fundação</td>
                 <td>
                     <asp:TextBox ID="txtDataFundacao" runat="server" 
                         MaxLength="10" CssClass="mask-data" Height="22px" Width="148px"></asp:TextBox>
@@ -320,7 +315,7 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Qtd. Máximo Assistidos</td>
+                    Qtd. Máxima Assistidos</td>
                 <td>
                     <asp:TextBox ID="txtQtdMaximo" runat="server" MaxLength="3" Height="22px" 
                         Width="148px"></asp:TextBox>
