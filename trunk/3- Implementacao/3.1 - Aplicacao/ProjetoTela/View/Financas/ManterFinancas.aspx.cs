@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SGS.Servicos;
+using SGS.Entidades;
 using SGS.Entidades.DTO;
 
 namespace SGS.View.Financas
 {
     public partial class ManterFinancas : System.Web.UI.Page
     {
-
 
         #region Eventos
 
@@ -50,7 +50,7 @@ namespace SGS.View.Financas
 
             string url = @"ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString();
             Server.Transfer(url);
-            
+
         }
 
         /// <summary>
@@ -83,6 +83,7 @@ namespace SGS.View.Financas
             Response.Redirect("ConsultarFinancas.aspx");
         }
 
+        #endregion
 
         #region Metodos
 
@@ -102,7 +103,7 @@ namespace SGS.View.Financas
             ddlCasaLar.DataSource = objSGSServico.ListarCasaLar();
             ddlCasaLar.DataBind();
 
-           
+
             if (Request.QueryString["tipo"] == "alt")
             {
                 ////* View/Financas/ManterFinancas.aspx?tipo=alt&cod=1
@@ -110,7 +111,7 @@ namespace SGS.View.Financas
                 lblDescricao.Text = "Descrição: Permite alterar as Finanças da Casa Lar.";
                 btnExcluir.Visible = true;
                 SGSFinancas.CodigoFinancas = Convert.ToInt32(Request.QueryString["cod"]);
-                
+
                 SGSFinancas = objSGSServico.ObterFinancas(SGSFinancas.CodigoFinancas.Value);
 
 
@@ -122,7 +123,7 @@ namespace SGS.View.Financas
             else
             {
                 lblTitulo.Text = "Cadastrar Financas";
-                lblDescricao.Text = "Descrição: Permite cadastrar os Financas Casa Lar.";
+                lblDescricao.Text = "Descrição: Permite cadastrar as Financas da Casa Lar.";
                 btnExcluir.Visible = false;
                 txtDataCriacao.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 txtLancadoPor.Text = DadosAcesso.SessaoDTO.Login.LoginUsuario;
@@ -135,7 +136,7 @@ namespace SGS.View.Financas
         private SGS.Entidades.Financas PegarDadosView()
         {
             SGS.Entidades.Financas objFinancas = SGSFinancas;
-            
+
             objFinancas.CodigoCasaLar = Convert.ToInt32(ddlCasaLar.SelectedValue);
             objFinancas.TipoLancamento = ddlTipoLancamento.SelectedValue;
             objFinancas.DataLancamento = Convert.ToDateTime(txtDataLancamento.Text);
@@ -147,7 +148,7 @@ namespace SGS.View.Financas
             objFinancas.LancadoPor = txtLancadoPor.Text;
             objFinancas.Observacao = txtObservacao.Text;
             objFinancas.CodigoNatureza = Convert.ToInt32(ddlNaturezaFinanca.SelectedValue);
-            
+
             return objFinancas;
         }
 
@@ -156,7 +157,7 @@ namespace SGS.View.Financas
         /// </summary>
         private void PreencherDadosView()
         {
-            
+
             ddlTipoLancamento.SelectedValue = SGSFinancas.TipoLancamento;
             txtDataLancamento.Text = SGSFinancas.DataLancamento.Value.ToString();
             txtDataCriacao.Text = SGSFinancas.DataCriacao.Value.ToString();
@@ -166,15 +167,13 @@ namespace SGS.View.Financas
 
             if (SGSFinancas.CodigoCasaLar.HasValue)
                 ddlCasaLar.SelectedValue = SGSFinancas.CodigoCasaLar.Value.ToString();
-            
+
             if (SGSFinancas.CodigoNatureza.HasValue)
                 ddlNaturezaFinanca.SelectedValue = SGSFinancas.CodigoNatureza.Value.ToString();
 
         }
 
         #endregion
-
-
 
         #region Propriedades
 
@@ -200,15 +199,13 @@ namespace SGS.View.Financas
 
         }
 
-        #endregion
-
         protected void ddlCasaLar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-
         #endregion
 
     }
 }
+

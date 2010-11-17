@@ -101,7 +101,7 @@
             <td class="style9"> Tipo de Lançamento</td>
             <td> 
                 <asp:DropDownList ID="ddlTipoLancamento" runat="server" 
-                    Width="200px">
+                    Width="207px">
                     <asp:ListItem>Selecione</asp:ListItem>
                     <asp:ListItem>Receita</asp:ListItem>
                     <asp:ListItem>Despesa</asp:ListItem>
