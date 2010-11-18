@@ -99,7 +99,7 @@
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Escolar/ManterEscolar.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
-                                <asp:MenuItem Text="Desenv. Profissional" Value="Desenv. Profissional">
+                                <asp:MenuItem Text="Desenvolvimento" Value="Desenvolvimento">
                                     <asp:MenuItem Text="Consultar" Value="Consultar" 
                                         NavigateUrl="~/View/Desenvolvimento/ConsultarDesenvolvimento.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
