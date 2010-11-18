@@ -211,11 +211,18 @@
             </tr>
             <tr align="center">
                 <td> 
+                
+                </td>
+            </tr>
+        </table>
+        <table align="center">
+        <tr>
+            <td>
                 <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
                     BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
                     HeaderText="Validação:" Width="350px" />
-                </td>
-            </tr>
+            </td>
+        </tr>
         </table>
 
 </asp:Content>
