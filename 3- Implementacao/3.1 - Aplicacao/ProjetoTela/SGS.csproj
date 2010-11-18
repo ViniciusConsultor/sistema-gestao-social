@@ -33,6 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Reports">
+      <HintPath>Bibliotecas\Reports.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -60,10 +63,13 @@
     <Content Include="App_Data\SGS_log.ldf">
       <DependentUpon>SGS.mdf</DependentUpon>
     </Content>
+    <EmbeddedResource Include="Componentes\Phone.jpg" />
+    <EmbeddedResource Include="Componentes\Customers.xml" />
     <Content Include="Imagens\5[1].jpg" />
     <Content Include="Imagens\Banner.jpg" />
     <Content Include="Imagens\Banner_2.jpg" />
     <Content Include="Imagens\Tela_Saida.JPG" />
+    <EmbeddedResource Include="Phone.jpg" />
     <Content Include="Scripts\jquery-1.2.6-vsdoc.js" />
     <Content Include="Scripts\jquery-1.3.2.min.js" />
     <Content Include="Scripts\jquery.maskedinput-1.2.1.js" />
@@ -167,6 +173,7 @@
     <Compile Include="CamadaDados\VisitacaoDados.cs" />
     <Compile Include="CamadaDados\VoluntarioDados.cs" />
     <Compile Include="Componentes\Criptografia.cs" />
+    <Compile Include="Componentes\TableLayoutManagerSample.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +208,7 @@
     <Compile Include="Entidades\DTO\PessoaContatoDTO.cs" />
     <Compile Include="Entidades\DTO\PessoaDadosBasicoDTO.cs" />
     <Compile Include="Entidades\DTO\ProcedimentosDTO.cs" />
+    <Compile Include="Entidades\DTO\RelatorioAssistidoDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Enum\PerfilEnum.cs" />
     <Compile Include="Entidades\Escolar.cs" />
@@ -227,6 +235,7 @@
       <DependentUpon>SGS.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorios\AssistidoRelatorio.cs" />
     <Compile Include="Servicos\SGSServicoProcedimentos.cs" />
     <Compile Include="Servicos\SGSServicoAssistido.cs" />
     <Compile Include="Servicos\SGSServicoDesenvolvimento.cs" />
