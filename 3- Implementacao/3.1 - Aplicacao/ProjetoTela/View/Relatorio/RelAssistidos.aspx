@@ -89,7 +89,7 @@
                 Status Cadastro</td>
             <td>  
                  <asp:DropDownList ID="ddlStatusCadastro" runat="server" Width="200px">
-                    <asp:ListItem Value="Selecione">Selecione</asp:ListItem>
+                    <asp:ListItem>Selecione</asp:ListItem>
                     <asp:ListItem Value="true">Ativo</asp:ListItem>
                     <asp:ListItem Value="false">Inativo</asp:ListItem>
                 </asp:DropDownList>
@@ -99,7 +99,7 @@
             <td class="style28"> Status Assistido:</td>    
             <td class="style27">  
                  <asp:DropDownList ID="ddlStatusAssistido" runat="server" Width="200px">
-                    <asp:ListItem Value="Selecione">Selecione</asp:ListItem>
+                    <asp:ListItem>Selecione</asp:ListItem>
                     <asp:ListItem>Em Atendimento</asp:ListItem>
                     <asp:ListItem>Retornou Família</asp:ListItem>
                     <asp:ListItem>Adotado</asp:ListItem>
@@ -126,7 +126,8 @@
                 style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA; margin-left: 40px;"> 
                 <asp:TextBox ID="txtDataEntrada" runat="server" Width="196px"></asp:TextBox>
                 <asp:CompareValidator ID="CompareValidator2" runat="server" 
-                    ErrorMessage="CompareValidator">*</asp:CompareValidator>
+                    ErrorMessage="CompareValidator" ControlToValidate="txtDataEntrada" 
+                    Enabled="False">*</asp:CompareValidator>
         </td>
             <td class="style26"> 
                  Data Saída:</td>
@@ -136,9 +137,11 @@
                 <asp:TextBox ID="txtDataSaída" runat="server" Width="196px"></asp:TextBox>
 
                 <asp:CompareValidator ID="CompareValidator3" runat="server" 
-                    ErrorMessage="CompareValidator">*</asp:CompareValidator>
+                    ErrorMessage="CompareValidator" ControlToValidate="txtDataSaída" 
+                    Enabled="False">*</asp:CompareValidator>
                 <asp:CompareValidator ID="CompareValidator4" runat="server" 
-                    ErrorMessage="CompareValidator">*</asp:CompareValidator>
+                    ErrorMessage="CompareValidator" ControlToValidate="txtDataSaída" 
+                    Enabled="False">*</asp:CompareValidator>
 
             </td>
         </tr>

@@ -121,7 +121,19 @@ namespace SGS.View.Relatorio
         {
             SGSServico objSGSServico = new SGSServico();
 
+            PegarDadosView();
+
             SGSAssistidoRelatorioDTO.AssistidoLista = objSGSServico.ConsultarAssistido(SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO);
+
+            if (SGSAssistidoRelatorioDTO.AssistidoLista.Count > 0)
+            {
+
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhum assistido retornado!');  </script>");
+            }
+       
         }
 
         public void PegarDadosView()
@@ -131,32 +143,31 @@ namespace SGS.View.Relatorio
             else
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.CodigoAssisitoValor = null;
 
-            SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.StatusAssistidoValor = ddlStatusAssistido.SelectedValue;
+            if (ddlStatusAssistido.SelectedValue != "Selecione")
+                SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.StatusAssistidoValor = ddlStatusAssistido.SelectedValue;
+            else
+                SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.StatusAssistidoValor = "";
 
             if (ddlStatusCadastro.SelectedValue != "Selecione")
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.StatusCadastroValor = Convert.ToBoolean(ddlStatusCadastro.SelectedValue);
             else
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.StatusCadastroValor = null;
 
-            SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.EstadoSaudeValor = ddlEstadoSaude.SelectedValue;
+            if (ddlEstadoSaude.SelectedValue != "Selecione")
+                SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.EstadoSaudeValor = ddlEstadoSaude.SelectedValue;
+            else
+                SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.EstadoSaudeValor = null;
 
-            if (String.IsNullOrEmpty(txtDataEntrada.Text))
+            if (!String.IsNullOrEmpty(txtDataEntrada.Text))
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.DataEntradaValor = Convert.ToDateTime(txtDataEntrada.Text);
             else
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.DataEntradaValor = null;
 
-            if (String.IsNullOrEmpty(txtDataSaída.Text))
+            if (!String.IsNullOrEmpty(txtDataSaída.Text))
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.DataSaidaValor = Convert.ToDateTime(txtDataSaída.Text);
             else
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.DataSaidaValor = null;
-
-
         }
-
-        
-
-        
-
      
     }
 }
