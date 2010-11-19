@@ -26,7 +26,6 @@ namespace SGS.Entidades.DTO
                     System.Web.HttpContext.Current.Session["Sessao"] = value;
                 else
                     System.Web.HttpContext.Current.Session.Add("Sessao", value);
-
             }
         }
 

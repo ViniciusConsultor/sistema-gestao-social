@@ -80,7 +80,7 @@
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td class="style10"> Status Cadastro</td>
+            <td class="style10"> Status Cadastro:</td>
             <td> 
                  <asp:DropDownList ID="ddlStatusCadastro" runat="server" Width="200px">
                     <asp:ListItem Value="Selecione">Selecione</asp:ListItem>
