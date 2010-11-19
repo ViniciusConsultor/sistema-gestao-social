@@ -22,9 +22,21 @@ namespace SGS.Entidades
         private string _cor;
         private string _historicoVida;
         private string _telefoneMae;
+        private string _telefonePai;
         private int? _qtdIrmaos;
         private string _responsavelLegal;
         private string _cpfResponsavel;
+        private DateTime? _dataEntrada;
+        private DateTime? _dataSaida;
+        private string _estadoSaude;
+        private string _dormitorio;
+        private string _tamanhoCamisa;
+        private string _tamanhoCalca;
+        private string _tamanhoCalcado;
+        private string _deficiente;
+        private string _hobby;
+        private string _paiVivo;
+        private string _maeViva;
         private int? _codigoContatoResponsavel;
         private Contato _contatoResponsavel;
 
@@ -113,7 +125,7 @@ namespace SGS.Entidades
             set { _telefoneMae = value; }
         }
 
-        private string _telefonePai;
+
         public string TelefonePai
         {
             get { return _telefonePai; }
@@ -138,77 +150,77 @@ namespace SGS.Entidades
             set { _cpfResponsavel = value; }
         }
 
-        private DateTime? _dataEntrada;
+
         public DateTime? DataEntrada
         {
             get { return _dataEntrada; }
             set { _dataEntrada = value; }
         }
 
-        private DateTime? _dataSaida;
+
         public DateTime? DataSaida
         {
             get { return _dataSaida; }
             set { _dataSaida = value; }
         }
 
-        private string _estadoSaude;
+
         public String EstadoSaude
         {
             get { return _estadoSaude; }
             set { _estadoSaude = value; }
         }
 
-        private string _dormitorio;
+
         public String Dormitorio
         {
             get { return _dormitorio; }
             set { _dormitorio = value; }
         }
 
-        private string _tamanhoCamisa;
+
         public String TamanhoCamisa
         {
             get { return _tamanhoCamisa; }
             set { _tamanhoCamisa = value; }
         }
 
-        private string _tamanhoCalca;
+
         public String TamanhoCalca
         {
             get { return _tamanhoCalca; }
             set { _tamanhoCalca = value; }
         }
 
-        private string _tamanhoCalcado;
+
         public String TamanhoCalcado
         {
             get { return _tamanhoCalcado; }
             set { _tamanhoCalcado = value; }
         }
 
-        private string _deficiente;
+
         public String Deficiente
         {
             get { return _deficiente; }
             set { _deficiente = value; }
         }
 
-        private string _hobby;
+
         public String Hobby
         {
             get { return _hobby; }
             set { _hobby = value; }
         }
 
-        private string _paiVivo;
+
         public String PaiVivo
         {
             get { return _paiVivo; }
             set { _paiVivo = value; }
         }
 
-        private string _maeViva;
+
         public String MaeViva
         {
             get { return _maeViva; }
