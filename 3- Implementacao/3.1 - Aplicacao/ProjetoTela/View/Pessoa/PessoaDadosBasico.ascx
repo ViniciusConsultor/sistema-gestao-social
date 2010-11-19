@@ -1,5 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PessoaDadosBasico.ascx.cs" Inherits="SGS.View.Pessoa.PessoaDadosBasico" %>
 
+<style type="text/css">
+    /*table {float:left;} /*esta linha faz os divs ficarem lado a lado*/
+    /*text {display:block; color:#416087; font-family:Arial; font-size:11px; font-weight:bold} /*esta linha formata os títulos dos campos*/
+    /*input {border:1px solid #b5c7de; padding:2px 3px; color:#363636; }/*esta formata os campos de texto*/
+</style>
+
 <!-- Importa todos os script JavaScript-->
         <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
         <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
@@ -55,7 +61,7 @@
     </tr>
     <tr>
         <td>
-            Nome</td>
+            <asp:Label ID="Label1" runat="server" Text="Nome"></asp:Label></td>
         <td colspan="2">
             <asp:TextBox ID="txtNome" runat="server" MaxLength="80" Width="400px"></asp:TextBox>
             &nbsp;

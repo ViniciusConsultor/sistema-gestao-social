@@ -114,8 +114,6 @@ namespace SGS.View.Pessoa
 
         #region Propriedades
 
-
-
         /// <summary>
         /// Esta propriedade representa o ConsultarAssistidoDTO e fica em memória
         /// </summary>

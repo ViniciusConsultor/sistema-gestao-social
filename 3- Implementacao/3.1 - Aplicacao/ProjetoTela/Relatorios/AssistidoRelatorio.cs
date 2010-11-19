@@ -60,9 +60,6 @@ namespace SGS.Relatorios
             FontProp fontProp_Header = new FontPropMM(fontDef_Helvetica, 1.9);  // font of the table header
             fontProp_Header.bBold = true;
 
-            Stream stream_Phone = GetType().Assembly.GetManifestResourceStream("SGS.Componentes.Phone.jpg");
-            Random random = new Random(6);
-
             // create table
             TableLayoutManager tlm;
             using (tlm = new TableLayoutManager(fontProp_Header))
@@ -80,59 +77,39 @@ namespace SGS.Relatorios
                 col = new TlmColumnMM(tlm, "Assistido", 40);
                 col.tlmCellDef_Default.tlmTextMode = TlmTextMode.MultiLine;
 
-                col = new TlmColumnMM(tlm, "Dt. Nascimento", 30);
+                col = new TlmColumnMM(tlm, "Dt. Nascimento", 26);
+
+                col = new TlmColumnMM(tlm, "Dt. Entrada", 20);
+
+                col = new TlmColumnMM(tlm, "Dt. Saída", 20);
 
                 col = new TlmColumnMM(tlm, "Estado Saúde", 22);
 
-                col = new TlmColumnMM(tlm, "Status", 16);
+                col = new TlmColumnMM(tlm, "Status", 26);
 
                 col = new TlmColumnMM(tlm, "Ativo", 18);
 
-                col = new TlmColumnMM(tlm, "ID", 13);
-                
-
-                TlmColumn col_Phone = new TlmColumnMM(tlm, "Phone", rPosRight - rPosLeft - tlm.rWidthMM);
-                col_Phone.fontProp_Header = new FontPropMM(fontDef_Helvetica, 1.9, Color.Brown);
-                col_Phone.tlmCellDef_Header.rAlignH = RepObj.rAlignRight;
-                col_Phone.tlmCellDef_Default.rAlignH = RepObj.rAlignRight;
-                BrushProp brushProp_Phone = new BrushProp(this, Color.FromArgb(255, 255, 200));
-                col_Phone.tlmCellDef_Default.brushProp_Back = brushProp_Phone;
-                BrushProp brushProp_USA = new BrushProp(this, Color.FromArgb(255, 180, 180));
-
-                // open data set
-                //DataSet dataSet = new DataSet();
-                //using (Stream stream_Customers = GetType().Assembly.GetManifestResourceStream("SGS.Componentes.Customers.xml"))
-                //{
-                //    dataSet.ReadXml(stream_Customers);
-                //}
-                //DataTable dataTable_Customers = dataSet.Tables[0];
-
-                //foreach (DataRow dr in dataTable_Customers.Rows)
-                foreach (Assistido assistido in AssistidoRelatorioDTO.AssistidoLista)
+                System.Collections.Generic.List<Assistido> listaAssistido = (System.Collections.Generic.List<Assistido>)System.Web.HttpContext.Current.Session["ListaAssistido"];
+                foreach (Assistido assistido in listaAssistido)
                 {
-                    //String sCountry = (String)dr["Country"];
-                    //tlm.tlmCellDef_Default.brushProp_Back = (sCountry == "USA" ? brushProp_USA : null);
-                    //col_Phone.tlmCellDef_Default.brushProp_Back = (sCountry == "USA" ? new BrushProp(this, Color.FromArgb(255, 227, 50)) : brushProp_Phone);
                     tlm.NewRow();
                     tlm.Add(0, new RepString(fontProp_Text, assistido.Nome));
-                    
-                    if (assistido.DataNascimento.HasValue)
-                        tlm.Add(1, new RepString(fontProp_Text, assistido.DataNascimento.Value.ToString("dd/MM/yyyy")));
-                    else
-                        tlm.Add(1, new RepString(fontProp_Text, ""));
 
-                    tlm.Add(2, new RepString(fontProp_Text, assistido.EstadoSaude));
-                    tlm.Add(3, new RepString(fontProp_Text, assistido.StatusAssistido));
-                    tlm.Add(4, new RepString(fontProp_Text, assistido.AssistidoAtivo));
-                    //tlm.Add(5, new RepString(fontProp_Text, sCountry));
-                    //tlm.Add(6, new RepString(fontProp_Text, (String)dr["Phone"]));
-                    //if (random.NextDouble() < 0.2)
-                    //{  // mark randomly selected row with a phone icon
-                    //    tlm.tlmRow_Cur.aTlmCell[col_Phone].AddMM(1, 0.25, new RepImageMM(stream_Phone, 2.1, 2.3));
-                    //}
+                    if (assistido.DataNascimento.HasValue) tlm.Add(1, new RepString(fontProp_Text, assistido.DataNascimento.Value.ToString("dd/MM/yyyy")));
+                    else tlm.Add(1, new RepString(fontProp_Text, ""));
+                    
+                    tlm.Add(2, new RepString(fontProp_Text, assistido.DataEntrada.Value.ToString("dd/MM/yyyy")));
+
+                    if (assistido.DataSaida.HasValue) tlm.Add(3, new RepString(fontProp_Text, assistido.DataSaida.Value.ToString("dd/MM/yyyy")));
+                    else tlm.Add(3, new RepString(fontProp_Text, ""));
+                    
+                    tlm.Add(4, new RepString(fontProp_Text, assistido.EstadoSaude));
+                    tlm.Add(5, new RepString(fontProp_Text, assistido.StatusAssistido));
+                    tlm.Add(6, new RepString(fontProp_Text, assistido.AssistidoAtivo));
+
                 }
             }
-            page_Cur.AddCT_MM(rPosLeft + tlm.rWidthMM / 2, rPosTop + tlm.rCurY_MM + 2, new RepString(fontProp_Text, "- end of table -"));
+            //page_Cur.AddCT_MM(rPosLeft + tlm.rWidthMM / 2, rPosTop + tlm.rCurY_MM + 2, new RepString(fontProp_Text, "- end of table -"));
 
             // print page number and current date/time
             Double rY = rPosBottom + 1.5;
@@ -159,7 +136,7 @@ namespace SGS.Relatorios
             {
                 FontProp fontProp_Title = new FontPropMM(fontDef_Helvetica, 4);
                 fontProp_Title.bBold = true;
-                page_Cur.AddCT_MM(rPosLeft + (rPosRight - rPosLeft) / 2, rPosTop, new RepString(fontProp_Title, "Relatório Assistido"));
+                page_Cur.AddCT_MM(rPosLeft + (rPosRight - rPosLeft) / 2, rPosTop, new RepString(fontProp_Title, "SGS - Relatório Assistido"));
                 ea.container.rHeightMM -= fontProp_Title.rLineFeedMM;  // reduce height of table container for the first page
             }
 

@@ -56,5 +56,17 @@ namespace SGS.Servicos
             return objAssistidoDados.ConsultarAssistido(objConsultarAssistidoDTO);
         }
 
+        /// <summary>
+        /// Este Serviço consulta assistidos pelos dados do filtro do relatório
+        /// </summary>
+        /// <returns></returns>
+        public List<Assistido> GerarRelatorioAssistido(ConsultarAssistidoDTO objConsultarAssistidoDTO)
+        {
+            AssistidoDados objAssistidoDados = new AssistidoDados();
+
+            return objAssistidoDados.ConsultarAssistido(objConsultarAssistidoDTO);
+        }
+
+
     }
 }

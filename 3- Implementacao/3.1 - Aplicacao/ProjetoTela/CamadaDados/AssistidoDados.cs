@@ -459,9 +459,9 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Consulta os assistido pelos dados contidos no ConsultarAssistidoDTO
         /// </summary>
-        /// <param name="objConsultarAssistidoDTO"></param>
+        /// <param name="filtro"></param>
         /// <returns></returns>
-        public List<Assistido> ConsultarAssistido(ConsultarAssistidoDTO objConsultarAssistidoDTO)
+        public List<Assistido> ConsultarAssistido(ConsultarAssistidoDTO filtro)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
@@ -469,56 +469,89 @@ namespace SGS.CamadaDados
             SqlDataReader leitorDados;
 
             SqlParameter paramCodigoAssistido = new SqlParameter("@codigoAssistido", System.Data.DbType.Int32);
-            if (objConsultarAssistidoDTO.CodigoAssisitoValor.HasValue)
-                paramCodigoAssistido.Value = objConsultarAssistidoDTO.CodigoAssisitoValor.Value;
+            if (filtro.CodigoAssisitoValor.HasValue)
+                paramCodigoAssistido.Value = filtro.CodigoAssisitoValor.Value;
             else
                 paramCodigoAssistido.Value = DBNull.Value;
 
             SqlParameter paramNome = new SqlParameter("@nome", System.Data.DbType.String);
-            if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor))
-                paramNome.Value = "%" + objConsultarAssistidoDTO.NomeAssistidoValor + "%";
+            if (!String.IsNullOrEmpty(filtro.NomeAssistidoValor))
+                paramNome.Value = "%" + filtro.NomeAssistidoValor + "%";
             else
                 paramNome.Value = DBNull.Value;
 
             SqlParameter paramStatusAssistido = new SqlParameter("@statusAssistido", System.Data.DbType.String);
-            if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor))
-                paramStatusAssistido.Value = objConsultarAssistidoDTO.StatusAssistidoValor;
+            if (!String.IsNullOrEmpty(filtro.StatusAssistidoValor))
+                paramStatusAssistido.Value = filtro.StatusAssistidoValor;
             else
                 paramStatusAssistido.Value = DBNull.Value;
 
             SqlParameter paramStatusCadastro = new SqlParameter("@statusCadastro", System.Data.DbType.Boolean);
-            if (objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
-                paramStatusCadastro.Value = objConsultarAssistidoDTO.StatusCadastroValor.Value;
+            if (filtro.StatusCadastroValor.HasValue)
+                paramStatusCadastro.Value = filtro.StatusCadastroValor.Value;
             else
                 paramStatusCadastro.Value = DBNull.Value;
+
+            SqlParameter paramEstadoSaude = new SqlParameter("@estadoSaude", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(filtro.EstadoSaudeValor))
+                paramEstadoSaude.Value = filtro.EstadoSaudeValor;
+            else
+                paramEstadoSaude.Value = DBNull.Value;
+
+            SqlParameter paramDataEntrada = new SqlParameter("@dataEntrada", System.Data.DbType.DateTime);
+            if (filtro.DataEntradaValor.HasValue)
+                paramDataEntrada.Value = filtro.DataEntradaValor.Value;
+            else
+                paramDataEntrada.Value = DBNull.Value;
+
+            SqlParameter paramDataSaida = new SqlParameter("@dataSaida", System.Data.DbType.DateTime);
+            if (filtro.DataSaidaValor.HasValue)
+                paramDataSaida.Value = filtro.DataSaidaValor.Value;
+            else
+                paramDataSaida.Value = DBNull.Value;
 
 
             String sql = "select * from Assistido A inner join Pessoa P on A.CodigoAssistido = P.CodigoPessoa ";
 
             //Se Assistido Escolhido
-            if (objConsultarAssistidoDTO.CodigoAssisitoValor.HasValue)
+            if (filtro.CodigoAssisitoValor.HasValue)
                 sql += @" where A.CodigoAssistido = @codigoAssistido";
+            //Se infomou Status assistido, Status Cadastro, Estado Saude, Data Entrada e Data Saída
+            else if (!String.IsNullOrEmpty(filtro.StatusAssistidoValor) && filtro.StatusCadastroValor.HasValue && String.IsNullOrEmpty(filtro.EstadoSaudeValor)
+                    && filtro.DataEntradaValor.HasValue && filtro.DataSaidaValor.HasValue)
+                sql += @"where A.StatusAssistido = @statusAssistido and P.Ativo = @statusCadastro and EstadoSaude = @estadoSaude and DataEntrada >= @dataEntrada and DataSaida <= @dataSaida";
+            //Se infomou Status assistido, Status Cadastro, Estado Saude, Data Entrada
+            else if (!String.IsNullOrEmpty(filtro.StatusAssistidoValor) && filtro.StatusCadastroValor.HasValue && String.IsNullOrEmpty(filtro.EstadoSaudeValor)
+                    && filtro.DataEntradaValor.HasValue)
+                sql += @"where A.StatusAssistido = @statusAssistido and P.Ativo = @statusCadastro and EstadoSaude = @estadoSaude and DataEntrada >= @dataEntrada";
+            //Se infomou Status assistido, Status Cadastro, Estado Saude
+            else if (!String.IsNullOrEmpty(filtro.StatusAssistidoValor) && filtro.StatusCadastroValor.HasValue && String.IsNullOrEmpty(filtro.EstadoSaudeValor))
+                sql += @"where A.StatusAssistido = @statusAssistido and P.Ativo = @statusCadastro and EstadoSaude = @estadoSaude";
+            //Se informou Status Assistido
+            else if (!String.IsNullOrEmpty(filtro.StatusAssistidoValor))
+                sql += @" where StatusAssistido = @statusAssistido"; 
+
+
+            // Consulta Assistido
             //Se informou Nome, Status Assistido e Assistido Ativo
-            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor) && !String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor) 
-                     && objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+            else if (!String.IsNullOrEmpty(filtro.NomeAssistidoValor) && !String.IsNullOrEmpty(filtro.StatusAssistidoValor) 
+                     && filtro.StatusCadastroValor.HasValue)
                 sql += @" where P.Nome like @nome and StatusAssistido = @statusAssistido and P.Ativo = @statusCadastro";
             //Se informou Nome, Status Assistido
-            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor) && !String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor))
+            else if (!String.IsNullOrEmpty(filtro.NomeAssistidoValor) && !String.IsNullOrEmpty(filtro.StatusAssistidoValor))
                 sql += @" where P.Nome like @nome and StatusAssistido = @statusAssistido";
             //Se informou Nome e Assistido Ativo
-            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor) && objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+            else if (!String.IsNullOrEmpty(filtro.NomeAssistidoValor) && filtro.StatusCadastroValor.HasValue)
                 sql += @" where P.Nome like @nome and P.Ativo = @statusCadastro";
             //Se informou Status Assistido e Assistido Ativo
-            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor) && objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+            else if (!String.IsNullOrEmpty(filtro.StatusAssistidoValor) && filtro.StatusCadastroValor.HasValue)
                 sql += @" where StatusAssistido = @statusAssistido and P.Ativo = @statusCadastro";
-            //Se informou Status Assistido
-            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.StatusAssistidoValor))
-                sql += @" where StatusAssistido = @statusAssistido";
+            
             //Se informou Assistido Ativo
-            else if (objConsultarAssistidoDTO.StatusCadastroValor.HasValue)
+            else if (filtro.StatusCadastroValor.HasValue)
                 sql += @" where P.Ativo = @statusCadastro";
             //Se informou Nome
-            else if (!String.IsNullOrEmpty(objConsultarAssistidoDTO.NomeAssistidoValor))
+            else if (!String.IsNullOrEmpty(filtro.NomeAssistidoValor))
                 sql += @" where P.Nome like @nome";
 
             comando.CommandText = sql;
@@ -608,6 +641,7 @@ namespace SGS.CamadaDados
 
             return assistidoLista;
         }
+
 
     }
 }
