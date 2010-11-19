@@ -45,5 +45,27 @@ namespace SGS.Entidades.DTO
             set { _nomeAssistidoValor = value; }
         }
 
+        private string _estadoSaudeValor;
+        public string EstadoSaudeValor
+        {
+            get { return _estadoSaudeValor; }
+            set { _estadoSaudeValor = value; }
+        }
+
+        private DateTime? _dataEntradaValor;
+        public DateTime? DataEntradaValor
+        {
+            get { return _dataEntradaValor; }
+            set { _dataEntradaValor = value; }
+        }
+
+        private DateTime? _dataSaidaValor;
+        public DateTime? DataSaidaValor
+        {
+            get { return _dataSaidaValor; }
+            set { _dataSaidaValor = value; }
+        }
+
+
     }
 }
