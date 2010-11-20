@@ -89,7 +89,7 @@ namespace SGS.Relatorios
 
                 col = new TlmColumnMM(tlm, "Ativo", 18);
 
-                System.Collections.Generic.List<Assistido> listaAssistido = (System.Collections.Generic.List<Assistido>)System.Web.HttpContext.Current.Session["ListaAssistido"];
+                System.Collections.Generic.List<Assistido> listaAssistido = (System.Collections.Generic.List<Assistido>)RelatorioDTO.DadosRelatorio;
                 foreach (Assistido assistido in listaAssistido)
                 {
                     tlm.NewRow();
@@ -106,7 +106,6 @@ namespace SGS.Relatorios
                     tlm.Add(4, new RepString(fontProp_Text, assistido.EstadoSaude));
                     tlm.Add(5, new RepString(fontProp_Text, assistido.StatusAssistido));
                     tlm.Add(6, new RepString(fontProp_Text, assistido.AssistidoAtivo));
-
                 }
             }
             //page_Cur.AddCT_MM(rPosLeft + tlm.rWidthMM / 2, rPosTop + tlm.rCurY_MM + 2, new RepString(fontProp_Text, "- end of table -"));

@@ -19,26 +19,17 @@ namespace SGS.View.Relatorio
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!Page.IsPostBack)
+            if (DadosAcesso.Perfil != "")
             {
-                this.CarregarPagina();
+                if (!Page.IsPostBack)
+                {
+                    this.CarregarPagina();
+                }
             }
-
-            //RT.ViewPDF(new ReportSamples.TableLayoutManagerSample(), "FlowLayoutManagerSample.pdf"); 
-            //RT.ViewPDF(new ReportSamples.TableLayoutManagerSample(), "FlowLayoutManagerSample.pdf");
-
-            //PdfReport<ReportSamples.TableLayoutManagerSample> pdfReport = new PdfReport<ReportSamples.TableLayoutManagerSample>();
-            //pdfReport.pageLayout = PageLayout.TwoPageLeft;
-            //pdfReport.Response(this);
-           
-            //SGS.CamadaDados.AssistidoDados assistidoDados = new CamadaDados.AssistidoDados();
-            //Session.Add("ListaAssistido", assistidoDados.Listar(null));
-
-            //PdfReport<AssistidoRelatorio> pdfReport = new PdfReport<AssistidoRelatorio>();
-            //pdfReport.pageLayout = PageLayout.SinglePage;
-
-            //pdfReport.Response(this);
+            else
+            {
+                Response.Redirect("../LoginUI/Login.aspx");
+            }
         }
 
         protected void ddlAssistido_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +49,27 @@ namespace SGS.View.Relatorio
         protected void btnLimpar_Click(object sender, EventArgs e)
         {
             Response.Redirect("RelAssistidos.aspx");
+        }
+
+        protected void btnGerarRelatorio_Click(object sender, EventArgs e)
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+            PegarDadosView();
+
+            SGSAssistidoRelatorioDTO.AssistidoLista = objSGSServico.ConsultarAssistido(SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO);
+
+            if (SGSAssistidoRelatorioDTO.AssistidoLista.Count > 0)
+            {
+                RelatorioDTO.DadosRelatorio = SGSAssistidoRelatorioDTO.AssistidoLista;
+
+                ClientScript.RegisterStartupScript(Page.GetType(), "Popup", "<script> window.open('../Relatorio/Relatorio.aspx?tipo=RelAssistidos');</script>)");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhum assistido encontrado!');  </script>");
+            }
+
         }
 
         #endregion
@@ -87,53 +99,6 @@ namespace SGS.View.Relatorio
             txtDataEntrada.Text = "";
             txtDataSaída.Enabled = status;
             txtDataEntrada.Text = "";
-        }
-
-
-        #endregion
-
-        #region Propriedades
-
-        /// <summary>
-        /// Esta propriedade representa o ConsultarAssistidoDTO e fica em memória
-        /// </summary>
-        public AssistidoRelatorioDTO SGSAssistidoRelatorioDTO
-        {
-            set
-            {
-                if (ViewState["SGSAssistidoRelatorioDTO"] == null)
-                    ViewState.Add("SGSAssistidoRelatorioDTO", value);
-                else
-                    ViewState["SGSAssistidoRelatorioDTO"] = value;
-            }
-            get
-            {
-                if (ViewState["SGSAssistidoRelatorioDTO"] == null)
-                    return null;
-                else
-                    return (AssistidoRelatorioDTO)ViewState["SGSAssistidoRelatorioDTO"];
-            }
-        }
-
-        #endregion
-
-        protected void btnGerarRelatorio_Click(object sender, EventArgs e)
-        {
-            SGSServico objSGSServico = new SGSServico();
-
-            PegarDadosView();
-
-            SGSAssistidoRelatorioDTO.AssistidoLista = objSGSServico.ConsultarAssistido(SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO);
-
-            if (SGSAssistidoRelatorioDTO.AssistidoLista.Count > 0)
-            {
-
-            }
-            else
-            {
-                ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhum assistido retornado!');  </script>");
-            }
-       
         }
 
         public void PegarDadosView()
@@ -168,6 +133,33 @@ namespace SGS.View.Relatorio
             else
                 SGSAssistidoRelatorioDTO.ConsultarAssistidoDTO.DataSaidaValor = null;
         }
-     
+
+        #endregion
+
+        #region Propriedades
+
+        /// <summary>
+        /// Esta propriedade representa o ConsultarAssistidoDTO e fica em memória
+        /// </summary>
+        public AssistidoRelatorioDTO SGSAssistidoRelatorioDTO
+        {
+            set
+            {
+                if (ViewState["SGSAssistidoRelatorioDTO"] == null)
+                    ViewState.Add("SGSAssistidoRelatorioDTO", value);
+                else
+                    ViewState["SGSAssistidoRelatorioDTO"] = value;
+            }
+            get
+            {
+                if (ViewState["SGSAssistidoRelatorioDTO"] == null)
+                    return null;
+                else
+                    return (AssistidoRelatorioDTO)ViewState["SGSAssistidoRelatorioDTO"];
+            }
+        }
+
+        #endregion
+
     }
 }

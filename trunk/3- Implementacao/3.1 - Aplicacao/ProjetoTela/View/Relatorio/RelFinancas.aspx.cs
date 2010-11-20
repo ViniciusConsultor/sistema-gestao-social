@@ -13,5 +13,10 @@ namespace SGS.View.Relatorio
         {
 
         }
+
+        protected void rdbSexo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -5,7 +5,8 @@
     <table border="0" cellpadding="10" cellspacing="20">
         <tr> 
             <td> 
-            <br /> <br /> 
+                Seja bem vindo!<br />
+                <br /> 
             &nbsp;&nbsp; 
             O Sistema tem como objetivo auxiliar organizações sociais em sua administração e 
                 monitoramento de suas atividades. Utilizando o sistema, os agentes sociais conseguem 
