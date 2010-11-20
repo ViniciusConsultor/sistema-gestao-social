@@ -16,9 +16,9 @@
                 //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
                 //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
 
-                $('.mask-numero').mask('999999'); //número
+                $('.mask-numero').mask('99999'); //número
                 $('.mask-numero2').maskMoney({ precision: 6 }); //número
-
+                $('.mask-peso').mask('999'); //número
                 $('.mask-data').mask('99/99/9999'); //data
                 $('.mask-hora').mask('99:99'); //hora
                 $('.mask-fone').mask('(99) 9999-9999'); //telefone
@@ -105,9 +105,9 @@
                 ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
         </td>
         <td>
-            Peso</td>
+            Peso(Kg)</td>
         <td style="margin-left: 40px">
-            <asp:TextBox ID="txtPeso" runat="server" MaxLength="6"></asp:TextBox>
+            <asp:TextBox ID="txtPeso" runat="server" MaxLength="3"></asp:TextBox>
         &nbsp;<asp:RequiredFieldValidator ID="validatorPeso" runat="server" 
                 ControlToValidate="txtPeso" ErrorMessage="Preencha o Peso" 
                 ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
@@ -121,7 +121,7 @@
                 <asp:ListItem>Selecione</asp:ListItem>
                 <asp:ListItem Value="Branco">Branco</asp:ListItem>
                 <asp:ListItem>Negro</asp:ListItem>
-                <asp:ListItem>Cabloco</asp:ListItem>
+                <asp:ListItem>Caboclo</asp:ListItem>
                 <asp:ListItem>Mulato</asp:ListItem>
                 <asp:ListItem>Cafuzo</asp:ListItem>
                 <asp:ListItem>Indígena</asp:ListItem>

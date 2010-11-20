@@ -199,7 +199,8 @@
                     class="style14">
                     Valor do Orçamento</td>
                 <td>
-                    <asp:TextBox ID="txtValorOrcamento" runat="server" CssClass="mask-real-cifrao" Width="148px"></asp:TextBox>
+                    <asp:TextBox ID="txtValorOrcamento" runat="server" CssClass="mask-real-cifrao" 
+                        Width="148px" MaxLength="15"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorValorOrcamento" runat="server" 
                         ControlToValidate="txtValorOrcamento" ErrorMessage="Informe o Valor do Orçamento" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -302,7 +303,8 @@
                     <asp:Label ID="lblValorDespesa" runat="server" Text="Valor Orçado Despesa"></asp:Label>
                 </td>
                 <td class="style11">
-                    <asp:TextBox ID="txtValorDespesa" runat="server" CssClass="mask-real-cifrao" Width="148px"></asp:TextBox>
+                    <asp:TextBox ID="txtValorDespesa" runat="server" CssClass="mask-real-cifrao" 
+                        Width="148px" MaxLength="15"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorValorOrcado" runat="server" 
                         ControlToValidate="txtValorDespesa" ErrorMessage="Preencha o Valor Orçado da Despesa" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>

@@ -294,7 +294,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Bairro</td>
                 <td>
-                    <asp:TextBox ID="txtBairro" runat="server" MaxLength="20" Height="22px" 
+                    <asp:TextBox ID="txtBairro" runat="server" MaxLength="25" Height="22px" 
                         Width="148px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridBairro" runat="server" 
                         ControlToValidate="txtBairro" ErrorMessage="Preencha o campo Bairro" 

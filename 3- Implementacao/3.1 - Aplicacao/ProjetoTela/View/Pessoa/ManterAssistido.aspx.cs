@@ -278,7 +278,7 @@ namespace SGS.View.Pessoa
                 SGSAssistidoDTO.Assistido.Peso = Convert.ToDecimal(ucPessoaAssistido.Peso);
             else
                 SGSAssistidoDTO.Assistido.Peso = null;
-            SGSAssistidoDTO.Assistido.Cor = ucPessoaAssistido.Cor;
+            SGSAssistidoDTO.Assistido.Etnia = ucPessoaAssistido.Cor;
             if (ucPessoaAssistido.Altura != "")
                 SGSAssistidoDTO.Assistido.Altura = Convert.ToDecimal(ucPessoaAssistido.Altura);
             SGSAssistidoDTO.Assistido.Dormitorio = ucPessoaAssistido.Dormitorio;
@@ -374,7 +374,7 @@ namespace SGS.View.Pessoa
                 ucPessoaAssistido.Peso = SGSAssistidoDTO.Assistido.Peso.ToString();
             else
                 ucPessoaAssistido.Peso = "";
-            ucPessoaAssistido.Cor = SGSAssistidoDTO.Assistido.Cor;
+            ucPessoaAssistido.Cor = SGSAssistidoDTO.Assistido.Etnia;
 
             if (SGSAssistidoDTO.Assistido.Altura.HasValue)
                 ucPessoaAssistido.Altura = SGSAssistidoDTO.Assistido.Altura.ToString();
