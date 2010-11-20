@@ -112,7 +112,7 @@
         </tr>
         <tr>
             <td class="style9"> 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nome do Plano</td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nome do Plano:</td>
             <td class="style22">  
                 <asp:DropDownList ID="ddlNomePlano" runat="server" Height="22px" 
                     Width="195px" DataTextField="NomePlano" DataValueField="CodigoOrcamento">
@@ -121,14 +121,14 @@
             </td>
         </tr>
         <tr>
-            <td class="style9"> Inicio de Vigência</td>
+            <td class="style9"> Inicio de Vigência:</td>
             <td class="style22"> 
                 <asp:TextBox ID="txtInicioVigencia" runat="server" Width="189px" 
                     CssClass="mask-data"></asp:TextBox>
             </td>
             </tr>
         <tr>
-            <td style="text-align: right" class="style9"> Fim de Vigência </td>
+            <td style="text-align: right" class="style9"> Fim de Vigência: </td>
             <td class="style22"> 
                 <asp:TextBox ID="txtFimVigencia" runat="server" Width="189px" 
                     CssClass="mask-data"></asp:TextBox>

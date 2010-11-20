@@ -13,12 +13,12 @@ namespace SGS.CamadaDados
     {
 
        
-            ///<sumary>
+    ///<sumary>
             ///Este metodo salva Finanças
            ///</sumary>
            ///<param name="objFinancas"></param>
            ///<returns></returns>
-   public Financas Salvar (Financas objFinancas)
+    public Financas Salvar (Financas objFinancas)
     {
         SqlCommand comando = new SqlCommand();
         comando.Connection = base.Conectar();
@@ -146,7 +146,7 @@ namespace SGS.CamadaDados
             return objFinancas;
         }
 
-        /// <summary>
+   /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
@@ -276,6 +276,98 @@ namespace SGS.CamadaDados
 
        return financasLista;
    }
- 
+
+    /// <summary>
+    /// Consulta as Financas pelo Relatório do Financeiro
+    /// </summary>
+    /// <param name="filtro"></param>
+    /// <returns></returns>
+   public List<Financas> ConsultarFinancas(FinanceiroRelatorioDTO filtro)
+   {
+       SqlCommand comando = new SqlCommand();
+       comando.Connection = base.Conectar();
+
+       SqlDataReader leitorDados;
+
+       String sql = "select * from Financas where ";
+
+       SqlParameter paramTipoLancamento = new SqlParameter("@tipoLancamento", System.Data.DbType.String);
+       if (!String.IsNullOrEmpty(filtro.TipoLancamentoValor))
+       {
+           paramTipoLancamento.Value = filtro.TipoLancamentoValor;
+           sql += @"TipoLancamento = @tipoLancamento and ";
+       }
+       else
+           paramTipoLancamento.Value = DBNull.Value;
+
+       SqlParameter paramNaturezaLancamento = new SqlParameter("@naturezaLancamento", System.Data.DbType.Int32);
+       if (filtro.NaturezaLancamentoValor.HasValue)
+       {
+           paramNaturezaLancamento.Value = filtro.NaturezaLancamentoValor.Value;
+           sql += @"CodigoNatureza = @naturezaLancamento and ";
+       }
+       else
+           paramNaturezaLancamento.Value = DBNull.Value;
+
+       SqlParameter paramDtInicioLancamento = new SqlParameter("@DdtInicioLancamento", System.Data.DbType.DateTime);
+       if (filtro.DtInicioValor.HasValue)
+       {
+           paramDtInicioLancamento.Value = filtro.DtInicioValor.Value;
+           sql += @"DataLancamento >= @DdtInicioLancamento and ";
+       }
+       else
+           paramDtInicioLancamento.Value = DBNull.Value;
+
+       SqlParameter paramDtFimLancamento = new SqlParameter("@dtFimLancamento", System.Data.DbType.DateTime);
+       if (filtro.DtFimValor.HasValue)
+       {
+           paramDtFimLancamento.Value = filtro.DtFimValor.Value;
+           sql += @"DataLancamento <= @dtFimLancamento and ";
+       }
+       else
+           paramDtFimLancamento.Value = DBNull.Value;
+
+       if (sql.EndsWith("where "))
+           sql = sql.Replace("where ", "");
+       else if (sql.EndsWith("and "))
+           sql = sql.Remove(sql.Length - 4);
+
+       sql += " order by DataLancamento";
+       comando.CommandText = sql;
+       comando.CommandType = System.Data.CommandType.Text;
+
+       comando.Parameters.Add(paramTipoLancamento);
+       comando.Parameters.Add(paramNaturezaLancamento);
+       comando.Parameters.Add(paramDtInicioLancamento);
+       comando.Parameters.Add(paramDtFimLancamento);
+
+       leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+       List<Financas> financasLista = new List<Financas>();
+       Financas objFinancas;
+
+       NaturezaLancamentoDados objNaturezaLancamentoDados = new NaturezaLancamentoDados();
+       while (leitorDados.Read())
+       {
+           objFinancas = new Financas();
+
+           objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["CodigoFinancas"]);
+           objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
+           objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
+           objFinancas.NaturezaLancamento = objNaturezaLancamentoDados.ObterNaturezaLancamento(objFinancas.CodigoNatureza.Value);
+           objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
+           objFinancas.DataCriacao = Convert.ToDateTime(leitorDados["DataCriacao"]);
+           objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();
+           objFinancas.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+           objFinancas.LancadoPor = leitorDados["LancadoPor"].ToString();
+           objFinancas.Observacao = leitorDados["Observacao"].ToString();
+
+           financasLista.Add(objFinancas);
+       }
+
+       return financasLista;
+   }
+
+
     }
 }

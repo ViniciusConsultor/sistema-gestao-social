@@ -58,13 +58,13 @@ namespace SGS.View.Relatorio {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoLancamento;
         
         /// <summary>
-        /// ddlStatusAssistido control.
+        /// ddlNaturezaLancamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStatusAssistido;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNaturezaLancamento;
         
         /// <summary>
         /// txtDtInicioLancamento control.
@@ -76,13 +76,13 @@ namespace SGS.View.Relatorio {
         protected global::System.Web.UI.WebControls.TextBox txtDtInicioLancamento;
         
         /// <summary>
-        /// CompareValidator2 control.
+        /// validatorDtInicioLancamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtInicioLancamento;
         
         /// <summary>
         /// txtDtFimLancamento control.
@@ -94,31 +94,31 @@ namespace SGS.View.Relatorio {
         protected global::System.Web.UI.WebControls.TextBox txtDtFimLancamento;
         
         /// <summary>
-        /// CompareValidator3 control.
+        /// validatorDtFimLancamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtFimLancamento;
         
         /// <summary>
-        /// CompareValidator4 control.
+        /// validatorDtFimLancMaiorInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator4;
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtFimLancMaiorInicio;
         
         /// <summary>
-        /// btnGerarRelatorio control.
+        /// btnGerarRelatorioFinancas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGerarRelatorio;
+        protected global::System.Web.UI.WebControls.Button btnGerarRelatorioFinancas;
         
         /// <summary>
         /// btnLimpar control.
@@ -128,5 +128,95 @@ namespace SGS.View.Relatorio {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLimpar;
+        
+        /// <summary>
+        /// pnlOrcamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlOrcamento;
+        
+        /// <summary>
+        /// ddlNomePlano control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlNomePlano;
+        
+        /// <summary>
+        /// txtInicioVigencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInicioVigencia;
+        
+        /// <summary>
+        /// validatorDtInicioVigencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtInicioVigencia;
+        
+        /// <summary>
+        /// txtFimVigencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFimVigencia;
+        
+        /// <summary>
+        /// validatorDtFimVigencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtFimVigencia;
+        
+        /// <summary>
+        /// validatorDtFimVigMaiorInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtFimVigMaiorInicio;
+        
+        /// <summary>
+        /// GerarRelatorioOrcamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GerarRelatorioOrcamento;
+        
+        /// <summary>
+        /// btnLimparOrcamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimparOrcamento;
+        
+        /// <summary>
+        /// sumarioErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
     }
 }
