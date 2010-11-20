@@ -107,7 +107,7 @@
     <Content Include="View\Desenvolvimento\ConsultarDesenvolvimento.aspx" />
     <Content Include="View\Desenvolvimento\ManterDesenvolvimento.aspx" />
     <Content Include="View\Relatorio\RelAssistidos.aspx" />
-    <Content Include="View\Relatorio\RelCasaLar.aspx" />
+    <Content Include="View\Relatorio\Relatorio.aspx" />
     <Content Include="View\Relatorio\RelEscolar.aspx" />
     <Content Include="View\Relatorio\RelFinancas.aspx" />
     <Content Include="View\LoginUI\Login.aspx" />
@@ -207,6 +207,7 @@
     <Compile Include="Entidades\DTO\PessoaDadosBasicoDTO.cs" />
     <Compile Include="Entidades\DTO\ProcedimentosDTO.cs" />
     <Compile Include="Entidades\DTO\RelatorioAssistidoDTO.cs" />
+    <Compile Include="Entidades\DTO\RelatorioDTO.cs" />
     <Compile Include="Entidades\DTO\SessaoDTO.cs" />
     <Compile Include="Entidades\Enum\PerfilEnum.cs" />
     <Compile Include="Entidades\Escolar.cs" />
@@ -454,12 +455,12 @@
     <Compile Include="View\Relatorio\RelAssistidos.aspx.designer.cs">
       <DependentUpon>RelAssistidos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Relatorio\RelCasaLar.aspx.cs">
-      <DependentUpon>RelCasaLar.aspx</DependentUpon>
+    <Compile Include="View\Relatorio\Relatorio.aspx.cs">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Relatorio\RelCasaLar.aspx.designer.cs">
-      <DependentUpon>RelCasaLar.aspx</DependentUpon>
+    <Compile Include="View\Relatorio\Relatorio.aspx.designer.cs">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Relatorio\RelEscolar.aspx.cs">
       <DependentUpon>RelEscolar.aspx</DependentUpon>
@@ -490,10 +491,7 @@
       <DependentUpon>SemPermissao.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Negocio\" />
-    <Folder Include="Validacoes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />

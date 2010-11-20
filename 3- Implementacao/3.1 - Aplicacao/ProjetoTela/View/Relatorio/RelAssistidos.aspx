@@ -105,6 +105,7 @@
                     <asp:ListItem>Adotado</asp:ListItem>
                     <asp:ListItem>Transferido</asp:ListItem>
                     <asp:ListItem>Desaparecido</asp:ListItem>
+                     <asp:ListItem>A Passeio</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td class="style26"> 
@@ -114,7 +115,6 @@
                 <asp:ListItem>Selecione</asp:ListItem>
                 <asp:ListItem Value="Saudavel">Saudável</asp:ListItem>
                 <asp:ListItem>Doente</asp:ListItem>
-                <asp:ListItem>Internado</asp:ListItem>
             </asp:DropDownList>
             </td>
         </tr>
@@ -180,7 +180,6 @@
  
     
     <p align="center" >
-    <asp:Button ID="Button2" runat="server" Text="Exportar p/ PDF" />
         &nbsp;</p>
 
 </asp:Content>
