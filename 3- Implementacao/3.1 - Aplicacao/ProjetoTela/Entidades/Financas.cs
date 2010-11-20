@@ -17,7 +17,7 @@ namespace SGS.Entidades
         private Decimal? _valor;
         private string _lancadoPor;
         private string _observacao;
-
+        private NaturezaLancamento _naturezaLancamento;
 
         public int? CodigoFinancas
         {
@@ -74,6 +74,12 @@ namespace SGS.Entidades
         {
             get { return _observacao; }
             set { _observacao = value; }
+        }
+
+        public NaturezaLancamento NaturezaLancamento
+        {
+            get { return _naturezaLancamento; }
+            set { _naturezaLancamento = value; }
         }
 
      }

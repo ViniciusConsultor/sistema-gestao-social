@@ -25,6 +25,11 @@ namespace SGS.Servicos
             return objFinancas;
         }
 
+        /// <summary>
+        /// Obtem uma Finança
+        /// </summary>
+        /// <param name="codigoFinancas"></param>
+        /// <returns></returns>
         public Financas ObterFinancas(int codigoFinancas)
         {
             FinancasDados objFinancasDados = new FinancasDados();
@@ -32,6 +37,11 @@ namespace SGS.Servicos
             return objFinancasDados.ObterFinancas(codigoFinancas);
         }
 
+        /// <summary>
+        /// Excluir uma Finanças
+        /// </summary>
+        /// <param name="codigoFinancas"></param>
+        /// <returns></returns>
         public bool ExcluirFinancas(int codigoFinancas)
         {
             FinancasDados objFinancasDados = new FinancasDados();
@@ -42,7 +52,6 @@ namespace SGS.Servicos
        /// <summary>
        /// Consulta a tabela Financas e retorna resultados de acordo com o preenchimento do filtro
        /// </summary>
-
         public FinancasDTO ConsultarFinancas(FinancasDTO objFinancasDTO)
         {
             FinancasDados objFinancasDados = new FinancasDados();
@@ -74,6 +83,17 @@ namespace SGS.Servicos
 
         }
 
+        /// <summary>
+        /// Retorna uma lista de finanças pelo relatório do Filtro do Financeiro
+        /// </summary>
+        /// <param name="objFinanceiroRelatorioDTO"></param>
+        /// <returns></returns>
+        public List<Financas> ConsultarFinancasRelatorio(FinanceiroRelatorioDTO objFinanceiroRelatorioDTO)
+        {
+            FinancasDados objFinancasDados = new FinancasDados();
+
+            return objFinancasDados.ConsultarFinancas(objFinanceiroRelatorioDTO);
+        }
 
     }
 }

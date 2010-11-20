@@ -46,7 +46,9 @@ namespace SGS.View.Relatorio
             }
             else if (Request.QueryString["tipo"] == "RelFinancas")
             {
-
+                PdfReport<FinancasRelatorio> pdfReport = new PdfReport<FinancasRelatorio>();
+                pdfReport.pageLayout = PageLayout.SinglePage;
+                pdfReport.Response(this);
             }
             else if (Request.QueryString["tipo"] == "RelEscolar")
             {
