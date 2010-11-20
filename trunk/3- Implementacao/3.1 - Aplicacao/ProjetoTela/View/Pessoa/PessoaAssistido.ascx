@@ -64,6 +64,7 @@
                 <asp:ListItem>Adotado</asp:ListItem>
                 <asp:ListItem>Transferido</asp:ListItem>
                 <asp:ListItem>Desaparecido</asp:ListItem>
+                <asp:ListItem>A Passeio</asp:ListItem>
             </asp:DropDownList>
         &nbsp;<asp:RequiredFieldValidator ID="validatorStatusAssistido" runat="server" 
                 ControlToValidate="ddlStatusAssistido" ErrorMessage="Escolha o Status do Assistido" 
@@ -98,7 +99,6 @@
             <asp:DropDownList ID="ddlEstadoSaude" runat="server" Width="155px">
                 <asp:ListItem Value="Saudavel">Saudável</asp:ListItem>
                 <asp:ListItem>Doente</asp:ListItem>
-                <asp:ListItem>Internado</asp:ListItem>
             </asp:DropDownList>
         &nbsp;<asp:RequiredFieldValidator ID="validatorEstadoSaude" runat="server" 
                 ControlToValidate="ddlEstadoSaude" ErrorMessage="Escolha o Estado de Saúde" 
@@ -121,7 +121,10 @@
                 <asp:ListItem>Selecione</asp:ListItem>
                 <asp:ListItem Value="Branco">Branco</asp:ListItem>
                 <asp:ListItem>Negro</asp:ListItem>
-                <asp:ListItem>Pardo</asp:ListItem>
+                <asp:ListItem>Cabloco</asp:ListItem>
+                <asp:ListItem>Mulato</asp:ListItem>
+                <asp:ListItem>Cafuzo</asp:ListItem>
+                <asp:ListItem>Indígena</asp:ListItem>
             </asp:DropDownList>
         &nbsp;<asp:RequiredFieldValidator ID="validatorEtnia" runat="server" 
                 ControlToValidate="ddlCor" ErrorMessage="Escolha a Etnia" 

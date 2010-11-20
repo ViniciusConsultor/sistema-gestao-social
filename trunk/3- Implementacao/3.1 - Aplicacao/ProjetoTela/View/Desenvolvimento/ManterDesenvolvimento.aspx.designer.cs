@@ -112,15 +112,6 @@ namespace SGS.View.Desenvolvimento {
         protected global::System.Web.UI.WebControls.TextBox txtValor;
         
         /// <summary>
-        /// requeridValor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridValor;
-        
-        /// <summary>
         /// ddlStatus control.
         /// </summary>
         /// <remarks>

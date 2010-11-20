@@ -152,7 +152,7 @@
                     <asp:DropDownList ID="ddlStatus" runat="server" Width="154px" 
                         CssClass="style8">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>A Realizar</asp:ListItem>
+                        <asp:ListItem>Planejado</asp:ListItem>
                         <asp:ListItem>Em Vigor</asp:ListItem>
                         <asp:ListItem>Realizado</asp:ListItem>
                     </asp:DropDownList>

@@ -98,13 +98,13 @@
             Telefone Celular
         </td>
         <td>
-            <asp:TextBox ID="txtTelefoneCelular" runat="server" MaxLength="13"></asp:TextBox>
+            <asp:TextBox ID="txtTelefoneCelular" runat="server" MaxLength="14"></asp:TextBox>
         </td>
         <td>
             Telefone Convencional
         </td>
         <td>
-            <asp:TextBox ID="txtTelefoneConvencional" runat="server" MaxLength="13"></asp:TextBox>
+            <asp:TextBox ID="txtTelefoneConvencional" runat="server" MaxLength="14"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -112,13 +112,13 @@
             Fax
         </td>
         <td>
-            <asp:TextBox ID="txtFax" runat="server" MaxLength="13"></asp:TextBox>
+            <asp:TextBox ID="txtFax" runat="server" MaxLength="14"></asp:TextBox>
         </td>
         <td>
             E-mail
         </td>
         <td>
-            <asp:TextBox ID="txtEmail" runat="server" MaxLength="13"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" MaxLength="50"></asp:TextBox>
         </td>
     </tr>
     <tr>

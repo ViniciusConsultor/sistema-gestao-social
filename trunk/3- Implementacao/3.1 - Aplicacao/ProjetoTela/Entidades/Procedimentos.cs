@@ -11,12 +11,10 @@ namespace SGS.Entidades
         private int? _codigoProcedimento;
         private int? _codigoAssistido;
         private string _tipoProcedimento;
-        private string _procedimento;
         private string _descrição;
         private string _statusProcedimento;
         private string _pessoaAtendente;
         private DateTime? _dataMarcada;
-        private DateTime? _dataRealizada;
         private string _laudoAtendente;
 
 
@@ -36,12 +34,6 @@ namespace SGS.Entidades
         {
             get { return _tipoProcedimento; }
             set { _tipoProcedimento = value; }
-        }
-
-        public string Procedimento
-        {
-            get { return _procedimento; }
-            set { _procedimento = value; }
         }
 
         public string Descricao
@@ -66,12 +58,6 @@ namespace SGS.Entidades
         {
             get { return _dataMarcada; }
             set { _dataMarcada = value; }
-        }
-
-        public DateTime? DataRealizada
-        {
-            get { return _dataRealizada; }
-            set { _dataRealizada = value; }
         }
 
         public string LaudoAtendente
