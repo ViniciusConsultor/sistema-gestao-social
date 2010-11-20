@@ -34,12 +34,12 @@ namespace SGS.CamadaDados
                     @"
                     INSERT INTO Assistido
                          (CodigoAssistido, StatusAssistido, CertidaoNascimento, DataEntrada, DataSaida, EstadoSaude, 
-                          Peso, Cor, Altura, TamCamisa, TamCalca, TamCalcado, Dormitorio, Deficiente, Hobby, HistoricoVida, 
+                          Peso, Etnia, Altura, TamCamisa, TamCalca, TamCalcado, Dormitorio, Deficiente, Hobby, HistoricoVida, 
                           NomePai, NomeMae, PaiVivo, MaeViva, CPFPai, CPFMae, RGPai, RGMae, TelefonePai, TelefoneMae,  
                           QtdIrmaos, NomeResponsavel, CPFResponsavel, CodigoContatoResponsavel)
                     VALUES
                          (@codigoAssistido, @statusAssistido, @certidaoNascimento, @dataEntrada, @dataSaida, @estadoSaude,
-                          @peso, @cor, @altura, @tamCamisa, @tamCalca, @tamCalcado, @dormitorio, @Deficiente, @Hobby, @historicoVida,
+                          @peso, @Etnia, @altura, @tamCamisa, @tamCalca, @tamCalcado, @dormitorio, @Deficiente, @Hobby, @historicoVida,
                           @nomePai, @nomeMae, @paiVivo, @maeViva, @cpfPai, @cpfMae, @rgPai, @rgMae, @telefonePai, @telefoneMae,
                           @qtdIrmaos, @nomeResponsavel, @cpfResponsavel, @codigoContatoResponsavel)";
             }
@@ -49,7 +49,7 @@ namespace SGS.CamadaDados
                     @"
                     UPDATE Assistido
                     SET  StatusAssistido = @statusAssistido, CertidaoNascimento = @certidaoNascimento, DataEntrada = @dataEntrada, 
-                         DataSaida = @dataSaida, EstadoSaude = @estadoSaude, Peso = @peso, Cor = @cor, Altura = @altura, TamCamisa = @tamCamisa, 
+                         DataSaida = @dataSaida, EstadoSaude = @estadoSaude, Peso = @peso, Etnia = @Etnia, Altura = @altura, TamCamisa = @tamCamisa, 
                          TamCalca = @tamCalca, TamCalcado = @tamCalcado, Dormitorio = @dormitorio, Deficiente = @Deficiente, Hobby = @Hobby,
                          HistoricoVida = @historicoVida, NomePai = @nomePai, NomeMae = @nomeMae, PaiVivo = @paiVivo,  MaeViva = @maeViva, CPFPai = @cpfPai, 
                          CPFMae = @cpfMae, RGPai = @rgPai, RGMae = @rgMae, TelefonePai = @telefonePai, TelefoneMae = @telefoneMae, 
@@ -90,8 +90,8 @@ namespace SGS.CamadaDados
             SqlParameter parametroPeso = new SqlParameter("@peso", objAssistido.Peso);
             parametroPeso.DbType = System.Data.DbType.Decimal;
 
-            SqlParameter parametroCor = new SqlParameter("@cor", objAssistido.Cor);
-            parametroCor.DbType = System.Data.DbType.String;
+            SqlParameter parametroEtnia = new SqlParameter("@Etnia", objAssistido.Etnia);
+            parametroEtnia.DbType = System.Data.DbType.String;
 
             SqlParameter parametroAltura = new SqlParameter("@altura", objAssistido.Altura);
             parametroAltura.DbType = System.Data.DbType.Decimal;
@@ -230,7 +230,7 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroCertidaoNascimento);
             comando.Parameters.Add(parametroPeso);
             comando.Parameters.Add(parametroAltura);
-            comando.Parameters.Add(parametroCor);
+            comando.Parameters.Add(parametroEtnia);
             comando.Parameters.Add(parametroTamCalca);
             comando.Parameters.Add(parametroTamCalcado);
             comando.Parameters.Add(parametroTamCamisa);
@@ -287,7 +287,7 @@ namespace SGS.CamadaDados
             if (leitorDados.Read())
             {
                 //(CodigoAssistido, StatusAssistido, CertidaoNascimento, DataEntrada, DataSaida, EstadoSaude, 
-                //          Peso, Cor, Altura, TamCamisa, TamCalca, TamCalcado, Dormitorio, Deficiente, Hobby, HistoricoVida, 
+                //          Peso, Etnia, Altura, TamCamisa, TamCalca, TamCalcado, Dormitorio, Deficiente, Hobby, HistoricoVida, 
                 //          NomePai, NomeMae, PaiVivo, MaeViva, CPFPai, CPFMae, RGPai, RGMae, TelefonePai, TelefoneMae,  
                 //          QtdIrmaos, NomeResponsavel, CPFResponsavel, CodigoContatoResponsavel)
 
@@ -300,7 +300,7 @@ namespace SGS.CamadaDados
                     objAssistido.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]); ;
                 objAssistido.EstadoSaude = leitorDados["EstadoSaude"].ToString();
                 objAssistido.Peso = Convert.ToDecimal(leitorDados["Peso"]);
-                objAssistido.Cor = leitorDados["Cor"].ToString();
+                objAssistido.Etnia = leitorDados["Etnia"].ToString();
                 objAssistido.Altura = Convert.ToDecimal(leitorDados["Altura"]);
                 objAssistido.TamanhoCamisa = leitorDados["TamCamisa"].ToString();
                 objAssistido.TamanhoCalca = leitorDados["TamCalca"].ToString();
@@ -413,7 +413,7 @@ namespace SGS.CamadaDados
                     objAssistido.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]); ;
                 objAssistido.EstadoSaude = leitorDados["EstadoSaude"].ToString();
                 objAssistido.Peso = Convert.ToDecimal(leitorDados["Peso"]);
-                objAssistido.Cor = leitorDados["Cor"].ToString();
+                objAssistido.Etnia = leitorDados["Etnia"].ToString();
                 objAssistido.Altura = Convert.ToDecimal(leitorDados["Altura"]);
                 objAssistido.TamanhoCamisa = leitorDados["TamCamisa"].ToString();
                 objAssistido.TamanhoCalca = leitorDados["TamCalca"].ToString();
@@ -589,7 +589,7 @@ namespace SGS.CamadaDados
                     objAssistido.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]); ;
                 objAssistido.EstadoSaude = leitorDados["EstadoSaude"].ToString();
                 objAssistido.Peso = Convert.ToDecimal(leitorDados["Peso"]);
-                objAssistido.Cor = leitorDados["Cor"].ToString();
+                objAssistido.Etnia = leitorDados["Etnia"].ToString();
                 objAssistido.Altura = Convert.ToDecimal(leitorDados["Altura"]);
                 objAssistido.TamanhoCamisa = leitorDados["TamCamisa"].ToString();
                 objAssistido.TamanhoCalca = leitorDados["TamCalca"].ToString();

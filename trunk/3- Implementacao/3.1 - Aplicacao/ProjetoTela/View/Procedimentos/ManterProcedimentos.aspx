@@ -141,7 +141,7 @@
                     Pessoa Atendente</td>
                 <td>
                     <asp:TextBox ID="txtPessoaAtendente" runat="server" Height="22px" 
-                        MaxLength="50" Width="148px"></asp:TextBox>
+                        MaxLength="80" Width="300px"></asp:TextBox>
                 </td>
             </tr>
             <tr>

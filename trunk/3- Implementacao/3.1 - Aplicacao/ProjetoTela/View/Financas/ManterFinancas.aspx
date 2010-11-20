@@ -207,7 +207,7 @@
                     Descrição</td>
                 <td class="style9">
                     <asp:TextBox ID="txtObservacao" runat="server" Height="102px" TextMode="MultiLine" 
-                        Width="300px" MaxLength="4000"></asp:TextBox>
+                        Width="300px" MaxLength="400"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="validatorObservacao" runat="server" 

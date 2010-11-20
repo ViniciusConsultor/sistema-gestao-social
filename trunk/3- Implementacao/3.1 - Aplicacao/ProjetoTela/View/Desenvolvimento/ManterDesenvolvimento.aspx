@@ -98,6 +98,7 @@
                         <asp:ListItem>Treinamento</asp:ListItem>
                         <asp:ListItem>Reforço Escolar</asp:ListItem>
                         <asp:ListItem>Esporte</asp:ListItem>
+                        <asp:ListItem>Outros</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridTipoAtividade" runat="server" 
                         ControlToValidate="ddlTipoAtividade" ErrorMessage="Escolha o Tipo de Atividade" 

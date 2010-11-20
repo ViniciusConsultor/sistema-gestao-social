@@ -107,7 +107,7 @@ namespace SGS.Entidades
             set { _altura = value; }
         }
 
-        public string Cor
+        public string Etnia
         {
             get { return _cor; }
             set { _cor = value; }
