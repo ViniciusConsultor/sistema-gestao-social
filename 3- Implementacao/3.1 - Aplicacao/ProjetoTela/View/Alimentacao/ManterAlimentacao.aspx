@@ -142,7 +142,7 @@
                     <asp:Label ID="lblHorario" runat="server" Text="Horário" Visible="False"></asp:Label>
                 </td>
                 <td class="style8">
-                    <asp:TextBox ID="txtHorario" runat="server" Height="22px" MaxLength="6" 
+                    <asp:TextBox ID="txtHorario" runat="server" Height="22px" MaxLength="5" 
                         Width="148px" CssClass="mask-hora" Visible="False"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridHorario" runat="server" 
                         ControlToValidate="txtHorario" ErrorMessage="Preencha o Campo Horário" 
