@@ -96,7 +96,10 @@
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Médico</asp:ListItem>
                         <asp:ListItem>Psicológico</asp:ListItem>
-                        <asp:ListItem>Intelectual</asp:ListItem>
+                        <asp:ListItem>Escolar</asp:ListItem>
+                        <asp:ListItem>Administrativo</asp:ListItem>
+                        <asp:ListItem>Odontológico</asp:ListItem>
+                        <asp:ListItem>Nutricional</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridTipoProcedimento" runat="server" 
                         ControlToValidate="ddlTipoProcedimento" ErrorMessage="Escolha o Tipo de Procedimneto" 
@@ -106,28 +109,10 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Procedimento</td>
-                <td>
-                    <asp:DropDownList ID="ddlProcedimento" runat="server" Width="155px" 
-                        Height="22px">
-                        <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>Clinico Geral</asp:ListItem>
-                        <asp:ListItem>Dentista</asp:ListItem>
-                        <asp:ListItem>Reforço Escolar</asp:ListItem>
-                        <asp:ListItem>Dieta</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="requeridProcedimento" runat="server" 
-                        ControlToValidate="ddlProcedimento" ErrorMessage="Escolha o Procedimento" 
-                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Descrição </td>
                 <td>
-                    <asp:TextBox ID="txtDescricao" runat="server" Width="148px" 
-                        MaxLength="100"></asp:TextBox>
+                    <asp:TextBox ID="txtDescricao" runat="server" Width="300px" 
+                        MaxLength="50"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridDescricao" runat="server" 
                         ControlToValidate="txtDescricao" ErrorMessage="Preencha o campo Descrição" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -143,6 +128,7 @@
                         <asp:ListItem>Planejado</asp:ListItem>
                         <asp:ListItem>Agendado</asp:ListItem>
                         <asp:ListItem>Efetuado</asp:ListItem>
+                        <asp:ListItem>Cancelado</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridStatus" runat="server" 
                         ControlToValidate="ddlStatus" ErrorMessage="Escolha o Status" 
@@ -170,19 +156,10 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Data Realizada</td>
-                <td>
-                    <asp:TextBox ID="txtDataRealizada" runat="server" Height="22px" MaxLength="10" 
-                        Width="148px" CssClass="mask-data"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Laudo do Atendente</td>
                 <td>
                     <asp:TextBox ID="txtLaudoAtendente" runat="server" Height="134px" TextMode="MultiLine" 
-                        Width="301px" MaxLength="255"></asp:TextBox>
+                        Width="300px" MaxLength="255"></asp:TextBox>
                 </td>
             </tr>
             </table>

@@ -49,15 +49,6 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.TextBox txtDataMarcada;
         
         /// <summary>
-        /// txtDataRealizada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataRealizada;
-        
-        /// <summary>
         /// btnLocalizar control.
         /// </summary>
         /// <remarks>

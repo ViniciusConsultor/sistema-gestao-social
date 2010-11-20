@@ -131,7 +131,6 @@ namespace SGS.View.Procedimentos
 
             objProcedimentos.CodigoAssistido = Convert.ToInt32(ddlAssistido.SelectedValue);
             objProcedimentos.TipoProcedimento = ddlTipoProcedimento.SelectedValue;
-            objProcedimentos.Procedimento = ddlProcedimento.SelectedValue;
             objProcedimentos.Descricao = txtDescricao.Text;
             objProcedimentos.StatusProcedimento = ddlStatus.SelectedValue;
             objProcedimentos.PessoaAtendente = txtPessoaAtendente.Text;
@@ -139,12 +138,6 @@ namespace SGS.View.Procedimentos
 
             if (txtDataMarcada.Text != "")
                 objProcedimentos.DataMarcada = Convert.ToDateTime(txtDataMarcada.Text);
-
-            if (txtDataRealizada.Text != "")
-                objProcedimentos.DataRealizada = Convert.ToDateTime(txtDataRealizada.Text);
-
-
-
 
             return objProcedimentos;
         }
@@ -157,7 +150,6 @@ namespace SGS.View.Procedimentos
 
             ddlAssistido.SelectedValue = SGSProcedimentos.CodigoAssistido.Value.ToString();
             ddlTipoProcedimento.SelectedValue = SGSProcedimentos.TipoProcedimento;
-            ddlProcedimento.SelectedValue = SGSProcedimentos.Procedimento;
             txtDescricao.Text = SGSProcedimentos.Descricao;
             ddlStatus.SelectedValue = SGSProcedimentos.StatusProcedimento;
             txtPessoaAtendente.Text = SGSProcedimentos.PessoaAtendente;
@@ -165,11 +157,6 @@ namespace SGS.View.Procedimentos
 
             if (SGSProcedimentos.DataMarcada.HasValue)
                 txtDataMarcada.Text = SGSProcedimentos.DataMarcada.ToString();
-
-            if (SGSProcedimentos.DataRealizada.HasValue)
-                txtDataRealizada.Text = SGSProcedimentos.DataRealizada.ToString();
-
-
         }
 
         #endregion

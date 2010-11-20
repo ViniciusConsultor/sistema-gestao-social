@@ -21,18 +21,17 @@ namespace SGS.CamadaDados
             if (!objProcedimentos.CodigoProcedimento.HasValue)
             {
                 comando.CommandText =
-                    @"INSERT INTO Procedimentos (CodigoAssistido, TipoProcedimento, Procedimento, Descricao, StatusProcedimento,
-                                  PessoaAtendente, DataMarcada, DataRealizada, LaudoAtendente)
-                    VALUES (@codigoAssistido, @tipoProcedimento, @procedimento, @descricao, @statusProcedimento, @pessoaAtendente,
-                           @dataMarcada,@dataRealizada, @laudoAtendente)";
+                    @"INSERT INTO Procedimentos (CodigoAssistido, TipoProcedimento, Descricao, StatusProcedimento,
+                                  PessoaAtendente, DataMarcada, LaudoAtendente)
+                    VALUES (@codigoAssistido, @tipoProcedimento, @descricao, @statusProcedimento, @pessoaAtendente,
+                           @dataMarcada, @laudoAtendente)";
             }
             else
             {
                 comando.CommandText =
                     @"UPDATE Procedimentos SET CodigoAssistido = @codigoAssistido, TipoProcedimento = @tipoProcedimento,
-                             Procedimento = @procedimento, Descricao = @descricao, StatusProcedimento = @statusProcedimento,
-                             PessoaAtendente = @pessoaAtendente, DataMarcada = @dataMarcada, DataRealizada = @dataRealizada,
-                             LaudoAtendente = @laudoAtendente
+                             Descricao = @descricao, StatusProcedimento = @statusProcedimento,
+                             PessoaAtendente = @pessoaAtendente, DataMarcada = @dataMarcada, LaudoAtendente = @laudoAtendente
                     WHERE (CodigoProcedimento = @codigoProcedimento)";
             }
 
@@ -60,9 +59,6 @@ namespace SGS.CamadaDados
 
             SqlParameter parametroTipoProcedimento = new SqlParameter("@tipoProcedimento", objProcedimentos.TipoProcedimento);
             parametroTipoProcedimento.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroProcedimento = new SqlParameter("@procedimento", objProcedimentos.Procedimento);
-            parametroProcedimento.DbType = System.Data.DbType.String;
 
             SqlParameter parametroDescricao = new SqlParameter("@descricao", objProcedimentos.Descricao);
             parametroDescricao.DbType = System.Data.DbType.String;
@@ -96,28 +92,12 @@ namespace SGS.CamadaDados
                 parametroDataMarcada.DbType = System.Data.DbType.DateTime;
             }
 
-            SqlParameter parametroDataRealizada = new SqlParameter();
-            if (objProcedimentos.DataRealizada.HasValue)
-            {
-                parametroDataRealizada.Value = objProcedimentos.DataRealizada.Value;
-                parametroDataRealizada.ParameterName = "@dataRealizada";
-                parametroDataRealizada.DbType = System.Data.DbType.DateTime;
-            }
-            else
-            {
-                parametroDataRealizada.Value = DBNull.Value;
-                parametroDataRealizada.ParameterName = "@dataRealizada";
-                parametroDataRealizada.DbType = System.Data.DbType.DateTime;
-            }
-
             comando.Parameters.Add(parametroCodigoAssistido);
             comando.Parameters.Add(parametroTipoProcedimento);
-            comando.Parameters.Add(parametroProcedimento);
             comando.Parameters.Add(parametroDescricao);
             comando.Parameters.Add(parametroStatusProcedimento);
             comando.Parameters.Add(parametroPessoaAtendente);
             comando.Parameters.Add(parametroDataMarcada);
-            comando.Parameters.Add(parametroDataRealizada);
             comando.Parameters.Add(parametroLaudoAtendente);
 
             comando.ExecuteNonQuery();
@@ -154,7 +134,6 @@ namespace SGS.CamadaDados
                 objProcedimentos.CodigoProcedimento = codigoProcedimento;
                 objProcedimentos.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
                 objProcedimentos.TipoProcedimento = leitorDados["TipoProcedimento"].ToString();
-                objProcedimentos.Procedimento = leitorDados["Procedimento"].ToString();
                 objProcedimentos.Descricao = leitorDados["Descricao"].ToString();
                 objProcedimentos.StatusProcedimento = leitorDados["StatusProcedimento"].ToString();
                 objProcedimentos.PessoaAtendente = leitorDados["PessoaAtendente"].ToString();
@@ -162,9 +141,6 @@ namespace SGS.CamadaDados
 
                 if (leitorDados["DataMarcada"] != DBNull.Value)
                     objProcedimentos.DataMarcada = Convert.ToDateTime(leitorDados["DataMarcada"]);
-
-                if (leitorDados["DataRealizada"] != DBNull.Value)
-                    objProcedimentos.DataRealizada = Convert.ToDateTime(leitorDados["DataRealizada"]);
 
             }
 
@@ -191,7 +167,6 @@ namespace SGS.CamadaDados
                 objProcedimentos.CodigoProcedimento = Convert.ToInt32(leitorDados["CodigoProcedimento"]);
                 objProcedimentos.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
                 objProcedimentos.TipoProcedimento = leitorDados["TipoProcedimento"].ToString();
-                objProcedimentos.Procedimento = leitorDados["Procedimento"].ToString();
                 objProcedimentos.Descricao = leitorDados["Descricao"].ToString();
                 objProcedimentos.StatusProcedimento = leitorDados["StatusProcedimento"].ToString();
                 objProcedimentos.PessoaAtendente = leitorDados["PessoaAtendente"].ToString();
@@ -199,12 +174,6 @@ namespace SGS.CamadaDados
 
                 if (leitorDados["DataMarcada"] != DBNull.Value)
                     objProcedimentos.DataMarcada = Convert.ToDateTime(leitorDados["DataMarcada"]);
-
-                if (leitorDados["DataRealizada"] != DBNull.Value)
-                    objProcedimentos.DataRealizada = Convert.ToDateTime(leitorDados["DataRealizada"]);
-
-
-
             }
 
             leitorDados.Close();
@@ -250,34 +219,12 @@ namespace SGS.CamadaDados
             else
                 paramDataMarcadaValor.Value = DBNull.Value;
 
-            SqlParameter paramDataRealizadaValor = new SqlParameter("@dataRealizadaValor", System.Data.SqlDbType.DateTime);
-            if (objProcedimentosDTO.DataRealizadaValor.HasValue)
-                paramDataRealizadaValor.Value = objProcedimentosDTO.DataRealizadaValor.Value;
-            else
-                paramDataRealizadaValor.Value = DBNull.Value;
-
 
             String sql = "select * from Procedimentos PR inner join Pessoa P on P.CodigoPessoa = PR.CodigoAssistido";
 
-            //Se o Assistido, Data Marcada e Data Realizada preenchidos
-            if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue && objProcedimentosDTO.DataRealizadaValor.HasValue)
-                sql += @" where CodigoAssistido = @assistidoValor and DataMarcada >= @dataMarcadaValor and DataRealizada <= @dataRealizadaValor";
-
             //Se apenas Assistido  e Data Marcada preenchidos
-            else if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue)
+            if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue)
                 sql += @" where CodigoAssistido = @assistidoValor and DataMarcada >= @dataMarcadaValor";
-
-            //Se apenas Data Marcada e Data Realizada preenchidos
-            else if (objProcedimentosDTO.DataMarcadaValor.HasValue && objProcedimentosDTO.DataRealizadaValor.HasValue)
-                sql += @" where DataMarcada >= @dataMarcadaValor and DataRealizada <= @dataRealizadaValor";
-
-            //Se apenas Data Realizada e Assistidos preenchidos
-            else if (objProcedimentosDTO.DataRealizadaValor.HasValue && objProcedimentosDTO.AssistidoValor.HasValue)
-                sql += @" where DataRealizada <= @dataRealizadaValor and CodigoAssistido = @assistidoValor";
-
-            //Se apenas Data Realizada preenchido
-            else if (objProcedimentosDTO.DataRealizadaValor.HasValue)
-                sql += @" where DataRealizada <= @dataRealizadaValor";
 
             //Se apenas Assistido preenchido
             else if (objProcedimentosDTO.AssistidoValor.HasValue)
@@ -291,7 +238,6 @@ namespace SGS.CamadaDados
             comando.CommandType = System.Data.CommandType.Text;
             comando.Parameters.Add(paramAssistidoValor);
             comando.Parameters.Add(paramDataMarcadaValor);
-            comando.Parameters.Add(paramDataRealizadaValor);
 
             leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
@@ -308,7 +254,6 @@ namespace SGS.CamadaDados
                 objProcedimentosAssistidoDTO.CodigoProcedimento = Convert.ToInt32(leitorDados["CodigoProcedimento"]);
                 objProcedimentosAssistidoDTO.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
                 objProcedimentosAssistidoDTO.TipoProcedimento = leitorDados["TipoProcedimento"].ToString();
-                objProcedimentosAssistidoDTO.Procedimento = leitorDados["Procedimento"].ToString();
                 objProcedimentosAssistidoDTO.Descricao = leitorDados["Descricao"].ToString();
                 objProcedimentosAssistidoDTO.StatusProcedimento = leitorDados["StatusProcedimento"].ToString();
                 objProcedimentosAssistidoDTO.PessoaAtendente = leitorDados["PessoaAtendente"].ToString();
@@ -316,10 +261,6 @@ namespace SGS.CamadaDados
 
                 if (leitorDados["DataMarcada"] != DBNull.Value)
                     objProcedimentosAssistidoDTO.DataMarcada = Convert.ToDateTime(leitorDados["DataMarcada"]);
-
-                if (leitorDados["DataRealizada"] != DBNull.Value)
-                    objProcedimentosAssistidoDTO.DataRealizada = Convert.ToDateTime(leitorDados["DataRealizada"]);
-
 
                 procedimentosAssistidoDTOLista.Add(objProcedimentosAssistidoDTO);
             }

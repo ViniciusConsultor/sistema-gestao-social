@@ -133,15 +133,6 @@
         </tr>
         <tr>
             <td class="style15"> &nbsp;</td>    
-            <td class="style11"> Data Efetuada </td>
-            <td class="style16"> 
-                <asp:TextBox ID="txtDataRealizada" runat="server" Width="200px" 
-                    CssClass="mask-data"></asp:TextBox>
-            </td>
-            <td> &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style15"> &nbsp;</td>    
             <td style="text-align: right" class="style11"> &nbsp;</td>
             <td class="style16"> 
                 &nbsp;</td>
@@ -188,17 +179,8 @@
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="Procedimento" HeaderText="Procedimento">
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
                         <asp:BoundField DataField="DataMarcada" HeaderText="Data Marcada" 
                             DataFormatString="{0:dd-MM-yyyy}">
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="DataRealizada" DataFormatString="{0:dd-MM-yyyy}" 
-                            HeaderText="Data Realizada">
                         <HeaderStyle HorizontalAlign="Center" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>

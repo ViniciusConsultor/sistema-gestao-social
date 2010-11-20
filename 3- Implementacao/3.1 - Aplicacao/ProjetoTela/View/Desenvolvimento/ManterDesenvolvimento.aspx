@@ -95,6 +95,9 @@
                         <asp:ListItem>Curso</asp:ListItem>
                         <asp:ListItem>Palestra</asp:ListItem>
                         <asp:ListItem>Seminário</asp:ListItem>
+                        <asp:ListItem>Treinamento</asp:ListItem>
+                        <asp:ListItem>Reforço Escolar</asp:ListItem>
+                        <asp:ListItem>Esporte</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridTipoAtividade" runat="server" 
                         ControlToValidate="ddlTipoAtividade" ErrorMessage="Escolha o Tipo de Atividade" 
@@ -132,9 +135,6 @@
                 <td>
                     <asp:TextBox ID="txtValor" runat="server" Height="22px" Width="148px" 
                         MaxLength="16" CssClass="mask-real-cifrao"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridValor" runat="server" 
-                        ControlToValidate="txtValor" ErrorMessage="Preencha o campo Valor" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -144,9 +144,9 @@
                 <td>
                     <asp:DropDownList ID="ddlStatus" runat="server" Width="155px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>Criado</asp:ListItem>
-                        <asp:ListItem>Parado</asp:ListItem>
-                        <asp:ListItem>Iniciado</asp:ListItem>
+                        <asp:ListItem>Planejado</asp:ListItem>
+                        <asp:ListItem>Agendado</asp:ListItem>
+                        <asp:ListItem>Em Execução</asp:ListItem>
                         <asp:ListItem>Cancelado</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridStatus" runat="server" 

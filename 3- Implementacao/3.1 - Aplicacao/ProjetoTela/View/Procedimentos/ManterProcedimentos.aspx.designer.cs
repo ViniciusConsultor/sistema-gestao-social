@@ -67,24 +67,6 @@ namespace SGS.View.Procedimentos {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridTipoProcedimento;
         
         /// <summary>
-        /// ddlProcedimento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProcedimento;
-        
-        /// <summary>
-        /// requeridProcedimento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridProcedimento;
-        
-        /// <summary>
         /// txtDescricao control.
         /// </summary>
         /// <remarks>
@@ -137,15 +119,6 @@ namespace SGS.View.Procedimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataMarcada;
-        
-        /// <summary>
-        /// txtDataRealizada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataRealizada;
         
         /// <summary>
         /// txtLaudoAtendente control.

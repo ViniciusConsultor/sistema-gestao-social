@@ -61,15 +61,6 @@ namespace SGS.View.Procedimentos
                 ProcedimentosDTO.DataMarcadaValor = Convert.ToDateTime(txtDataMarcada.Text);
             }
 
-            if (txtDataRealizada.Text == "")
-            {
-                ProcedimentosDTO.DataRealizadaValor = null;
-            }
-            else
-            {
-                ProcedimentosDTO.DataRealizadaValor = Convert.ToDateTime(txtDataRealizada.Text);
-            }
-
             ProcedimentosDTO = objSGSServico.ConsultarProcedimentos(ProcedimentosDTO);
 
 

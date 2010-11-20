@@ -102,7 +102,6 @@
                         <asp:ListItem Value="Ilegal">Ilegal</asp:ListItem>
                         <asp:ListItem>Em Construção</asp:ListItem>
                         <asp:ListItem>Interditada</asp:ListItem>
-                        <asp:ListItem>Em Análise</asp:ListItem>
                         <asp:ListItem>A Inaugurar</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridStatus" runat="server" 
@@ -148,7 +147,7 @@
                     Telefone</td>
                 <td>
                     <asp:TextBox ID="txtTelefone" runat="server" CssClass="mask-fone" 
-                        MaxLength="13" Height="22px" Width="148px"></asp:TextBox>
+                        MaxLength="14" Height="22px" Width="148px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridTelefone" runat="server" 
                         ControlToValidate="txtTelefone" ErrorMessage="Preencha o campo Telefone" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -160,13 +159,13 @@
                     Telefone Celular</td>
                 <td>
                     <asp:TextBox ID="txtTelefoneCelular" runat="server" Height="22px" Width="148px" 
-                        CssClass="mask-fone"></asp:TextBox>
+                        CssClass="mask-fone" MaxLength="14"></asp:TextBox>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Fax</td>
                 <td>
-                    <asp:TextBox ID="txtFax" runat="server" MaxLength="13" CssClass="mask-fone" 
+                    <asp:TextBox ID="txtFax" runat="server" MaxLength="14" CssClass="mask-fone" 
                         Height="22px" Width="148px"></asp:TextBox>
                 </td>
             </tr>

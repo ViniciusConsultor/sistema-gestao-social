@@ -112,8 +112,6 @@
     <Content Include="View\Relatorio\RelFinancas.aspx" />
     <Content Include="View\LoginUI\Login.aspx" />
     <Content Include="View\SemPermissao.aspx" />
-    <Content Include="View\Visita\ConsultarVisita.aspx" />
-    <Content Include="View\Visita\ManterVisita.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -490,20 +488,6 @@
     </Compile>
     <Compile Include="View\SemPermissao.aspx.designer.cs">
       <DependentUpon>SemPermissao.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Visita\ConsultarVisita.aspx.cs">
-      <DependentUpon>ConsultarVisita.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Visita\ConsultarVisita.aspx.designer.cs">
-      <DependentUpon>ConsultarVisita.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Visita\ManterVisita.aspx.cs">
-      <DependentUpon>ManterVisita.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Visita\ManterVisita.aspx.designer.cs">
-      <DependentUpon>ManterVisita.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
