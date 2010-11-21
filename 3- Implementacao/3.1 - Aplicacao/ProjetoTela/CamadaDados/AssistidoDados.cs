@@ -272,7 +272,7 @@ namespace SGS.CamadaDados
             Pessoa objPessoa = null;
             Assistido objAssistido = null;
 
-            objPessoa = objPessoaDados.ObterPessoa(codigoAssistido);
+            objPessoa = objPessoaDados.Obter(codigoAssistido);
             objAssistido = objAssistidoAdaptador.AdaptarPessoaParaAssistido(objPessoa);
 
             SqlCommand comando = new SqlCommand("select * from Assistido where CodigoAssistido = @codigoAssistido", base.Conectar());

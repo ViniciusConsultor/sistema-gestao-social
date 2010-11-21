@@ -88,7 +88,7 @@ namespace SGS.CamadaDados
 
             if (!objOrcamento.CodigoOrcamento.HasValue)
             {
-                return ObterUltimoOrcamentoInserido();
+                return ObterUltimo();
             }
             else
             {
@@ -102,7 +102,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoOrcamento"></param>
         /// <returns></returns>
-        public Orcamento ObterOrcamento(int codigoOrcamento)
+        public Orcamento Obter(int codigoOrcamento)
         {
             SqlCommand comando = new SqlCommand("select * from Orcamento where CodigoOrcamento = @codigoOrcamento", base.Conectar());
 
@@ -140,7 +140,7 @@ namespace SGS.CamadaDados
             return objOrcamento;
         }
 
-        public Orcamento ObterOrcamento()
+        public Orcamento Obter()
         {
             SqlCommand comando = new SqlCommand("select TOP(1) * from Orcamento ORDER BY codigoOrcamento ASC", base.Conectar());
 
@@ -176,7 +176,7 @@ namespace SGS.CamadaDados
         /// Obtem o Ultimo plano cadastrado.
         /// </summary>
         /// <returns></returns>
-        public Orcamento ObterUltimoOrcamentoInserido()
+        public Orcamento ObterUltimo()
         {
 
             SqlCommand comando = new SqlCommand("SELECT TOP (1)* from Orcamento ORDER BY CodigoOrcamento DESC", base.Conectar());
@@ -206,7 +206,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui o Orcamento pelo seu código
         /// </summary>
-        public bool ExcluirOrcamento(int codigoOrcamento)
+        public bool Excluir(int codigoOrcamento)
         {
             bool execucao;
 
@@ -223,7 +223,7 @@ namespace SGS.CamadaDados
 
 
 
-        public List<Orcamento> ConsultarOrcamento(OrcamentoDTO objOrcamentoDTO)
+        public List<Orcamento> Consultar(OrcamentoDTO objOrcamentoDTO)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
@@ -321,7 +321,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <returns></returns>
 
-        public List<Orcamento> ListarOrcamento()
+        public List<Orcamento> Listar()
         {
             SqlCommand comando = new SqlCommand("select * from Orcamento ORDER BY NomePlano", base.Conectar());
 

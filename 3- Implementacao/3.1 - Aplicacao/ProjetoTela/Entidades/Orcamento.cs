@@ -89,7 +89,7 @@ namespace SGS.Entidades
                 {
                     OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
 
-                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(this.CodigoOrcamento.Value);
+                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigo(this.CodigoOrcamento.Value);
 
                     decimal valor = 0;
                     foreach (OrcamentoNatureza item in orcamentoNaturezaLista)
@@ -119,7 +119,7 @@ namespace SGS.Entidades
                 {
                     OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
 
-                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(this.CodigoOrcamento.Value);
+                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigo(this.CodigoOrcamento.Value);
 
                     decimal valorFinancas = 0;
                     foreach (OrcamentoNatureza item in orcamentoNaturezaLista)
@@ -149,7 +149,7 @@ namespace SGS.Entidades
                 {
                     OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
 
-                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(this.CodigoOrcamento.Value);
+                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigo(this.CodigoOrcamento.Value);
 
                     decimal valorFinancas = 0;
                     foreach (OrcamentoNatureza item in orcamentoNaturezaLista)

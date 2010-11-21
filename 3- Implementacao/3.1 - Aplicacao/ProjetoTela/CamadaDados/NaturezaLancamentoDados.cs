@@ -62,7 +62,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoNatureza"></param>
         /// <returns></returns>
-        public NaturezaLancamento ObterNaturezaLancamento(int codigoNatureza)
+        public NaturezaLancamento Obter(int codigoNatureza)
         {
             SqlCommand comando = new SqlCommand("select * from NaturezaLancamento where CodigoNatureza = @codigoNatureza", base.Conectar());
             SqlParameter parametroCodigoNatureza = new SqlParameter("@codigoNatureza", codigoNatureza);
@@ -90,7 +90,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um DadoBancario pelo seu código
         /// </summary>
-        public bool ExcluirNaturezaLancamento(int codigoNatureza)
+        public bool Excluir(int codigoNatureza)
         {
             bool execucao;
 
@@ -111,7 +111,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <returns></returns>
 
-        public List<NaturezaLancamento> ListarNaturezaLancamento()
+        public List<NaturezaLancamento> Listar()
         {
             SqlCommand comando = new SqlCommand("select * from NaturezaLancamento ORDER BY NomeNatureza", base.Conectar());
 

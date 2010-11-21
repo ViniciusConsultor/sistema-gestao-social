@@ -34,7 +34,7 @@ namespace SGS.Servicos
         {
             OrcamentoDados objOrcamentoDados = new OrcamentoDados();
 
-            return objOrcamentoDados.ObterOrcamento(codigoOrcamento);
+            return objOrcamentoDados.Obter(codigoOrcamento);
         }
 
         /// <summary>
@@ -48,10 +48,10 @@ namespace SGS.Servicos
             OrcamentoDados objOrcamentoDados = new OrcamentoDados();
 
             //Exclui todos os itens do orçamento
-            objOrcamentoNaturezaDados.ExcluirPorCodigoOrcamento(codigoOrcamento);
+            objOrcamentoNaturezaDados.ExcluirPorCodigo(codigoOrcamento);
 
             //Exclui o orçamento
-            return objOrcamentoDados.ExcluirOrcamento(codigoOrcamento);
+            return objOrcamentoDados.Excluir(codigoOrcamento);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace SGS.Servicos
         public OrcamentoDTO ConsultarOrcamento(OrcamentoDTO objOrcamentoDTO)
         {
             OrcamentoDados objOrcamentoDados = new OrcamentoDados();
-            objOrcamentoDTO.OrcamentoLista = objOrcamentoDados.ConsultarOrcamento(objOrcamentoDTO);
+            objOrcamentoDTO.OrcamentoLista = objOrcamentoDados.Consultar(objOrcamentoDTO);
 
             return objOrcamentoDTO;
 
@@ -106,7 +106,7 @@ namespace SGS.Servicos
         {
             NaturezaLancamentoDados objNaturezaLancamentoDados = new NaturezaLancamentoDados();
 
-            return objNaturezaLancamentoDados.ListarNaturezaLancamento();
+            return objNaturezaLancamentoDados.Listar();
 
         }
 
@@ -128,7 +128,7 @@ namespace SGS.Servicos
         {
             OrcamentoDados objOrcamentoDados = new OrcamentoDados();
 
-            return objOrcamentoDados.ListarOrcamento();
+            return objOrcamentoDados.Listar();
 
         }
 
@@ -142,7 +142,7 @@ namespace SGS.Servicos
         {
             OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
 
-            return objOrcamentoNaturezaDados.ObterOrcamentoNatureza(codigoNaturezaLancamento, codigoOrcamento);
+            return objOrcamentoNaturezaDados.Obter(codigoNaturezaLancamento, codigoOrcamento);
         }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace SGS.Servicos
         {
             OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
             
-            return objOrcamentoNaturezaDados.ListarPorCodigoOrcamento(codigoOrcamento);
+            return objOrcamentoNaturezaDados.ListarPorCodigo(codigoOrcamento);
         }
 
         

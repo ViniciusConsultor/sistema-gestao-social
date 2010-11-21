@@ -18,7 +18,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="objOrcamentoNatureza"></param>
         /// <returns></returns>
-        public bool ValidarOrcamentoNatureza(OrcamentoNatureza objOrcamentoNatureza)
+        public bool Validar(OrcamentoNatureza objOrcamentoNatureza)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
@@ -66,7 +66,7 @@ namespace SGS.CamadaDados
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
 
-            bool orcamentoNaturezaCadastrado = ValidarOrcamentoNatureza(objOrcamentoNatureza);
+            bool orcamentoNaturezaCadastrado = Validar(objOrcamentoNatureza);
 
             if (!orcamentoNaturezaCadastrado)
             {
@@ -110,7 +110,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoNatureza"></param>
         /// <returns></returns>
-        public OrcamentoNatureza ObterOrcamentoNatureza(int codigoNatureza, int codigoOrcamento)
+        public OrcamentoNatureza Obter(int codigoNatureza, int codigoOrcamento)
         {
             SqlCommand comando = new SqlCommand("select * from OrcamentoNatureza where CodigoNatureza = @codigoNatureza and CodigoOrcamento = @codigoOrcamento", base.Conectar());
             SqlParameter parametroCodigoNatureza = new SqlParameter("@codigoNatureza", codigoNatureza);
@@ -166,7 +166,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um OrcamentoNatureza pelo código do orçamento
         /// </summary>
-        public bool ExcluirPorCodigoOrcamento(int codigoOrcamento)
+        public bool ExcluirPorCodigo(int codigoOrcamento)
         {
             bool execucao;
 
@@ -215,7 +215,7 @@ namespace SGS.CamadaDados
         /// Lista por código do orçamento
         /// </summary>
         /// <param name="codigoOrcamento"></param>
-        public List<OrcamentoNatureza> ListarPorCodigoOrcamento(int codigoOrcamento)
+        public List<OrcamentoNatureza> ListarPorCodigo(int codigoOrcamento)
         {
             string sql = @"SELECT OrcNat.CodigoNatureza, NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.Valor AS ValorOrcamento, SUM(F.Valor) AS BalancoFinancas, 
                      OrcNat.Valor + SUM(F.Valor) AS SaldoOrcamento

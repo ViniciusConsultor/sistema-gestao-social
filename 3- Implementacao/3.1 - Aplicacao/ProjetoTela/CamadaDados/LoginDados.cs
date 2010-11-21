@@ -18,7 +18,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="objLogin"></param>
         /// <returns></returns>
-        public Login ValidarLogin(Login objLogin)
+        public Login Validar(Login objLogin)
         {
           /// *** [Thiago] Comentei pois estava apresentando msg de alerta!!! ***  SqlParameter parametroLogin2;
             SqlParameter parametroLogin = new SqlParameter("@login", objLogin.LoginUsuario);
@@ -114,7 +114,7 @@ namespace SGS.CamadaDados
             comando.ExecuteNonQuery();
 
             //TODO: retorno entidade login com o Código do Login Preenchido
-            return ObterUltimoLoginInserido();
+            return ObterUltimo();
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoLogin"></param>
         /// <returns></returns>
-        public Login ObterUltimoLoginInserido()
+        public Login ObterUltimo()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Login ORDER BY CodigoLogin DESC", base.Conectar());
             
@@ -152,7 +152,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoLogin"></param>
         /// <returns></returns>
-        public Login ObterLogin(int codigoLogin)
+        public Login Obter(int codigoLogin)
         {
             SqlCommand comando = new SqlCommand("select * from Login where CodigoLogin = @codigoLogin", base.Conectar());
             SqlParameter parametroCodigoLogin = new SqlParameter("@codigoLogin", codigoLogin);
@@ -183,7 +183,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um Login pelo seu código
         /// </summary>
-        public bool ExcluirLogin(int codigoLogin)
+        public bool Excluir(int codigoLogin)
         {
             bool execucao;
 
@@ -202,7 +202,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Retorna uma lista de Login apartir dos dados informados no LoginDTO
         /// </summary>
-        public List<Login> ConsultarLogin(LoginDTO objLoginDTO)
+        public List<Login> Consultar(LoginDTO objLoginDTO)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
