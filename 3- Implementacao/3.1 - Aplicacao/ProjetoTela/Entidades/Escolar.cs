@@ -24,13 +24,7 @@ namespace SGS.Entidades
         private string _serieCursada;
         private DateTime? _dataMatricula;
         private DateTime? _dataSaida;
-        private string _statusMatricula;
-        private string _formatoAnoLetivo;
-        private string _materia;
-        private string _professor;
-        private Decimal _nota;
-        private string _statusMateria;
-        private string _parteAnoLetivo;
+        private string _statusSerie;
         private Contato _contato;
 
 
@@ -94,46 +88,10 @@ namespace SGS.Entidades
             set { _dataSaida = value; }
         }
 
-        public string StatusMatricula
+        public string StatusSerie
         {
-            get { return _statusMatricula; }
-            set { _statusMatricula = value; }
-        }
-
-        public string FormatoAnoLetivo
-        {
-            get { return _formatoAnoLetivo; }
-            set { _formatoAnoLetivo = value; }
-        }
-
-        public string Materia
-        {
-            get { return _materia; }
-            set { _materia = value; }
-        }
-
-        public string Professor
-        {
-            get { return _professor; }
-            set { _professor = value; }
-        }
-
-        public Decimal Nota
-        {
-            get { return _nota; }
-            set { _nota = value; }
-        }
-
-        public string StatusMateria
-        {
-            get { return _statusMateria; }
-            set { _statusMateria = value; }
-        }
-
-        public string ParteAnoLetivo
-        {
-            get { return _parteAnoLetivo; }
-            set { _parteAnoLetivo = value; }
+            get { return _statusSerie; }
+            set { _statusSerie = value; }
         }
 
         public Contato Contato

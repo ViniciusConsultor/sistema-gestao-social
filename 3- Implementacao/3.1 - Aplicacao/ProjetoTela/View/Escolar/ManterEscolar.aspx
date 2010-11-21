@@ -32,18 +32,8 @@
        }
        .style14
        {
-           text-align: right;
+           text-align: left;
            font-size: small;
-           height: 63px;
-       }
-       .style15
-       {
-           width: 177px;
-           height: 63px;
-       }
-       .style16
-       {
-           height: 63px;
        }
     </style>
 
@@ -168,14 +158,9 @@
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Série Cursada</td>
+                    &nbsp;</td>
                 <td>
-                    <asp:TextBox ID="txtSerieCursada" runat="server" 
-                        MaxLength="20" Height="22px" Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridSerieCursada" runat="server" 
-                        ControlToValidate="txtSerieCursada" ErrorMessage="Preencha o campo Série Cursada" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style9" 
@@ -197,56 +182,23 @@
                 </td>
             </tr>
             <tr>
-                <td class="style14" 
+                <td class="style11" 
                     
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Status da Matrícula</td>
-                <td class="style15" valign="middle">
-                    <asp:RadioButtonList ID="rbtStatusMatricula" runat="server" Height="22px" 
-                        Width="136px" Font-Size="Small" RepeatLayout="Flow">
-                        <asp:ListItem>Matriculado</asp:ListItem>
-                        <asp:ListItem>Não Matriculado</asp:ListItem>
-                    </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="requeridStatusMatricula" runat="server" 
-                        ControlToValidate="rbtStatusMatricula" ErrorMessage="Escolha o Status da Matricula" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                    Série Cursada</td>
+                <td class="style12">
+                    <asp:TextBox ID="txtSerieCursada" runat="server" 
+                        MaxLength="20" Height="22px" Width="148px"></asp:TextBox>
                 </td>
-                <td class="style14" 
+                <td class="style11" 
                     
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Formato do Ano Letivo</td>
-                <td class="style16">
-                    <asp:DropDownList ID="ddlFormatoAnoLetivo" runat="server" Width="155px" 
+                    Status da Série</td>
+                <td class="style13">
+                    <asp:DropDownList ID="ddlStatusSerie" runat="server" Width="155px" 
                         Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>Bimestral</asp:ListItem>
-                        <asp:ListItem>Trimestral</asp:ListItem>
-                        <asp:ListItem>Semestral</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="requeridFormatoAnoLetivo" runat="server" 
-                        ControlToValidate="ddlFormatoAnoLetivo" ErrorMessage="Preencha o campo Formato Ano Letivo" 
-                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="style11" 
-                    
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Matéria</td>
-                <td class="style12">
-                    <asp:TextBox ID="txtMateria" runat="server" Height="22px" MaxLength="20" 
-                        Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridMateria" runat="server" 
-                        ControlToValidate="txtMateria" ErrorMessage="Preencha o campo Matéria" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
-                </td>
-                <td class="style11" 
-                    
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Status Matéria</td>
-                <td class="style13">
-                    <asp:DropDownList ID="ddlStatusMateria" runat="server" Width="155px" 
-                        Height="22px">
+                        <asp:ListItem>Cursando</asp:ListItem>
                         <asp:ListItem>Aprovado</asp:ListItem>
                         <asp:ListItem>Recuperação</asp:ListItem>
                         <asp:ListItem>Reprovado</asp:ListItem>
@@ -254,48 +206,47 @@
                 </td>
             </tr>
             <tr>
-                <td class="style9" 
+                <td class="style14" 
+                    
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Professor</td>
+                    &nbsp;</td>
                 <td class="style10">
-                    <asp:TextBox ID="txtProfessor" runat="server" Height="22px" MaxLength="50" 
-                        Width="148px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="requeridProfessor" runat="server" 
-                        ControlToValidate="txtProfessor" ErrorMessage="Preencha o campo Professor" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Nota</td>
+                    &nbsp;</td>
                 <td>
-                    <asp:TextBox ID="txtNota" runat="server" Height="22px" MaxLength="4" 
-                        Width="148px"></asp:TextBox>
-                </td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style14" 
+                    
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    <strong>Dados Contato</strong></td>
+                <td class="style10">
+                    &nbsp;</td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Parte do Ano Letivo</td>
-                <td class="style10">
-                    <asp:DropDownList ID="ddlParteAnoLetivo" runat="server" Width="155px" 
-                        Height="22px">
-                        <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>1ª Parte</asp:ListItem>
-                        <asp:ListItem>2ª Parte</asp:ListItem>
-                        <asp:ListItem>3ª Parte</asp:ListItem>
-                        <asp:ListItem>4ª Parte</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Telefone</td>
-                <td>
+                <td class="style10">
                     <asp:TextBox ID="txtTelefone" runat="server" Height="22px" MaxLength="14" 
                         Width="148px" CssClass="mask-fone"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridTelefone" runat="server" 
                         ControlToValidate="txtTelefone" ErrorMessage="Preencha o campo Telefone" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style9" 
