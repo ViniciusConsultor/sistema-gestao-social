@@ -265,7 +265,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoAssistido"></param>
         /// <returns></returns>
-        public Assistido ObterAssistido(int codigoAssistido)
+        public Assistido Obter(int codigoAssistido)
         {
             PessoaDados objPessoaDados = new PessoaDados();
             AssistidoAdaptador objAssistidoAdaptador = new AssistidoAdaptador(); 
@@ -332,7 +332,7 @@ namespace SGS.CamadaDados
             if (objAssistido.CodigoContatoResponsavel.HasValue)
             {
                 ContatoDados objContatoDados = new ContatoDados();
-                objAssistido.ContatoResponsavel = objContatoDados.ObterContato(objAssistido.CodigoContatoResponsavel.Value);
+                objAssistido.ContatoResponsavel = objContatoDados.Obter(objAssistido.CodigoContatoResponsavel.Value);
             }
 
             leitorDados.Close();
@@ -346,7 +346,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoAssistido"></param>
         /// <returns></returns>
-        public Assistido ObterUltimoAssistidoInserido(int codigoAssistido)
+        public Assistido ObterUltimo(int codigoAssistido)
         {
             return new Assistido();
         }
@@ -389,7 +389,7 @@ namespace SGS.CamadaDados
                 if (leitorDados["CodigoContato"] != DBNull.Value)
                     objAssistido.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 if (objAssistido.Contato_CodigoContato.HasValue)
-                    objAssistido.Contato = objContatoDados.ObterContato(objAssistido.Contato_CodigoContato.Value);
+                    objAssistido.Contato = objContatoDados.Obter(objAssistido.Contato_CodigoContato.Value);
                 objAssistido.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objAssistido.Nome = leitorDados["Nome"].ToString();
                 objAssistido.Sexo = leitorDados["Sexo"].ToString();
@@ -444,7 +444,7 @@ namespace SGS.CamadaDados
                 //Obtém dados de Contato do Responsável
                 if (objAssistido.CodigoContatoResponsavel.HasValue)
                 {
-                    objAssistido.ContatoResponsavel = objContatoDados.ObterContato(objAssistido.CodigoContatoResponsavel.Value);
+                    objAssistido.ContatoResponsavel = objContatoDados.Obter(objAssistido.CodigoContatoResponsavel.Value);
                 }
 
                 assistidoLista.Add(objAssistido);
@@ -461,7 +461,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="filtro"></param>
         /// <returns></returns>
-        public List<Assistido> ConsultarAssistido(ConsultarAssistidoDTO filtro)
+        public List<Assistido> Consultar(ConsultarAssistidoDTO filtro)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
@@ -565,7 +565,7 @@ namespace SGS.CamadaDados
                 if (leitorDados["CodigoContato"] != DBNull.Value)
                     objAssistido.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 if (objAssistido.Contato_CodigoContato.HasValue)
-                    objAssistido.Contato = objContatoDados.ObterContato(objAssistido.Contato_CodigoContato.Value);
+                    objAssistido.Contato = objContatoDados.Obter(objAssistido.Contato_CodigoContato.Value);
                 objAssistido.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
                 objAssistido.Nome = leitorDados["Nome"].ToString();
                 objAssistido.Sexo = leitorDados["Sexo"].ToString();
@@ -620,7 +620,7 @@ namespace SGS.CamadaDados
                 //Obtém dados de Contato do Responsável
                 if (objAssistido.CodigoContatoResponsavel.HasValue)
                 {
-                    objAssistido.ContatoResponsavel = objContatoDados.ObterContato(objAssistido.CodigoContatoResponsavel.Value);
+                    objAssistido.ContatoResponsavel = objContatoDados.Obter(objAssistido.CodigoContatoResponsavel.Value);
                 }
                 EscolarDados objEscolarDados = new EscolarDados();
                 //objAssistido.Escolar = objEscolarDados.Ob

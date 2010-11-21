@@ -31,7 +31,7 @@ namespace SGS.Servicos
         {
             AssistidoDados objAssistidoDados = new AssistidoDados();
 
-            return objAssistidoDados.ObterAssistido(codigoAssistido);
+            return objAssistidoDados.Obter(codigoAssistido);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace SGS.Servicos
         {
             AssistidoDados objAssistidoDados = new AssistidoDados();
 
-            return objAssistidoDados.ConsultarAssistido(objConsultarAssistidoDTO);
+            return objAssistidoDados.Consultar(objConsultarAssistidoDTO);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace SGS.Servicos
         {
             AssistidoDados objAssistidoDados = new AssistidoDados();
 
-            return objAssistidoDados.ConsultarAssistido(objConsultarAssistidoDTO);
+            return objAssistidoDados.Consultar(objConsultarAssistidoDTO);
         }
 
 

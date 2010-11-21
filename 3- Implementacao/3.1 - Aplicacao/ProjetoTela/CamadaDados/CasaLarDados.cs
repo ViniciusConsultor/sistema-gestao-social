@@ -114,7 +114,7 @@ namespace SGS.CamadaDados
             comando.ExecuteNonQuery();
 
             //TODO: retorno entidade CasaLar com o Código da casaLAr Preenchido
-            return ObterUltimaCasaLarInserida();
+            return ObterUltima();
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoCasaLar"></param>
         /// <returns></returns>
-        public CasaLar ObterUltimaCasaLarInserida()
+        public CasaLar ObterUltima()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM CasaLar ORDER BY CodigoCasaLar DESC", base.Conectar());
 
@@ -200,7 +200,7 @@ namespace SGS.CamadaDados
             if (objCasaLar != null && objCasaLar.CodigoContato != null)
             { 
                ContatoDados objContatoDados = new ContatoDados();
-               objCasaLar.Contato = objContatoDados.ObterContato(objCasaLar.CodigoContato.Value);
+               objCasaLar.Contato = objContatoDados.Obter(objCasaLar.CodigoContato.Value);
             }
 
             leitorDados.Close();
@@ -214,7 +214,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoCasaLar"></param>
         /// <returns></returns>
-        public CasaLar ObterCasaLar()
+        public CasaLar Obter()
         {
             SqlCommand comando = new SqlCommand("select TOP(1) * from CasaLar ORDER BY codigocasalar ASC", base.Conectar());
 
@@ -249,7 +249,7 @@ namespace SGS.CamadaDados
             if (objCasaLar != null && objCasaLar.CodigoContato != null)
             {
                 ContatoDados objContatoDados = new ContatoDados();
-                objCasaLar.Contato = objContatoDados.ObterContato(objCasaLar.CodigoContato.Value);
+                objCasaLar.Contato = objContatoDados.Obter(objCasaLar.CodigoContato.Value);
             }
 
             leitorDados.Close();
@@ -261,7 +261,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui uma CasaLar pelo seu código
         /// </summary>
-        public bool ExcluirCasaLar(int codigoCasaLar, int codigoContato)
+        public bool Excluir(int codigoCasaLar, int codigoContato)
         {
             bool execucao;
 
@@ -274,7 +274,7 @@ namespace SGS.CamadaDados
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
 
             ContatoDados objContatoDados = new ContatoDados();
-            objContatoDados.ExcluirContato(codigoContato);
+            objContatoDados.Excluir(codigoContato);
 
             return execucao;
         }
@@ -284,7 +284,7 @@ namespace SGS.CamadaDados
         /// Retorna uma Lista de Casa Lar
         /// </summary>
         /// <returns></returns>
-        public List<CasaLar> ListarCasaLar()
+        public List<CasaLar> Listar()
         {
             SqlCommand comando = new SqlCommand("select * from CasaLar ORDER BY CodigoCasaLar", base.Conectar());
 

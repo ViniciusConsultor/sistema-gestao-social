@@ -68,7 +68,7 @@ namespace SGS.CamadaDados
 
             if (!objAlimentacao.CodigoAlimentacao.HasValue)
             {
-                Alimentacao AlimentacaoClone = ObterUltimaAlimentacaoInserida();
+                Alimentacao AlimentacaoClone = ObterUltima();
                 objAlimentacao.CodigoAlimentacao = AlimentacaoClone.CodigoAlimentacao;
             }
 
@@ -90,7 +90,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoAlimentacao"></param>
         /// <returns></returns>
-        public Alimentacao ObterAlimentacao(int CodigoAlimentacao)
+        public Alimentacao Obter(int CodigoAlimentacao)
         {
             SqlCommand comando = new SqlCommand("select * from Alimentacao where CodigoAlimentacao = @CodigoAlimentacao", base.Conectar());
             SqlParameter parametroCodigoAlimentacao = new SqlParameter("@CodigoAlimentacao", CodigoAlimentacao);
@@ -126,7 +126,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoAlimentacao"></param>
         /// <returns></returns>
-        public Alimentacao ObterUltimaAlimentacaoInserida()
+        public Alimentacao ObterUltima()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Alimentacao ORDER BY CodigoAlimentacao DESC", base.Conectar());
 
@@ -156,7 +156,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui uma Alimentacao pelo seu código
         /// </summary>
-        public bool ExcluirAlimentacao(int codigoAlimentacao)
+        public bool Excluir(int codigoAlimentacao)
         {
             AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
             bool execucao;
@@ -182,7 +182,7 @@ namespace SGS.CamadaDados
         /// <param name="dia"></param>
         /// <param name="periodo"></param>
         /// <returns></returns>
-        public Alimentacao ObterAlimentacaoPorDiaPeriodo(string dia, string periodo)
+        public Alimentacao ObterPorDiaPeriodo(string dia, string periodo)
         {
             SqlCommand comando = new SqlCommand("select * from Alimentacao where DiaSemana = @diaSemana and Periodo = @periodo", base.Conectar());
 
@@ -223,7 +223,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="diaSemana"></param>
         /// <returns></returns>
-        public List<Alimentacao> ListarPorDiaSemana(string diaSemana)
+        public List<Alimentacao> ListarPorDia(string diaSemana)
         {
             SqlCommand comando = new SqlCommand("select * from Alimentacao where DiaSemana = @diaSemana order by Horario", base.Conectar());
 

@@ -119,7 +119,7 @@ namespace SGS.CamadaDados
 
             if (!objContato.CodigoContato.HasValue)
             {
-                return ObterUltimoContato();
+                return ObterUltimo();
             }
             else
             {
@@ -133,7 +133,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoPessoa"></param>
         /// <returns></returns>
-        public Contato ObterUltimoContato()
+        public Contato ObterUltimo()
         {
             SqlCommand comando = new SqlCommand("select TOP (1) * from Contato ORDER BY CodigoContato DESC", base.Conectar());
            
@@ -172,7 +172,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoPessoa"></param>
         /// <returns></returns>
-        public Contato ObterContato(int codigoContato)
+        public Contato Obter(int codigoContato)
         {
             SqlCommand comando = new SqlCommand("select * from Contato where CodigoContato = @codigoContato", base.Conectar());
             SqlParameter parametroCodigoContato = new SqlParameter("@codigoContato", codigoContato);
@@ -211,7 +211,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um Contato pelo seu código
         /// </summary>
-        public bool ExcluirContato(int codigoContato)
+        public bool Excluir(int codigoContato)
         {
             bool execucao;
 

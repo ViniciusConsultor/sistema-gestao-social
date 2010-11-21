@@ -119,11 +119,11 @@ namespace SGS.CamadaDados
 
             if (!objEscolar.CodigoEscolar.HasValue)
             {
-                return ObterUltimoEscolarInserido();
+                return ObterUltima();
             }
             else
             {
-                return ObterEscolar(objEscolar.CodigoEscolar.Value);
+                return Obter(objEscolar.CodigoEscolar.Value);
             }
             
         }
@@ -133,7 +133,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoEscolar"></param>
         /// <returns></returns>
-        public Escolar ObterUltimoEscolarInserido()
+        public Escolar ObterUltima()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Escolar ORDER BY CodigoEscolar DESC", base.Conectar());
 
@@ -162,7 +162,7 @@ namespace SGS.CamadaDados
             leitorDados.Dispose();
 
             ContatoDados objContatoDados = new ContatoDados();
-            objEscolar.Contato = objContatoDados.ObterContato(objEscolar.Contato_CodigoContato.Value);
+            objEscolar.Contato = objContatoDados.Obter(objEscolar.Contato_CodigoContato.Value);
             
 
             return objEscolar;
@@ -173,7 +173,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoEscolar"></param>
         /// <returns></returns>
-        public Escolar ObterEscolar(int codigoEscolar)
+        public Escolar Obter(int codigoEscolar)
         {
             SqlCommand comando = new SqlCommand("select * from Escolar where CodigoEscolar = @codigoEscolar", base.Conectar());
             SqlParameter parametroCodigoEscolar = new SqlParameter("@codigoEscolar", codigoEscolar);
@@ -205,7 +205,7 @@ namespace SGS.CamadaDados
             leitorDados.Dispose();
 
             ContatoDados objContatoDados = new ContatoDados();
-            objEscolar.Contato = objContatoDados.ObterContato(objEscolar.Contato_CodigoContato.Value);
+            objEscolar.Contato = objContatoDados.Obter(objEscolar.Contato_CodigoContato.Value);
 
             return objEscolar;
         }
@@ -213,7 +213,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui os dados escolar pelo seu código
         /// </summary>
-        public bool ExcluirEscolar(int codigoEscolar, int codigoContato)
+        public bool Excluir(int codigoEscolar, int codigoContato)
         {
             bool execucao;
 
@@ -226,7 +226,7 @@ namespace SGS.CamadaDados
             execucao = Convert.ToBoolean(comando.ExecuteNonQuery());
 
             ContatoDados objContatoDados = new ContatoDados();
-            objContatoDados.ExcluirContato(codigoContato);
+            objContatoDados.Excluir(codigoContato);
 
             return execucao;
         }
@@ -234,7 +234,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Retorna uma lista de Escolar apartir dos dados informados no ParametrosConsultarEscolarDTO
         /// </summary>
-        public List<GradeConsultarEscolarDTO> ConsultarEscolar(ParametroConsultarEscolarDTO objParametro)
+        public List<GradeConsultarEscolarDTO> Consultar(ParametroConsultarEscolarDTO objParametro)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();

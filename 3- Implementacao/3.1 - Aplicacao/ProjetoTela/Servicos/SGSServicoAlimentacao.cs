@@ -34,7 +34,7 @@ namespace SGS.Servicos
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
 
-            return objAlimentacaoDados.ObterAlimentacao(codigoAlimentacao);
+            return objAlimentacaoDados.Obter(codigoAlimentacao);
         }
 
 
@@ -47,7 +47,7 @@ namespace SGS.Servicos
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
 
-            return objAlimentacaoDados.ExcluirAlimentacao(codigoAlimentacao);
+            return objAlimentacaoDados.Excluir(codigoAlimentacao);
         }
 
         
@@ -73,7 +73,7 @@ namespace SGS.Servicos
         {
             AlimentacaoDados objAlimentacaoDados = new AlimentacaoDados();
 
-            return objAlimentacaoDados.ObterAlimentacaoPorDiaPeriodo(dia, periodo);
+            return objAlimentacaoDados.ObterPorDiaPeriodo(dia, periodo);
         }
 
 
@@ -89,7 +89,7 @@ namespace SGS.Servicos
             ConsultarAlimentacaoDTO.DiaSemanaDTO objDiaSemanaDTO = new ConsultarAlimentacaoDTO.DiaSemanaDTO();
 
             //Obtem a Alimentação lista por um dia da semana
-            objalimentacaoLista = objAlimentacaoDados.ListarPorDiaSemana(diaSemana);
+            objalimentacaoLista = objAlimentacaoDados.ListarPorDia(diaSemana);
 
 
             if (objalimentacaoLista.Count > 0)

@@ -124,7 +124,7 @@ namespace SGS.CamadaDados
 
             if (!objDesenvolvimento.CodigoDesenvolvimento.HasValue)
             {
-                return ObterUltimoDesenvolvimentoInserido();
+                return ObterUltimo();
             }
             else
             {
@@ -133,7 +133,7 @@ namespace SGS.CamadaDados
           
             if (!objDesenvolvimento.CodigoAssistido.HasValue)
             {
-                return ObterUltimoDesenvolvimentoInserido();
+                return ObterUltimo();
             }
             else
             {
@@ -146,7 +146,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoDesenvolvimento"></param>
         /// <returns></returns>
-        public Desenvolvimento ObterDesenvolvimento(int codigoDesenvolvimento)
+        public Desenvolvimento Obter(int codigoDesenvolvimento)
         {
             SqlCommand comando = new SqlCommand("select * from Desenvolvimento where CodigoDesenvolvimento = @codigoDesenvolvimento", base.Conectar());
             SqlParameter parametroCodigoDesenvolvimento = new SqlParameter("@codigoDesenvolvimento", codigoDesenvolvimento);
@@ -181,7 +181,7 @@ namespace SGS.CamadaDados
             return objDesenvolvimento;
         }
 
-        public Desenvolvimento ObterUltimoDesenvolvimentoInserido()
+        public Desenvolvimento ObterUltimo()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Desenvolvimento ORDER BY CodigoDesenvolvimento DESC", base.Conectar());
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -219,7 +219,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um Desenvolvimento pelo seu código
         /// </summary>
-        public bool ExcluirDesenvolvimento(int codigoDesenvolvimento)
+        public bool Excluir(int codigoDesenvolvimento)
         {
             bool execucao;
 
@@ -234,7 +234,7 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
-        public List<DesenvolvimentoAssistidoDTO> ConsultarDesenvolvimento(DesenvolvimentoDTO objDesenvolvimentoDTO)
+        public List<DesenvolvimentoAssistidoDTO> Consultar(DesenvolvimentoDTO objDesenvolvimentoDTO)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();
