@@ -121,7 +121,7 @@
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="RELATÓRIO" Value="Relatório">
-                                <asp:MenuItem Text="Assistidos" Value="Assistidos" 
+                                <asp:MenuItem Text="Assistido" Value="Assistido" 
                                     NavigateUrl="~/View/Relatorio/RelAssistidos.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Financeiro" Value="Financeiro" 
                                     NavigateUrl="~/View/Relatorio/RelFinancas.aspx"></asp:MenuItem>

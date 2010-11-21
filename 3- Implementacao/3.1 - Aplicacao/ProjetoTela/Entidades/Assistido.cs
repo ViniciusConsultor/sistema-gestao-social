@@ -19,7 +19,7 @@ namespace SGS.Entidades
         private string _rgMae;
         private Decimal? _peso;
         private Decimal? _altura;
-        private string _cor;
+        private string _etnia;
         private string _historicoVida;
         private string _telefoneMae;
         private string _telefonePai;
@@ -109,8 +109,8 @@ namespace SGS.Entidades
 
         public string Etnia
         {
-            get { return _cor; }
-            set { _cor = value; }
+            get { return _etnia; }
+            set { _etnia = value; }
         }
 
         public string HistoricoVida
