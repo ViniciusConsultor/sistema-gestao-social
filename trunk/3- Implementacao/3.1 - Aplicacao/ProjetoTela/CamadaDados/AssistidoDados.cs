@@ -622,6 +622,8 @@ namespace SGS.CamadaDados
                 {
                     objAssistido.ContatoResponsavel = objContatoDados.ObterContato(objAssistido.CodigoContatoResponsavel.Value);
                 }
+                EscolarDados objEscolarDados = new EscolarDados();
+                //objAssistido.Escolar = objEscolarDados.Ob
 
                 assistidoLista.Add(objAssistido);
             }
