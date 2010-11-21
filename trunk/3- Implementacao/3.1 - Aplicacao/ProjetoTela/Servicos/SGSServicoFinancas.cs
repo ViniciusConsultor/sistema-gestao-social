@@ -79,7 +79,7 @@ namespace SGS.Servicos
         {
             CasaLarDados objCasaLarDados = new CasaLarDados();
 
-            return objCasaLarDados.ListarCasaLar();
+            return objCasaLarDados.Listar();
 
         }
 

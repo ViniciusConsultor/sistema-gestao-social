@@ -29,14 +29,14 @@ namespace SGS.Servicos
         {
             DesenvolvimentoDados objDesenvolvimentoDados = new DesenvolvimentoDados();
 
-            return objDesenvolvimentoDados.ObterDesenvolvimento(codigoDesenvolvimento);
+            return objDesenvolvimentoDados.Obter(codigoDesenvolvimento);
         }
 
         public bool ExcluirDesenvolvimento(int codigoDesenvolvimento)
         {
             DesenvolvimentoDados objDesenvolvimentoDados = new DesenvolvimentoDados();
 
-            return objDesenvolvimentoDados.ExcluirDesenvolvimento(codigoDesenvolvimento);
+            return objDesenvolvimentoDados.Excluir(codigoDesenvolvimento);
         }
 
        /// <summary>
@@ -46,7 +46,7 @@ namespace SGS.Servicos
         public DesenvolvimentoDTO ConsultarDesenvolvimento(DesenvolvimentoDTO objDesenvolvimentoDTO)
         {
             DesenvolvimentoDados objDesenvolvimentoDados = new DesenvolvimentoDados();
-            objDesenvolvimentoDTO.DesenvolvimentoAssistidoDTOLista = objDesenvolvimentoDados.ConsultarDesenvolvimento(objDesenvolvimentoDTO);
+            objDesenvolvimentoDTO.DesenvolvimentoAssistidoDTOLista = objDesenvolvimentoDados.Consultar(objDesenvolvimentoDTO);
 
             return objDesenvolvimentoDTO;
 

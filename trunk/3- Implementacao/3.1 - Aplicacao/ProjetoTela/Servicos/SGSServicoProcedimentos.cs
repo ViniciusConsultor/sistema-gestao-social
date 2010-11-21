@@ -29,14 +29,14 @@ namespace SGS.Servicos
         {
             ProcedimentosDados objProcedimentosDados = new ProcedimentosDados();
 
-            return objProcedimentosDados.ObterProcedimentos(codigoProcedimentos);
+            return objProcedimentosDados.Obter(codigoProcedimentos);
         }
 
         public bool ExcluirProcedimentos(int codigoProcedimentos)
         {
             ProcedimentosDados objProcedimentosDados = new ProcedimentosDados();
 
-            return objProcedimentosDados.ExcluirProcedimentos(codigoProcedimentos);
+            return objProcedimentosDados.Excluir(codigoProcedimentos);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace SGS.Servicos
         public ProcedimentosDTO ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
         {
             ProcedimentosDados objProcedimentosDados = new ProcedimentosDados();
-            objProcedimentosDTO.ProcedimentosAssistidoDTOLista = objProcedimentosDados.ConsultarProcedimentos(objProcedimentosDTO);
+            objProcedimentosDTO.ProcedimentosAssistidoDTOLista = objProcedimentosDados.Consultar(objProcedimentosDTO);
 
             return objProcedimentosDTO;
 

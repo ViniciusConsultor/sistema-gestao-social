@@ -47,7 +47,7 @@ namespace SGS.Servicos
         {
             CasaLarDados objCasaLarDados = new CasaLarDados();
 
-            return objCasaLarDados.ObterCasaLar();
+            return objCasaLarDados.Obter();
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace SGS.Servicos
         {
             CasaLarDados objCasaLarDados = new CasaLarDados();
 
-            return objCasaLarDados.ExcluirCasaLar(codigoCasaLar,codigoContato);
+            return objCasaLarDados.Excluir(codigoCasaLar,codigoContato);
         }
 
     }

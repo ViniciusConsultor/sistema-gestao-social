@@ -166,7 +166,7 @@ namespace SGS.CamadaDados
                 else
                     objPessoa.Contato_CodigoContato = null;
                 if (objPessoa.Contato_CodigoContato.HasValue)
-                    objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
+                    objPessoa.Contato = objContatoDados.Obter(objPessoa.Contato_CodigoContato.Value);
                 else
                     objPessoa.Contato = null;
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
@@ -214,7 +214,7 @@ namespace SGS.CamadaDados
                     objPessoa.Contato_CodigoContato = null;
 
                 if (objPessoa.Contato_CodigoContato.HasValue)
-                    objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
+                    objPessoa.Contato = objContatoDados.Obter(objPessoa.Contato_CodigoContato.Value);
                 else
                     objPessoa.Contato = null;
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
@@ -281,7 +281,7 @@ namespace SGS.CamadaDados
                     objPessoa.Contato_CodigoContato = null;
 
                 if (objPessoa.Contato_CodigoContato.HasValue)
-                    objPessoa.Contato = objContatoDados.ObterContato(objPessoa.Contato_CodigoContato.Value);
+                    objPessoa.Contato = objContatoDados.Obter(objPessoa.Contato_CodigoContato.Value);
                 else
                     objPessoa.Contato = null;
                 objPessoa.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);

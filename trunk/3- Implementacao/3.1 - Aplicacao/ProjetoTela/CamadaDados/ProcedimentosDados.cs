@@ -104,7 +104,7 @@ namespace SGS.CamadaDados
 
             if(!objProcedimentos.CodigoProcedimento.HasValue)
             {
-                return ObterUltimoProcedimentoInserido();
+                return ObterUltimo();
             }
             else
             {
@@ -117,7 +117,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoProcedimento"></param>
         /// <returns></returns>
-        public Procedimentos ObterProcedimentos(int codigoProcedimento)
+        public Procedimentos Obter(int codigoProcedimento)
         {
             SqlCommand comando = new SqlCommand("select * from Procedimentos where CodigoProcedimento = @codigoProcedimento", base.Conectar());
             SqlParameter parametroCodigoProcedimento = new SqlParameter("@codigoProcedimento", codigoProcedimento);
@@ -154,7 +154,7 @@ namespace SGS.CamadaDados
         /// Obter o ultimo procedimento inserido na tabela
         /// </summary>
         /// <returns></returns>
-        public Procedimentos ObterUltimoProcedimentoInserido()
+        public Procedimentos ObterUltimo()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Procedimentos ORDER BY CodigoProcedimento DESC", base.Conectar());
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -185,7 +185,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui um Procedimento pelo seu código
         /// </summary>
-        public bool ExcluirProcedimentos(int codigoProcedimento)
+        public bool Excluir(int codigoProcedimento)
         {
             bool execucao;
 
@@ -200,7 +200,7 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
-        public List<ProcedimentosAssistidoDTO> ConsultarProcedimentos(ProcedimentosDTO objProcedimentosDTO)
+        public List<ProcedimentosAssistidoDTO> Consultar(ProcedimentosDTO objProcedimentosDTO)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = base.Conectar();

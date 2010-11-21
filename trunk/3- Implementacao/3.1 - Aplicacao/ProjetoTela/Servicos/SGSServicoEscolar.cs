@@ -35,7 +35,7 @@ namespace SGS.Servicos
         {
             EscolarDados objEscolarDados = new EscolarDados();
 
-            return objEscolarDados.ObterEscolar(codigoEscolar);
+            return objEscolarDados.Obter(codigoEscolar);
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace SGS.Servicos
         {
             EscolarDados objEscolarDados = new EscolarDados();
 
-            return objEscolarDados.ExcluirEscolar(codigoEscolar, codigoContato);
+            return objEscolarDados.Excluir(codigoEscolar, codigoContato);
         }
 
        
@@ -60,7 +60,7 @@ namespace SGS.Servicos
         {
             EscolarDados objEscolarDados = new EscolarDados();
             
-            return objEscolarDados.ConsultarEscolar(objParametroConsultarEscolarDTO);
+            return objEscolarDados.Consultar(objParametroConsultarEscolarDTO);
         }
 
     }
