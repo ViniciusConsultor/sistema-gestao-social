@@ -129,7 +129,7 @@ namespace SGS.CamadaDados
 
             if (!objPessoa.CodigoPessoa.HasValue)
             {
-                Pessoa objPessoaInserida = this.ObterUltimaPessoaInserida();
+                Pessoa objPessoaInserida = this.ObterUltima();
                 objPessoa.CodigoPessoa = objPessoaInserida.CodigoPessoa;
                 return objPessoa;
                 //return this.ObterUltimaPessoaInserida();
@@ -145,7 +145,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoPessoa"></param>
         /// <returns></returns>
-        public Pessoa ObterPessoa(int codigoPessoa)
+        public Pessoa Obter(int codigoPessoa)
         {
             ContatoDados objContatoDados = new ContatoDados();
             SqlCommand comando = new SqlCommand("select * from Pessoa where CodigoPessoa = @codigoPessoa", base.Conectar());
@@ -195,7 +195,7 @@ namespace SGS.CamadaDados
         /// </summary>
         /// <param name="codigoPessoa"></param>
         /// <returns></returns>
-        public Pessoa ObterUltimaPessoaInserida()
+        public Pessoa ObterUltima()
         {
             ContatoDados objContatoDados = new ContatoDados();
             SqlCommand comando = new SqlCommand("select top 1 * from Pessoa order by CodigoPessoa desc", base.Conectar());
@@ -242,7 +242,7 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Exclui uma Pessoa pelo seu código
         /// </summary>
-        public bool ExcluirPessoa(int codigoPessoa)
+        public bool Excluir(int codigoPessoa)
         {
             bool execucao;
 
@@ -261,7 +261,7 @@ namespace SGS.CamadaDados
         /// Este método retorna uma lista de Pessoa
         /// </summary>
         /// <returns></returns>
-        public List<Pessoa> ListarPessoa()
+        public List<Pessoa> Listar()
         {
             ContatoDados objContatoDados = new ContatoDados();
             SqlCommand comando = new SqlCommand("select * from Pessoa order by Nome asc ", base.Conectar());

@@ -106,7 +106,7 @@ namespace SGS.CamadaDados
 
         if (!objFinancas.CodigoFinancas.HasValue)
         {
-            return ObterUltimaFinancasInserida();
+            return ObterUltima();
         }
         else
         {
@@ -114,7 +114,7 @@ namespace SGS.CamadaDados
         }
     }
 
-   public Financas ObterFinancas(int codigoFinancas)
+   public Financas Obter(int codigoFinancas)
         {
             SqlCommand comando = new SqlCommand("select * from Financas where CodigoFinancas = @codigoFinancas", base.Conectar());
             SqlParameter parametroCodigo = new SqlParameter("@codigoFinancas", codigoFinancas);
@@ -150,7 +150,7 @@ namespace SGS.CamadaDados
         /// 
         /// </summary>
         /// <returns></returns>
-   public Financas ObterUltimaFinancasInserida()
+   public Financas ObterUltima()
         {
             SqlCommand comando = new SqlCommand(@"SELECT TOP (1) * FROM Financas ORDER BY CodigoFinancas DESC", base.Conectar());
             SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -178,7 +178,7 @@ namespace SGS.CamadaDados
             return objFinancas;
    }
 
-   public bool ExcluirFinancas(int codigoFinancas)
+   public bool Excluir(int codigoFinancas)
     {
         bool execucao;
 
@@ -194,7 +194,7 @@ namespace SGS.CamadaDados
 
     }
 
-   public List<Financas> ConsultarFinancas(FinancasDTO objFinancasDTO)
+   public List<Financas> Consultar(FinancasDTO objFinancasDTO)
    {
        SqlCommand comando = new SqlCommand();
        comando.Connection = base.Conectar();
@@ -282,7 +282,7 @@ namespace SGS.CamadaDados
     /// </summary>
     /// <param name="filtro"></param>
     /// <returns></returns>
-   public List<Financas> ConsultarFinancas(FinanceiroRelatorioDTO filtro)
+   public List<Financas> Consultar(FinanceiroRelatorioDTO filtro)
    {
        SqlCommand comando = new SqlCommand();
        comando.Connection = base.Conectar();
@@ -354,7 +354,7 @@ namespace SGS.CamadaDados
            objFinancas.CodigoFinancas = Convert.ToInt32(leitorDados["CodigoFinancas"]);
            objFinancas.CodigoCasaLar = Convert.ToInt32(leitorDados["CodigoCasaLar"]);
            objFinancas.CodigoNatureza = Convert.ToInt32(leitorDados["CodigoNatureza"]);
-           objFinancas.NaturezaLancamento = objNaturezaLancamentoDados.ObterNaturezaLancamento(objFinancas.CodigoNatureza.Value);
+           objFinancas.NaturezaLancamento = objNaturezaLancamentoDados.Obter(objFinancas.CodigoNatureza.Value);
            objFinancas.DataLancamento = Convert.ToDateTime(leitorDados["DataLancamento"]);
            objFinancas.DataCriacao = Convert.ToDateTime(leitorDados["DataCriacao"]);
            objFinancas.TipoLancamento = leitorDados["TipoLancamento"].ToString();

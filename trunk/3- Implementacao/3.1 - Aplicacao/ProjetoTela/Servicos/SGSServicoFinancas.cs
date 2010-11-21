@@ -34,7 +34,7 @@ namespace SGS.Servicos
         {
             FinancasDados objFinancasDados = new FinancasDados();
 
-            return objFinancasDados.ObterFinancas(codigoFinancas);
+            return objFinancasDados.Obter(codigoFinancas);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace SGS.Servicos
         {
             FinancasDados objFinancasDados = new FinancasDados();
 
-            return objFinancasDados.ExcluirFinancas(codigoFinancas);
+            return objFinancasDados.Excluir(codigoFinancas);
         }
 
        /// <summary>
@@ -55,7 +55,7 @@ namespace SGS.Servicos
         public FinancasDTO ConsultarFinancas(FinancasDTO objFinancasDTO)
         {
             FinancasDados objFinancasDados = new FinancasDados();
-            objFinancasDTO.FinancasLista = objFinancasDados.ConsultarFinancas(objFinancasDTO);
+            objFinancasDTO.FinancasLista = objFinancasDados.Consultar(objFinancasDTO);
 
             return objFinancasDTO;
 
@@ -68,7 +68,7 @@ namespace SGS.Servicos
         {
             NaturezaLancamentoDados objNaturezaLancamentoDados = new NaturezaLancamentoDados();
             
-            return objNaturezaLancamentoDados.ListarNaturezaLancamento();
+            return objNaturezaLancamentoDados.Listar();
 
         }
 
@@ -92,7 +92,7 @@ namespace SGS.Servicos
         {
             FinancasDados objFinancasDados = new FinancasDados();
 
-            return objFinancasDados.ConsultarFinancas(objFinanceiroRelatorioDTO);
+            return objFinancasDados.Consultar(objFinanceiroRelatorioDTO);
         }
 
     }

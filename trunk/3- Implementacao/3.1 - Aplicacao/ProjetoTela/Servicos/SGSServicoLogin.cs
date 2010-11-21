@@ -15,7 +15,7 @@ namespace SGS.Servicos
         {
             LoginDados objLoginDados = new LoginDados();
             
-            return objLoginDados.ValidarLogin(objLogin);
+            return objLoginDados.Validar(objLogin);
         }
 
         public Login SalvarLogin(Login objLogin)
@@ -31,14 +31,14 @@ namespace SGS.Servicos
         {
             LoginDados objLoginDados = new LoginDados();
 
-            return objLoginDados.ObterLogin(codigoLogin);
+            return objLoginDados.Obter(codigoLogin);
         }
 
         public bool ExcluirLogin(int codigoLogin)
         {
             LoginDados objLoginDados = new LoginDados();
 
-            return objLoginDados.ExcluirLogin(codigoLogin);
+            return objLoginDados.Excluir(codigoLogin);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace SGS.Servicos
         public LoginDTO ConsultarLogin(LoginDTO objLoginDTO)
         {
             LoginDados objLoginDados = new LoginDados();
-            objLoginDTO.LoginLista = objLoginDados.ConsultarLogin(objLoginDTO);
+            objLoginDTO.LoginLista = objLoginDados.Consultar(objLoginDTO);
 
             return objLoginDTO;
 
