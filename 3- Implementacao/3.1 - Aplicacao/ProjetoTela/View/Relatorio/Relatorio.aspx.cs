@@ -50,9 +50,11 @@ namespace SGS.View.Relatorio
                 pdfReport.pageLayout = PageLayout.SinglePage;
                 pdfReport.Response(this);
             }
-            else if (Request.QueryString["tipo"] == "RelEscolar")
+            else if (Request.QueryString["tipo"] == "RelOrcamento")
             {
-
+                PdfReport<OrcamentoRelatorio> pdfReport = new PdfReport<OrcamentoRelatorio>();
+                pdfReport.pageLayout = PageLayout.SinglePage;
+                pdfReport.Response(this);
             }
         }
 

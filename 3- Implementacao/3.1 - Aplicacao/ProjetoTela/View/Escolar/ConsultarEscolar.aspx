@@ -8,13 +8,13 @@
         }
         .style7
         {
-        width: 200px;
         text-align: right;
         font-size: small;
     }
         .style8
     {
-        width: 187px;
+        width: 344px;
+        text-align: right;
     }
         </style>
 
@@ -31,7 +31,7 @@
         <br /><br />
     </span>
 
-    <table width="850px" align="left">
+    <table width="850px" align="left" style="font-size: small">
         <tr>
             <td class="style7"> &nbsp; </td>    
             <td class="style8" align="right"> &nbsp;<span class="style6"><strong>Filtro</strong></span></td>
@@ -44,18 +44,24 @@
             <td> 
                 <asp:DropDownList ID="ddlAssistido" runat="server" Height="22px" Width="200px" 
                     DataTextField="Nome" DataValueField="CodigoAssistido">
-                    <asp:ListItem>Selecione</asp:ListItem>
+                    <asp:ListItem>Todos</asp:ListItem>
                     <asp:ListItem Value="1">Thiago Ribeiro</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td> &nbsp;</td>
         </tr>
         <tr>
-            <td class="style7"> &nbsp;</td>    
-            <td class="style8"> Nome Instituição:</td>
+            <td class="style7" colspan="2"> Grau de Escolaridade:</td>    
             <td> 
-                <asp:TextBox ID="txtInstituicaoEnsino" runat="server" Width="200px" 
-                    MaxLength="50" Height="22px"></asp:TextBox>
+                    <asp:DropDownList ID="ddlGrauEscolaridade" runat="server" Width="200px" 
+                        Height="22px">
+                        <asp:ListItem>Selecione</asp:ListItem>
+                        <asp:ListItem>Analfabeto</asp:ListItem>
+                        <asp:ListItem>Sem Grau</asp:ListItem>
+                        <asp:ListItem>Primário </asp:ListItem>
+                        <asp:ListItem>Ensino Fundamental</asp:ListItem>
+                        <asp:ListItem>Ensino Médio</asp:ListItem>
+                    </asp:DropDownList>
             </td>
             <td> &nbsp;</td>
         </tr>

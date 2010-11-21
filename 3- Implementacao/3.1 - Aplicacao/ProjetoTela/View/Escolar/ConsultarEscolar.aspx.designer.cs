@@ -40,13 +40,13 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
         
         /// <summary>
-        /// txtInstituicaoEnsino control.
+        /// ddlGrauEscolaridade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInstituicaoEnsino;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGrauEscolaridade;
         
         /// <summary>
         /// btnLocalizar control.
