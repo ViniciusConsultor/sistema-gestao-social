@@ -8,6 +8,10 @@ namespace SGS.Entidades.DTO
     [Serializable]
     public class FinanceiroRelatorioDTO
     {
+        public FinanceiroRelatorioDTO()
+        {
+            OrcamentoDTO = new OrcamentoDTO();
+        }
 
         private string _tipoLancamentoValor;
         public string TipoLancamentoValor
@@ -51,6 +55,13 @@ namespace SGS.Entidades.DTO
             set { _naturezaLancamentoLista = value; }
         }
 
+        private List<Orcamento> _orcamentoLista;
+        public List<Orcamento> OrcamentoLista
+        {
+            get { return _orcamentoLista; }
+            set { _orcamentoLista = value; }
+        }
+
         private int? _CodigoPlanoValor;
         public int? CodigoPlanoValor
         {
@@ -58,6 +69,12 @@ namespace SGS.Entidades.DTO
             set { _CodigoPlanoValor = value; }
         }
 
+        private OrcamentoDTO _orcamentoDTO;
+        public OrcamentoDTO OrcamentoDTO
+        {
+            get { return _orcamentoDTO; }
+            set { _orcamentoDTO = value; }
+        }
 
     }
 }

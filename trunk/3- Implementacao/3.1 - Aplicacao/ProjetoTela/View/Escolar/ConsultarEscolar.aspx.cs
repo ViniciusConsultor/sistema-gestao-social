@@ -13,22 +13,27 @@ namespace SGS.View.Escolar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (DadosAcesso.Perfil != "")
             {
-                CarregarDados();
+                if (!Page.IsPostBack)
+                {
+                    CarregarDados();
+                }
+            }
+            else
+            {
+                Response.Redirect("../LoginUI/Login.aspx");
             }
         }
 
         public void CarregarDados()
         {
-
-            //TODO: Jonathan - Validar se usuario logado é gestor ou funcionario.
             SGSConsultarEscolarDTO = new ConsultarEscolarDTO();
             SGSServico sgsServico = new SGSServico();
 
-            //SGSConsultarEscolarDTO.AssistidoLista = sgsServico.ListarAssistido();
+            SGSConsultarEscolarDTO.AssistidoLista = sgsServico.ListarAssistido(true);
 
-            //PreencherDadosView();
+            PreencherDadosView();
         }
 
         protected void PreencherDadosView()
@@ -39,11 +44,12 @@ namespace SGS.View.Escolar
 
         protected void PegarDadosView()
         {
-            if (ddlAssistido.SelectedValue != "Selecione")
+            if (ddlAssistido.SelectedValue != "Todos")
                 SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.CodigoAssistido = Convert.ToInt32(ddlAssistido.SelectedValue);
             else
                 SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.CodigoAssistido = null;
-            SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.NomeInstituicao = txtInstituicaoEnsino.Text;
+
+            SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.GrauEscolaridade = ddlGrauEscolaridade.SelectedValue;
         }
         
 
@@ -76,6 +82,11 @@ namespace SGS.View.Escolar
             PegarDadosView();
 
             sgsServico.ConsultarEscolar(SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO);
+        }
+
+        protected void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ConsultarEscolar.aspx");
         }
     }
 }

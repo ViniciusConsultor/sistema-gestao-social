@@ -30,31 +30,49 @@
         {
             height: 20px;
             }
-        .style22
-        {
-            font-family: Arial, sans-serif;
-            font-size: small;
-            width: 223px;
-        }
         .style26
         {
             text-align: right;
             width: 160px;
         }
-        .style27
-        {
-            width: 223px;
-            text-align: left;
-        }
-        .style28
-        {
-            text-align: right;
-            width: 189px;
-        }
         .style29
         {
             width: 105px;
             text-align: left;
+        }
+        .style30
+        {
+            width: 220px;
+            text-align: left;
+        }
+        .style31
+        {
+            font-family: Arial, sans-serif;
+            font-size: small;
+            width: 220px;
+        }
+        .style33
+        {
+            width: 220px;
+        }
+        .style34
+        {
+            width: 197px;
+        }
+        .style36
+        {
+            text-align: right;
+            width: 197px;
+            margin-left: 40px;
+        }
+        .style38
+        {
+            width: 168px;
+        }
+        .style39
+        {
+            text-align: right;
+            width: 168px;
         }
     </style>
 
@@ -130,9 +148,9 @@
             <td class="style18"> &nbsp;</td>    
             <td class="style29"> <strong>Tipo Relatório:</strong></td>
             <td class="style20" colspan="2"> 
-            <asp:RadioButtonList ID="rdbSexo" runat="server" RepeatDirection="Horizontal" 
+            <asp:RadioButtonList ID="rdbTipo" runat="server" RepeatDirection="Horizontal" 
                 RepeatLayout="Flow" AutoPostBack="True" 
-                    onselectedindexchanged="rdbSexo_SelectedIndexChanged" Width="200px">
+                    onselectedindexchanged="rdbTipo_SelectedIndexChanged" Width="200px">
                 <asp:ListItem Value="Orcamento">Orçamento</asp:ListItem>
                 <asp:ListItem Value="Financas">Finanças</asp:ListItem>
             </asp:RadioButtonList>
@@ -144,30 +162,35 @@
 
     <asp:Panel runat="server" ID="pnlFinancas" Visible="false">
     
-    <table width="100%" align="left" style="font-size: small; font-family: verdana">
+    <table width="100%" align="left" style="font-size: small; font-family: verdana" 
+            border="0">
         <tr>
-            <td class="style28"> Tipo de Lançamento:</td>    
-            <td class="style27">  
-                <asp:DropDownList ID="ddlTipoLancamento" runat="server" Height="22px" 
+            <td class="style36"> 
+                <asp:Label ID="lbl" runat="server"></asp:Label>
+            </td>    
+            <td class="style30" valign="middle">  
+                <asp:DropDownList ID="ddl" runat="server" Height="22px" 
                     Width="200px" DataTextField="Nome" DataValueField="CodigoPessoa" 
-                    AutoPostBack="True" 
                     >
                     <asp:ListItem>Todos</asp:ListItem>
                     <asp:ListItem>Receita</asp:ListItem>
                     <asp:ListItem>Despesa</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td class="style26"> 
-                Natureza Lançamento:</td>
+            <td class="style39"> 
+                <asp:Label ID="lbl1" runat="server"></asp:Label>
+            </td>
             <td>  
                  <asp:DropDownList ID="ddlNaturezaLancamento" runat="server" Width="200px" 
                      DataTextField="NomeNatureza" DataValueField="CodigoNatureza">
                 </asp:DropDownList>
             </td>
         </tr>
-        <tr>
-            <td class="style28"> Data Início Lançamento:</td>    
-            <td class="style27">  
+        <tr valign="middle">
+            <td class="style34" style="text-align: right"> 
+                <asp:Label ID="lbl2" runat="server"></asp:Label>
+            </td>    
+            <td class="style33" valign="middle">  
                 <asp:TextBox ID="txtDtInicioLancamento" runat="server" Width="196px" 
                     CssClass="mask-data"></asp:TextBox>
                 <asp:CompareValidator ID="validatorDtInicioLancamento" runat="server" 
@@ -175,8 +198,9 @@
                     ErrorMessage="Preencha a Data Início Lançamento com uma data válida" 
                     ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
             </td>
-            <td class="style26"> 
-                 Data Fim Lançamento:</td>
+            <td style="text-align: right" class="style38"> 
+                 <asp:Label ID="lbl3" runat="server"></asp:Label>
+            </td>
             <td>   
                 <asp:TextBox ID="txtDtFimLancamento" runat="server" Width="196px" 
                     CssClass="mask-data"></asp:TextBox>
@@ -194,12 +218,15 @@
             </td>
         </tr>
         <tr>
-            <td class="style28"> &nbsp;</td>   
-            <td class="style22" 
+            <td class="style36"> &nbsp;</td>   
+            <td class="style31" 
                 
-                style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA"> 
+                
+                
+                style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA" 
+                valign="middle"> 
                 &nbsp;</td>
-            <td class="style26"> 
+            <td class="style39"> 
                  &nbsp;</td>
             <td class="style17" 
                 style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">  
@@ -223,82 +250,6 @@
     <br /><br />
     <p> &nbsp;</p>
      <p>&nbsp; </p>
-
-      <asp:Panel runat="server" ID="pnlOrcamento" Visible="false">
-    <table width="100%" align="left" style="font-size: small; font-family: verdana">
-        <tr>
-            <td class="style28"> Nome Plano:</td>    
-            <td class="style27">  
-                <asp:DropDownList ID="ddlNomePlano" runat="server" Height="22px" 
-                    Width="200px" DataTextField="NomePlano" DataValueField="CodigoOrcamento" 
-                    AutoPostBack="True" 
-                    >
-                    <asp:ListItem>Todos</asp:ListItem>
-                    <asp:ListItem>Receita</asp:ListItem>
-                    <asp:ListItem>Despesa</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td class="style26"> 
-                &nbsp;</td>
-            <td>  
-                 &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style28"> Inicio de Vigência:</td>    
-            <td class="style27">  
-                <asp:TextBox ID="txtInicioVigencia" runat="server" Width="196px"></asp:TextBox>
-                <asp:CompareValidator ID="validatorDtInicioVigencia" runat="server" 
-                    ControlToValidate="txtInicioVigencia" 
-                    ErrorMessage="Preencha a Data Início Lançamento com uma data válida" 
-                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
-            </td>
-            <td class="style26"> 
-                 Fim de Vigência:</td>
-            <td>   
-                <asp:TextBox ID="txtFimVigencia" runat="server" Width="196px"></asp:TextBox>
-
-                <asp:CompareValidator ID="validatorDtFimVigencia" runat="server" 
-                    ControlToValidate="txtFimVigencia" Display="Dynamic" 
-                    ErrorMessage="Preencha a Data Fim Lançamento com uma data válida" 
-                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
-                <asp:CompareValidator ID="validatorDtFimVigMaiorInicio" runat="server" 
-                    ControlToCompare="txtDtInicioLancamento" ControlToValidate="txtFimVigencia" 
-                    Display="Dynamic" 
-                    ErrorMessage="Preencha a Data Fim com uma Data Maior do que a Data Início" 
-                    ForeColor="Red" Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
-
-            </td>
-        </tr>
-        <tr>
-            <td class="style28"> &nbsp;</td>   
-            <td class="style22" 
-                
-                style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA"> 
-                &nbsp;</td>
-            <td class="style26"> 
-                 &nbsp;</td>
-            <td class="style17" 
-                style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">  
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style19" colspan="2">  
-                <asp:Button ID="GerarRelatorioOrcamento" runat="server" Text="Gerar Relatório" 
-                    Width="160px" Height="26px" onclick="GerarRelatorioOrcamento_Click" />
-            </td>   
-            <td colspan="2"> 
-                 <asp:Button ID="btnLimparOrcamento" runat="server" Text="Limpar" Width="160px" 
-                     style="text-align: center" Height="26px" 
-                     onclick="btnLimparOrcamento_Click"/>
-            </td>
-        </tr>
-               
-       
-        </table>
-  
-    </asp:Panel>
-
-        <br /><br /><br /><br /><br /><br />
 
               <table width="100%">
                 <tr align="center">

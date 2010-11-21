@@ -241,33 +241,46 @@ namespace SGS.CamadaDados
 
             SqlDataReader leitorDados;
 
-            //SqlParameter paramLoginValor = new SqlParameter("@loginValor", "%" + objLoginDTO.LoginValor + "%");
-            //paramLoginValor.DbType = System.Data.DbType.String;
+            String sql = "select * from Escolar where ";
 
-            //SqlParameter paramNomeValor = new SqlParameter("@nomeValor", "%" + objLoginDTO.NomeValor + "%");
-            //paramNomeValor.DbType = System.Data.DbType.String;
+            SqlParameter paramCodigoAssistido = new SqlParameter("@codigoAssistido", System.Data.DbType.Int32 );
+            if (objParametro.CodigoAssistido.HasValue)
+            {
+                paramCodigoAssistido.Value = objParametro.CodigoAssistido.Value;
+                sql += "CodigoAssistido = @codigoAssistido and ";
+            }
+            else
+            {
+                paramCodigoAssistido.Value = null;
+            }
 
-            //String sql = "select * from Login";
+            SqlParameter paramGrauEscolaridade = new SqlParameter("@grauEscolaridade", System.Data.DbType.String);
+            if (!String.IsNullOrEmpty(objParametro.GrauEscolaridade))
+            {
+                paramGrauEscolaridade.Value = objParametro.GrauEscolaridade;
+                sql += "GrauEscolaridade = @grauEscolaridade and ";
+            }
+            else
+            {
+                paramGrauEscolaridade.Value = null;
+            }
 
-            ////Se os Login e Nome login preenchidos
-            //if (objLoginDTO.LoginValor != "" && objLoginDTO.NomeValor != "")
-            //    sql += @" where Login like @loginValor or Nome like @nomeValor";
-            ////Se apenas Login preenchido
-            //else if (objLoginDTO.LoginValor != "")
-            //    sql += @" where Login like @loginValor";
-            ////Se apenas Nome preenchido
-            //else if (objLoginDTO.NomeValor != "")
-            //    sql += @" where Nome like @nomeValor";
+            if (sql.EndsWith("where "))
+                sql = sql.Replace("where ", "");
+            else if (sql.EndsWith("and "))
+                sql = sql.Remove(sql.Length - 4);
 
-            //comando.CommandText = sql;
-            //comando.CommandType = System.Data.CommandType.Text;
-            //comando.Parameters.Add(paramLoginValor);
-            //comando.Parameters.Add(paramNomeValor);
+            sql += " order by DataLancamento";
+            comando.CommandText = sql;
+            comando.CommandType = System.Data.CommandType.Text;
 
-            //leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            comando.Parameters.Add(paramCodigoAssistido);
+            comando.Parameters.Add(paramGrauEscolaridade);
 
-            //List<Login> loginLista = new List<Login>();
-            //Login objLogin;
+            leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+            List<Escolar> escolarLista = new List<Escolar>();
+            Escolar objEscolar;
 
             //while (leitorDados.Read())
             //{

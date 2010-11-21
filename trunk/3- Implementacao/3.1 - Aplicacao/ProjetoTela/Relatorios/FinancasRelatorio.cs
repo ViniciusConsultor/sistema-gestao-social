@@ -51,7 +51,6 @@ namespace SGS.Relatorios
                 // define columns
                 TlmColumn col;
 
-
                 col = new TlmColumnMM(tlm, "Natureza Lançamento", 80);
                 col.tlmCellDef_Default.tlmTextMode = TlmTextMode.MultiLine;
 
@@ -61,7 +60,8 @@ namespace SGS.Relatorios
 
                 col = new TlmColumnMM(tlm, "Valor", 30);
 
-                List<Financas> listaFinancas = (List<Financas>)RelatorioDTO.DadosRelatorio;
+
+                 List<Financas> listaFinancas = (List<Financas>)RelatorioDTO.DadosRelatorio;
                 Decimal valorTotal = 0;
                 foreach (Financas financas in listaFinancas)
                 {
@@ -73,7 +73,7 @@ namespace SGS.Relatorios
                     tlm.Add(2, new RepString(fontProp_Text, financas.DataLancamento.Value.ToString("dd/MM/yyyy")));
 
                     tlm.Add(3, new RepString(fontProp_Text, String.Format("{0:C2}", financas.Valor.Value)));
-                    
+
                     valorTotal += financas.Valor.Value;
                 }
 
@@ -87,6 +87,8 @@ namespace SGS.Relatorios
                 }
 
             }
+
+
             //page_Cur.AddCT_MM(rPosLeft + tlm.rWidthMM / 2, rPosTop + tlm.rCurY_MM + 2, new RepString(fontProp_Text, "- end of table -"));
 
             // print page number and current date/time
@@ -114,7 +116,7 @@ namespace SGS.Relatorios
             {
                 FontProp fontProp_Title = new FontPropMM(fontDef_Helvetica, 4);
                 fontProp_Title.bBold = true;
-                page_Cur.AddCT_MM(rPosLeft + (rPosRight - rPosLeft) / 2, rPosTop, new RepString(fontProp_Title, "SGS - Relatório Financeiro"));
+                page_Cur.AddCT_MM(rPosLeft + (rPosRight - rPosLeft) / 2, rPosTop, new RepString(fontProp_Title, "SGS - Relatório Finanças"));
                 ea.container.rHeightMM -= fontProp_Title.rLineFeedMM;  // reduce height of table container for the first page
                 ea.container.rWidth = 800;
             }

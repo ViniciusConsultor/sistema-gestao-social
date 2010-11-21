@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SGS.Entidades.DTO
 {
-        [Serializable]
+    [Serializable]
     public class OrcamentoDTO
     {
 

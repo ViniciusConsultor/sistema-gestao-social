@@ -237,6 +237,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relatorios\AssistidoRelatorio.cs" />
     <Compile Include="Relatorios\FinancasRelatorio.cs" />
+    <Compile Include="Relatorios\OrcamentoRelatorio.cs" />
     <Compile Include="Servicos\SGSServicoProcedimentos.cs" />
     <Compile Include="Servicos\SGSServicoAssistido.cs" />
     <Compile Include="Servicos\SGSServicoDesenvolvimento.cs" />

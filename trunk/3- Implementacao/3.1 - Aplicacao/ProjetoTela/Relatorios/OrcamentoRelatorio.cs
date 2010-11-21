@@ -1,39 +1,17 @@
-﻿using Root.Reports;
-using System;
-using System.IO;
-using System.Data;
-using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using SGS.Entidades.DTO;
 using SGS.Entidades;
-
-// Creation date: 08.11.2002
-// Checked: 31.10.2004
-// Author: Otto Mayer (mot@root.ch)
-// Version: 1.03
-
-// Report.NET copyright © 2002-2006 root-software ag, Bürglen Switzerland - Otto Mayer, Stefan Spirig, all rights reserved
-// This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License
-// as published by the Free Software Foundation, version 2.1 of the License.
-// This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. You
-// should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA www.opensource.org/licenses/lgpl-license.html
+using Root.Reports;
+using System.Drawing;
 
 namespace SGS.Relatorios
 {
-    /// <summary>Table Layout Manager and Data-Set Sample</summary>
-    /// <remarks>
-    /// This sample creates a table with data from a data set.
-    /// The table layout manager <see cref="Root.Reports.TableLayoutManager"/> automatically builds the grid lines,
-    /// header of the table, page breaks, etc.
-    /// The event handler <see cref="ReportSamples.TableLayoutManagerSample.Tlm_NewContainer"/> binds each table container to a new page.
-    /// The first page has a caption. The following pages have no caption and therefore the table can be made higher.
-    /// <para>PDF file: <see href="http://web.root.ch/developer/report_net/samples/TableLayoutManagerSample.pdf">TableLayoutManagerSample.pdf</see></para>
-    /// <para>Source: <see href="http://web.root.ch/developer/report_net/samples/TableLayoutManagerSample.cs">TableLayoutManagerSample.cs</see></para>
-    /// Manuel acesso Stream Resource http://support.microsoft.com/kb/324567
-    /// </remarks>
-    public class AssistidoRelatorio : Report
+    public class OrcamentoRelatorio : Report
     {
+
         private FontDef fontDef_Helvetica;
         private Double rPosLeft = 20;  // millimeters
         private Double rPosRight = 195;  // millimeters
@@ -72,44 +50,39 @@ namespace SGS.Relatorios
 
                 // define columns
                 TlmColumn col;
-                
 
-                col = new TlmColumnMM(tlm, "Assistido", 50);
+
+                col = new TlmColumnMM(tlm, "Nome Plano", 35);
                 col.tlmCellDef_Default.tlmTextMode = TlmTextMode.MultiLine;
 
-                col = new TlmColumnMM(tlm, "Dt. Nascimento", 24);
+                col = new TlmColumnMM(tlm, "Dt. Início", 25);
 
-                col = new TlmColumnMM(tlm, "Dt. Entrada", 20);
+                col = new TlmColumnMM(tlm, "Dt. Fim", 25);
 
-                col = new TlmColumnMM(tlm, "Dt. Saída", 20);
+                col = new TlmColumnMM(tlm, "Valor Orçamento", 30);
 
-                col = new TlmColumnMM(tlm, "Estado Saúde", 22);
+                col = new TlmColumnMM(tlm, "Valor Gasto", 30);
 
-                col = new TlmColumnMM(tlm, "Status", 26);
+                col = new TlmColumnMM(tlm, "Saldo Orçamento", 30);
 
-                col = new TlmColumnMM(tlm, "Ativo", 15);
-
-                System.Collections.Generic.List<Assistido> listaAssistido = (System.Collections.Generic.List<Assistido>)RelatorioDTO.DadosRelatorio;
-                foreach (Assistido assistido in listaAssistido)
+                List<Orcamento> listaOrcamento = (List<Orcamento>)RelatorioDTO.DadosRelatorio;
+                foreach (Orcamento orcamento in listaOrcamento)
                 {
                     tlm.NewRow();
-                    tlm.Add(0, new RepString(fontProp_Text, assistido.Nome));
+                    tlm.Add(0, new RepString(fontProp_Text, orcamento.NomePlano));
 
-                    if (assistido.DataNascimento.HasValue) tlm.Add(1, new RepString(fontProp_Text, assistido.DataNascimento.Value.ToString("dd/MM/yyyy")));
-                    else tlm.Add(1, new RepString(fontProp_Text, ""));
-                    
-                    tlm.Add(2, new RepString(fontProp_Text, assistido.DataEntrada.Value.ToString("dd/MM/yyyy")));
+                    tlm.Add(1, new RepString(fontProp_Text, orcamento.InicioVigencia.Value.ToString("dd/MM/yyyy") ));
 
-                    if (assistido.DataSaida.HasValue) tlm.Add(3, new RepString(fontProp_Text, assistido.DataSaida.Value.ToString("dd/MM/yyyy")));
-                    else tlm.Add(3, new RepString(fontProp_Text, ""));
-                    
-                    tlm.Add(4, new RepString(fontProp_Text, assistido.EstadoSaude));
+                    tlm.Add(2, new RepString(fontProp_Text, orcamento.FimVigencia.Value.ToString("dd/MM/yyyy")));
 
-                    tlm.Add(5, new RepString(fontProp_Text, assistido.StatusAssistido));
+                    tlm.Add(3, new RepString(fontProp_Text, String.Format("{0:C2}", orcamento.ValorOrcamento.Value)));
 
-                    tlm.Add(6, new RepString(fontProp_Text, assistido.AssistidoAtivo));
+                    tlm.Add(4, new RepString(fontProp_Text, String.Format("{0:C2}", orcamento.ValorFinanceiroReal)));
+
+                    tlm.Add(5, new RepString(fontProp_Text, String.Format("{0:C2}", orcamento.SaldoDisponivelOrcamento)));
                 }
             }
+
             //page_Cur.AddCT_MM(rPosLeft + tlm.rWidthMM / 2, rPosTop + tlm.rCurY_MM + 2, new RepString(fontProp_Text, "- end of table -"));
 
             // print page number and current date/time
@@ -137,12 +110,15 @@ namespace SGS.Relatorios
             {
                 FontProp fontProp_Title = new FontPropMM(fontDef_Helvetica, 4);
                 fontProp_Title.bBold = true;
-                page_Cur.AddCT_MM(rPosLeft + (rPosRight - rPosLeft) / 2, rPosTop, new RepString(fontProp_Title, "SGS - Relatório Assistido"));
+                page_Cur.AddCT_MM(rPosLeft + (rPosRight - rPosLeft) / 2, rPosTop, new RepString(fontProp_Title, "SGS - Relatório Orçamento"));
                 ea.container.rHeightMM -= fontProp_Title.rLineFeedMM;  // reduce height of table container for the first page
+                ea.container.rWidth = 800;
             }
 
             // the new container must be added to the current page
             page_Cur.AddMM(rPosLeft, rPosBottom - ea.container.rHeightMM, ea.container);
         }
+
+
     }
 }

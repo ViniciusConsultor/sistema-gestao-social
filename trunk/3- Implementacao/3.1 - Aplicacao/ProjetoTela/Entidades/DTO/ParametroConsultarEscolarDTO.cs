@@ -18,7 +18,7 @@ namespace SGS.Entidades.DTO
 
         private string _nomeInstituicao;
 
-        public string NomeInstituicao
+        public string GrauEscolaridade
         {
             get { return _nomeInstituicao; }
             set { _nomeInstituicao = value; }

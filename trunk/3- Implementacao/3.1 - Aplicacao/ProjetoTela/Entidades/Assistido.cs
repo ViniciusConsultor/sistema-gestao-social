@@ -39,7 +39,13 @@ namespace SGS.Entidades
         private string _maeViva;
         private int? _codigoContatoResponsavel;
         private Contato _contatoResponsavel;
+        private Escolar _escolar;
 
+        public Escolar Escolar
+        {
+            get { return _escolar; }
+            set { _escolar = value; } 
+        }
 
         public string StatusAssistido
         {

@@ -30,17 +30,46 @@ namespace SGS.View.Relatorio
             }
         }
 
-        protected void rdbSexo_SelectedIndexChanged(object sender, EventArgs e)
+        protected void rdbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             RadioButtonList rbl = (RadioButtonList)sender;
 
             if (rbl.SelectedValue == "Orcamento")
             {
-                pnlFinancas.Visible = false;
+                pnlFinancas.Visible = true;
+
+                lbl.Text = "Nome Plano";
+                ddl.DataSource = SGSFinanceiroRelatorioDTO.OrcamentoLista;
+                ddl.DataTextField = "NomePlano";
+                ddl.DataValueField = "CodigoOrcamento";
+                ddl.DataBind();
+                ddl.Items.Insert(0, new ListItem("Todos", "Todos"));
+
+                lbl1.Visible = false;
+                ddlNaturezaLancamento.Visible = false;
+
+                lbl2.Text = "Data Início Vigência";
+                lbl3.Text = "Data Fim Vigência";
             }
             else if (rbl.SelectedValue == "Financas")
             {
                 pnlFinancas.Visible = true;
+
+                lbl.Text = "Tipo de Lançamento";
+                ddl.Items.Clear();
+                ddlNaturezaLancamento.Visible = false;
+                
+                ddl.Items.Insert(0, new ListItem("Todos", "Todos"));
+                ddl.Items.Insert(1, new ListItem("Despesa", "Despesa"));
+                ddl.Items.Insert(2, new ListItem("Receita", "Receita"));
+
+
+                ddlNaturezaLancamento.Visible = true;
+
+                lbl1.Visible = true;
+                lbl1.Text = "Natureza Lançamento";
+                lbl2.Text = "Data Início Lançamento";
+                lbl3.Text = "Data Fim Lançamento";
             }
         }
 
@@ -65,6 +94,7 @@ namespace SGS.View.Relatorio
             SGSServico objSGSServico = new SGSServico();
 
             SGSFinanceiroRelatorioDTO.NaturezaLancamentoLista = objSGSServico.ListarNaturezaLancamento();
+            SGSFinanceiroRelatorioDTO.OrcamentoLista = objSGSServico.ListarOrcamento();
 
             PreencheDadosView();
         }
@@ -78,10 +108,10 @@ namespace SGS.View.Relatorio
 
         public void PegarDadosView()
         {
-            if (pnlFinancas.Visible == true)
+            if (rdbTipo.SelectedValue == "Financas")
             {
-                if (ddlTipoLancamento.SelectedValue != "Todos")
-                    SGSFinanceiroRelatorioDTO.TipoLancamentoValor = ddlTipoLancamento.SelectedValue;
+                if (ddl.SelectedValue != "Todos")
+                    SGSFinanceiroRelatorioDTO.TipoLancamentoValor = ddl.SelectedValue;
                 else
                     SGSFinanceiroRelatorioDTO.TipoLancamentoValor = "";
 
@@ -100,22 +130,22 @@ namespace SGS.View.Relatorio
                 else
                     SGSFinanceiroRelatorioDTO.DtFimValor = null;
             }
-            else if (pnlOrcamento.Visible == true)
+            else if (rdbTipo.SelectedValue == "Orcamento")
             {
-                if (ddlNomePlano.SelectedValue != "Todos")
-                    SGSFinanceiroRelatorioDTO.CodigoPlanoValor = Convert.ToInt32(ddlNomePlano.SelectedValue);
+                if (ddl.SelectedValue != "Todos")
+                    SGSFinanceiroRelatorioDTO.OrcamentoDTO.CodigoOrcamentoValor = Convert.ToInt32(ddl.SelectedValue);
                 else
-                    SGSFinanceiroRelatorioDTO.CodigoPlanoValor = null;
+                    SGSFinanceiroRelatorioDTO.OrcamentoDTO.CodigoOrcamentoValor = null;
 
-                if (!String.IsNullOrEmpty(txtInicioVigencia.Text))
-                    SGSFinanceiroRelatorioDTO.DtInicioValor = Convert.ToDateTime(txtInicioVigencia.Text);
+                if (!String.IsNullOrEmpty(txtDtInicioLancamento.Text))
+                    SGSFinanceiroRelatorioDTO.OrcamentoDTO.InicioVigenciaValor = Convert.ToDateTime(txtDtInicioLancamento.Text);
                 else
-                    SGSFinanceiroRelatorioDTO.DtInicioValor = null;
+                    SGSFinanceiroRelatorioDTO.OrcamentoDTO.InicioVigenciaValor = null;
 
-                if (!String.IsNullOrEmpty(txtFimVigencia.Text))
-                    SGSFinanceiroRelatorioDTO.DtFimValor = Convert.ToDateTime(txtFimVigencia.Text);
+                if (!String.IsNullOrEmpty(txtDtFimLancamento.Text))
+                    SGSFinanceiroRelatorioDTO.OrcamentoDTO.FimVigenciaValor = Convert.ToDateTime(txtDtFimLancamento.Text);
                 else
-                    SGSFinanceiroRelatorioDTO.DtFimValor = null;
+                    SGSFinanceiroRelatorioDTO.OrcamentoDTO.FimVigenciaValor = null;
             }
         }
 
@@ -154,17 +184,33 @@ namespace SGS.View.Relatorio
 
             SGSFinanceiroRelatorioDTO.FinancasLista = objSGSServico.ConsultarFinancasRelatorio(SGSFinanceiroRelatorioDTO);
 
-            if (SGSFinanceiroRelatorioDTO.FinancasLista.Count > 0)
+            if (rdbTipo.SelectedValue == "Financas")
             {
-                RelatorioDTO.DadosRelatorio = SGSFinanceiroRelatorioDTO.FinancasLista;
-
-                ClientScript.RegisterStartupScript(Page.GetType(), "Popup", "<script> window.open('../Relatorio/Relatorio.aspx?tipo=RelFinancas');</script>)");
+                if (SGSFinanceiroRelatorioDTO.FinancasLista.Count > 0)
+                {
+                    RelatorioDTO.DadosRelatorio = SGSFinanceiroRelatorioDTO.FinancasLista;
+                    ClientScript.RegisterStartupScript(Page.GetType(), "Popup", "<script> window.open('../Relatorio/Relatorio.aspx?tipo=RelFinancas');</script>)");
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhuma finança encontrada!');  </script>");
+                }
             }
-            else
+            else if (rdbTipo.SelectedValue == "Orcamento")
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhuma finança encontrada!');  </script>");
-            }
+                SGSFinanceiroRelatorioDTO.OrcamentoDTO = objSGSServico.ConsultarOrcamento(SGSFinanceiroRelatorioDTO.OrcamentoDTO);
 
+                if (SGSFinanceiroRelatorioDTO.OrcamentoDTO.OrcamentoLista.Count > 0)
+                {
+                    RelatorioDTO.DadosRelatorio = SGSFinanceiroRelatorioDTO.OrcamentoDTO.OrcamentoLista;
+
+                    ClientScript.RegisterStartupScript(Page.GetType(), "Popup", "<script> window.open('../Relatorio/Relatorio.aspx?tipo=RelOrcamento');</script>)");
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhuma orçamento encontrada!');  </script>");
+                }
+            }
         }
 
         protected void GerarRelatorioOrcamento_Click(object sender, EventArgs e)
@@ -173,7 +219,8 @@ namespace SGS.View.Relatorio
 
             PegarDadosView();
 
-            
+           
+
         }
 
       
