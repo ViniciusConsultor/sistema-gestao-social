@@ -60,24 +60,24 @@
                             <asp:MenuItem Text="HOME" Value="Home" NavigateUrl="~/View/Apresentacao.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="ADMINISTRAR" Value="Administrar">
                                 <asp:MenuItem Text="Login" Value="Login">
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/LoginUI/ConsultarLogin.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/LoginUI/ManterLogin.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
+                                        NavigateUrl="~/View/LoginUI/ConsultarLogin.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="CASA LAR" Value="CasaLar">
                                 <asp:MenuItem Text="Casa Lar" Value="Casa Lar">
-                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
-                                        NavigateUrl="~/View/CasaLar/ManterCasaLar.aspx?tipo=viz"></asp:MenuItem>
                                     <asp:MenuItem NavigateUrl="~/View/CasaLar/ManterCasaLar.aspx" Text="Cadastrar" 
                                         Value="Cadastrar"></asp:MenuItem>
+                                    <asp:MenuItem Text="Visualizar" Value="Visualizar" 
+                                        NavigateUrl="~/View/CasaLar/ManterCasaLar.aspx?tipo=viz"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Alimentação" Value="Alimentação">
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/Alimentacao/ConsultarAlimentacao.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Alimentacao/ManterAlimentacao.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
+                                        NavigateUrl="~/View/Alimentacao/ConsultarAlimentacao.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="ASSISTIDO" Value="Assistido">
@@ -88,45 +88,43 @@
                                         Text="Consultar" Value="Consultar"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Procedimentos" Value="Procedimentos">
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/Procedimentos/ConsultarProcedimentos.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Procedimentos/ManterProcedimentos.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
+                                        NavigateUrl="~/View/Procedimentos/ConsultarProcedimentos.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Dados Escolares" Value="Dados Escolares">
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/Escolar/ConsultarEscolar.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Escolar/ManterEscolar.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
+                                        NavigateUrl="~/View/Escolar/ConsultarEscolar.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Desenvolvimento" Value="Desenvolvimento">
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/Desenvolvimento/ConsultarDesenvolvimento.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Desenvolvimento/ManterDesenvolvimento.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
+                                        NavigateUrl="~/View/Desenvolvimento/ConsultarDesenvolvimento.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="FINANCEIRO" Value="Financeiro">
                                 <asp:MenuItem Text="Plano Orçamentário" Value="Plano Orçamentário">
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/PlanoOrcamentario/ConsultarPlanoOrcamentario.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/PlanoOrcamentario/ManterPlanoOrcamentario.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
+                                        NavigateUrl="~/View/PlanoOrcamentario/ConsultarPlanoOrcamentario.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Finanças" Value="Finanças">
-                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
-                                        NavigateUrl="~/View/Financas/ConsultarFinancas.aspx"></asp:MenuItem>
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
                                         NavigateUrl="~/View/Financas/ManterFinancas.aspx"></asp:MenuItem>
+                                    <asp:MenuItem Text="Consultar" Value="Consultar" 
+                                        NavigateUrl="~/View/Financas/ConsultarFinancas.aspx"></asp:MenuItem>
                                 </asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="RELATÓRIO" Value="Relatório">
-                                <asp:MenuItem Text="Financeiro" Value="Financeiro" 
-                                    NavigateUrl="~/View/Relatorio/RelFinancas.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Assistidos" Value="Assistidos" 
                                     NavigateUrl="~/View/Relatorio/RelAssistidos.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Escolar" Value="Escolar" 
-                                    NavigateUrl="~/View/Relatorio/RelEscolar.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Financeiro" Value="Financeiro" 
+                                    NavigateUrl="~/View/Relatorio/RelFinancas.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                         </Items>
                         <StaticHoverStyle BackColor="#284E98" ForeColor="White" />

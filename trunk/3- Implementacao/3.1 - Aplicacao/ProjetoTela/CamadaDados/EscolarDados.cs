@@ -27,11 +27,9 @@ namespace SGS.CamadaDados
             {
                 comando.CommandText =
                     @"INSERT INTO Escolar (CodigoAssistido, CodigoContato, Instituicao, NumInscricaoInstituicao, 
-                                  MediaEscola, GrauEscolaridade, SerieCursada, DataMatricula, DataSaida, StatusMatricula, FormatoAnoLetivo,
-                                  Materia, Professor, Nota, StatusMateria, ParteAnoLetivo)
+                                  MediaEscola, GrauEscolaridade, SerieCursada, DataMatricula, DataSaida, StatusSerie)
                     VALUES (@assistido_CodigoAssistido, @contato_CodigoContato, @instituicao, @numInscricaoInstituicao, @mediaEscola,
-                            @grauEscolaridade, @serieCursada, @dataMatricula, @dataSaida, @statusMatricula, @formatoAnoLetivo, @materia,
-                            @professor, @nota, @statusMateria, @parteAnoLetivo)";
+                            @grauEscolaridade, @serieCursada, @dataMatricula, @dataSaida, @statusSerie)";
             }
             else
             {
@@ -40,9 +38,7 @@ namespace SGS.CamadaDados
                              CodigoContato = @contato_CodigoContato, Instituicao = @instituicao,
                              NumInscricaoInstituicao = @numInscricaoInstituicao, MediaEscola = @mediaEscola, 
                              GrauEscolaridade = @grauEscolaridade, SerieCursada = @serieCursada, DataMatricula = @dataMatricula,
-                             DataSaida  = @dataSaida, StatusMatricula = @statusMatricula, FormatoAnoLetivo = @formatoAnoLetivo,
-                             Materia = @materia, Professor = @professor, Nota = @nota, StatusMateria = @statusMateria,
-                             ParteAnoLetivo = @parteAnoLetivo";
+                             DataSaida  = @dataSaida, StatusSerie = @statusSerie";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
@@ -105,27 +101,8 @@ namespace SGS.CamadaDados
             else
                 parametroDataSaida.Value = DBNull.Value;
 
-            SqlParameter parametroStatusMatricula = new SqlParameter("@statusMatricula", objEscolar.StatusMatricula);
-            parametroStatusMatricula.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroFormatoAnoLetivo = new SqlParameter("@formatoAnoLetivo", objEscolar.FormatoAnoLetivo);
-            parametroFormatoAnoLetivo.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroMateria = new SqlParameter("@materia", objEscolar.Materia);
-            parametroMateria.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroProfessor = new SqlParameter("@professor", objEscolar.Professor);
-            parametroProfessor.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroNota = new SqlParameter("@nota", objEscolar.Nota);
-            parametroNota.DbType = System.Data.DbType.Decimal;
-
-            SqlParameter parametroStatusMateria = new SqlParameter("@statusMateria", objEscolar.StatusMateria);
-            parametroStatusMateria.DbType = System.Data.DbType.String;
-
-            SqlParameter parametroParteAnoLetivo = new SqlParameter("@parteAnoLetivo", objEscolar.ParteAnoLetivo);
-            parametroParteAnoLetivo.DbType = System.Data.DbType.String;
-
+            SqlParameter parametroStatusSerie = new SqlParameter("@statusSerie", objEscolar.StatusSerie);
+            parametroStatusSerie.DbType = System.Data.DbType.String;
 
             comando.Parameters.Add(parametroAssistido_CodigoAssistido);
             comando.Parameters.Add(parametroContato_CodigoContato);
@@ -136,14 +113,7 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroSerieCursada);
             comando.Parameters.Add(parametroDataMatricula);
             comando.Parameters.Add(parametroDataSaida);
-            comando.Parameters.Add(parametroStatusMatricula);
-            comando.Parameters.Add(parametroFormatoAnoLetivo);
-            comando.Parameters.Add(parametroMateria);
-            comando.Parameters.Add(parametroProfessor);
-            comando.Parameters.Add(parametroNota);
-            comando.Parameters.Add(parametroStatusMateria);
-            comando.Parameters.Add(parametroParteAnoLetivo);
-
+            comando.Parameters.Add(parametroStatusSerie);
 
             comando.ExecuteNonQuery();
 
@@ -179,18 +149,12 @@ namespace SGS.CamadaDados
                 objEscolar.DataMatricula = Convert.ToDateTime(leitorDados["DataMatricula"]);
                 if (leitorDados["DataMatricula"] != DBNull.Value)
                     objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
-                objEscolar.FormatoAnoLetivo = leitorDados["FormatoAnoLetivo"].ToString();
                 objEscolar.GrauEscolaridade = leitorDados["GrauEscolaridade"].ToString();
                 objEscolar.Instituicao = leitorDados["Instituicao"].ToString();
-                objEscolar.Materia = leitorDados["Materia"].ToString();
                 objEscolar.MediaEscola = Convert.ToInt32(leitorDados["MediaEscola"]);
-                objEscolar.Nota = Convert.ToInt32(leitorDados["Nota"]);
                 objEscolar.NumInscricaoInstituicao = leitorDados["NumInscricaoInstituicao"].ToString();
-                objEscolar.ParteAnoLetivo = leitorDados["ParteAnoLetivo"].ToString();
-                objEscolar.Professor = leitorDados["Professor"].ToString();
                 objEscolar.SerieCursada = leitorDados["SerieCursada"].ToString();
-                objEscolar.StatusMateria = leitorDados["StatusMateria"].ToString();
-                objEscolar.StatusMatricula = leitorDados["StatusMatricula"].ToString();
+                objEscolar.StatusSerie = leitorDados["StatusSerie"].ToString();
                 
             }
 
@@ -234,14 +198,7 @@ namespace SGS.CamadaDados
                 objEscolar.DataMatricula = Convert.ToDateTime(leitorDados["DataMatricula"]);
                 if (leitorDados["DataMatricula"] != DBNull.Value)
                     objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
-                objEscolar.StatusMatricula = leitorDados["StatusMatricula"].ToString();
-                objEscolar.FormatoAnoLetivo = leitorDados["FormatoAnoLetivo"].ToString();
-                objEscolar.Materia = leitorDados["Materia"].ToString();
-                objEscolar.Professor = leitorDados["Professor"].ToString();
-                objEscolar.Nota = Convert.ToDecimal(leitorDados["Nota"]);
-                objEscolar.StatusMateria = leitorDados["StatusMateria"].ToString();
-                objEscolar.ParteAnoLetivo = leitorDados["ParteAnoLetivo"].ToString();
-
+                objEscolar.StatusSerie = leitorDados["StatusSerie"].ToString();
             }
 
             leitorDados.Close();
