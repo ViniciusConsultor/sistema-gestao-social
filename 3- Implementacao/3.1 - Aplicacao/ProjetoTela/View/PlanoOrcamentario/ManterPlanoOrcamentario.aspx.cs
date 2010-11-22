@@ -186,7 +186,7 @@ namespace SGS.View.PlanoOrcamentario
             if (Request.QueryString["tipo"] == "alt")
             {
                 lblTitulo.Text = "Alterar Plano Orçamentário";
-                lblDescricao.Text = "Descrição: Permite alterar o Plano Orçamentário da Casa Lar.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite alterar o Plano Orçamentário da Casa Lar.";
                 btnExcluir.Visible = true;
 
                 SGSOrcamento.Orcamento.CodigoOrcamento = Convert.ToInt32(Request.QueryString["cod"]);
@@ -208,7 +208,7 @@ namespace SGS.View.PlanoOrcamentario
             else
             {
                 lblTitulo.Text = "Cadastrar Plano Orçamentário";
-                lblDescricao.Text = "Descrição: Permite cadastrar o Plano Orçamentário da Casa Lar.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar o Plano Orçamentário da Casa Lar.";
                 btnExcluir.Visible = false;
 
                 gridOrcamento.Visible = false;

@@ -63,10 +63,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" Text=""></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" Text="" CssClass="Descricao"></asp:Label> 
         
         <br /><br />
  </span>
@@ -91,7 +91,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Tipo de Procedimento </td>
                 <td>
-                    <asp:DropDownList ID="ddlTipoProcedimento" runat="server" Width="155px" 
+                    <asp:DropDownList ID="ddlTipoProcedimento" runat="server" Width="200px" 
                         Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Médico</asp:ListItem>
@@ -111,7 +111,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Descrição </td>
                 <td>
-                    <asp:TextBox ID="txtDescricao" runat="server" Width="300px" 
+                    <asp:TextBox ID="txtDescricao" runat="server" Width="192px" 
                         MaxLength="50"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridDescricao" runat="server" 
                         ControlToValidate="txtDescricao" ErrorMessage="Preencha o campo Descrição" 
@@ -123,7 +123,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Status</td>
                 <td>
-                    <asp:DropDownList ID="ddlStatus" runat="server" Width="155px" Height="22px">
+                    <asp:DropDownList ID="ddlStatus" runat="server" Width="200px" Height="22px">
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Planejado</asp:ListItem>
                         <asp:ListItem>Agendado</asp:ListItem>
@@ -141,7 +141,7 @@
                     Pessoa Atendente</td>
                 <td>
                     <asp:TextBox ID="txtPessoaAtendente" runat="server" Height="22px" 
-                        MaxLength="80" Width="300px"></asp:TextBox>
+                        MaxLength="80" Width="192px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -150,7 +150,7 @@
                     Data Marcada</td>
                 <td>
                     <asp:TextBox ID="txtDataMarcada" runat="server" Height="22px" MaxLength="10" 
-                        Width="148px" CssClass="mask-data"></asp:TextBox>
+                        Width="192px" CssClass="mask-data"></asp:TextBox>
                 </td>
             </tr>
             <tr>

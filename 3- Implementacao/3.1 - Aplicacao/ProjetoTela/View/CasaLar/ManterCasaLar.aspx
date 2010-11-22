@@ -72,10 +72,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
     <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="" 
+    style="font-size: medium" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" Text=""></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" 
+    CssClass="Descricao"></asp:Label> 
         
         <br /><br />
     </span>
@@ -306,7 +308,7 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Foto</td>
                 <td colspan="2">
-                    <asp:FileUpload ID="uploadFoto" runat="server" Width="148px" Height="22px" />
+                    <asp:FileUpload ID="uploadFoto" runat="server" Width="156px" Height="22px" />
                 </td>
                 <td>
                     &nbsp;</td>

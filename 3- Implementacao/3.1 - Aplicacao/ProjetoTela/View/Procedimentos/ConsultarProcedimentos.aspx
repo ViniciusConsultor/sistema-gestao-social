@@ -24,13 +24,18 @@
         width: 174px;
         text-align: right;
         text-decoration: underline;
-        font-size: smaller;
+        font-size: small;
     }
     .style18
     {
         width: 174px;
         text-align: right;
-        font-size: smaller;
+        font-size: small;
+    }
+    .style19
+    {
+        width: 100px;
+        font-size: small;
     }
     </style>
     
@@ -83,12 +88,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Procedimentos"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Procedimentos" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
         &nbsp;&nbsp; 
     <asp:Label ID="lblDescricao" runat="server" 
-        Text="Descrição: Permite buscar os procedimentos cadastrados no sistema."></asp:Label> 
+        Text="<b>Descrição:</b> Permite buscar os procedimentos cadastrados no sistema." CssClass="Descricao"></asp:Label> 
         
         <br /><br />
         
@@ -102,17 +107,17 @@
             <td> &nbsp; </td>
         </tr>
         <tr>
-            <td class="style15"> &nbsp;</td>    
+            <td class="style19"> &nbsp;</td>    
             <td class="style17"> <strong style="text-align: right" class="style8">Filtro:</strong></td>
-            <td class="style16"> &nbsp;</td>
-            <td> &nbsp;</td>
+            <td class="style16"> <span class="style4"></td>
+            <td> </span></td>
         </tr>
         <tr>
-            <td class="style15"> &nbsp;</td>    
+            <td class="style19"> &nbsp;</td>    
             <td class="style18"> Assistido</td>
             <td class="style16"> 
                 <asp:DropDownList ID="ddlAssistido" runat="server" Width="205px" 
-                    DataTextField="Nome" DataValueField="CodigoAssistido">
+                    DataTextField="Nome" DataValueField="CodigoAssistido" CssClass="style4">
                     <asp:ListItem>Selecione</asp:ListItem>
                     <asp:ListItem Value="1">João</asp:ListItem>
                     <asp:ListItem Value="3">Maria</asp:ListItem>
@@ -120,16 +125,16 @@
 
                 </asp:DropDownList>
             </td>
-            <td> &nbsp;</td>
+            <td class="style4"> &nbsp;</td>
         </tr>
         <tr>
-            <td class="style15"> &nbsp;</td>    
+            <td class="style19"> &nbsp;</td>    
             <td class="style18"> &nbsp;Data Marcada </td>
             <td class="style16"> 
-                <asp:TextBox ID="txtDataMarcada" runat="server" Width="200px" 
-                    CssClass="mask-data"></asp:TextBox>
+                <asp:TextBox ID="txtDataMarcada" runat="server" Width="198px" 
+                    CssClass="mask-data" style="font-size: small"></asp:TextBox>
             </td>
-            <td> &nbsp;</td>
+            <td class="style4"> &nbsp;</td>
         </tr>
         <tr>
             <td class="style15"> &nbsp;</td>    

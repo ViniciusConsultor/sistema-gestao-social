@@ -1,10 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="Apresentacao.aspx.cs" Inherits="ProjetoTela.Telas.Apresentacao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .style6
+        {
+            font-weight: normal;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table border="0" cellpadding="10" cellspacing="20">
         <tr> 
-            <td> 
+            <td class="style6"> 
                 Seja bem vindo!<br />
                 <br /> 
             &nbsp;&nbsp; 

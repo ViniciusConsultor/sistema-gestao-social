@@ -13,12 +13,13 @@
     }
         .style12
     {
-        width: 200px;
+        width: 325px;
     }
         .style9
     {
         text-align: right;
         font-size: smaller;
+        width: 325px;
     }
     .mask-data
     {}
@@ -72,17 +73,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
  <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Finanças"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Finanças" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
-        Text="Descrição: Permite buscar as finanças cadastradas no sistema."></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text="<b>Descrição:</b> Permite buscar as finanças cadastradas no sistema." CssClass="Descricao"></asp:Label> 
         
         <br /><br />
    
     </span>
 
-    <table width="850px" align="left">
+    <table width="850px" align="left" style="font-size: medium">
         <tr>
             <td class="style7"> &nbsp; </td>    
             <td class="style12"> &nbsp;</td>
@@ -91,7 +92,7 @@
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>  
-            <td class="style8" align="right"> &nbsp;<span class="style6"><strong 
+            <td class="style12" align="right"> &nbsp;<span class="style6"><strong 
                     style="text-align: right; font-size: smaller; text-decoration: underline;">Filtro</strong></span></td>
             <td> &nbsp;</td>
             <td> &nbsp;</td>
@@ -135,7 +136,7 @@
         </tr>
         <tr>
             <td class="style7"> &nbsp;</td>    
-            <td style="text-align: right" class="style8"> &nbsp; </td>
+            <td style="text-align: right" class="style12"> &nbsp; </td>
             <td> 
                 <asp:Button ID="btnLocalizar" runat="server" Text="Localizar" Width="97px" 
                     onclick="btnLocalizar_Click" />

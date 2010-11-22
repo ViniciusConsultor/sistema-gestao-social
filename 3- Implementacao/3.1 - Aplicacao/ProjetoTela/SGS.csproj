@@ -108,7 +108,6 @@
     <Content Include="View\Desenvolvimento\ManterDesenvolvimento.aspx" />
     <Content Include="View\Relatorio\RelAssistidos.aspx" />
     <Content Include="View\Relatorio\Relatorio.aspx" />
-    <Content Include="View\Relatorio\RelEscolar.aspx" />
     <Content Include="View\Relatorio\RelFinancas.aspx" />
     <Content Include="View\LoginUI\Login.aspx" />
     <Content Include="View\SemPermissao.aspx" />
@@ -459,13 +458,6 @@
     </Compile>
     <Compile Include="View\Relatorio\Relatorio.aspx.designer.cs">
       <DependentUpon>Relatorio.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Relatorio\RelEscolar.aspx.cs">
-      <DependentUpon>RelEscolar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Relatorio\RelEscolar.aspx.designer.cs">
-      <DependentUpon>RelEscolar.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Relatorio\RelFinancas.aspx.cs">
       <DependentUpon>RelFinancas.aspx</DependentUpon>

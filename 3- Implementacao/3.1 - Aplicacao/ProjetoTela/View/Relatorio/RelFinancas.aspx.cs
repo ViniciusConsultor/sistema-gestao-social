@@ -17,7 +17,7 @@ namespace SGS.View.Relatorio
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (DadosAcesso.Perfil != "")
+            if (DadosAcesso.Perfil == "Gestor")
             {
                 if (!Page.IsPostBack)
                 {
