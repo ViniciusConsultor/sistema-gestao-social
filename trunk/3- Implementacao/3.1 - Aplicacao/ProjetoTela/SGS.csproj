@@ -68,6 +68,9 @@
     <Content Include="Imagens\5[1].jpg" />
     <Content Include="Imagens\Banner.jpg" />
     <Content Include="Imagens\Banner_2.jpg" />
+    <Content Include="Imagens\Banner_SGSpng.jpg" />
+    <Content Include="Imagens\Banner_SGSpng.png" />
+    <Content Include="Imagens\Banner_SGSpng_v2.jpg" />
     <Content Include="Imagens\Tela_Saida.JPG" />
     <EmbeddedResource Include="Phone.jpg" />
     <Content Include="Scripts\jquery-1.2.6-vsdoc.js" />
