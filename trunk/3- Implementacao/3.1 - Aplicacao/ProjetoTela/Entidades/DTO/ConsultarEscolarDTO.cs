@@ -9,7 +9,10 @@ namespace SGS.Entidades.DTO
     [Serializable]
     public class ConsultarEscolarDTO
     {
-
+        public ConsultarEscolarDTO()
+        {
+            ParametroConsultarEscolarDTO = new ParametroConsultarEscolarDTO();
+        }
 
         #region Propriedades
 

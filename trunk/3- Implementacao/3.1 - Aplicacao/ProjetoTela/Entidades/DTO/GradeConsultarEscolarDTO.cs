@@ -7,13 +7,15 @@ namespace SGS.Entidades.DTO
 {
 
     [Serializable]
-    public class GradeConsultarEscolarDTO
+    public class GradeConsultarEscolarDTO 
     {
         private int? _codigoEscolar;
         private int? _codigoAssistido;
-        private int? _nomeInstituicao;
-        private int? _grauEscolaridade;
-        private int? _serieCursada;
+        private string _nomeInstituicao;
+        private string _grauEscolaridade;
+        private string _serieCursada;
+        private string _statusSerie;
+        private string _nomeAssistido;
 
         public int? CodigoEscolar
         {
@@ -27,22 +29,35 @@ namespace SGS.Entidades.DTO
             set { _codigoAssistido = value; }
         }
 
-        public int? NomeInstituicao
+        public string NomeAssistido
+        {
+            get { return _nomeAssistido; }
+            set { _nomeAssistido = value; }
+        }
+
+
+        public string NomeInstituicao
         {
             get { return _nomeInstituicao; }
             set { _nomeInstituicao = value; }
         }
 
-        public int? GrauEscolaridade
+        public string GrauEscolaridade
         {
             get { return _grauEscolaridade; }
             set { _grauEscolaridade = value; }
         }
 
-        public int? SerieCursada
+        public string SerieCursada    
         {
             get { return _serieCursada; }
             set { _serieCursada = value; }
+        }
+
+        public string StatusSerie
+        {
+            get { return _statusSerie; }
+            set { _statusSerie = value; }
         }
 
     }

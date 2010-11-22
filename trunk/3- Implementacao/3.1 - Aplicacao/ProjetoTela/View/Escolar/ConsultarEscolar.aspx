@@ -55,7 +55,7 @@
             <td> 
                     <asp:DropDownList ID="ddlGrauEscolaridade" runat="server" Width="200px" 
                         Height="22px">
-                        <asp:ListItem>Selecione</asp:ListItem>
+                        <asp:ListItem>Todos</asp:ListItem>
                         <asp:ListItem>Analfabeto</asp:ListItem>
                         <asp:ListItem>Sem Grau</asp:ListItem>
                         <asp:ListItem>Primário </asp:ListItem>
@@ -96,15 +96,15 @@
                     onpageindexchanging="gridLogin_PageIndexChanging" PageSize="4">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:HyperLinkField DataNavigateUrlFields="CodigoLogin" 
-                            DataNavigateUrlFormatString="ManterLogin.aspx?tipo=alt&amp;cod={0}" 
+                        <asp:HyperLinkField DataNavigateUrlFields="CodigoEscolar" 
+                            DataNavigateUrlFormatString="ManterEscolar.aspx?tipo=alt&amp;cod={0}" 
                             Text="Selecionar">
                         <ItemStyle Width="75px" />
                         </asp:HyperLinkField>
-                        <asp:BoundField DataField="Nome" HeaderText="Nome Assistido">
+                        <asp:BoundField DataField="NomeAssistido" HeaderText="Nome Assistido">
                         <HeaderStyle HorizontalAlign="Left" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="Instituicao" HeaderText="Nome Instituição">
+                        <asp:BoundField DataField="NomeInstituicao" HeaderText="Nome Instituição">
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         <asp:BoundField DataField="GrauEscolaridade" HeaderText="Grau de Escolaridade">

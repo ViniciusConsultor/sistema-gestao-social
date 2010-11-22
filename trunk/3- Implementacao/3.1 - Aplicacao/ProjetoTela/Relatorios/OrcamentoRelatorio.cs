@@ -55,9 +55,9 @@ namespace SGS.Relatorios
                 col = new TlmColumnMM(tlm, "Nome Plano", 35);
                 col.tlmCellDef_Default.tlmTextMode = TlmTextMode.MultiLine;
 
-                col = new TlmColumnMM(tlm, "Dt. Início", 25);
+                col = new TlmColumnMM(tlm, "Data Início", 25);
 
-                col = new TlmColumnMM(tlm, "Dt. Fim", 25);
+                col = new TlmColumnMM(tlm, "Data Fim", 25);
 
                 col = new TlmColumnMM(tlm, "Valor Orçamento", 30);
 

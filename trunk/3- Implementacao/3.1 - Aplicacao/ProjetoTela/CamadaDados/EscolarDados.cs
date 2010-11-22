@@ -125,7 +125,7 @@ namespace SGS.CamadaDados
             {
                 return Obter(objEscolar.CodigoEscolar.Value);
             }
-            
+
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace SGS.CamadaDados
                 objEscolar.NumInscricaoInstituicao = leitorDados["NumInscricaoInstituicao"].ToString();
                 objEscolar.SerieCursada = leitorDados["SerieCursada"].ToString();
                 objEscolar.StatusSerie = leitorDados["StatusSerie"].ToString();
-                
+
             }
 
             leitorDados.Close();
@@ -163,7 +163,7 @@ namespace SGS.CamadaDados
 
             ContatoDados objContatoDados = new ContatoDados();
             objEscolar.Contato = objContatoDados.Obter(objEscolar.Contato_CodigoContato.Value);
-            
+
 
             return objEscolar;
         }
@@ -241,9 +241,9 @@ namespace SGS.CamadaDados
 
             SqlDataReader leitorDados;
 
-            String sql = "select * from Escolar where ";
+            String sql = "select * from Escolar E inner join Pessoa P on P.CodigoPessoa = E.CodigoAssistido where ";
 
-            SqlParameter paramCodigoAssistido = new SqlParameter("@codigoAssistido", System.Data.DbType.Int32 );
+            SqlParameter paramCodigoAssistido = new SqlParameter("@codigoAssistido", System.Data.DbType.Int32);
             if (objParametro.CodigoAssistido.HasValue)
             {
                 paramCodigoAssistido.Value = objParametro.CodigoAssistido.Value;
@@ -251,7 +251,7 @@ namespace SGS.CamadaDados
             }
             else
             {
-                paramCodigoAssistido.Value = null;
+                paramCodigoAssistido.Value = DBNull.Value;
             }
 
             SqlParameter paramGrauEscolaridade = new SqlParameter("@grauEscolaridade", System.Data.DbType.String);
@@ -262,7 +262,7 @@ namespace SGS.CamadaDados
             }
             else
             {
-                paramGrauEscolaridade.Value = null;
+                paramGrauEscolaridade.Value = DBNull.Value;
             }
 
             if (sql.EndsWith("where "))
@@ -270,7 +270,7 @@ namespace SGS.CamadaDados
             else if (sql.EndsWith("and "))
                 sql = sql.Remove(sql.Length - 4);
 
-            sql += " order by DataLancamento";
+            sql += " order by P.Nome";
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;
 
@@ -279,24 +279,25 @@ namespace SGS.CamadaDados
 
             leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
-            List<Escolar> escolarLista = new List<Escolar>();
-            Escolar objEscolar;
+            List<GradeConsultarEscolarDTO> gradeConsultarEscolarDTOLista = new List<GradeConsultarEscolarDTO>();
+            GradeConsultarEscolarDTO item;
 
-            //while (leitorDados.Read())
-            //{
-            //    objLogin = new Login();
+            while (leitorDados.Read())
+            {
+                item = new GradeConsultarEscolarDTO();
 
-            //    objLogin.CodigoLogin = Convert.ToInt32(leitorDados["CodigoLogin"]);
-            //    objLogin.LoginUsuario = leitorDados["Login"].ToString();
-            //    objLogin.Email = leitorDados["Email"].ToString();
-            //    objLogin.Nome = leitorDados["Nome"].ToString();
-            //    objLogin.Senha = Criptografia.Descriptografar(leitorDados["Senha"].ToString(), "Protetor");
-            //    objLogin.Perfil = leitorDados["Perfil"].ToString();
+                item.NomeAssistido = leitorDados["Nome"].ToString();
+                item.CodigoEscolar = Convert.ToInt32(leitorDados["CodigoEscolar"]);
+                item.CodigoAssistido = Convert.ToInt32(leitorDados["CodigoAssistido"]);
+                item.NomeInstituicao = leitorDados["Instituicao"].ToString();
+                item.GrauEscolaridade = leitorDados["GrauEscolaridade"].ToString();
+                item.SerieCursada = leitorDados["SerieCursada"].ToString();
+                item.StatusSerie = leitorDados["StatusSerie"].ToString();
 
-            //    loginLista.Add(objLogin);
-            //}
+                gradeConsultarEscolarDTOLista.Add(item);
+            }
 
-            return new List<GradeConsultarEscolarDTO>();
+            return gradeConsultarEscolarDTOLista;
         }
     }
 }
