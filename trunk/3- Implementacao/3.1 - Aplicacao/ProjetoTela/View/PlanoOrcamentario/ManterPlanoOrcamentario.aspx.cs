@@ -20,7 +20,7 @@ namespace SGS.View.PlanoOrcamentario
         protected void Page_Load(object sender, EventArgs e)
         {
             // Valida se o usuário logado possui acesso.
-            if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
+            if (DadosAcesso.Perfil == "Gestor")
             {
                 if (!Page.IsPostBack)
                 {
