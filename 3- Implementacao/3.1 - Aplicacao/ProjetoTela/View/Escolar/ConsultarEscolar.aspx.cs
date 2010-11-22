@@ -40,6 +40,7 @@ namespace SGS.View.Escolar
         {
             ddlAssistido.DataSource = SGSConsultarEscolarDTO.AssistidoLista;
             ddlAssistido.DataBind();
+            ddlAssistido.Items.Insert(0, new ListItem("Todos", "Todos"));
         }
 
         protected void PegarDadosView()
@@ -49,9 +50,12 @@ namespace SGS.View.Escolar
             else
                 SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.CodigoAssistido = null;
 
-            SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.GrauEscolaridade = ddlGrauEscolaridade.SelectedValue;
+            if (ddlGrauEscolaridade.SelectedValue != "Todos")
+                SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.GrauEscolaridade = ddlGrauEscolaridade.SelectedValue;
+            else
+                SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO.GrauEscolaridade = "";
         }
-        
+
 
         #region Propriedades
 
@@ -72,7 +76,7 @@ namespace SGS.View.Escolar
                     return (ConsultarEscolarDTO)ViewState["ConsultarEscolarDTO"];
             }
         }
-        
+
         #endregion
 
         protected void btnLocalizar_Click(object sender, EventArgs e)
@@ -81,12 +85,21 @@ namespace SGS.View.Escolar
 
             PegarDadosView();
 
-            sgsServico.ConsultarEscolar(SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO);
+            SGSConsultarEscolarDTO.gradeConsultarEscolarDTOLista = sgsServico.ConsultarEscolar(SGSConsultarEscolarDTO.ParametroConsultarEscolarDTO);
+            gridEscolar.DataSource = SGSConsultarEscolarDTO.gradeConsultarEscolarDTOLista;
+            gridEscolar.DataBind();
         }
 
         protected void btnLimpar_Click(object sender, EventArgs e)
         {
             Response.Redirect("ConsultarEscolar.aspx");
+        }
+
+        protected void gridLogin_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridEscolar.PageIndex = e.NewPageIndex;
+            gridEscolar.DataSource = SGSConsultarEscolarDTO.gradeConsultarEscolarDTOLista;
+            gridEscolar.DataBind();
         }
     }
 }

@@ -189,7 +189,7 @@ namespace SGS.View.Relatorio
                 if (SGSFinanceiroRelatorioDTO.FinancasLista.Count > 0)
                 {
                     RelatorioDTO.DadosRelatorio = SGSFinanceiroRelatorioDTO.FinancasLista;
-                    ClientScript.RegisterStartupScript(Page.GetType(), "Popup", "<script> window.open('../Relatorio/Relatorio.aspx?tipo=RelFinancas');</script>)");
+                    ClientScript.RegisterStartupScript(Page.GetType(), "Popup", "<script> window.open('../Relatorio/Relatorio.aspx?tipo=RelFinancas');</script>");
                 }
                 else
                 {
@@ -208,7 +208,7 @@ namespace SGS.View.Relatorio
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhuma orçamento encontrada!');  </script>");
+                    ClientScript.RegisterStartupScript(Page.GetType(), "Script", "<script> alert('Nenhum orçamento encontrado!');  </script>");
                 }
             }
         }
