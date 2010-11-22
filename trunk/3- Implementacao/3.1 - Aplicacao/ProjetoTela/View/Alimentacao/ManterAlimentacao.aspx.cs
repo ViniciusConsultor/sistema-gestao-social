@@ -160,7 +160,7 @@ namespace SGS.View.Alimentacao
                 PreencherDadosView();
 
                 lblTitulo.Text = "Alterar Alimentação";
-                lblDescricao.Text = "Descrição: Permite Alterar a Alimentação da Casa Lar.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite Alterar a Alimentação da Casa Lar.";
 
                 HabilitarControles();
             }
@@ -168,7 +168,7 @@ namespace SGS.View.Alimentacao
             else
             {
                 lblTitulo.Text = "Cadastrar Alimentação";
-                lblDescricao.Text = "Descrição: Permite Cadastrar a Alimentação da Casa Lar.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite Cadastrar a Alimentação da Casa Lar.";
 
                 if (Request.QueryString["dia"] != null && Request.QueryString["periodo"] != null)
                 {

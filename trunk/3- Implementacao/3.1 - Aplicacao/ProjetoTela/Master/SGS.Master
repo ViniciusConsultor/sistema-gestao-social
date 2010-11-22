@@ -30,6 +30,20 @@
             width: 849px;
             height: 129px;
         }
+        .Descricao
+        {
+            display:table-row; color:#416087; font-family:Arial; font-size:13px; font-weight:lighter; /*esta linha formata os títulos dos campos*/
+        }
+        .Titulo
+        {
+            display:inline; color:#003499; font-family:Arial; font-size:17px; font-weight:bold /*esta linha formata os títulos dos campos*/
+        }
+        
+        /* form div {float:left;} /*esta linha faz os divs ficarem lado a lado*/
+        form div {display:block; color:#416087; font-family:Arial; font-size:17px; font-weight:bold} /*esta linha formata os títulos dos campos*/
+       /* form div label {display:block; color:#416087; font-family:Arial; font-size:11px; font-weight:bold} /*esta linha formata os títulos dos campos*/ *
+        form div input {border:1px solid #b5c7de; padding:2px 3px; color:#363636; }/*esta formata os campos de texto*/
+        
     </style>
 
  

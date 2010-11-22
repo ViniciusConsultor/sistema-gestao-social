@@ -4,6 +4,10 @@
     /*table {float:left;} /*esta linha faz os divs ficarem lado a lado*/
     /*text {display:block; color:#416087; font-family:Arial; font-size:11px; font-weight:bold} /*esta linha formata os títulos dos campos*/
     /*input {border:1px solid #b5c7de; padding:2px 3px; color:#363636; }/*esta formata os campos de texto*/
+    .style1
+    {
+        width: 621px;
+    }
 </style>
 
 <!-- Importa todos os script JavaScript-->
@@ -52,8 +56,8 @@
 
 <table width="100%" style="font-size: small; font-family: Verdana;">
     <tr>
-        <td colspan="2">
-            <strong>Dados Pessoais</strong></td>
+        <td colspan="2" style="color: #003499">
+            <strong><u>Dados Pessoais</u></strong></td>
         <td>
             &nbsp;</td>
         <td>
@@ -76,7 +80,7 @@
     <tr>
         <td>
             Sexo</td>
-        <td>
+        <td class="style1">
             <asp:RadioButtonList ID="rdbSexo" runat="server" RepeatDirection="Horizontal" 
                 RepeatLayout="Flow">
                 <asp:ListItem Value="Masculino">Masculino</asp:ListItem>
@@ -90,7 +94,7 @@
             Data nascimento</td>
         <td>
             <asp:TextBox ID="txtDataNascimento" runat="server" MaxLength="10" 
-                CssClass="mask-data-pessoa"></asp:TextBox>
+                CssClass="mask-data-pessoa" Width="147px"></asp:TextBox>
         &nbsp;<asp:RequiredFieldValidator ID="validatorDataNascimento" runat="server" 
                 ControlToValidate="txtDataNascimento" ErrorMessage="Preenche a Data de Nascimento" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -99,20 +103,23 @@
     <tr>
         <td>
             CPF</td>
-        <td>
-            <asp:TextBox ID="txtCPF" runat="server" MaxLength="14" CssClass="mask-cpf"></asp:TextBox>
+        <td class="style1">
+            <asp:TextBox ID="txtCPF" runat="server" MaxLength="14" CssClass="mask-cpf" 
+                Width="147px"></asp:TextBox>
         </td>
         <td>
             RG</td>
         <td>
-            <asp:TextBox ID="txtRG" runat="server" MaxLength="12" CssClass="mask-rg"></asp:TextBox>
+            <asp:TextBox ID="txtRG" runat="server" MaxLength="12" CssClass="mask-rg" 
+                Width="147px"></asp:TextBox>
         </td>
     </tr>
     <tr>
         <td>
             Cert. Nascimento</td>
-        <td>
-            <asp:TextBox ID="txtCertidaoNascimento" runat="server" MaxLength="14"></asp:TextBox>
+        <td class="style1">
+            <asp:TextBox ID="txtCertidaoNascimento" runat="server" MaxLength="14" 
+                Width="147px"></asp:TextBox>
         </td>
         <td>
             &nbsp;</td>
@@ -122,8 +129,8 @@
     <tr>
         <td>
             Nacionalidade</td>
-        <td>
-            <asp:TextBox ID="txtNacionalidade" runat="server" MaxLength="20"></asp:TextBox>
+        <td class="style1">
+            <asp:TextBox ID="txtNacionalidade" runat="server" MaxLength="20" Width="147px"></asp:TextBox>
             &nbsp;<asp:RequiredFieldValidator ID="validatorNacionalidade" runat="server" 
                 ControlToValidate="txtNacionalidade" ErrorMessage="Preenche a Nacionalidade" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -131,7 +138,7 @@
         <td>
             Naturalidade</td>
         <td>
-            <asp:TextBox ID="txtNaturalidade" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:TextBox ID="txtNaturalidade" runat="server" MaxLength="20" Width="147px"></asp:TextBox>
             &nbsp;<asp:RequiredFieldValidator ID="validatorNaturalidade" runat="server" 
                 ControlToValidate="txtNaturalidade" ErrorMessage="Preenche a Naturalidade" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -141,7 +148,7 @@
         <td>
             Foto</td>
         <td colspan="3">
-            <asp:FileUpload ID="fileUploadFoto" runat="server" Width="215px" />
+            <asp:FileUpload ID="fileUploadFoto" runat="server" Width="147px" />
         </td>
     </tr>
     <tr>

@@ -53,17 +53,61 @@
         }
     </style>
 
+     <!-- Importa todos os script JavaScript-->
+        <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
+        <script type="text/javascript" src="../../Scripts/jquery.maskMoney.js"> </script>
+        
+        <!-- Comandos de JavaScript-->
+        <script type="text/javascript">
+
+            //Diz que quando a página for carregada, irá ser executado o
+            //bloco de código contido entre os {};
+
+            $(document).ready(function () {
+
+                //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
+                //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
+
+                $('.mask-numero').mask('999999'); //número
+                $('.mask-numero2').maskMoney({ precision: 6 }); //número
+
+                $('.mask-data').mask('99/99/9999'); //data
+                $('.mask-hora').mask('99:99'); //hora
+                $('.mask-fone').mask('(99) 9999-9999'); //telefone
+                $('.mask-rg').mask('99.999.999-9'); //RG
+                $('.mask-ag').mask('9999-9'); //Agência
+                $('.mask-ag').mask('9.999-9'); //Conta
+                $(".mask-cpf").mask("999.999.999-99"); //cpf
+                $(".mask-cnpj").mask("99.999.999/9999-99"); //cnpj
+                $(".mask-cep").mask("99999-999"); //cep
+                $(".mask-real-cifrao").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
+                $(".mask-real").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: false }); //real sem cifrão 1.000,00
+                $(".mask-precision").maskMoney({ precision: 3 }); //com 3 casas de precisão 1,000
+
+                /* Default options are (but you can always change that):
+                symbol:'US$',
+                decimal:'.',
+                precision:2,
+                thousands:',',
+                allowZero:false,
+                showSymbol:false */
+
+            });
+
+        </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <span class="style4"><strong> 
-        <asp:Label ID="Label1" runat="server" Text="Relatório Assistido"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Relatório Assistido" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; 
-    <asp:Label ID="Label2" runat="server" 
-        Text="   Descrição: Permite gerar relatório dos assistidos da casa lar."></asp:Label> 
+        &nbsp; 
+    <asp:Label ID="lblDescricao" runat="server" 
+        Text="   <b>Descrição:</b> Permite gerar relatório dos assistidos da casa lar." CssClass="Descricao"></asp:Label> 
         
         <br /><br />
    
@@ -124,24 +168,30 @@
                 
                 
                 style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA; margin-left: 40px;"> 
-                <asp:TextBox ID="txtDataEntrada" runat="server" Width="196px"></asp:TextBox>
+                <asp:TextBox ID="txtDataEntrada" runat="server" Width="196px" 
+                    CssClass="mask-data"></asp:TextBox>
                 <asp:CompareValidator ID="CompareValidator2" runat="server" 
-                    ErrorMessage="CompareValidator" ControlToValidate="txtDataEntrada" 
-                    Enabled="False">*</asp:CompareValidator>
+                    ErrorMessage="Preencha a Data Entrada com uma data válida" 
+                    ControlToValidate="txtDataEntrada" ForeColor="Red" Operator="DataTypeCheck" 
+                    Type="Date">*</asp:CompareValidator>
         </td>
             <td class="style26"> 
                  Data Saída:</td>
             <td class="style17" 
                 
                 style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA; margin-left: 40px;">  
-                <asp:TextBox ID="txtDataSaída" runat="server" Width="196px"></asp:TextBox>
+                <asp:TextBox ID="txtDataSaída" runat="server" Width="196px" 
+                    CssClass="mask-data"></asp:TextBox>
 
                 <asp:CompareValidator ID="CompareValidator3" runat="server" 
-                    ErrorMessage="CompareValidator" ControlToValidate="txtDataSaída" 
-                    Enabled="False">*</asp:CompareValidator>
+                    ErrorMessage="Preencha a Data Saída com uma data válida" 
+                    ControlToValidate="txtDataSaída" ForeColor="Red" Operator="DataTypeCheck" 
+                    Type="Date">*</asp:CompareValidator>
                 <asp:CompareValidator ID="CompareValidator4" runat="server" 
-                    ErrorMessage="CompareValidator" ControlToValidate="txtDataSaída" 
-                    Enabled="False">*</asp:CompareValidator>
+                    
+                    ErrorMessage="Preencha a Data Saída com uma data maior do que a Data Entrada" 
+                    ControlToValidate="txtDataSaída" ControlToCompare="txtDataEntrada" 
+                    ForeColor="Red" Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
 
             </td>
         </tr>

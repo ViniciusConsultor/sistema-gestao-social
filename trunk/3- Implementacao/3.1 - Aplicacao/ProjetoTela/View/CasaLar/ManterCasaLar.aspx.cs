@@ -89,7 +89,7 @@ namespace ProjetoTela.View.CasaLar
             if (Request.QueryString["tipo"] == "alt" && DadosAcesso.Perfil=="Gestor")
             {
                 lblTitulo.Text = "Alterar Casa Lar";
-                lblDescricao.Text = "Descrição: Permite alterar os dados da Casa Lar.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite alterar os dados da Casa Lar.";
                 btnExcluir.Visible = false;
                
                 //Preencha a propriedade Casa Lar
@@ -105,7 +105,7 @@ namespace ProjetoTela.View.CasaLar
             else if (Request.QueryString["tipo"] == "viz" && (DadosAcesso.Perfil=="Gestor" || DadosAcesso.Perfil=="Funcionario"))
             {
                 lblTitulo.Text = "Visualizar Casa Lar";
-                lblDescricao.Text = "Descrição: Permite visualizar os dados da Casa Lar.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite visualizar os dados da Casa Lar.";
                 btnExcluir.Visible = false;
                 btnSalvar.Visible = false;
                 btnCancelar.Visible = false;
@@ -131,7 +131,7 @@ namespace ProjetoTela.View.CasaLar
                 {
                     SGSCasaLar = new SGS.Entidades.CasaLar();
                     lblTitulo.Text = "Cadastrar Casa Lar";
-                    lblDescricao.Text = "Descrição: Permite cadastrar os dados da Casa Lar.";
+                    lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar os dados da Casa Lar.";
                     btnExcluir.Visible = false;
                 }
                 else

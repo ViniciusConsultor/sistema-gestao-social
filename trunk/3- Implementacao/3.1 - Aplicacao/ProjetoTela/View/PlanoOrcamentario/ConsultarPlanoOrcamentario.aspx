@@ -89,13 +89,13 @@
 
 <span class="style4"><strong> 
         <asp:Label ID="lblTitulo" runat="server" 
-        Text="Consultar Plano Orçamentário"></asp:Label>
+        Text="Consultar Plano Orçamentário" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
-        Text="Descrição: Permite buscar os Planos Orçamentários cadastrados no sistema."></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text="<b>Descrição:</b> Permite buscar os Planos Orçamentários cadastrados no sistema." CssClass="Descricao"></asp:Label> 
         
-        <br /><br />
+        <br />
         
 </span>
 

@@ -97,17 +97,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Desenvolvimento"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Desenvolvimento" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
-        Text="Descrição: Permite buscar os desenvolvimentos profissionais cadastrados no sistema."></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text="<b>Descrição:</b> Permite buscar os desenvolvimentos profissionais cadastrados no sistema." CssClass="Descricao"></asp:Label> 
         
         <br /><br />
         
     </span>
 
-    <table width="850px" align="left">
+    <table width="850px" align="left" style="font-size: medium">
         <tr>
             <td class="style17"> </td>    
             <td class="style23"> <strong style="text-align: right">Filtro:</strong></td>
@@ -117,7 +117,7 @@
             <td class="style20"> &nbsp;</td>    
             <td class="style19"> Assistido</td>
             <td class="style14"> 
-                <asp:DropDownList ID="ddlAssistido" runat="server" Width="155px" 
+                <asp:DropDownList ID="ddlAssistido" runat="server" Width="156px" 
                     DataTextField="Nome" DataValueField="CodigoAssistido">
                 </asp:DropDownList>
             </td>

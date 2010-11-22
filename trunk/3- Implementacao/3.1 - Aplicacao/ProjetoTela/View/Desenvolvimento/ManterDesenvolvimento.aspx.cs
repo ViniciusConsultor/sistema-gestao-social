@@ -106,7 +106,7 @@ namespace SGS.View.Desenvolvimento
             if (Request.QueryString["tipo"] == "alt")
             {
                 lblTitulo.Text = "Alterar Desenvolvimento";
-                lblDescricao.Text = "Descrição: Permite alterar o Desenvolvimento Profissional do assistido.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite alterar o Desenvolvimento Profissional do assistido.";
                 btnExcluir.Visible = true;
                 SGSDesenvolvimento.CodigoDesenvolvimento = Convert.ToInt32(Request.QueryString["cod"]);
 
@@ -120,7 +120,7 @@ namespace SGS.View.Desenvolvimento
             else
             {
                 lblTitulo.Text = "Cadastrar Desenvolvimento";
-                lblDescricao.Text = "Descrição: Permite cadastrar o Desenvolvimento Profissional do assistido.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar o Desenvolvimento Profissional do assistido.";
                 btnExcluir.Visible = false;
             }
         }

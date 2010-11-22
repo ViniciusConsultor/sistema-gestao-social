@@ -16,6 +16,7 @@
             .style8
             {
                 width: 258px;
+                font-size: large;
             }
             .style9
             {
@@ -29,16 +30,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Login"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Consultar Login" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
-        Text=" Descrição: Permite localização dos logins de acesso ao sistema. "></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text=" <b>Descrição: Permite localização dos logins de acesso ao sistema. " CssClass="Descricao"></asp:Label> 
         
         <br /><br />
     </span>
 
-    <table width="850px" align="left">
+    <table width="850px" align="left" style="font-size: medium">
         <tr>
             <td class="style7"> &nbsp; </td>    
             <td class="style8" align="right"> &nbsp;<span class="style6"><strong>Filtro</strong></span></td>

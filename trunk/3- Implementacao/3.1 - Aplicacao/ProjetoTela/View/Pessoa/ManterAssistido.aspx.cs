@@ -197,7 +197,7 @@ namespace SGS.View.Pessoa
             if (Request.QueryString["tipo"] == "alt")
             {
                 lblTitulo.Text = "Alterar Assistido";
-                lblDescricao.Text = "Descrição: Permite alterar um Assistido.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite alterar um Assistido.";
 
                 int codigoAssistido = Convert.ToInt32(Request.QueryString["cod"]);
                 SGSAssistidoDTO.Assistido = objSGSServico.ObterAssistido(codigoAssistido);
@@ -219,7 +219,7 @@ namespace SGS.View.Pessoa
             else
             {
                 lblTitulo.Text = "Cadastrar Assistido";
-                lblDescricao.Text = "Descrição: Permite cadastrar um Assistido.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar um Assistido.";
 
                 btnAtivarDesativar.Visible = false;
 

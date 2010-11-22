@@ -6,8 +6,9 @@
     <style type="text/css">
         .style6
         {
-            width: 140px;
+            width: 148px;
             font-size: small;
+            text-align: left;
         }
     </style>
 
@@ -15,10 +16,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <span class="style4"><strong> 
-        <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" Text=""></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" Text="" CssClass="Descricao"></asp:Label> 
         
         <br /><br />
     </span>
@@ -26,11 +27,11 @@
 
     <table width="100%">
         <tr>
-            <td style="text-align: right" class="style6"> Casa Lar</td>
+            <td class="style6"> Casa Lar</td>
             <td>  
                 <asp:DropDownList ID="ddlCasaLar" runat="server" Width="200px" 
                     AutoPostBack="True" DataTextField="NomeCasaLar" 
-                    DataValueField="CodigoCasaLar" Enabled="False">
+                    DataValueField="CodigoCasaLar" Enabled="False" style="margin-left: 0px">
                 </asp:DropDownList>
             </td>
             <td> &nbsp;</td>

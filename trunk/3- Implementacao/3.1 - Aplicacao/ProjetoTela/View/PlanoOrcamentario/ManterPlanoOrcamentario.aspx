@@ -104,11 +104,11 @@
 
  <span class="style4"><strong> 
         <asp:Label ID="lblTitulo" runat="server" 
-        Text="Cadastrar Plano Orçamentário"></asp:Label>
+        Text="Cadastrar Plano Orçamentário" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; <asp:Label ID="lblDescricao" runat="server" 
-        Text="Descrição: Permite cadastrar um Plano Orçamentário para a Casa Lar."></asp:Label> 
+        &nbsp; <asp:Label ID="lblDescricao" runat="server" 
+        Text="<b>Descrição:</b> Permite cadastrar um Plano Orçamentário para a Casa Lar." CssClass="Descricao"></asp:Label> 
         
         <br /><br />
  </span>

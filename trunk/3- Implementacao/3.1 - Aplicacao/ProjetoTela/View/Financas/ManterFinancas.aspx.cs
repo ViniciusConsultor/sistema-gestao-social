@@ -123,7 +123,7 @@ namespace SGS.View.Financas
             else
             {
                 lblTitulo.Text = "Cadastrar Financas";
-                lblDescricao.Text = "Descrição: Permite cadastrar as Financas da Casa Lar.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar as Financas da Casa Lar.";
                 btnExcluir.Visible = false;
                 txtDataCriacao.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 txtLancadoPor.Text = DadosAcesso.SessaoDTO.Login.LoginUsuario;

@@ -11,6 +11,7 @@
         {
             height: 20px;
             text-decoration: underline;
+            font-size: medium;
         }
         .style17
         {
@@ -30,11 +31,6 @@
         {
             height: 20px;
             }
-        .style26
-        {
-            text-align: right;
-            width: 160px;
-        }
         .style29
         {
             width: 105px;
@@ -125,13 +121,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <span class="style4"><strong> 
-        <asp:Label ID="Label1" runat="server" Text="Relatório Financeiro"></asp:Label>
+        <asp:Label ID="lblTitulo" runat="server" Text="Relatório Financeiro" CssClass="Titulo"></asp:Label>
     </strong> &nbsp;</span><br />
     
     <span class="style4" style="font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-        &nbsp;&nbsp; 
-    <asp:Label ID="Label2" runat="server" 
-        Text="Descrição: Permite gerar relatório financeiro da casa lar."></asp:Label> 
+        &nbsp; 
+    <asp:Label ID="lblDescricao" runat="server" 
+        Text="Descrição: Permite gerar relatório financeiro da casa lar." CssClass="Descricao"></asp:Label> 
         
         <br /><br />
    
@@ -170,7 +166,7 @@
             </td>    
             <td class="style30" valign="middle">  
                 <asp:DropDownList ID="ddl" runat="server" Height="22px" 
-                    Width="200px" DataTextField="Nome" DataValueField="CodigoPessoa" 
+                    Width="205px" DataTextField="Nome" DataValueField="CodigoPessoa" 
                     >
                     <asp:ListItem>Todos</asp:ListItem>
                     <asp:ListItem>Receita</asp:ListItem>
@@ -212,7 +208,7 @@
                 <asp:CompareValidator ID="validatorDtFimLancMaiorInicio" runat="server" 
                     ControlToCompare="txtDtInicioLancamento" ControlToValidate="txtDtFimLancamento" 
                     Display="Dynamic" 
-                    ErrorMessage="Preencha a Data Fim com uma Data Maior do que a Data Início" 
+                    ErrorMessage="Preencha a Data Fim com uma data maior do que a Data Início" 
                     ForeColor="Red" Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
 
             </td>

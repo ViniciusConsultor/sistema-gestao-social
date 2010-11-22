@@ -102,7 +102,7 @@ namespace SGS.View.Procedimentos
             if (Request.QueryString["tipo"] == "alt")
             {
                 lblTitulo.Text = "Alterar Procedimentos";
-                lblDescricao.Text = "Descrição: Permite Alterar os procedimentos dos assistidos.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite Alterar os procedimentos dos assistidos.";
                 btnExcluir.Visible = true;
 
                 SGSProcedimentos.CodigoProcedimento = Convert.ToInt32(Request.QueryString["cod"]);
@@ -117,7 +117,7 @@ namespace SGS.View.Procedimentos
             else
             {
                 lblTitulo.Text = "Cadastrar Procedimentos";
-                lblDescricao.Text = "Descrição: Permite Cadatrar os procedimentos dos assistidos";
+                lblDescricao.Text = "<b>Descrição:</b> Permite Cadatrar os procedimentos dos assistidos";
                 btnExcluir.Visible = false;
             }
         }

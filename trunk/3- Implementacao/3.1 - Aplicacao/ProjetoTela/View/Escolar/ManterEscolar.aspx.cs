@@ -90,7 +90,7 @@ namespace SGS.View.Escolar
             if (Request.QueryString["tipo"] == "alt" && (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario"))
             {
                 lblTitulo.Text = "Alterar Dados Escolares";
-                lblDescricao.Text = "Descrição: Permite alterar os dados escolares dos assistidos.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite alterar os dados escolares dos assistidos.";
                 btnExcluir.Visible = true;
 
                 int codigoEscolar = Convert.ToInt32(Request.QueryString["cod"]);
@@ -109,7 +109,7 @@ namespace SGS.View.Escolar
             {
                 SGSEscolarDTO = new SGS.Entidades.DTO.EscolarDTO();
                 lblTitulo.Text = "Cadastrar Dados Escolares";
-                lblDescricao.Text = "Descrição: Permite cadastrar os dados escolares dos assistidos.";
+                lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar os dados escolares dos assistidos.";
                 btnExcluir.Visible = false;
             }
 
