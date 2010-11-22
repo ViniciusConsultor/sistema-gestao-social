@@ -71,7 +71,7 @@
                 <td> 
                     <asp:Button ID="btnCarregarDadosTela" runat="server" 
                         onclick="btnCarregarDadosTela_Click" Text="Carregar Dados Tela" 
-                        CausesValidation="False" />
+                        CausesValidation="False" Visible="False" />
                 </td>
             </tr>
         </table>
