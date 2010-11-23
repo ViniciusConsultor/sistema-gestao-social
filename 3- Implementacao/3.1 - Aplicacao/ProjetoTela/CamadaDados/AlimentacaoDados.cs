@@ -112,7 +112,7 @@ namespace SGS.CamadaDados
 
                 //Pega os alimentos contidos na alimentação
                 AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
-                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodigoAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
+                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
             }
 
             leitorDados.Close();
@@ -144,7 +144,7 @@ namespace SGS.CamadaDados
                 objAlimentacao.Diretiva = leitorDados["Diretiva"].ToString();
 
                 AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
-                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodigoAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
+                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
             }
 
             leitorDados.Close();
@@ -209,7 +209,7 @@ namespace SGS.CamadaDados
 
                 //Pega os alimentos contidos na alimentação
                 AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
-                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodigoAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
+                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
             }
 
             leitorDados.Close();
@@ -247,7 +247,7 @@ namespace SGS.CamadaDados
 
                 //Pega os alimentos contidos na alimentação
                 AlimentacaoAlimentoDados objAlimentacaoAlimentoDados = new AlimentacaoAlimentoDados();
-                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodigoAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
+                objAlimentacao.AlimentacaoAlimentoLista = objAlimentacaoAlimentoDados.ListarPorCodAlimentacao(objAlimentacao.CodigoAlimentacao.Value);
 
                 objAlimentacaoLista.Add(objAlimentacao);
             }

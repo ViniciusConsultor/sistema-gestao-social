@@ -86,9 +86,9 @@ namespace SGS.CamadaDados
         /// <summary>
         /// Lista AlimentacaoAlimento por Código da Alimentação
         /// </summary>
-        /// <param name="codigoAlimentacao"></param>
+        /// <param name="codAlimentacao"></param>
         /// <returns></returns>
-        public List<AlimentacaoAlimento> ListarPorCodigoAlimentacao(int codigoAlimentacao)
+        public List<AlimentacaoAlimento> ListarPorCodAlimentacao(int codAlimentacao)
         {
             List<AlimentacaoAlimento> objAlimentacaoAlimentoLista = new List<AlimentacaoAlimento>();
             AlimentacaoAlimento objAlimentacaoAlimento = null;
@@ -96,7 +96,7 @@ namespace SGS.CamadaDados
             SqlCommand comando = new SqlCommand(@"select AA.CodigoAlimentacao, AA.CodigoAlimento, A.NomeAlimento from AlimentacaoAlimento AA inner join Alimento A on AA.CodigoAlimento = A.CodigoAlimento
                                                     where AA.CodigoAlimentacao = @codigoAlimentacao", base.Conectar());
 
-            SqlParameter parametroCodigoAlimentacao = new SqlParameter("@codigoAlimentacao", codigoAlimentacao);
+            SqlParameter parametroCodigoAlimentacao = new SqlParameter("@codigoAlimentacao", codAlimentacao);
             parametroCodigoAlimentacao.DbType = System.Data.DbType.Int32;
             comando.Parameters.Add(parametroCodigoAlimentacao);
 
