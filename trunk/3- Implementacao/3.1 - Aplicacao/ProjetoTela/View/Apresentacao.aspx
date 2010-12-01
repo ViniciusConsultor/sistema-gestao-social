@@ -16,11 +16,11 @@
             &nbsp;&nbsp; 
             O Sistema tem como objetivo auxiliar organizações sociais em sua administração e 
                 monitoramento de suas atividades. Utilizando o sistema, os agentes sociais conseguem 
-        cadastrar casas lar, funcionários e assistidos e obter informações sobre os 
-        mesmos. Enquanto o gestor tem um acesso global de todas as informações 
-        referentes a casas lar, funcionários, assistidos, procedimentos, finanças e 
-        dados escolares; além de permitir a emissão de relatórios importantes para a 
-        tomada de decisões.
+        cadastrar casa lar, assistidos e obter informações sobre os 
+        mesmos. Enquanto o gestor tem um acesso global de todas as funcionalidades 
+        referentes a casas lar, assistidos, procedimentos, finanças, 
+        dados escolares e emissão de relatórios importantes para a tomada de decisões. Os funcionários
+        tem acesso apenas as funcionalidades operacionais da casa lar.
             
             </td>    
         </tr>
