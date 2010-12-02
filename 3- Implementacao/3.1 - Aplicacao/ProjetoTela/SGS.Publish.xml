@@ -1,2 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<publishData />
+<publishData>
+  <publishProfile publishUrl="C:\SITE" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="View/Alimentacao/ConsultarAlimentacao.aspx" publishTime="11/22/2010 01:25:35" />
+    <file relUrl="View/LoginUI/ManterLogin.aspx" publishTime="11/22/2010 00:59:26" />
+    <file relUrl="Scripts/jquery.meio.mask.js" publishTime="10/15/2010 01:11:47" />
+    <file relUrl="View/Desenvolvimento/ManterDesenvolvimento.aspx" publishTime="11/22/2010 01:54:16" />
+    <file relUrl="Imagens/Tela_Saida.JPG" publishTime="06/11/2010 20:26:44" />
+    <file relUrl="View/Procedimentos/ManterProcedimentos.aspx" publishTime="11/22/2010 01:50:04" />
+    <file relUrl="Global.asax" publishTime="05/21/2010 10:59:20" />
+    <file relUrl="Imagens/Banner_SGSpng.jpg" publishTime="11/22/2010 03:41:47" />
+    <file relUrl="Styles/Site.css" publishTime="09/02/2010 01:36:38" />
+    <file relUrl="View/CasaLar/ManterCasaLar.aspx" publishTime="11/22/2010 00:48:42" />
+    <file relUrl="View/Escolar/MsgEscolar.aspx" publishTime="11/03/2010 20:35:22" />
+    <file relUrl="View/PlanoOrcamentario/ManterPlanoOrcamentario.aspx" publishTime="11/22/2010 02:01:21" />
+    <file relUrl="App_Data/SGS_log.ldf" publishTime="12/01/2010 00:06:50" />
+    <file relUrl="Site.Master" publishTime="09/02/2010 01:32:08" />
+    <file relUrl="View/Codificacao.aspx" publishTime="10/18/2010 21:14:51" />
+    <file relUrl="View/Pessoa/PessoaVoluntario.ascx" publishTime="10/28/2010 00:15:57" />
+    <file relUrl="View/Pessoa/PessoaAssistido.ascx" publishTime="11/22/2010 01:43:45" />
+    <file relUrl="Account/ChangePasswordSuccess.aspx" publishTime="05/21/2010 10:59:20" />
+    <file relUrl="Scripts/jquery.maskMoney.js" publishTime="10/15/2010 00:24:37" />
+    <file relUrl="Master/SGS.Master" publishTime="11/22/2010 03:57:18" />
+    <file relUrl="View/Relatorio/Relatorio.aspx" publishTime="11/20/2010 10:32:47" />
+    <file relUrl="View/Pessoa/PessoaFuncionario.ascx" publishTime="10/28/2010 00:13:43" />
+    <file relUrl="View/Escolar/ConsultarEscolar.aspx" publishTime="11/30/2010 23:40:34" />
+    <file relUrl="Account/Web.config" publishTime="12/01/2010 00:07:07" />
+    <file relUrl="Account/Register.aspx" publishTime="05/21/2010 10:59:20" />
+    <file relUrl="View/LoginUI/Login.aspx" publishTime="10/19/2010 00:04:38" />
+    <file relUrl="Account/Login.aspx" publishTime="05/21/2010 10:59:20" />
+    <file relUrl="View/LoginUI/ConsultarLogin.aspx" publishTime="11/30/2010 23:27:47" />
+    <file relUrl="View/Pessoa/PessoaDadosBancarios.ascx" publishTime="10/28/2010 00:13:04" />
+    <file relUrl="View/Financas/ManterFinancas.aspx" publishTime="11/22/2010 01:08:31" />
+    <file relUrl="bin/Reports.dll" publishTime="11/19/2010 00:18:38" />
+    <file relUrl="View/Escolar/ManterEscolar.aspx" publishTime="11/22/2010 01:05:59" />
+    <file relUrl="View/Pessoa/PessoaPatrocinador.ascx" publishTime="10/27/2010 01:17:12" />
+    <file relUrl="Scripts/jquery-1.2.6-vsdoc.js" publishTime="10/11/2010 20:55:36" />
+    <file relUrl="Imagens/Banner_2.jpg" publishTime="05/21/2010 13:17:30" />
+    <file relUrl="View/Financas/ConsultarFinancas.aspx" publishTime="12/01/2010 00:01:52" />
+    <file relUrl="Default.aspx" publishTime="08/31/2010 00:14:54" />
+    <file relUrl="App_Data/SGS.mdf" publishTime="12/01/2010 00:06:50" />
+    <file relUrl="Imagens/5[1].jpg" publishTime="05/21/2010 11:40:52" />
+    <file relUrl="Scripts/jquery.maskedinput-1.2.1.js" publishTime="10/14/2010 20:13:39" />
+    <file relUrl="Imagens/Banner_SGSpng_v2.jpg" publishTime="11/22/2010 03:53:27" />
+    <file relUrl="View/CasaLar/MsgCasaLar.aspx" publishTime="10/26/2010 23:32:37" />
+    <file relUrl="View/PlanoOrcamentario/ConsultarPlanoOrcamentario.aspx" publishTime="11/22/2010 02:01:55" />
+    <file relUrl="View/SemPermissao.aspx" publishTime="10/09/2010 12:53:43" />
+    <file relUrl="View/Procedimentos/ConsultarProcedimentos.aspx" publishTime="11/30/2010 23:35:26" />
+    <file relUrl="Scripts/jquery-1.3.2.min.js" publishTime="10/11/2010 20:55:03" />
+    <file relUrl="Account/ChangePassword.aspx" publishTime="05/21/2010 10:59:20" />
+    <file relUrl="View/Alimentacao/ManterAlimentacao.aspx" publishTime="11/22/2010 04:02:32" />
+    <file relUrl="View/Relatorio/RelAssistidos.aspx" publishTime="11/22/2010 02:03:33" />
+    <file relUrl="View/Pessoa/ConsultarAssistido.aspx" publishTime="11/30/2010 23:30:03" />
+    <file relUrl="Web.config" publishTime="12/01/2010 00:07:07" />
+    <file relUrl="View/Pessoa/PessoaContato.ascx" publishTime="11/20/2010 13:37:47" />
+    <file relUrl="View/Pessoa/PessoaDadosBasico.ascx" publishTime="11/22/2010 01:45:11" />
+    <file relUrl="View/Desenvolvimento/ConsultarDesenvolvimento.aspx" publishTime="11/22/2010 01:56:00" />
+    <file relUrl="bin/ProjetoTela.dll" publishTime="12/01/2010 00:23:56" />
+    <file relUrl="Imagens/Banner.jpg" publishTime="05/21/2010 13:18:08" />
+    <file relUrl="View/Relatorio/RelFinancas.aspx" publishTime="11/22/2010 02:05:52" />
+    <file relUrl="View/Pessoa/ManterAssistido.aspx" publishTime="11/22/2010 09:34:53" />
+    <file relUrl="bin/ProjetoTela.pdb" publishTime="12/01/2010 00:23:56" />
+    <file relUrl="View/Apresentacao.aspx" publishTime="11/23/2010 16:11:40" />
+  </publishProfile>
+</publishData>
