@@ -192,10 +192,6 @@
                         Font-Size="Smaller" />
                     <RowStyle BackColor="#EFF3FB" Font-Size="Small" BorderColor="#003399" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
                 </td>    
         </tr>
