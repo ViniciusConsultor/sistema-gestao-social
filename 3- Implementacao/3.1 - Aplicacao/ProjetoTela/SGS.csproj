@@ -12,7 +12,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SGS</RootNamespace>
     <AssemblyName>ProjetoTela</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,12 +43,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -56,19 +55,19 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <EmbeddedResource Include="Componentes\Phone.jpg" />
+    <EmbeddedResource Include="Componentes\Customers.xml" />
     <Content Include="App_Data\SGS.mdf" />
     <Content Include="App_Data\SGS_log.ldf">
       <DependentUpon>SGS.mdf</DependentUpon>
     </Content>
-    <EmbeddedResource Include="Componentes\Phone.jpg" />
-    <EmbeddedResource Include="Componentes\Customers.xml" />
     <Content Include="Imagens\5[1].jpg" />
     <Content Include="Imagens\Banner.jpg" />
     <Content Include="Imagens\Banner_2.jpg" />
@@ -85,7 +84,7 @@
     <Content Include="Global.asax" />
     <Content Include="View\Alimentacao\ConsultarAlimentacao.aspx" />
     <Content Include="View\Alimentacao\ManterAlimentacao.aspx" />
-    <Content Include="View\Apresentacao.aspx" />
+    <Content Include="View\LoginUI\Apresentacao.aspx" />
     <Content Include="View\CasaLar\ManterCasaLar.aspx" />
     <Content Include="View\CasaLar\MsgCasaLar.aspx" />
     <Content Include="View\Codificacao.aspx" />
@@ -268,11 +267,11 @@
     <Compile Include="View\Alimentacao\ManterAlimentacao.aspx.designer.cs">
       <DependentUpon>ManterAlimentacao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Apresentacao.aspx.cs">
+    <Compile Include="View\LoginUI\Apresentacao.aspx.cs">
       <DependentUpon>Apresentacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Apresentacao.aspx.designer.cs">
+    <Compile Include="View\LoginUI\Apresentacao.aspx.designer.cs">
       <DependentUpon>Apresentacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\CasaLar\ManterCasaLar.aspx.cs">

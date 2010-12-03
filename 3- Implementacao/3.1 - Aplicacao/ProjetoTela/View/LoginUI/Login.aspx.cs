@@ -37,7 +37,7 @@ namespace ProjetoTela.Telas
             if (umLogin != null)
             {
                 DadosAcesso.SessaoDTO = new SessaoDTO(umLogin); 
-                Server.Transfer("../Apresentacao.aspx");
+                Response.Redirect("Apresentacao.aspx");
             }
             else
             {

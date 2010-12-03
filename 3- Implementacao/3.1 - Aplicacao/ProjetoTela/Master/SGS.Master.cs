@@ -22,7 +22,7 @@ namespace ProjetoTela.Master
         protected void btnSair_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Server.Transfer("../../View/LoginUI/Login.aspx");
+            Server.Transfer(Request.ApplicationPath + "/View/LoginUI/Login.aspx");
         }
     }
 }
