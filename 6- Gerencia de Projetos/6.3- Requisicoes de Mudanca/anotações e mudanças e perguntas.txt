@@ -1,0 +1,13 @@
+Home dando erro
+Dar print na tela de alimentos
+excluir sabado da alimentação
+excluir na base dados dos assisdtidos repetidos (dados escolares)
+verificar em plano orçamentário porque os items de orçamento não aparecem na gride.
+
+Porque não posso cadastra 1 alimento?
+Pelo fato de não ser um sistema comercial.
+solicitar manutenção.
+devido ao fato do escopo do sistema estar muito grande e não haver tempo habil para implementaçao, resolvemos colocar de forma estatica.
+
+Pergunta: pQ O CAMPOS APARECEM MAS ESTÃO DESABILITADOS?
+os campos desabilitados dos planos orçamentatios serao carregados em forma de alteração
