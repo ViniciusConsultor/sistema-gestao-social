@@ -113,8 +113,15 @@ namespace SGS.CamadaDados
 
             comando.ExecuteNonQuery();
 
-            //TODO: retorno entidade login com o Código do Login Preenchido
-            return ObterUltimo();
+            if (!objLogin.CodigoLogin.HasValue)
+            {
+                return ObterUltimo();
+            }
+            else
+            {
+                return objLogin;
+            }
+
         }
 
         /// <summary>
