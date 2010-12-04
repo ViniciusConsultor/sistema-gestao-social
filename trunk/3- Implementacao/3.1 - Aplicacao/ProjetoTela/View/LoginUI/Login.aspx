@@ -38,7 +38,7 @@
             Senha</td>
         <td>
             <asp:TextBox ID="txtSenha" runat="server" Width="151px" TextMode="Password" 
-                MaxLength="6"></asp:TextBox>
+                MaxLength="10"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ControlToValidate="txtSenha" ErrorMessage="Preencha o campo Senha" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>

@@ -71,7 +71,8 @@
                         <DynamicMenuStyle BackColor="#B5C7DE" />
                         <DynamicSelectedStyle BackColor="#507CD1" />
                         <Items>
-                            <asp:MenuItem Text="HOME" Value="Home" NavigateUrl="~/View/Apresentacao.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="HOME" Value="Home" 
+                                NavigateUrl="View/LoginUI/Apresentacao.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="ADMINISTRAR" Value="Administrar">
                                 <asp:MenuItem Text="Login" Value="Login">
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 
