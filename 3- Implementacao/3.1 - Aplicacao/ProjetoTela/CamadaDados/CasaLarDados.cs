@@ -86,8 +86,12 @@ namespace SGS.CamadaDados
             SqlParameter parametroQtdAssistidos = new SqlParameter("@qtdAssistidos", objCasaLar.QtdAssistidos);
             parametroQtdAssistidos.DbType = System.Data.DbType.Int32;
 
-            SqlParameter parametroFoto = new SqlParameter("@foto", objCasaLar.Foto);
-            parametroFoto.DbType = System.Data.DbType.String;
+            
+            SqlParameter parametroFoto = new SqlParameter("@foto", System.Data.SqlDbType.Image);
+            if (!String.IsNullOrEmpty(objCasaLar.Foto))
+                parametroFoto.Value = objCasaLar.Foto;
+            else
+                parametroFoto.Value = DBNull.Value;
 
             SqlParameter parametroEmailGestor = new SqlParameter("@emailGestor", objCasaLar.EmailGestor);
             parametroEmailGestor.DbType = System.Data.DbType.String;

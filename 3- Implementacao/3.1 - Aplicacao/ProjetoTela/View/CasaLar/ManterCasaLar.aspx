@@ -380,7 +380,7 @@
                     História</td>
                 <td colspan="3">
                     <asp:TextBox ID="txtHistoria" runat="server" Height="107px" TextMode="MultiLine" 
-                        Width="554px" MaxLength="2000"></asp:TextBox>
+                        Width="554px" MaxLength="2000" ReadOnly="True"></asp:TextBox>
                 </td>
             </tr>
             </table>

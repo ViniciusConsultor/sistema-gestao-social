@@ -117,6 +117,8 @@ namespace ProjetoTela.View.CasaLar
                 {
                     this.PreencherDadosView();
                     this.DesabilitarView();
+                    txtHistoria.ReadOnly = true;
+                    txtHistoria.Enabled = true;
                 }
                 else
                     Server.Transfer("MsgCasaLar.aspx"); //transfere usuário para tela de mensagem de casa lar não cadastrada.
@@ -165,7 +167,7 @@ namespace ProjetoTela.View.CasaLar
             objCasaLar.StatusCasaLar = ddlStatus.SelectedValue;
             objCasaLar.TelefoneGestor = txtTelefoneGestor.Text;
            ///TODO: Maycon
-            objCasaLar.Foto = "bla";
+            //objCasaLar.Foto = "bla";
             objCasaLar.Contato.Bairro = txtBairro.Text;
             objCasaLar.Contato.Blog = txtBlog.Text;
             objCasaLar.Contato.CEP = txtCEP.Text;
