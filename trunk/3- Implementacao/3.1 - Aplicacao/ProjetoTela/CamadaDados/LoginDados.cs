@@ -226,7 +226,7 @@ namespace SGS.CamadaDados
 
             //Se os Login e Nome login preenchidos
             if (objLoginDTO.LoginValor != "" && objLoginDTO.NomeValor != "")
-                sql += @" where Login like @loginValor or Nome like @nomeValor";
+                sql += @" where Login like @loginValor and Nome like @nomeValor";
             //Se apenas Login preenchido
             else if (objLoginDTO.LoginValor != "")
                 sql += @" where Login like @loginValor";
