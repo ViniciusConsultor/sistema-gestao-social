@@ -14,17 +14,22 @@
      }
         .style8
         {
-            text-align: left;
-            width: 365px;
-        }
+         text-align: left;
+         width: 316px;
+     }
         .style9
         {
-            width: 365px;
-        }
+         width: 316px;
+     }
         .style10
         {
             color: #FF0000;
         }
+        .style11
+     {
+         font-size: small;
+         text-align: justify;
+     }
         </style>
 
         <!-- Importa todos os script JavaScript-->
@@ -166,8 +171,9 @@
                         ControlToValidate="ltbAlimentos" ErrorMessage="Escolha os Alimentos" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
-                <td>
-                    &nbsp;</td>
+                <td class="style11">
+                    Para selecionar mais de um alimento mantenha pressionado control (Ctrl) e clique 
+                    no próximo alimento</td>
                 <td>
                     &nbsp;</td>
             </tr>
