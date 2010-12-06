@@ -147,7 +147,7 @@ namespace SGS.CamadaDados
                 objEscolar.CodigoEscolar = Convert.ToInt32(leitorDados["CodigoEscolar"]);
                 objEscolar.Contato_CodigoContato = Convert.ToInt32(leitorDados["CodigoContato"]);
                 objEscolar.DataMatricula = Convert.ToDateTime(leitorDados["DataMatricula"]);
-                if (leitorDados["DataMatricula"] != DBNull.Value)
+                if (leitorDados["DataSaida"] != DBNull.Value)
                     objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
                 objEscolar.GrauEscolaridade = leitorDados["GrauEscolaridade"].ToString();
                 objEscolar.Instituicao = leitorDados["Instituicao"].ToString();
@@ -196,7 +196,7 @@ namespace SGS.CamadaDados
                 objEscolar.GrauEscolaridade = leitorDados["GrauEscolaridade"].ToString();
                 objEscolar.SerieCursada = leitorDados["SerieCursada"].ToString();
                 objEscolar.DataMatricula = Convert.ToDateTime(leitorDados["DataMatricula"]);
-                if (leitorDados["DataMatricula"] != DBNull.Value)
+                if (leitorDados["DataSaida"] != DBNull.Value)
                     objEscolar.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
                 objEscolar.StatusSerie = leitorDados["StatusSerie"].ToString();
             }
