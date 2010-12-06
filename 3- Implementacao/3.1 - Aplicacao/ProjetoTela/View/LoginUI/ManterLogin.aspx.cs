@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SGS.Entidades.DTO;
 using SGS.Servicos;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 namespace SGS.View.LoginUI
 {
@@ -23,10 +24,22 @@ namespace SGS.View.LoginUI
             // Valida se o usuário logado possui acesso.
             if (DadosAcesso.Perfil == "Gestor")
             {
+                MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
                 if (!Page.IsPostBack)
                 {
                     this.CarregarTela();
                 }
+                else if (HiddenField1.Value == "Retorno")
+                {
+                    string url = @"ManterLogin.aspx?tipo=alt&cod=" + SGSLogin.CodigoLogin.Value.ToString();
+                    Response.Redirect(url);
+                }
+                else if (HiddenField1.Value == "Exclusao")
+                {
+                    Response.Redirect("ConsultarLogin.aspx");
+                }
+                
             }
             // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
             else
@@ -43,11 +56,8 @@ namespace SGS.View.LoginUI
             SGSServico sgsServico = new SGSServico();
 
             SGSLogin = sgsServico.SalvarLogin(PegarDadosView());
-
-            string url = @"ManterLogin.aspx?tipo=alt&cod=" + SGSLogin.CodigoLogin.Value.ToString();
-            Response.Redirect(url);
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
         }
 
         /// <summary>
@@ -69,12 +79,9 @@ namespace SGS.View.LoginUI
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            SGSServico objSGSServico = new SGSServico();
-
-            if (objSGSServico.ExcluirLogin(SGSLogin.CodigoLogin.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Login excluído com sucesso!'); </script>");
-
-            Response.Redirect("ConsultarLogin.aspx");
+        
+            MessageBox1.ShowMessage("Deseja realmente excluir?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
+        
         }
 
         #endregion
@@ -151,6 +158,16 @@ namespace SGS.View.LoginUI
             txtSenha.Text = SGSLogin.Senha;
             ddlPerfil.SelectedValue = SGSLogin.Perfil;
 
+        }
+
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+            if (objSGSServico.ExcluirLogin(SGSLogin.CodigoLogin.Value))
+                MessageBox1.ShowMessage("Login excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            
+            HiddenField1.Value = "Exclusao";
         }
         
         #endregion

@@ -217,13 +217,15 @@ namespace SGS.CamadaDados
         /// <param name="codigoOrcamento"></param>
         public List<OrcamentoNatureza> ListarPorCodigo(int codigoOrcamento)
         {
-            string sql = @"SELECT OrcNat.CodigoNatureza, NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.Valor AS ValorOrcamento, SUM(F.Valor) AS BalancoFinancas, 
-                     OrcNat.Valor + SUM(F.Valor) AS SaldoOrcamento
+            string sql = @"SELECT OrcNat.CodigoNatureza, NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.Valor AS ValorOrcamento, SUM(IsNull(F.Valor,0)) AS BalancoFinancas, 
+                     OrcNat.Valor + SUM(IsNull(F.Valor,0)) AS SaldoOrcamento
               FROM OrcamentoNatureza AS OrcNat 
-                         INNER JOIN Financas AS F ON F.CodigoNatureza = OrcNat.CodigoNatureza 
-                         INNER JOIN NaturezaLancamento AS NL ON NL.CodigoNatureza = OrcNat.CodigoNatureza 
-                         INNER JOIN Orcamento AS O ON O.CodigoOrcamento = OrcNat.CodigoOrcamento
-              WHERE        (F.DataLancamento BETWEEN O.InicioVigencia AND O.FimVigencia) and O.CodigoOrcamento = @codigoOrcamento
+                        INNER JOIN Orcamento AS O ON O.CodigoOrcamento = OrcNat.CodigoOrcamento                     
+                        LEFT JOIN Financas AS F ON F.CodigoNatureza = OrcNat.CodigoNatureza 
+                        INNER JOIN NaturezaLancamento AS NL ON NL.CodigoNatureza = OrcNat.CodigoNatureza 
+                         
+              WHERE ((F.DataLancamento BETWEEN O.InicioVigencia AND O.FimVigencia) OR F.DataLancamento IS NULL) 
+                AND O.CodigoOrcamento = @codigoOrcamento
               GROUP BY NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.CodigoNatureza, OrcNat.Valor";
 
             SqlCommand comando = new SqlCommand(sql, base.Conectar());
@@ -243,7 +245,9 @@ namespace SGS.CamadaDados
                 objOrcamentoNatureza.NomeNatureza = leitorDados["NomeNatureza"].ToString();
                 objOrcamentoNatureza.CodigoOrcamento = Convert.ToInt32(leitorDados["CodigoOrcamento"]);
                 objOrcamentoNatureza.Valor = Convert.ToDecimal(leitorDados["ValorOrcamento"]);
-                objOrcamentoNatureza.BalancoFinancas = Convert.ToDecimal(leitorDados["BalancoFinancas"]);
+                
+                if (leitorDados["BalancoFinancas"] != DBNull.Value)
+                    objOrcamentoNatureza.BalancoFinancas = Convert.ToDecimal(leitorDados["BalancoFinancas"]);
                 objOrcamentoNatureza.SaldoOrcamento = Convert.ToDecimal(leitorDados["SaldoOrcamento"]);
 
                 listOrcamento.Add(objOrcamentoNatureza);

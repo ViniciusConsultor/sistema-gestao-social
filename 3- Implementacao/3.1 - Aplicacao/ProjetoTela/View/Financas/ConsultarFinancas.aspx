@@ -158,7 +158,8 @@
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center" 
-                    AllowPaging="True" onpageindexchanging="gridFinancas_PageIndexChanging">
+                    AllowPaging="True" onpageindexchanging="gridFinancas_PageIndexChanging" 
+                    EnableModelValidation="True">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="CodigoFinancas" 
@@ -172,10 +173,10 @@
                         </asp:BoundField>
                         <asp:BoundField DataField="Observacao" HeaderText="Descrição">
                         <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Left" />
                         </asp:BoundField>
                         <asp:BoundField DataField="Valor" HeaderText="Valor" DataFormatString="{0:C2}">
-                        <HeaderStyle HorizontalAlign="Center" />
+                        <HeaderStyle HorizontalAlign="Center" Width="100px" />
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         <asp:BoundField DataField="DataLancamento" HeaderText="Data de Lançamento" 

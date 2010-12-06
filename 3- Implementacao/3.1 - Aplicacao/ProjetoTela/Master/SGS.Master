@@ -7,6 +7,7 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="../Content/css/Default.css" type="text/css" rel="stylesheet" />
     <style type="text/css">
         .style1
         {
@@ -45,7 +46,7 @@
         form div input {border:1px solid #b5c7de; padding:2px 3px; color:#363636; }/*esta formata os campos de texto*/
         
     </style>
-
+  
  
 
 
@@ -72,7 +73,7 @@
                         <DynamicSelectedStyle BackColor="#507CD1" />
                         <Items>
                             <asp:MenuItem Text="HOME" Value="Home" 
-                                NavigateUrl="View/LoginUI/Apresentacao.aspx"></asp:MenuItem>
+                                NavigateUrl="~/View/LoginUI/Apresentacao.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="ADMINISTRAR" Value="Administrar">
                                 <asp:MenuItem Text="Login" Value="Login">
                                     <asp:MenuItem Text="Cadastrar" Value="Cadastrar" 

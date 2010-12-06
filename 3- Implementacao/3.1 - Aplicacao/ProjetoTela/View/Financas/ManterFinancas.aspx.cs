@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using SGS.Servicos;
 using SGS.Entidades;
 using SGS.Entidades.DTO;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 namespace SGS.View.Financas
 {
@@ -23,9 +24,20 @@ namespace SGS.View.Financas
             // Valida se o usuário logado possui acesso.
             if (DadosAcesso.Perfil == "Gestor")
             {
+                MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
                 if (!Page.IsPostBack)
                 {
                     this.CarregarTela();
+                }
+                else if (HiddenField1.Value == "Retorno")
+                {
+                    string url = @"ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString();
+                    Server.Transfer(url);
+                }
+                else if (HiddenField1.Value == "Exclusao")
+                {
+                    Response.Redirect("ConsultarFinancas.aspx");
                 }
             }
             // Caso usuário logado não possua acesso redireciona usuário para tela que informa que ele não possui acesso.
@@ -45,12 +57,8 @@ namespace SGS.View.Financas
             SGSServico sgsServico = new SGSServico();
 
             SGSFinancas = sgsServico.SalvarFinancas(PegarDadosView());
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
-
-            string url = @"ManterFinancas.aspx?tipo=alt&cod=" + SGSFinancas.CodigoFinancas.Value.ToString();
-            Server.Transfer(url);
-
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
         }
 
         /// <summary>
@@ -75,12 +83,8 @@ namespace SGS.View.Financas
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            SGSServico objSGSServico = new SGSServico();
+            MessageBox1.ShowMessage("Deseja realmente excluir?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
 
-            if (objSGSServico.ExcluirFinancas(SGSFinancas.CodigoFinancas.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
-
-            Response.Redirect("ConsultarFinancas.aspx");
         }
 
         #endregion
@@ -117,8 +121,6 @@ namespace SGS.View.Financas
 
                 if (SGSFinancas != null)
                     this.PreencherDadosView();
-                else
-                    Server.Transfer("bla.aspx"); //transfere usuário para tela finança não encontrada
             }
             else
             {
@@ -126,7 +128,7 @@ namespace SGS.View.Financas
                 lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar as Financas da Casa Lar.";
                 btnExcluir.Visible = false;
                 txtDataCriacao.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                txtLancadoPor.Text = DadosAcesso.SessaoDTO.Login.LoginUsuario;
+                txtLancadoPor.Text = DadosAcesso.SessaoDTO.Login.Nome;
             }
         }
 
@@ -142,9 +144,17 @@ namespace SGS.View.Financas
             objFinancas.DataLancamento = Convert.ToDateTime(txtDataLancamento.Text);
             objFinancas.DataCriacao = DateTime.Now;
             if (ddlTipoLancamento.SelectedValue == "Receita")
+            {
                 objFinancas.Valor = Convert.ToDecimal(txtValor.Text);
+                if (objFinancas.Valor < 0)
+                    objFinancas.Valor = objFinancas.Valor * (-1);
+            }
             else
+            {
                 objFinancas.Valor = -1 * Convert.ToDecimal(txtValor.Text);
+                if (objFinancas.Valor > 0)
+                    objFinancas.Valor = objFinancas.Valor * (-1);
+            }
             objFinancas.LancadoPor = txtLancadoPor.Text;
             objFinancas.Observacao = txtObservacao.Text;
             objFinancas.CodigoNatureza = Convert.ToInt32(ddlNaturezaFinanca.SelectedValue);
@@ -161,7 +171,7 @@ namespace SGS.View.Financas
             ddlTipoLancamento.SelectedValue = SGSFinancas.TipoLancamento;
             txtDataLancamento.Text = SGSFinancas.DataLancamento.Value.ToString();
             txtDataCriacao.Text = SGSFinancas.DataCriacao.Value.ToString();
-            txtValor.Text = SGSFinancas.Valor.Value.ToString();
+            txtValor.Text = String.Format("{0:F2}", SGSFinancas.Valor.Value);
             txtLancadoPor.Text = SGSFinancas.LancadoPor;
             txtObservacao.Text = SGSFinancas.Observacao;
 
@@ -171,6 +181,18 @@ namespace SGS.View.Financas
             if (SGSFinancas.CodigoNatureza.HasValue)
                 ddlNaturezaFinanca.SelectedValue = SGSFinancas.CodigoNatureza.Value.ToString();
 
+        }
+
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
+
+            SGSServico objSGSServico = new SGSServico();
+
+            if (objSGSServico.ExcluirFinancas(SGSFinancas.CodigoFinancas.Value))
+                MessageBox1.ShowMessage("Finança excluída com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+
+            HiddenField1.Value = "Exclusao";
+            
         }
 
         #endregion

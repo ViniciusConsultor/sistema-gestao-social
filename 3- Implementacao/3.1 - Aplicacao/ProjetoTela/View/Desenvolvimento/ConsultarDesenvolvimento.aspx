@@ -172,7 +172,7 @@
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="96%" AutoGenerateColumns="False" 
                     BorderColor="#003399" HorizontalAlign="Center" 
-                    AllowPaging="True" PageSize="2" 
+                    AllowPaging="True" 
                     onpageindexchanging="gridDesenvolvimento_PageIndexChanging">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>

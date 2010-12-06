@@ -8,6 +8,7 @@ using SGS.Componentes;
 using SGS.Entidades.DTO;
 using SGS.Entidades;
 using SGS.Servicos;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 namespace SGS.View.Desenvolvimento
 {
@@ -25,9 +26,20 @@ namespace SGS.View.Desenvolvimento
             // Valida se o usuário logado possui acesso.
             if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
             {
+                MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
                 if (!Page.IsPostBack)
                 {
                     this.CarregarTela();
+                }
+                else if (HiddenField1.Value == "Retorno")
+                {
+                    string url = @"ManterDesenvolvimento.aspx?tipo=alt&cod=" + SGSDesenvolvimento.CodigoDesenvolvimento.Value.ToString();
+                    Server.Transfer(url);
+                }
+                else if (HiddenField1.Value == "Exclusao")
+                {
+                    Response.Redirect("ConsultarDesenvolvimento.aspx");
                 }
             }
             // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
@@ -47,12 +59,8 @@ namespace SGS.View.Desenvolvimento
             SGSServico sgsServico = new SGSServico();
 
             SGSDesenvolvimento = sgsServico.SalvarDesenvolvimento(PegarDadosView());
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
-
-            string url = @"ManterDesenvolvimento.aspx?tipo=alt&cod=" + SGSDesenvolvimento.CodigoDesenvolvimento.Value.ToString();
-            Server.Transfer(url);
-
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
         }
 
         /// <summary>
@@ -77,12 +85,8 @@ namespace SGS.View.Desenvolvimento
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            SGSServico objSGSServico = new SGSServico();
+            MessageBox1.ShowMessage("Deseja realmente excluir?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
 
-            if (objSGSServico.ExcluirDesenvolvimento(SGSDesenvolvimento.CodigoDesenvolvimento.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Desenvolvimento excluído com sucesso!'); </script>");
-
-            Response.Redirect("ConsultarDesenvolvimento.aspx");
         }
 
         #endregion
@@ -169,6 +173,17 @@ namespace SGS.View.Desenvolvimento
 
             if (SGSDesenvolvimento.DataFim.HasValue)
                 txtDataFim.Text = SGSDesenvolvimento.DataFim.ToString();
+        }
+
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+            if (objSGSServico.ExcluirDesenvolvimento(SGSDesenvolvimento.CodigoDesenvolvimento.Value))
+                MessageBox1.ShowMessage("Login excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+
+            HiddenField1.Value = "Exclusao";
+            
         }
 
         #endregion

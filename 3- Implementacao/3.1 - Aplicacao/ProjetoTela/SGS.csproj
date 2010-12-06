@@ -37,7 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>Componentes\AjaxControlToolKit\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="msgbox, Version=1.0.1704.38191, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Reports">
       <HintPath>Bibliotecas\Reports.dll</HintPath>
     </Reference>
@@ -45,7 +50,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -68,6 +72,332 @@
     <Content Include="App_Data\SGS_log.ldf">
       <DependentUpon>SGS.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\css\Default.css" />
+    <Content Include="Content\img\access.png" />
+    <Content Include="Content\img\add-child.gif" />
+    <Content Include="Content\img\add2fav.gif" />
+    <Content Include="Content\img\add2wi.gif" />
+    <Content Include="Content\img\addclause.gif" />
+    <Content Include="Content\img\admin.gif" />
+    <Content Include="Content\img\agt_Utilities.png" />
+    <Content Include="Content\img\alert.gif" />
+    <Content Include="Content\img\alert.png" />
+    <Content Include="Content\img\areas.gif" />
+    <Content Include="Content\img\ascsign.gif" />
+    <Content Include="Content\img\associate.gif" />
+    <Content Include="Content\img\attach.gif" />
+    <Content Include="Content\img\Attach.png" />
+    <Content Include="Content\img\a_query.gif" />
+    <Content Include="Content\img\a_report.gif" />
+    <Content Include="Content\img\a_workitem.gif" />
+    <Content Include="Content\img\back.gif" />
+    <Content Include="Content\img\big-progress.gif" />
+    <Content Include="Content\img\botao_ok_grande.gif" />
+    <Content Include="Content\img\btnCancel-ES.png" />
+    <Content Include="Content\img\btnCancel-US.png" />
+    <Content Include="Content\img\btnCancel.png" />
+    <Content Include="Content\img\btnNAO-EN.png" />
+    <Content Include="Content\img\btnNAO-ES.png" />
+    <Content Include="Content\img\btnNAO.png" />
+    <Content Include="Content\img\btnOK.png" />
+    <Content Include="Content\img\btnSIM-EN.png" />
+    <Content Include="Content\img\btnSIM-ES.png" />
+    <Content Include="Content\img\btnSIM.png" />
+    <Content Include="Content\img\btnSIM_Vermelho.gif" />
+    <Content Include="Content\img\btnUpload-ES.png" />
+    <Content Include="Content\img\btnUpload.png" />
+    <Content Include="Content\img\bug.png" />
+    <Content Include="Content\img\build.gif" />
+    <Content Include="Content\img\build0.gif" />
+    <Content Include="Content\img\build100.gif" />
+    <Content Include="Content\img\build200.gif" />
+    <Content Include="Content\img\build300.gif" />
+    <Content Include="Content\img\bulk.gif" />
+    <Content Include="Content\img\bullet.gif" />
+    <Content Include="Content\img\button_cancel.png" />
+    <Content Include="Content\img\b_0.gif" />
+    <Content Include="Content\img\b_1.gif" />
+    <Content Include="Content\img\b_2.gif" />
+    <Content Include="Content\img\b_3.gif" />
+    <Content Include="Content\img\b_4.gif" />
+    <Content Include="Content\img\b_5.gif" />
+    <Content Include="Content\img\b_unknown.gif" />
+    <Content Include="Content\img\calendar-sml.gif" />
+    <Content Include="Content\img\cancel.gif" />
+    <Content Include="Content\img\changeset.gif" />
+    <Content Include="Content\img\checkin.gif" />
+    <Content Include="Content\img\checkout.gif" />
+    <Content Include="Content\img\clean.png" />
+    <Content Include="Content\img\close.gif" />
+    <Content Include="Content\img\cnrclient.png" />
+    <Content Include="Content\img\company_logo.gif" />
+    <Content Include="Content\img\compare.gif" />
+    <Content Include="Content\img\copy.gif" />
+    <Content Include="Content\img\delete32x32.gif" />
+    <Content Include="Content\img\descsign.gif" />
+    <Content Include="Content\img\disabled-mask.gif" />
+    <Content Include="Content\img\documents.GIF" />
+    <Content Include="Content\img\Documents\ITDL.GIF" />
+    <Content Include="Content\img\download.gif" />
+    <Content Include="Content\img\edit.gif" />
+    <Content Include="Content\img\editq.gif" />
+    <Content Include="Content\img\empty.gif" />
+    <Content Include="Content\img\error.gif" />
+    <Content Include="Content\img\Error.png" />
+    <Content Include="Content\img\favorites.gif" />
+    <Content Include="Content\img\FileExt\ic.gif" />
+    <Content Include="Content\img\FileExt\ICASAX.GIF" />
+    <Content Include="Content\img\FileExt\ICASCX.GIF" />
+    <Content Include="Content\img\FileExt\ICASMX.GIF" />
+    <Content Include="Content\img\FileExt\ICASP.GIF" />
+    <Content Include="Content\img\FileExt\ICASPX.GIF" />
+    <Content Include="Content\img\FileExt\ICBMP.GIF" />
+    <Content Include="Content\img\FileExt\ICCAT.GIF" />
+    <Content Include="Content\img\FileExt\ICCHM.GIF" />
+    <Content Include="Content\img\FileExt\ICCONFIG.GIF" />
+    <Content Include="Content\img\FileExt\ICCSS.GIF" />
+    <Content Include="Content\img\FileExt\ICDB.GIF" />
+    <Content Include="Content\img\FileExt\ICDIB.GIF" />
+    <Content Include="Content\img\FileExt\ICDOC.GIF" />
+    <Content Include="Content\img\FileExt\ICDOCP.GIF" />
+    <Content Include="Content\img\FileExt\ICDOT.GIF" />
+    <Content Include="Content\img\FileExt\ICDVD.GIF" />
+    <Content Include="Content\img\FileExt\ICDWP.GIF" />
+    <Content Include="Content\img\FileExt\ICEML.GIF" />
+    <Content Include="Content\img\FileExt\ICEST.GIF" />
+    <Content Include="Content\img\FileExt\ICFWP.GIF" />
+    <Content Include="Content\img\FileExt\ICGEN.GIF" />
+    <Content Include="Content\img\FileExt\ICGIF.GIF" />
+    <Content Include="Content\img\FileExt\ICHLP.GIF" />
+    <Content Include="Content\img\FileExt\ICHTA.GIF" />
+    <Content Include="Content\img\FileExt\ICHTM.GIF" />
+    <Content Include="Content\img\FileExt\ICHTMDOC.GIF" />
+    <Content Include="Content\img\FileExt\ICHTMFP.GIF" />
+    <Content Include="Content\img\FileExt\ICHTMl.GIF" />
+    <Content Include="Content\img\FileExt\ICHTMPPT.GIF" />
+    <Content Include="Content\img\FileExt\ICHTMPUB.GIF" />
+    <Content Include="Content\img\FileExt\ICHTMXLS.GIF" />
+    <Content Include="Content\img\FileExt\ICHTT.GIF" />
+    <Content Include="Content\img\FileExt\ICINF.GIF" />
+    <Content Include="Content\img\FileExt\ICINI.GIF" />
+    <Content Include="Content\img\FileExt\ICJFIF.GIF" />
+    <Content Include="Content\img\FileExt\ICJPE.GIF" />
+    <Content Include="Content\img\FileExt\ICJPEG.GIF" />
+    <Content Include="Content\img\FileExt\ICJPG.GIF" />
+    <Content Include="Content\img\FileExt\ICJS.GIF" />
+    <Content Include="Content\img\FileExt\ICJSE.GIF" />
+    <Content Include="Content\img\FileExt\ICLOG.GIF" />
+    <Content Include="Content\img\FileExt\ICMHT.GIF" />
+    <Content Include="Content\img\FileExt\ICMHTML.GIF" />
+    <Content Include="Content\img\FileExt\ICMHTPUB.GIF" />
+    <Content Include="Content\img\FileExt\ICMPD.GIF" />
+    <Content Include="Content\img\FileExt\ICMPP.GIF" />
+    <Content Include="Content\img\FileExt\ICMPS.GIF" />
+    <Content Include="Content\img\FileExt\ICMPT.GIF" />
+    <Content Include="Content\img\FileExt\ICMPW.GIF" />
+    <Content Include="Content\img\FileExt\ICMPX.GIF" />
+    <Content Include="Content\img\FileExt\ICMSG.GIF" />
+    <Content Include="Content\img\FileExt\ICMSI.GIF" />
+    <Content Include="Content\img\FileExt\ICMSP.GIF" />
+    <Content Include="Content\img\FileExt\ICNPIE.GIF" />
+    <Content Include="Content\img\FileExt\ICOCX.GIF" />
+    <Content Include="Content\img\FileExt\ICONE.GIF" />
+    <Content Include="Content\img\FileExt\ICPNG.GIF" />
+    <Content Include="Content\img\FileExt\ICPOT.GIF" />
+    <Content Include="Content\img\FileExt\ICPPS.GIF" />
+    <Content Include="Content\img\FileExt\ICPPT.GIF" />
+    <Content Include="Content\img\FileExt\ICPPTP.GIF" />
+    <Content Include="Content\img\FileExt\ICPSP.GIF" />
+    <Content Include="Content\img\FileExt\ICPTM.GIF" />
+    <Content Include="Content\img\FileExt\ICPTT.GIF" />
+    <Content Include="Content\img\FileExt\ICPUB.GIF" />
+    <Content Include="Content\img\FileExt\ICRTF.GIF" />
+    <Content Include="Content\img\FileExt\ICSMRTPG.GIF" />
+    <Content Include="Content\img\FileExt\ICSTT.GIF" />
+    <Content Include="Content\img\FileExt\ICTIF.GIF" />
+    <Content Include="Content\img\FileExt\ICTIFF.GIF" />
+    <Content Include="Content\img\FileExt\ICTXT.GIF" />
+    <Content Include="Content\img\FileExt\ICVBE.GIF" />
+    <Content Include="Content\img\FileExt\ICVBS.GIF" />
+    <Content Include="Content\img\FileExt\ICVDX.GIF" />
+    <Content Include="Content\img\FileExt\ICVSD.GIF" />
+    <Content Include="Content\img\FileExt\ICVSL.GIF" />
+    <Content Include="Content\img\FileExt\ICVSS.GIF" />
+    <Content Include="Content\img\FileExt\ICVST.GIF" />
+    <Content Include="Content\img\FileExt\ICVSU.GIF" />
+    <Content Include="Content\img\FileExt\ICVSW.GIF" />
+    <Content Include="Content\img\FileExt\ICVSX.GIF" />
+    <Content Include="Content\img\FileExt\ICVTX.GIF" />
+    <Content Include="Content\img\FileExt\ICWM.GIF" />
+    <Content Include="Content\img\FileExt\ICWMA.GIF" />
+    <Content Include="Content\img\FileExt\ICWMD.GIF" />
+    <Content Include="Content\img\FileExt\ICWMP.GIF" />
+    <Content Include="Content\img\FileExt\ICWMS.GIF" />
+    <Content Include="Content\img\FileExt\ICWMV.GIF" />
+    <Content Include="Content\img\FileExt\ICWMX.GIF" />
+    <Content Include="Content\img\FileExt\ICWMZ.GIF" />
+    <Content Include="Content\img\FileExt\ICWSF.GIF" />
+    <Content Include="Content\img\FileExt\ICXDDOC.GIF" />
+    <Content Include="Content\img\FileExt\ICXLS.GIF" />
+    <Content Include="Content\img\FileExt\ICXLSP.GIF" />
+    <Content Include="Content\img\FileExt\ICXLT.GIF" />
+    <Content Include="Content\img\FileExt\ICXML.GIF" />
+    <Content Include="Content\img\FileExt\ICXSD.GIF" />
+    <Content Include="Content\img\FileExt\ICXSL.GIF" />
+    <Content Include="Content\img\FileExt\ICXSLT.GIF" />
+    <Content Include="Content\img\FileExt\ICZIP.GIF" />
+    <Content Include="Content\img\fileshare.png" />
+    <Content Include="Content\img\first.gif" />
+    <Content Include="Content\img\firstd.gif" />
+    <Content Include="Content\img\first_over.gif" />
+    <Content Include="Content\img\Flaps\br.png" />
+    <Content Include="Content\img\Flaps\de.png" />
+    <Content Include="Content\img\Flaps\es.png" />
+    <Content Include="Content\img\Flaps\fr.png" />
+    <Content Include="Content\img\Flaps\it.png" />
+    <Content Include="Content\img\Flaps\jp.png" />
+    <Content Include="Content\img\Flaps\us.png" />
+    <Content Include="Content\img\folder.gif" />
+    <Content Include="Content\img\GEARS_AN.GIF" />
+    <Content Include="Content\img\Globe.png" />
+    <Content Include="Content\img\group-disabled.gif" />
+    <Content Include="Content\img\group.gif" />
+    <Content Include="Content\img\hdall.gif" />
+    <Content Include="Content\img\help.gif" />
+    <Content Include="Content\img\history.gif" />
+    <Content Include="Content\img\home.gif" />
+    <Content Include="Content\img\hyperlink.gif" />
+    <Content Include="Content\img\identity.png" />
+    <Content Include="Content\img\indicator_mozilla_blu.gif" />
+    <Content Include="Content\img\information.png" />
+    <Content Include="Content\img\information_old.png" />
+    <Content Include="Content\img\insertclause.gif" />
+    <Content Include="Content\img\last.gif" />
+    <Content Include="Content\img\lastd.gif" />
+    <Content Include="Content\img\last_over.gif" />
+    <Content Include="Content\img\logoFMSPequeno.png" />
+    <Content Include="Content\img\MaisMenu.gif" />
+    <Content Include="Content\img\mbq.gif" />
+    <Content Include="Content\img\mdown.gif" />
+    <Content Include="Content\img\minus.gif" />
+    <Content Include="Content\img\mleft.gif" />
+    <Content Include="Content\img\mn.gif" />
+    <Content Include="Content\img\movetofolder.gif" />
+    <Content Include="Content\img\mright.gif" />
+    <Content Include="Content\img\msave.gif" />
+    <Content Include="Content\img\mup.gif" />
+    <Content Include="Content\img\newdoclib.gif" />
+    <Content Include="Content\img\newfolder.gif" />
+    <Content Include="Content\img\newquery.gif" />
+    <Content Include="Content\img\newworkitem.gif" />
+    <Content Include="Content\img\next.gif" />
+    <Content Include="Content\img\nextd.gif" />
+    <Content Include="Content\img\next_over.gif" />
+    <Content Include="Content\img\nil.gif" />
+    <Content Include="Content\img\node-collapsed.gif" />
+    <Content Include="Content\img\node-error.gif" />
+    <Content Include="Content\img\node-expanded.gif" />
+    <Content Include="Content\img\node-working.gif" />
+    <Content Include="Content\img\null.gif" />
+    <Content Include="Content\img\open-build.gif" />
+    <Content Include="Content\img\open.gif" />
+    <Content Include="Content\img\options.gif" />
+    <Content Include="Content\img\Paginacao\1pixel_azulclaro.gif" />
+    <Content Include="Content\img\Paginacao\anterior.gif" />
+    <Content Include="Content\img\Paginacao\primeira.gif" />
+    <Content Include="Content\img\Paginacao\proxima.gif" />
+    <Content Include="Content\img\Paginacao\ultima.gif" />
+    <Content Include="Content\img\pl.gif" />
+    <Content Include="Content\img\plus.gif" />
+    <Content Include="Content\img\prev.gif" />
+    <Content Include="Content\img\prevd.gif" />
+    <Content Include="Content\img\prev_over.gif" />
+    <Content Include="Content\img\prg.gif" />
+    <Content Include="Content\img\printer.GIF" />
+    <Content Include="Content\img\process_guidance.gif" />
+    <Content Include="Content\img\profile.gif" />
+    <Content Include="Content\img\project.gif" />
+    <Content Include="Content\img\p_group.gif" />
+    <Content Include="Content\img\qb_0.gif" />
+    <Content Include="Content\img\qb_1.gif" />
+    <Content Include="Content\img\qb_2.gif" />
+    <Content Include="Content\img\qb_3.gif" />
+    <Content Include="Content\img\qb_4.gif" />
+    <Content Include="Content\img\qb_unknown.gif" />
+    <Content Include="Content\img\qnb.gif" />
+    <Content Include="Content\img\query.gif" />
+    <Content Include="Content\img\Question.png" />
+    <Content Include="Content\img\refresh.gif" />
+    <Content Include="Content\img\removeclause.gif" />
+    <Content Include="Content\img\rename.gif" />
+    <Content Include="Content\img\report.gif" />
+    <Content Include="Content\img\Reports\datasource.gif" />
+    <Content Include="Content\img\Reports\folder.gif" />
+    <Content Include="Content\img\Reports\linkedreport.gif" />
+    <Content Include="Content\img\Reports\report.gif" />
+    <Content Include="Content\img\Reports\resource.gif" />
+    <Content Include="Content\img\Reports\unknown.gif" />
+    <Content Include="Content\img\restrict.gif" />
+    <Content Include="Content\img\runquery.gif" />
+    <Content Include="Content\img\sasc.gif" />
+    <Content Include="Content\img\save.gif" />
+    <Content Include="Content\img\savecl.gif" />
+    <Content Include="Content\img\Scc\state-add.gif" />
+    <Content Include="Content\img\Scc\state-branch.gif" />
+    <Content Include="Content\img\Scc\state-checkedin.gif" />
+    <Content Include="Content\img\Scc\state-checkedout.gif" />
+    <Content Include="Content\img\Scc\state-delete.gif" />
+    <Content Include="Content\img\Scc\state-merge.gif" />
+    <Content Include="Content\img\Scc\state-move.gif" />
+    <Content Include="Content\img\Scc\state-none.gif" />
+    <Content Include="Content\img\Scc\state-otheruser.gif" />
+    <Content Include="Content\img\Scc\state-undelete.gif" />
+    <Content Include="Content\img\sc_query.gif" />
+    <Content Include="Content\img\sc_report.gif" />
+    <Content Include="Content\img\sc_workitem.gif" />
+    <Content Include="Content\img\sdesc.gif" />
+    <Content Include="Content\img\send.gif" />
+    <Content Include="Content\img\shall.gif" />
+    <Content Include="Content\img\source-files.gif" />
+    <Content Include="Content\img\spinner.gif" />
+    <Content Include="Content\img\spps.gif" />
+    <Content Include="Content\img\State-History\arrow-bg.gif" />
+    <Content Include="Content\img\State-History\arrow-head.gif" />
+    <Content Include="Content\img\State-History\arrow-short.gif" />
+    <Content Include="Content\img\State-History\arrow-start.gif" />
+    <Content Include="Content\img\State-History\more.gif" />
+    <Content Include="Content\img\State-History\state-bg.gif" />
+    <Content Include="Content\img\State-History\state-left.gif" />
+    <Content Include="Content\img\State-History\state-right.gif" />
+    <Content Include="Content\img\states.gif" />
+    <Content Include="Content\img\Success.png" />
+    <Content Include="Content\img\teamserver.gif" />
+    <Content Include="Content\img\test.gif" />
+    <Content Include="Content\img\tick.gif" />
+    <Content Include="Content\img\tools.gif" />
+    <Content Include="Content\img\undo.gif" />
+    <Content Include="Content\img\ungroup.gif" />
+    <Content Include="Content\img\upload.gif" />
+    <Content Include="Content\img\upperfolder.gif" />
+    <Content Include="Content\img\UserSigIn.png" />
+    <Content Include="Content\img\version.gif" />
+    <Content Include="Content\img\warning.gif" />
+    <Content Include="Content\img\whatsnext.png" />
+    <Content Include="Content\img\window.gif" />
+    <Content Include="Content\img\workitem.gif" />
+    <Content Include="Content\img\WorkItems\bug.gif" />
+    <Content Include="Content\img\WorkItems\change request.gif" />
+    <Content Include="Content\img\WorkItems\feature.gif" />
+    <Content Include="Content\img\WorkItems\issue.gif" />
+    <Content Include="Content\img\WorkItems\quality of service requirement.gif" />
+    <Content Include="Content\img\WorkItems\requirement.gif" />
+    <Content Include="Content\img\WorkItems\review.gif" />
+    <Content Include="Content\img\WorkItems\risk.gif" />
+    <Content Include="Content\img\WorkItems\scenario.gif" />
+    <Content Include="Content\img\WorkItems\task.gif" />
+    <Content Include="Content\img\WorkItems\test.gif" />
+    <Content Include="Content\img\WorkItems\unknown.gif" />
+    <Content Include="Content\img\zip.gif" />
     <Content Include="Imagens\5[1].jpg" />
     <Content Include="Imagens\Banner.jpg" />
     <Content Include="Imagens\Banner_2.jpg" />
@@ -115,6 +445,13 @@
     <Content Include="View\Relatorio\RelFinancas.aspx" />
     <Content Include="View\LoginUI\Login.aspx" />
     <Content Include="View\SemPermissao.aspx" />
+    <Content Include="View\UserControls\BoxUserInfo.ascx" />
+    <Content Include="View\UserControls\MessageBox.ascx" />
+    <Content Include="View\UserControls\MessageBoxTypes\AlertBox.ascx" />
+    <Content Include="View\UserControls\MessageBoxTypes\ErrorBox.ascx" />
+    <Content Include="View\UserControls\MessageBoxTypes\InformationBox.ascx" />
+    <Content Include="View\UserControls\MessageBoxTypes\QuestionBox.ascx" />
+    <Content Include="View\UserControls\MessageBoxTypes\SuccessBox.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -486,8 +823,59 @@
     <Compile Include="View\SemPermissao.aspx.designer.cs">
       <DependentUpon>SemPermissao.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\BoxUserInfo.ascx.cs">
+      <DependentUpon>BoxUserInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\BoxUserInfo.ascx.designer.cs">
+      <DependentUpon>BoxUserInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBox.ascx.cs">
+      <DependentUpon>MessageBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBox.ascx.designer.cs">
+      <DependentUpon>MessageBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\AlertBox.ascx.cs">
+      <DependentUpon>AlertBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\AlertBox.ascx.designer.cs">
+      <DependentUpon>AlertBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\ErrorBox.ascx.cs">
+      <DependentUpon>ErrorBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\ErrorBox.ascx.designer.cs">
+      <DependentUpon>ErrorBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\InformationBox.ascx.cs">
+      <DependentUpon>InformationBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\InformationBox.ascx.designer.cs">
+      <DependentUpon>InformationBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\QuestionBox.ascx.cs">
+      <DependentUpon>QuestionBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\QuestionBox.ascx.designer.cs">
+      <DependentUpon>QuestionBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\SuccessBox.ascx.cs">
+      <DependentUpon>SuccessBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\MessageBoxTypes\SuccessBox.ascx.designer.cs">
+      <DependentUpon>SuccessBox.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\js\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
@@ -503,7 +891,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49217</DevelopmentServerPort>
+          <DevelopmentServerPort>49467</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

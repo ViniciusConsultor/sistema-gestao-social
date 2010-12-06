@@ -2,6 +2,8 @@
 <%@ Register src="PessoaDadosBasico.ascx" tagname="PessoaDadosBasico" tagprefix="uc1" %>
 <%@ Register src="PessoaAssistido.ascx" tagname="PessoaAssistido" tagprefix="uc2" %>
 
+<%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc3" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style6
@@ -61,7 +63,6 @@
                     <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
                         onclick="btnSalvar_Click" /> &nbsp; 
                     <asp:Button ID="btnAtivarDesativar" runat="server" Text="Ativar" Width="110px" 
-                        onclientclick="return confirm('Deseja realmente desativar este assistido?')" 
                         onclick="btnAtivarDesativar_Click" /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
                         CausesValidation="False" onclick="btnCancelar_Click" />
@@ -86,5 +87,9 @@
             </td>
         </tr>
     </table>
+    <asp:HiddenField ID="HiddenField1" runat="server" />
+    <uc3:MessageBox ID="MessageBox1" runat="server" />
+    <br />
+
 
 </asp:Content>

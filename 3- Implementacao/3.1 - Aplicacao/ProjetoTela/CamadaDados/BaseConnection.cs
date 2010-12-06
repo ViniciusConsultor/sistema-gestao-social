@@ -42,9 +42,5 @@ namespace SGS.CamadaDados
             sqlCon.Dispose();
         }
 
-        public void Teste()
-        {
-
-        }
     }
 }

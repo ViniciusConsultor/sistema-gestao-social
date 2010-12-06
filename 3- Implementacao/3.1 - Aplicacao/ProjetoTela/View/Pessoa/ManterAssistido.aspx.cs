@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using SGS.Entidades;
 using SGS.Entidades.DTO;
 using SGS.Servicos;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 namespace SGS.View.Pessoa
 {
@@ -17,24 +18,17 @@ namespace SGS.View.Pessoa
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
             if (!Page.IsPostBack)
             {
                 this.CarregarPagina();
             }
-
-            //// Valida se o usuário logado possui acesso.
-            //if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
-            //{
-            //    if (!Page.IsPostBack)
-            //    {
-            //        this.CarregarPagina();
-            //    }
-            //}
-            // //Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
-            //else
-            //{
-            //    Server.Transfer("../SemPermissao.aspx");
-            //}
+            else if (HiddenField1.Value == "Retorno")
+            {
+                string url = @"ManterAssistido.aspx?tipo=alt&cod=" + SGSAssistidoDTO.Assistido.CodigoAssistido.Value.ToString();
+                Response.Redirect(url);
+            }
         }
 
         protected void ddlTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,28 +65,22 @@ namespace SGS.View.Pessoa
             SGSServico objSGSServico = new SGSServico();
 
             SGSAssistidoDTO.Assistido = objSGSServico.SalvarAssistido(PegarDadosView());
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
 
-            string url = @"ManterAssistido.aspx?tipo=alt&cod=" + SGSAssistidoDTO.Assistido.CodigoAssistido.Value.ToString();
-            Response.Redirect(url);
-
-            //TODO: Maycon exibir alerta na tela
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             SGSServico objSGSServico = new SGSServico();
 
-            List<Assistido> lista = objSGSServico.ListarAssistido(true);
+            string url;
+            if (Request.QueryString["tipo"] == "alt")
+                url = @"ManterAssistido.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
+            else
+                url = "ManterAssistido.aspx";
 
-            /*  string url;
-              if (Request.QueryString["tipo"] == "alt")
-                  url = @"ManterAssistido.aspx?tipo=alt&cod=" + Request.QueryString["cod"].ToString();
-              else
-                  url = "ManterAssistido.aspx";
-
-              Server.Transfer(url); */
-
+            Response.Redirect(url);
         }
 
         /// <summary>
@@ -102,6 +90,18 @@ namespace SGS.View.Pessoa
         /// <param name="e"></param>
         protected void btnAtivarDesativar_Click(object sender, EventArgs e)
         {
+            if (SGSAssistidoDTO.Assistido.Ativo == true)
+            {
+                MessageBox1.ShowMessage("Deseja realmente desativar este assistido?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
+            }
+            else
+            {
+                MessageBox1.ShowMessage("Deseja realmente ativar este assistido?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
+            }
+        }
+
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
             SGSServico objSGSServico = new SGSServico();
 
             SGSAssistidoDTO.Assistido = PegarDadosView();
@@ -109,13 +109,13 @@ namespace SGS.View.Pessoa
             SGSAssistidoDTO.Assistido = objSGSServico.SalvarAssistido(SGSAssistidoDTO.Assistido);
 
             if (SGSAssistidoDTO.Assistido.Ativo == true)
-                ClientScript.RegisterStartupScript(Page.GetType(), "AtivarDesativar", "<script> alert('Assistido ativado com sucesso!'); </script>");
+                MessageBox1.ShowMessage("Assistido ativado com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
             else
-                ClientScript.RegisterStartupScript(Page.GetType(), "AtivarDesativar", "<script> alert('Assistido desativado com sucesso!'); </script>");
+                MessageBox1.ShowMessage("Assistido desativado com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
 
-            string url = @"ManterAssistido.aspx?tipo=alt&cod=" + SGSAssistidoDTO.Assistido.CodigoAssistido.Value.ToString();
-            Response.Redirect(url);
+            HiddenField1.Value = "Retorno";
         }
+
 
         protected void btnCarregarDadosTela_Click(object sender, EventArgs e)
         {
@@ -132,7 +132,7 @@ namespace SGS.View.Pessoa
             ucPessoaDadosBasico.RG = "21.842.55.11";
             ucPessoaDadosBasico.Nacionalidade = "Brasileiro";
             ucPessoaDadosBasico.Naturalidade = "Fluminense";
-           
+
             #region Dados Assistido
 
             //Dados Assistido
@@ -206,14 +206,11 @@ namespace SGS.View.Pessoa
                 if (SGSAssistidoDTO.Assistido.Ativo == true)
                 {
                     btnAtivarDesativar.Text = "Desativar";
-                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente desativar este assistido?')";
                 }
                 else
                 {
                     btnAtivarDesativar.Text = "Ativar";
-                    btnAtivarDesativar.OnClientClick = "return confirm('Deseja realmente ativar este assistido?')";
                 }
-
                 PreencherDadosView();
             }
             else
@@ -225,7 +222,6 @@ namespace SGS.View.Pessoa
 
                 PreencherDadosView();
             }
-
         }
 
         public Assistido PegarDadosView()
@@ -253,7 +249,7 @@ namespace SGS.View.Pessoa
             SGSAssistidoDTO.Assistido.CertidaoNascimento = ucPessoaDadosBasico.CertidaoNascimento;
             SGSAssistidoDTO.Assistido.Nacionalidade = ucPessoaDadosBasico.Nacionalidade;
             SGSAssistidoDTO.Assistido.Naturalidade = ucPessoaDadosBasico.Naturalidade;
-           
+
             #endregion
 
             #region Dados Assistido
@@ -354,7 +350,8 @@ namespace SGS.View.Pessoa
             ucPessoaDadosBasico.CertidaoNascimento = SGSAssistidoDTO.Assistido.CertidaoNascimento;
             ucPessoaDadosBasico.Nacionalidade = SGSAssistidoDTO.Assistido.Nacionalidade;
             ucPessoaDadosBasico.Naturalidade = SGSAssistidoDTO.Assistido.Naturalidade;
-            
+
+
             #region Dados Assistido
 
             //Dados Assistido

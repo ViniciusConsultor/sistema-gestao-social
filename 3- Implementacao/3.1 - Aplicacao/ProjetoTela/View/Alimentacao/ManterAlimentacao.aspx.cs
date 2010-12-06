@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using SGS.Servicos;
 using SGS.Entidades;
 using SGS.Entidades.DTO;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 
 namespace SGS.View.Alimentacao
@@ -25,9 +26,20 @@ namespace SGS.View.Alimentacao
             // Valida se o usuário logado possui acesso.
             if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
             {
+                MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
                 if (!Page.IsPostBack)
                 {
                     this.CarregarTela();
+                }
+                else if (HiddenField1.Value == "Retorno")
+                {
+                    string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + SGSAlimentacao.CodigoAlimentacao.Value.ToString();
+                    Response.Redirect(url);
+                }
+                else if (HiddenField1.Value == "Exclusao")
+                {
+                    Response.Redirect("ManterAlimentacao.aspx");
                 }
             }
             // Caso usuário logado não possua acesso redireciona usuário para tela que informa que ele não possui acesso.
@@ -47,11 +59,8 @@ namespace SGS.View.Alimentacao
             SGSServico sgsServico = new SGSServico();
 
             SGSAlimentacao = sgsServico.SalvarAlimentacao(PegarDadosView());
-
-            string url = @"ManterAlimentacao.aspx?tipo=alt&cod=" + SGSAlimentacao.CodigoAlimentacao.Value.ToString();
-            Response.Redirect(url);
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
         }
 
         /// <summary>
@@ -75,12 +84,7 @@ namespace SGS.View.Alimentacao
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            SGSServico objSGSServico = new SGSServico();
-
-            if (objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Finança excluída com sucesso!'); </script>");
-
-            Response.Redirect("ManterAlimentacao.aspx");
+            MessageBox1.ShowMessage("Deseja realmente excluir?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
         }
 
         protected void ddlDiaSemana_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,6 +115,7 @@ namespace SGS.View.Alimentacao
                 lblHorario.Visible = false;
                 lblAlimentos.Visible = false;
                 ltbAlimentos.Visible = false;
+                lblDescricaoAlimentos.Visible = false;
                 btnExcluir.Visible = false;
             }
             //Qualquer outro periodo: Desjejum, Almoço, Janter, etc...
@@ -201,6 +206,7 @@ namespace SGS.View.Alimentacao
             txtDiretiva.Visible = true;
             lblAlimentos.Visible = true;
             ltbAlimentos.Visible = true;
+            lblDescricaoAlimentos.Visible = true;
         }
 
         /// <summary>
@@ -249,6 +255,17 @@ namespace SGS.View.Alimentacao
                         itemltbAlimentos.Selected = true;
                 }
             }
+        }
+
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+            if (objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value))
+                MessageBox1.ShowMessage("Alimentação excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+
+            HiddenField1.Value = "Exclusao";
+           // objSGSServico.ExcluirAlimentacao(SGSAlimentacao.CodigoAlimentacao.Value);
         }
 
         #endregion

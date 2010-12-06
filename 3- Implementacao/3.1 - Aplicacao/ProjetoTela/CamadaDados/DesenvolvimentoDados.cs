@@ -305,6 +305,11 @@ namespace SGS.CamadaDados
             else if (objDesenvolvimentoDTO.AtividadeValor != "")
                 sql += @" where Atividade like @atividadeValor";
 
+            if (sql.Contains("where"))
+                sql += " and P.Ativo = 1";
+            else
+                sql += " where P.Ativo = 1";
+
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;
             comando.Parameters.Add(paramAssistidoValor);

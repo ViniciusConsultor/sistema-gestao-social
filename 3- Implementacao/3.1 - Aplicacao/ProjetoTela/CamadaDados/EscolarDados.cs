@@ -270,6 +270,11 @@ namespace SGS.CamadaDados
             else if (sql.EndsWith("and "))
                 sql = sql.Remove(sql.Length - 4);
 
+            if (sql.Contains("where"))
+                sql += " and P.Ativo = 1";
+            else
+                sql += " where P.Ativo = 1";
+
             sql += " order by P.Nome";
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;

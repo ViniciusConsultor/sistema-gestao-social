@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using SGS.Servicos;
 using SGS.Entidades;
 using SGS.Entidades.DTO;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 namespace SGS.View.Escolar
 {
@@ -19,13 +20,21 @@ namespace SGS.View.Escolar
         /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
+            MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
             if (!Page.IsPostBack)
             {
                 this.CarregarTela();
-
             }
-
-
+            else if (HiddenField1.Value == "Retorno")
+            {
+                string url = @"ManterEscolar.aspx?tipo=alt&cod=" + SGSEscolarDTO.Escolar.CodigoEscolar.Value.ToString();
+                Response.Redirect(url);
+            }
+            else if (HiddenField1.Value == "Exclusao")
+            {
+                Response.Redirect("ConsultarEscolar.aspx");
+            }
         }
 
         /// <summary>
@@ -36,11 +45,8 @@ namespace SGS.View.Escolar
             SGSServico sgsServico = new SGSServico();
 
             SGSEscolarDTO.Escolar = sgsServico.SalvarEscolar(PegarDadosView());
-
-            string url = @"ManterEscolar.aspx?tipo=alt&cod=" + SGSEscolarDTO.Escolar.CodigoEscolar.Value.ToString();
-            Response.Redirect(url);
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
         }
 
         /// <summary>
@@ -62,12 +68,8 @@ namespace SGS.View.Escolar
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            SGSServico objSGSServico = new SGSServico();
+            MessageBox1.ShowMessage("Deseja realmente excluir?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
 
-            if (objSGSServico.ExcluirEscolar(SGSEscolarDTO.Escolar.CodigoEscolar.Value, SGSEscolarDTO.Escolar.Contato.CodigoContato.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Dados Escolares excluídos com sucesso!'); </script>");
-            //TODO:maycon - Exibir msg javascript
-            Response.Redirect("ConsultarEscolar.aspx");
         }
 
         #endregion
@@ -185,6 +187,15 @@ namespace SGS.View.Escolar
             txtTelefoneCelular.Text = SGSEscolarDTO.Escolar.Contato.TelefoneCelular;
         }
 
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+            if (objSGSServico.ExcluirEscolar(SGSEscolarDTO.Escolar.CodigoEscolar.Value, SGSEscolarDTO.Escolar.Contato.CodigoContato.Value))
+                MessageBox1.ShowMessage("Dado escolar excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            
+            HiddenField1.Value = "Exclusao";
+        }
 
         #endregion
 

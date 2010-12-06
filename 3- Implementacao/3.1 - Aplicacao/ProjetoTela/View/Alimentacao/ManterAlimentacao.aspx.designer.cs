@@ -139,6 +139,15 @@ namespace SGS.View.Alimentacao {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridAlimentos;
         
         /// <summary>
+        /// lblDescricaoAlimentos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescricaoAlimentos;
+        
+        /// <summary>
         /// lblDiretiva control.
         /// </summary>
         /// <remarks>
@@ -200,5 +209,23 @@ namespace SGS.View.Alimentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary sumarioErro;
+        
+        /// <summary>
+        /// HiddenField1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        
+        /// <summary>
+        /// MessageBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BRQ.SI.SCB.UI.Web.UserControls.MessageBox MessageBox1;
     }
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterPlanoOrcamentario.aspx.cs" Inherits="SGS.View.PlanoOrcamentario.ManterPlanoOrcamentario" %>
+<%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">
@@ -249,10 +250,10 @@
                         onclick="btnSalvar_Click" Height="26px" 
                         /> &nbsp; 
                     <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
-                        onclick="btnExcluir_Click" onclientclick="return confirm('Deseja realmente excluir?')" 
+                        onclick="btnExcluir_Click" CausesValidation="False" Height="26px" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
-                        CausesValidation="False" onclick="btnCancelar_Click" />
+                        CausesValidation="False" onclick="btnCancelar_Click" Height="26px" />
                 </td>
             </tr>
         </table>
@@ -293,7 +294,7 @@
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="validatorNaturezaDespesa" runat="server" 
                         ControlToValidate="ddlNaturezaDespesa" ErrorMessage="Escolha a Natureza da Despesa" 
-                        ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                        ForeColor="Red" InitialValue="Selecione" ValidationGroup="sumarioErro2">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -307,7 +308,7 @@
                         Width="148px" MaxLength="15"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="validatorValorOrcado" runat="server" 
                         ControlToValidate="txtValorDespesa" ErrorMessage="Preencha o Valor Orçado da Despesa" 
-                        ForeColor="Red">*</asp:RequiredFieldValidator>
+                        ForeColor="Red" ValidationGroup="sumarioErro2">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             </table>
@@ -316,10 +317,10 @@
             <tr>
                 <td style="text-align: center"> 
                     <asp:Button ID="btnIncluir" runat="server" Text="Incluir Item" Width="110px" 
-                        onclick="btnIncluir_Click" Height="26px" 
+                        onclick="btnIncluir_Click" Height="26px" ValidationGroup="sumarioErro2" 
                         /> &nbsp; 
                     <asp:Button ID="btnRemover" runat="server" Text="Remover Item" Width="110px" 
-                        onclick="btnRemover_Click" Enabled="False" Height="26px" 
+                        onclick="btnRemover_Click" Enabled="False" Height="26px" ValidationGroup="sumarioErro2" 
                         /> &nbsp;
                     </td>
             </tr>
@@ -351,7 +352,7 @@
                     GridLines="Horizontal" Width="90%" 
                     BorderColor="#003399" HorizontalAlign="Center"  
                     AllowPaging="True" AutoGenerateColumns="False" 
-                    onpageindexchanging="gridOrcamento_PageIndexChanging" Visible="False" Enabled="false">
+                    onpageindexchanging="gridOrcamento_PageIndexChanging" Visible="False">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="NomeNatureza" HeaderText="Nome da Natureza">
@@ -401,8 +402,17 @@
                         ForeColor="Red" HeaderText="Validação:" style="text-align: left" 
                         Font-Size="Small" />
 
+                        <br />
+
+                        <asp:ValidationSummary ID="sumarioErro2" runat="server" 
+                        Width="340px" BorderColor="#0066FF" BorderStyle="Double" BorderWidth="1px" 
+                        ForeColor="Red" HeaderText="Validação:" style="text-align: left" 
+                        Font-Size="Small" ValidationGroup="sumarioErro2" />
+
                 </td>
             </tr>
         </table>
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+    <uc1:MessageBox ID="MessageBox1" runat="server" />
         <br /><br />
 </asp:Content>

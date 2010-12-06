@@ -64,7 +64,6 @@ namespace SGS.Entidades
             get { return _fimVigencia; }
             set { _fimVigencia = value; }
         }
-
         
         public List<OrcamentoNatureza> OrcamentoNaturezaLista
         { 
@@ -117,18 +116,14 @@ namespace SGS.Entidades
             {
                 if (this.CodigoOrcamento.HasValue)
                 {
-                    OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
-
-                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigo(this.CodigoOrcamento.Value);
-
-                    decimal valorFinancas = 0;
-                    foreach (OrcamentoNatureza item in orcamentoNaturezaLista)
-                    {
-                        valorFinancas += item.BalancoFinancas.Value;
-                    }
-
                     //Retorna o saldo disponível do Orcamento
-                    return (this.ValorOrcamento.Value - valorFinancas);
+                    decimal valor = 0;
+                    decimal valorOrc = this.ValorOrcamento.Value;
+                    decimal valorFin = ValorFinanceiroReal;
+
+                    valor = valorOrc + valorFin;
+
+                    return valor;
                 }
                 else
                 {
@@ -136,7 +131,6 @@ namespace SGS.Entidades
                 }
             }
         }
-
 
         /// <summary>
         /// Esta propriedade retorna o verdadeiro valor que foi recebido e gasto de um determinado orçamento
@@ -149,12 +143,13 @@ namespace SGS.Entidades
                 {
                     OrcamentoNaturezaDados objOrcamentoNaturezaDados = new OrcamentoNaturezaDados();
 
-                    List<OrcamentoNatureza> orcamentoNaturezaLista = objOrcamentoNaturezaDados.ListarPorCodigo(this.CodigoOrcamento.Value);
+                    FinancasDados objFinancasDados = new FinancasDados();
+                    List<Financas> financasLista = objFinancasDados.Listar(this.InicioVigencia.Value, this.FimVigencia.Value);
 
                     decimal valorFinancas = 0;
-                    foreach (OrcamentoNatureza item in orcamentoNaturezaLista)
+                    foreach (Financas item in financasLista)
                     {
-                        valorFinancas += item.BalancoFinancas.Value;
+                        valorFinancas += item.Valor.Value;
                     }
 
                     //Retorna o valor financeiro que realmente foi recebido e gasto no mesmo período do Orçamento.

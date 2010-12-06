@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterAlimentacao.aspx.cs" Inherits="SGS.View.Alimentacao.ManterAlimentacao" %>
+<%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
  <style type="text/css">
@@ -15,11 +16,11 @@
         .style8
         {
          text-align: left;
-         width: 316px;
+         width: 299px;
      }
         .style9
         {
-         width: 316px;
+         width: 299px;
      }
         .style10
         {
@@ -172,8 +173,10 @@
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="style11">
-                    Para selecionar mais de um alimento mantenha pressionado control (Ctrl) e clique 
-                    no próximo alimento</td>
+                    <asp:Label ID="lblDescricaoAlimentos" runat="server" ForeColor="Black" 
+                        Text="Obs.: Para selecionar mais de um alimento mantenha pressionado control (Ctrl) e clique no próximo alimento." 
+                        Visible="False"></asp:Label>
+                </td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -205,7 +208,7 @@
                     <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
                     <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
-                        onclick="btnExcluir_Click" onclientclick="return confirm('Deseja realmente excluir?')" 
+                        onclick="btnExcluir_Click" 
                         /> &nbsp;
                     <asp:Button ID="Button2" runat="server" Text="Cancelar" Width="110px" 
                         CausesValidation="False" />
@@ -230,5 +233,12 @@
             </td>
         </tr>
         </table>
+        
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+    <uc1:MessageBox ID="MessageBox1" runat="server" />
+        
+        <br />
+        <br />
+
 
 </asp:Content>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterFinancas.aspx.cs" Inherits="SGS.View.Financas.ManterFinancas" %>
+<%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">
@@ -47,7 +48,7 @@
                 $(".mask-cpf").mask("999.999.999-99"); //cpf
                 $(".mask-cnpj").mask("99.999.999/9999-99"); //cnpj
                 $(".mask-cep").mask("99999-999"); //cep
-                $(".mask-real-cifrao").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
+                $(".mask-real-cifrao").maskMoney({ symbol: "R$", precision: 2, decimal: ",", thousands: ".", showSymbol: true }); //real com cifrão R$1.000,00
                 $(".mask-real").maskMoney({ symbol: "R$", decimal: ",", thousands: ".", showSymbol: false }); //real sem cifrão 1.000,00
                 $(".mask-precision").maskMoney({ precision: 3 }); //com 3 casas de precisão 1,000
 
@@ -226,8 +227,7 @@
                         <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" 
                             onclick="btnSalvar_Click" /> &nbsp; 
                         <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
-                            onclick="btnExcluir_Click" 
-                            onclientclick="return confirm('Deseja realmente excluir?')" /> &nbsp;
+                            onclick="btnExcluir_Click" /> &nbsp;
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
                             CausesValidation="False" onclick="btnCancelar_Click" />
                     </td>
@@ -238,6 +238,8 @@
                         <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#0066FF" 
                             BorderStyle="Double" BorderWidth="1px" ForeColor="Red" HeaderText="Validação:" 
                             Height="135px" style="font-size: small; text-align: left" Width="365px" />
+                        <asp:HiddenField ID="HiddenField1" runat="server" />
+                        <uc1:MessageBox ID="MessageBox1" runat="server" />
                         <br />
                         <br />
                     </td>
