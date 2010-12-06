@@ -319,7 +319,8 @@ namespace SGS.CamadaDados
                 objAssistido.RGMae = leitorDados["RGMae"].ToString();
                 objAssistido.TelefonePai = leitorDados["TelefonePai"].ToString();
                 objAssistido.TelefoneMae = leitorDados["TelefoneMae"].ToString();
-                objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
+                if (leitorDados["QtdIrmaos"] != DBNull.Value)
+                    objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
                 objAssistido.ResponsavelLegal = leitorDados["NomeResponsavel"].ToString();
                 objAssistido.CPFResponsavel = leitorDados["CpfResponsavel"].ToString();
                 if (leitorDados["CodigoContatoResponsavel"] != DBNull.Value)
@@ -410,7 +411,7 @@ namespace SGS.CamadaDados
                     objAssistido.CertidaoNascimento = leitorDados["CertidaoNascimento"].ToString();
                 objAssistido.DataEntrada = Convert.ToDateTime(leitorDados["DataEntrada"]);
                 if (leitorDados["DataSaida"] != DBNull.Value)
-                    objAssistido.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]); ;
+                    objAssistido.DataSaida = Convert.ToDateTime(leitorDados["DataSaida"]);
                 objAssistido.EstadoSaude = leitorDados["EstadoSaude"].ToString();
                 objAssistido.Peso = Convert.ToDecimal(leitorDados["Peso"]);
                 objAssistido.Etnia = leitorDados["Etnia"].ToString();
@@ -432,7 +433,8 @@ namespace SGS.CamadaDados
                 objAssistido.RGMae = leitorDados["RGMae"].ToString();
                 objAssistido.TelefonePai = leitorDados["TelefonePai"].ToString();
                 objAssistido.TelefoneMae = leitorDados["TelefoneMae"].ToString();
-                objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
+                if (leitorDados["QtdIrmaos"] != DBNull.Value)
+                    objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
                 objAssistido.ResponsavelLegal = leitorDados["NomeResponsavel"].ToString();
                 objAssistido.CPFResponsavel = leitorDados["CpfResponsavel"].ToString();
                 
@@ -608,7 +610,8 @@ namespace SGS.CamadaDados
                 objAssistido.RGMae = leitorDados["RGMae"].ToString();
                 objAssistido.TelefonePai = leitorDados["TelefonePai"].ToString();
                 objAssistido.TelefoneMae = leitorDados["TelefoneMae"].ToString();
-                objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
+                if (leitorDados["QtdIrmaos"] != DBNull.Value)
+                    objAssistido.QtdIrmaos = Convert.ToInt32(leitorDados["QtdIrmaos"]);
                 objAssistido.ResponsavelLegal = leitorDados["NomeResponsavel"].ToString();
                 objAssistido.CPFResponsavel = leitorDados["CpfResponsavel"].ToString();
 
