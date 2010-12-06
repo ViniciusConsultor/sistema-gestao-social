@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterDesenvolvimento.aspx.cs" Inherits="SGS.View.Desenvolvimento.ManterDesenvolvimento" %>
+<%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">
@@ -192,7 +193,7 @@
                     <asp:Button ID="btnSalvar" runat="server" Text="Salvar" Width="110px" onclick="btnSalvar_Click" 
                         /> &nbsp; 
                     <asp:Button ID="btnExcluir" runat="server" Text="Excluir" Width="110px" 
-                        onclick="btnExcluir_Click" onclientclick="return confirm('Deseja realmente excluir?')" 
+                        onclick="btnExcluir_Click" 
                         /> &nbsp;
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="110px" 
                         CausesValidation="False" onclick="btnCancelar_Click" />
@@ -207,8 +208,12 @@
                 <asp:ValidationSummary ID="sumarioErro" runat="server" BorderColor="#3366FF" 
                     BorderStyle="Double" Font-Names="verdana" Font-Size="Small" ForeColor="#CC0000" 
                     HeaderText="Validação:" Width="350px" style="text-align: left" />
+                   
                 </td>
             </tr>
         </table>
+         <asp:HiddenField ID="HiddenField1" runat="server" />
+    <uc1:MessageBox ID="MessageBox1" runat="server" />
+         <br />
 
 </asp:Content>

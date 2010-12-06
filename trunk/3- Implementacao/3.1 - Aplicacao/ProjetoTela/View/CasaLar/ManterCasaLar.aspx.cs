@@ -23,10 +23,12 @@ namespace ProjetoTela.View.CasaLar
             if (!Page.IsPostBack)
             {
                 this.CarregarTela();
-                    
             }
-       
-
+            else if (HiddenField1.Value == "Retorno")
+            {
+                string url = @"ManterCasaLar.aspx?tipo=alt&cod=" + SGSCasaLar.CodigoCasaLar.Value.ToString();
+                Response.Redirect(url);
+            }
         }
 
         /// <summary>
@@ -37,11 +39,8 @@ namespace ProjetoTela.View.CasaLar
             SGSServico sgsServico = new SGSServico();
 
             SGSCasaLar = sgsServico.SalvarCasaLar(PegarDadosView());
-
-            string url = @"ManterCasaLar.aspx?tipo=alt&cod=" + SGSCasaLar.CodigoCasaLar.Value.ToString();
-            Response.Redirect(url);
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
         }
 
         /// <summary>

@@ -200,6 +200,11 @@ namespace SGS.CamadaDados
             return execucao;
         }
 
+        /// <summary>
+        /// Retorna uma lista de ProcedimentosAssistidoDTO conforme o Filtro
+        /// </summary>
+        /// <param name="objProcedimentosDTO"></param>
+        /// <returns></returns>
         public List<ProcedimentosAssistidoDTO> Consultar(ProcedimentosDTO objProcedimentosDTO)
         {
             SqlCommand comando = new SqlCommand();
@@ -233,6 +238,11 @@ namespace SGS.CamadaDados
             //Se apenas Data Marcada
             else if (objProcedimentosDTO.DataMarcadaValor.HasValue)
                 sql += @" where DataMarcada >= @dataMarcadaValor";
+
+            if (sql.Contains("where"))
+                sql += " and P.Ativo = 1";
+            else
+                sql += " where P.Ativo = 1";
 
             comando.CommandText = sql;
             comando.CommandType = System.Data.CommandType.Text;

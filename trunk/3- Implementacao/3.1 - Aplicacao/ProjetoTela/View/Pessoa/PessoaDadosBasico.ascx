@@ -83,8 +83,8 @@
         <td class="style1">
             <asp:RadioButtonList ID="rdbSexo" runat="server" RepeatDirection="Horizontal" 
                 RepeatLayout="Flow">
-                <asp:ListItem Value="Masculino">Masculino</asp:ListItem>
-                <asp:ListItem Value="Feminino">Feminino</asp:ListItem>
+                <asp:ListItem Value="Masculino ">Masculino</asp:ListItem>
+                <asp:ListItem Value="Feminino  ">Feminino</asp:ListItem>
             </asp:RadioButtonList>
         &nbsp;<asp:RequiredFieldValidator ID="validatorSexo" runat="server" 
                 ControlToValidate="rdbSexo" ErrorMessage="Escolha o Sexo do Assistido" 

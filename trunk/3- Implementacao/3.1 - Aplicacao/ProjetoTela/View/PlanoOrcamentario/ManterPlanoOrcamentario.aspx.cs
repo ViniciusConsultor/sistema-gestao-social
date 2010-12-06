@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SGS.Servicos;
 using SGS.Entidades.DTO;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 namespace SGS.View.PlanoOrcamentario
 {
@@ -22,9 +23,20 @@ namespace SGS.View.PlanoOrcamentario
             // Valida se o usuário logado possui acesso.
             if (DadosAcesso.Perfil == "Gestor")
             {
+                MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
                 if (!Page.IsPostBack)
                 {
                     this.CarregarTela();
+                }
+                else if (HiddenField1.Value == "Retorno")
+                {
+                    string url = @"ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.Orcamento.CodigoOrcamento.Value.ToString();
+                    Response.Redirect(url);
+                }
+                else if (HiddenField1.Value == "Exclusao")
+                {
+                    Response.Redirect("ConsultarPlanoOrcamentario.aspx");
                 }
             }
             // Caso usuário logado não possua acesso redireciona usuário para tela que informa que ele não possui acesso.
@@ -41,18 +53,13 @@ namespace SGS.View.PlanoOrcamentario
         /// <param name="e"></param>
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-
             SGSServico sgsServico = new SGSServico();
 
             SGSOrcamento = PegarDadosView();
             SGSOrcamento.Orcamento = sgsServico.SalvarOrcamento(SGSOrcamento.Orcamento);
 
-            string url = @"ManterPlanoOrcamentario.aspx?tipo=alt&cod=" + SGSOrcamento.Orcamento.CodigoOrcamento.Value.ToString();
-            Server.Transfer(url);
-
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
-
-
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
         }
 
         /// <summary>
@@ -60,13 +67,19 @@ namespace SGS.View.PlanoOrcamentario
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
+            MessageBox1.ShowMessage("Deseja realmente excluir?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
+        }
+
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
             SGSServico objSGSServico = new SGSServico();
 
             if (objSGSServico.ExcluirOrcamento(SGSOrcamento.Orcamento.CodigoOrcamento.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Plano Orcamentário excluído com sucesso!'); </script>");
+                MessageBox1.ShowMessage("Plano Orçamentário excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
 
-            Response.Redirect("ConsultarPlanoOrcamentario.aspx");
+            HiddenField1.Value = "Exclusao"; 
         }
+
 
         /// <summary>
         /// Evento On Click do botão Cancelar.
@@ -104,7 +117,7 @@ namespace SGS.View.PlanoOrcamentario
 
             PreencherDadosView();
 
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Item do Orçamento incluído com sucesso!'); </script>");
+            MessageBox1.ShowMessage("Item do Orçamento incluído com sucesso!", MessageBoxType.Success);
         }
 
         protected void btnRemover_Click(object sender, EventArgs e)
@@ -127,7 +140,7 @@ namespace SGS.View.PlanoOrcamentario
 
                 PreencherDadosView();
 
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Item do Orçamento excluído com sucesso!'); </script>");
+                MessageBox1.ShowMessage("Item do Orçamento excluído com sucesso!", MessageBoxType.Success);
             }
         }
 
@@ -160,6 +173,13 @@ namespace SGS.View.PlanoOrcamentario
                 }
                 PreencherDadosView();
             }
+        }
+
+        protected void gridOrcamento_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridOrcamento.PageIndex = e.NewPageIndex;
+            gridOrcamento.DataSource = SGSOrcamento.OrcamentoNaturezaLista;
+            gridOrcamento.DataBind();
         }
 
         #endregion
@@ -297,7 +317,7 @@ namespace SGS.View.PlanoOrcamentario
                 if (SGSOrcamento.OrcamentoNatureza.CodigoNatureza.HasValue)
                     ddlNaturezaDespesa.SelectedValue = SGSOrcamento.OrcamentoNatureza.CodigoNatureza.Value.ToString();
                 if (SGSOrcamento.OrcamentoNatureza.Valor.HasValue)
-                    txtValorDespesa.Text = SGSOrcamento.OrcamentoNatureza.Valor.ToString();
+                    txtValorDespesa.Text = String.Format("{0:F2}", SGSOrcamento.OrcamentoNatureza.Valor);
                 else
                     txtValorDespesa.Text = "";
             }
@@ -306,6 +326,15 @@ namespace SGS.View.PlanoOrcamentario
                 ddlNaturezaDespesa.SelectedValue = "Selecione";
                 txtValorDespesa.Text = "";
             }
+        }
+
+        public void ExibirCritica(string critica)
+        {
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            validator.ErrorMessage = critica;
+            validator.IsValid = false;
+
+            Page.Validators.Add(validator);
         }
 
         #endregion
@@ -335,13 +364,6 @@ namespace SGS.View.PlanoOrcamentario
         }
 
         #endregion
-
-        protected void gridOrcamento_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gridOrcamento.PageIndex = e.NewPageIndex;
-            gridOrcamento.DataSource = SGSOrcamento.OrcamentoNaturezaLista;
-            gridOrcamento.DataBind();
-        }
 
     }
 }

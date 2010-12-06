@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterCasaLar.aspx.cs" Inherits="ProjetoTela.View.CasaLar.ManterCasaLar" %>
+<%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <style type="text/css">
@@ -416,5 +417,12 @@
             </td>
         </tr>
     </table>
+
+    <asp:HiddenField ID="HiddenField1" runat="server" />
+    <uc1:MessageBox ID="MessageBox1" runat="server" />
+
+    <br />
+
+
 
 </asp:Content>

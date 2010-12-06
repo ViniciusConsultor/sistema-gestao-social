@@ -16,19 +16,22 @@ namespace ProjetoTela.Telas
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+
+        #region Eventos
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-       /// <summary>
-       /// Este é o método OnClick do botão btnLogar
-       /// </summary>
+        /// <summary>
+        /// Este é o método OnClick do botão btnLogar
+        /// </summary>
         protected void btnLogar_Click(object sender, EventArgs e)
         {
             SGS.Entidades.Login umLogin = new SGS.Entidades.Login();
             SGSServico umSGSService = new SGSServico();
-           
+
             umLogin.LoginUsuario = txtNome.Text;
             umLogin.Senha = txtSenha.Text;
 
@@ -36,14 +39,14 @@ namespace ProjetoTela.Telas
 
             if (umLogin != null)
             {
-                DadosAcesso.SessaoDTO = new SessaoDTO(umLogin); 
+                DadosAcesso.SessaoDTO = new SessaoDTO(umLogin);
                 Response.Redirect("Apresentacao.aspx");
             }
             else
             {
                 ExibirCritica("Dados para acesso inválidos!");
             }
-          
+
         }
 
         protected void btnLimpar_Click(object sender, EventArgs e)
@@ -51,6 +54,10 @@ namespace ProjetoTela.Telas
             txtNome.Text = "";
             txtSenha.Text = "";
         }
+
+        #endregion
+
+        #region Metodos
 
         public void ExibirCritica(string critica)
         {
@@ -66,7 +73,8 @@ namespace ProjetoTela.Telas
             String meuscript = "alert('Preencha o campo de busca!');";
             Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "meuscript", meuscript, true);
         }
-       
-        
+
+        #endregion
+
     }
 }

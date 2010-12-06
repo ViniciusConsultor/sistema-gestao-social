@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using SGS.Servicos;
 using SGS.Entidades.DTO;
 using SGS.Entidades;
+using BRQ.SI.SCB.UI.Web.UserControls;
 
 namespace SGS.View.Procedimentos
 {
@@ -23,15 +24,26 @@ namespace SGS.View.Procedimentos
             // Valida se o usuário logado possui acesso.
             if (DadosAcesso.Perfil == "Gestor" || DadosAcesso.Perfil == "Funcionario")
             {
+                MessageBox1.OnClickButtonYes += new MessageBox.ClickButtonYes(MessageBoxControl_OnConfirmarExcluir);
+
                 if (!Page.IsPostBack)
                 {
                     this.CarregarTela();
+                }
+                else if (HiddenField1.Value == "Retorno")
+                {
+                    string url = @"ManterProcedimentos.aspx?tipo=alt&cod=" + SGSProcedimentos.CodigoProcedimento.Value.ToString();
+                    Response.Redirect(url);
+                }
+                else if (HiddenField1.Value == "Exclusao")
+                {
+                    Response.Redirect("ConsultarProcedimentos.aspx");
                 }
             }
             // Caso usuário logado não possua acessa redireciona usuário para tela que informa que ele não possui acesso.
             else
             {
-                Server.Transfer("../SemPermissao.aspx");
+                Response.Redirect("../SemPermissao.aspx");
             }
         }
 
@@ -43,11 +55,10 @@ namespace SGS.View.Procedimentos
             SGSServico sgsServico = new SGSServico();
 
             SGSProcedimentos = sgsServico.SalvarProcedimentos(PegarDadosView());
+            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+            HiddenField1.Value = "Retorno";
 
-            ClientScript.RegisterStartupScript(Page.GetType(), "DadosSalvos", "<script> alert('Dados salvos com sucesso!'); </script>");
-
-            string url = @"ManterProcedimentos.aspx?tipo=alt&cod=" + SGSProcedimentos.CodigoProcedimento.Value.ToString();
-            Response.Redirect(url);
+            
         }
 
         /// <summary>
@@ -55,13 +66,9 @@ namespace SGS.View.Procedimentos
         /// </summary>
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            SGSServico objSGSServico = new SGSServico();
+            MessageBox1.ShowMessage("Deseja realmente excluir?", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Question);
 
-            if (objSGSServico.ExcluirProcedimentos(SGSProcedimentos.CodigoProcedimento.Value))
-                ClientScript.RegisterStartupScript(Page.GetType(), "DadosExcluidos", "<script> alert('Procedimentos excluído com sucesso!'); </script>");
-
-            Response.Redirect("ConsultarProcedimentos.aspx");
-
+           
         }
 
         /// <summary>
@@ -138,6 +145,8 @@ namespace SGS.View.Procedimentos
 
             if (txtDataMarcada.Text != "")
                 objProcedimentos.DataMarcada = Convert.ToDateTime(txtDataMarcada.Text);
+            else
+                objProcedimentos.DataMarcada = null;
 
             return objProcedimentos;
         }
@@ -157,6 +166,18 @@ namespace SGS.View.Procedimentos
 
             if (SGSProcedimentos.DataMarcada.HasValue)
                 txtDataMarcada.Text = SGSProcedimentos.DataMarcada.ToString();
+            else
+                txtDataMarcada.Text = "";
+        }
+
+        protected void MessageBoxControl_OnConfirmarExcluir()
+        {
+            SGSServico objSGSServico = new SGSServico();
+
+            if (objSGSServico.ExcluirProcedimentos(SGSProcedimentos.CodigoProcedimento.Value))
+                MessageBox1.ShowMessage("Procedimento excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+
+            HiddenField1.Value = "Exclusao"; 
         }
 
         #endregion

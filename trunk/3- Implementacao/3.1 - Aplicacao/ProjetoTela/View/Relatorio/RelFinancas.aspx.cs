@@ -26,7 +26,7 @@ namespace SGS.View.Relatorio
             }
             else
             {
-                Response.Redirect("../LoginUI/Login.aspx");
+                Response.Redirect("../SemPermissao.aspx");
             }
         }
 
