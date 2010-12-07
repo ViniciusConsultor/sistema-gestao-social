@@ -229,7 +229,7 @@ namespace SGS.CamadaDados
 
             //Se apenas Assistido  e Data Marcada preenchidos
             if (objProcedimentosDTO.AssistidoValor.HasValue && objProcedimentosDTO.DataMarcadaValor.HasValue)
-                sql += @" where CodigoAssistido = @assistidoValor and DataMarcada >= @dataMarcadaValor";
+                sql += @" where CodigoAssistido = @assistidoValor and DataMarcada = @dataMarcadaValor";
 
             //Se apenas Assistido preenchido
             else if (objProcedimentosDTO.AssistidoValor.HasValue)
@@ -237,7 +237,7 @@ namespace SGS.CamadaDados
 
             //Se apenas Data Marcada
             else if (objProcedimentosDTO.DataMarcadaValor.HasValue)
-                sql += @" where DataMarcada >= @dataMarcadaValor";
+                sql += @" where DataMarcada = @dataMarcadaValor";
 
             if (sql.Contains("where"))
                 sql += " and P.Ativo = 1";
