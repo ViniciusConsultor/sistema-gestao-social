@@ -13,7 +13,7 @@ namespace SGS.Entidades
         private string _atividade;
         private string _tipoAtividade;
         private string _descricaoAtividade;
-        private Decimal _valor;
+        private Decimal? _valor;
         private DateTime? _dataInicio;
         private DateTime? _dataFim;
         private string _cargaHoraria;
@@ -50,7 +50,7 @@ namespace SGS.Entidades
             set { _descricaoAtividade = value; }
         }
 
-        public Decimal Valor
+        public Decimal? Valor
         {
             get { return _valor; }
             set { _valor = value; }
