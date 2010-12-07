@@ -75,13 +75,13 @@ namespace SGS.CamadaDados
             {
                 parametroDataInicio.Value = objDesenvolvimento.DataInicio.Value;
                 parametroDataInicio.ParameterName = "@dataInicio";
-                parametroDataInicio.DbType = System.Data.DbType.Int32;
+                parametroDataInicio.DbType = System.Data.DbType.DateTime;
             }
             else
             {
                 parametroDataInicio.Value = DBNull.Value;
                 parametroDataInicio.ParameterName = "@dataInicio";
-                parametroDataInicio.DbType = System.Data.DbType.Int32;
+                parametroDataInicio.DbType = System.Data.DbType.DateTime;
             }
 
             SqlParameter parametroDataFim = new SqlParameter();
@@ -89,16 +89,16 @@ namespace SGS.CamadaDados
             {
                 parametroDataFim.Value = objDesenvolvimento.DataFim.Value;
                 parametroDataFim.ParameterName = "@dataFim";
-                parametroDataFim.DbType = System.Data.DbType.Int32;
+                parametroDataFim.DbType = System.Data.DbType.DateTime;
             }
             else
             {
                 parametroDataFim.Value = DBNull.Value;
                 parametroDataFim.ParameterName = "@dataFim";
-                parametroDataFim.DbType = System.Data.DbType.Int32;
+                parametroDataFim.DbType = System.Data.DbType.DateTime;
             }
 
-            SqlParameter parametroCargaHoraria = new SqlParameter("@cargaHoraria", objDesenvolvimento.CargaHoraria);
+            SqlParameter parametroCargaHoraria = new SqlParameter("@cargaHoraria", System.Data.DbType.String);
             if (!String.IsNullOrEmpty(objDesenvolvimento.CargaHoraria))
                 parametroCargaHoraria.Value = objDesenvolvimento.CargaHoraria;
             else
@@ -106,8 +106,6 @@ namespace SGS.CamadaDados
 
             SqlParameter parametroStatusAtividade = new SqlParameter("@statusAtividade", objDesenvolvimento.StatusAtividade);
             parametroStatusAtividade.DbType = System.Data.DbType.String;
-
-
 
             comando.Parameters.Add(parametroCodigoAssistido);
             comando.Parameters.Add(parametroAtividade);
@@ -119,19 +117,9 @@ namespace SGS.CamadaDados
             comando.Parameters.Add(parametroCargaHoraria);
             comando.Parameters.Add(parametroStatusAtividade);
 
-
             comando.ExecuteNonQuery();
 
             if (!objDesenvolvimento.CodigoDesenvolvimento.HasValue)
-            {
-                return ObterUltimo();
-            }
-            else
-            {
-                return objDesenvolvimento;
-            }
-          
-            if (!objDesenvolvimento.CodigoAssistido.HasValue)
             {
                 return ObterUltimo();
             }

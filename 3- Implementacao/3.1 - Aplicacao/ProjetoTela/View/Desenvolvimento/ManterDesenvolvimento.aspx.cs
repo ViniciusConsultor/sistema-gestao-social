@@ -113,7 +113,7 @@ namespace SGS.View.Desenvolvimento
                 lblDescricao.Text = "<b>Descrição:</b> Permite alterar o Desenvolvimento Profissional do assistido.";
                 btnExcluir.Visible = true;
                 SGSDesenvolvimento.CodigoDesenvolvimento = Convert.ToInt32(Request.QueryString["cod"]);
-                ddlAssistido.Enabled = false;
+                //ddlAssistido.Enabled = false;
 
                 SGSDesenvolvimento = objSGSServico.ObterDesenvolvimento(SGSDesenvolvimento.CodigoDesenvolvimento.Value);
 
