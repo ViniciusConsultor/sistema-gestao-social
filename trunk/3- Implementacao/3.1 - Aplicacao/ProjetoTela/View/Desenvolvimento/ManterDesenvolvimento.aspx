@@ -148,7 +148,7 @@
                         <asp:ListItem>Selecione</asp:ListItem>
                         <asp:ListItem>Planejado</asp:ListItem>
                         <asp:ListItem>Agendado</asp:ListItem>
-                        <asp:ListItem>Em Execução</asp:ListItem>
+                        <asp:ListItem Value="Em Execuçã">Em Execução</asp:ListItem>
                         <asp:ListItem>Cancelado</asp:ListItem>
                         <asp:ListItem>Realizado</asp:ListItem>
                     </asp:DropDownList>
