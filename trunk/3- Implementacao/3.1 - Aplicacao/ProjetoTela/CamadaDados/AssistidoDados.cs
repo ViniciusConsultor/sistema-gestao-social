@@ -183,9 +183,9 @@ namespace SGS.CamadaDados
 
             SqlParameter parametroTelefoneMae = new SqlParameter("@telefoneMae", System.Data.DbType.String);
             if (!String.IsNullOrEmpty(objAssistido.TelefoneMae))
-                parametroTelefonePai.Value = objAssistido.TelefoneMae;
+                parametroTelefoneMae.Value = objAssistido.TelefoneMae;
             else
-                parametroTelefonePai.Value = DBNull.Value;
+                parametroTelefoneMae.Value = DBNull.Value;
 
             SqlParameter parametroQtdIrmaos = new SqlParameter("@qtdIrmaos", System.Data.DbType.Int32);
             if(objAssistido.QtdIrmaos.HasValue)

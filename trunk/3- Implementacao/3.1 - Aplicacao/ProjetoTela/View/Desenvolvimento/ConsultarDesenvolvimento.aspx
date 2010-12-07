@@ -126,7 +126,7 @@
             <td class="style20"> &nbsp;</td>    
             <td class="style19"> Atividade</td>
             <td class="style14"> 
-                <asp:TextBox ID="txtAtividade" runat="server" Width="148px"></asp:TextBox>
+                <asp:TextBox ID="txtAtividade" runat="server" Width="148px" MaxLength="50"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -135,6 +135,10 @@
             <td class="style14"> 
                 <asp:TextBox ID="txtDataInicio" runat="server" Width="148px" 
                     CssClass="mask-data"></asp:TextBox>
+                <asp:CompareValidator ID="validatorDtInicio" runat="server" 
+                    ControlToValidate="txtDataInicio" 
+                    ErrorMessage="Preencha a Data Início com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
             </td>
         </tr>
         <tr>
@@ -142,6 +146,16 @@
             <td style="text-align: right" class="style24"> Data Fim</td>
             <td class="style14"> 
                 <asp:TextBox ID="txtDataFim" runat="server" Width="148px" CssClass="mask-data"></asp:TextBox>
+                <asp:CompareValidator ID="validatorDtFim" runat="server" 
+                    ControlToValidate="txtDataFim" 
+                    ErrorMessage="Preencha a Data Fim com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
+                <asp:CompareValidator ID="validatorDtFimLancMaiorInicio" runat="server" 
+                    ControlToCompare="txtDataInicio" ControlToValidate="txtDataFim" 
+                    Display="Dynamic" 
+                    ErrorMessage="Preencha a Data Fim com uma data maior do que a Data Início" 
+                    ForeColor="Red" Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
+
             </td>
         </tr>
         <tr>
@@ -219,15 +233,21 @@
             <td class="style14"> 
                 &nbsp;</td>
         </tr>
+
+        <tr align="center">
+            <td colspan="3" align="center">
+               &nbsp;
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderColor="#0066FF" 
+                            BorderStyle="Double" BorderWidth="1px" ForeColor="Red" HeaderText="Validação:" 
+                            Height="135px" style="font-size: small; text-align: center" 
+                    Width="365px" />
+                        <br />
+                        <br />
+            </td>
+        </tr>
     </table>
     <br />
 
      
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
+              
 </asp:Content>

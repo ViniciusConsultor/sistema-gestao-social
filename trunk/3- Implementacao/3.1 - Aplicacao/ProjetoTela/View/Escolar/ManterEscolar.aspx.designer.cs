@@ -130,6 +130,15 @@ namespace SGS.View.Escolar {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridDataMatricula;
         
         /// <summary>
+        /// validatorDtMatricula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtMatricula;
+        
+        /// <summary>
         /// txtDataSaida control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace SGS.View.Escolar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataSaida;
+        
+        /// <summary>
+        /// validatorDtSaida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtSaida;
         
         /// <summary>
         /// txtSerieCursada control.

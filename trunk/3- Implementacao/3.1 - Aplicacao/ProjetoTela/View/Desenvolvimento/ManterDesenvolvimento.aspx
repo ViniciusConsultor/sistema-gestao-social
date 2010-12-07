@@ -164,6 +164,10 @@
                 <td>
                     <asp:TextBox ID="txtDataInicio" runat="server" Height="22px" MaxLength="10" 
                         Width="148px" CssClass="mask-data"></asp:TextBox>
+                <asp:CompareValidator ID="validatorDtInicio" runat="server" 
+                    ControlToValidate="txtDataInicio" 
+                    ErrorMessage="Preencha a Data Início com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -173,6 +177,16 @@
                 <td>
                     <asp:TextBox ID="txtDataFim" runat="server" Height="22px" MaxLength="10" 
                         Width="148px" CssClass="mask-data"></asp:TextBox>
+                <asp:CompareValidator ID="validatorDtFim" runat="server" 
+                    ControlToValidate="txtDataFim" 
+                    ErrorMessage="Preencha a Data Fim com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
+                <asp:CompareValidator ID="validatorDtFimLancMaiorInicio" runat="server" 
+                    ControlToCompare="txtDataInicio" ControlToValidate="txtDataFim" 
+                    Display="Dynamic" 
+                    ErrorMessage="Preencha a Data Fim com uma data maior do que a Data Início" 
+                    ForeColor="Red" Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
+
                 </td>
             </tr>
             <tr>

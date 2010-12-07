@@ -36,6 +36,21 @@
            text-align: left;
            font-size: small;
        }
+       .style15
+       {
+           text-align: right;
+           font-size: small;
+           height: 30px;
+       }
+       .style16
+       {
+           width: 177px;
+           height: 30px;
+       }
+       .style17
+       {
+           height: 30px;
+       }
     </style>
 
 
@@ -164,22 +179,32 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="style9" 
+                <td class="style15" 
+                    
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data de Matrícula</td>
-                <td class="style10">
+                <td class="style16">
                     <asp:TextBox ID="txtDataMatricula" runat="server" Height="22px" Width="148px" 
                         MaxLength="10" CssClass="mask-data"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridDataMatricula" runat="server" 
                         ControlToValidate="txtDataMatricula" ErrorMessage="Preencha o campo Data de Matricula " 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="validatorDtMatricula" runat="server" 
+                    ControlToValidate="txtDataMatricula" 
+                    ErrorMessage="Preencha a Data Matrícula com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
                 </td>
-                <td class="style9" 
+                <td class="style15" 
+                    
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Data de Saída</td>
-                <td>
+                <td class="style17">
                     <asp:TextBox ID="txtDataSaida" runat="server" Height="22px" MaxLength="10" 
                         Width="148px" CssClass="mask-data"></asp:TextBox>
+                <asp:CompareValidator ID="validatorDtSaida" runat="server" 
+                    ControlToValidate="txtDataSaida" 
+                    ErrorMessage="Preencha a Data Saída com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
                 </td>
             </tr>
             <tr>

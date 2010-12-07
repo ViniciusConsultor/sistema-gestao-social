@@ -49,6 +49,15 @@ namespace SGS.View.Pessoa {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorDataEntrada;
         
         /// <summary>
+        /// validatorDtEntrada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtEntrada;
+        
+        /// <summary>
         /// txtDataSaida control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,24 @@ namespace SGS.View.Pessoa {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDataSaida;
+        
+        /// <summary>
+        /// validatorDtSaida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtSaida;
+        
+        /// <summary>
+        /// validatorDtFimLancMaiorInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtFimLancMaiorInicio;
         
         /// <summary>
         /// ddlEstadoSaude control.
@@ -94,6 +121,15 @@ namespace SGS.View.Pessoa {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorPeso;
         
         /// <summary>
+        /// validatorPesoValido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorPesoValido;
+        
+        /// <summary>
         /// ddlCor control.
         /// </summary>
         /// <remarks>
@@ -128,6 +164,15 @@ namespace SGS.View.Pessoa {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorAltura;
+        
+        /// <summary>
+        /// validatorAlturaValido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorAlturaValido;
         
         /// <summary>
         /// ddlTamanhoCamisa control.
@@ -389,6 +434,15 @@ namespace SGS.View.Pessoa {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumeroResponsavel;
+        
+        /// <summary>
+        /// validatorNumeroResp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorNumeroResp;
         
         /// <summary>
         /// txtBairroResponsavel control.

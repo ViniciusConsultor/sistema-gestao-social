@@ -4,10 +4,20 @@
     /*table {float:left;} /*esta linha faz os divs ficarem lado a lado*/
     /*text {display:block; color:#416087; font-family:Arial; font-size:11px; font-weight:bold} /*esta linha formata os títulos dos campos*/
     /*input {border:1px solid #b5c7de; padding:2px 3px; color:#363636; }/*esta formata os campos de texto*/
-    .style1
+
+          .style7
     {
-        width: 621px;
+        width: 156px;
     }
+    .style9
+    {
+        width: 405px;
+    }
+    .style10
+    {
+        width: 90px;
+    } 
+
 </style>
 
 <!-- Importa todos os script JavaScript-->
@@ -54,110 +64,108 @@
 
         </script>
 
-<table width="100%" style="font-size: small; font-family: Verdana;">
+
+
+<table width="100%" style="font-size: small; font-family: Verdana">
     <tr>
-        <td colspan="2" style="color: #003499">
+        <td colspan="4" style="color: #003499">
             <strong><u>Dados Pessoais</u></strong></td>
-        <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
     </tr>
     <tr>
-        <td>
-            <asp:Label ID="Label1" runat="server" Text="Nome"></asp:Label></td>
-        <td colspan="2">
-            <asp:TextBox ID="txtNome" runat="server" MaxLength="80" Width="400px"></asp:TextBox>
-            &nbsp;
+        <td class="style7">
+            Nome</td>
+        <td class="style9">
+            <asp:TextBox ID="txtNome" runat="server" MaxLength="80" Width="300px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="validatorNome" runat="server" 
                 ControlToValidate="txtNome" ErrorMessage="Preenche o Nome do Assistido" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
+        <td class="style10">
+            &nbsp;</td>
         <td>
-            &nbsp;
-        </td>
+            &nbsp;</td>
     </tr>
     <tr>
-        <td>
+        <td class="style7">
             Sexo</td>
-        <td class="style1">
+        <td class="style9">
             <asp:RadioButtonList ID="rdbSexo" runat="server" RepeatDirection="Horizontal" 
                 RepeatLayout="Flow">
                 <asp:ListItem Value="Masculino ">Masculino</asp:ListItem>
                 <asp:ListItem Value="Feminino  ">Feminino</asp:ListItem>
             </asp:RadioButtonList>
-        &nbsp;<asp:RequiredFieldValidator ID="validatorSexo" runat="server" 
+            <asp:RequiredFieldValidator ID="validatorSexo" runat="server" 
                 ControlToValidate="rdbSexo" ErrorMessage="Escolha o Sexo do Assistido" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
-        <td>
-            Data nascimento</td>
+        <td class="style10">
+            Data nasc.</td>
         <td>
             <asp:TextBox ID="txtDataNascimento" runat="server" MaxLength="10" 
                 CssClass="mask-data-pessoa" Width="147px"></asp:TextBox>
-        &nbsp;<asp:RequiredFieldValidator ID="validatorDataNascimento" runat="server" 
+            <asp:RequiredFieldValidator ID="validatorDataNascimento" runat="server" 
                 ControlToValidate="txtDataNascimento" ErrorMessage="Preenche a Data de Nascimento" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="validatorDtNascimento" runat="server" 
+                    ControlToValidate="txtDataNascimento" 
+                    ErrorMessage="Preencha a Data Nascimento com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="style7">
             CPF</td>
-        <td class="style1">
+        <td class="style9">
             <asp:TextBox ID="txtCPF" runat="server" MaxLength="14" CssClass="mask-cpf" 
                 Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style10">
             RG</td>
-        <td>
+        <td style="margin-left: 40px">
             <asp:TextBox ID="txtRG" runat="server" MaxLength="12" CssClass="mask-rg" 
                 Width="147px"></asp:TextBox>
         </td>
     </tr>
     <tr>
-        <td>
-            Cert. Nascimento</td>
-        <td class="style1">
+        <td class="style7">
+            Cert. nascimento</td>
+        <td class="style9">
             <asp:TextBox ID="txtCertidaoNascimento" runat="server" MaxLength="14" 
                 Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style10">
             &nbsp;</td>
-        <td>
+        <td style="margin-left: 40px">
             &nbsp;</td>
     </tr>
     <tr>
-        <td>
+        <td class="style7">
             Nacionalidade</td>
-        <td class="style1">
+        <td class="style9">
             <asp:TextBox ID="txtNacionalidade" runat="server" MaxLength="20" Width="147px"></asp:TextBox>
-            &nbsp;<asp:RequiredFieldValidator ID="validatorNacionalidade" runat="server" 
+            <asp:RequiredFieldValidator ID="validatorNacionalidade" runat="server" 
                 ControlToValidate="txtNacionalidade" ErrorMessage="Preenche a Nacionalidade" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
-        <td>
+        <td class="style10">
             Naturalidade</td>
-        <td>
+        <td style="margin-left: 40px">
             <asp:TextBox ID="txtNaturalidade" runat="server" MaxLength="20" Width="147px"></asp:TextBox>
-            &nbsp;<asp:RequiredFieldValidator ID="validatorNaturalidade" runat="server" 
+            <asp:RequiredFieldValidator ID="validatorNaturalidade" runat="server" 
                 ControlToValidate="txtNaturalidade" ErrorMessage="Preenche a Naturalidade" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
-        <td>
-            Foto</td>
-        <td colspan="3">
-            <asp:FileUpload ID="fileUploadFoto" runat="server" Width="147px" />
+        <td class="style7">
+            &nbsp;</td>
+        <td class="style9">
+            <asp:FileUpload ID="fileUploadFoto" runat="server" Width="147px" 
+                Visible="False" />
         </td>
-    </tr>
-    <tr>
-        <td colspan="2">
+        <td class="style10">
             &nbsp;</td>
-        <td>
-            &nbsp;</td>
-        <td>
+        <td style="margin-left: 40px">
             &nbsp;</td>
     </tr>
 </table>
-

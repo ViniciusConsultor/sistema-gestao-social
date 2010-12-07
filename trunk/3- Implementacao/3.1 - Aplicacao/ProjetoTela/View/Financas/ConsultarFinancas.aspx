@@ -83,7 +83,7 @@
    
     </span>
 
-    <table width="850px" align="left" style="font-size: medium">
+    <table width="100%" align="left" style="font-size: medium">
         <tr>
             <td class="style7"> &nbsp; </td>    
             <td class="style12"> &nbsp;</td>
@@ -114,8 +114,12 @@
             <td class="style7"> &nbsp;</td>    
             <td class="style9"> Data de Lançamento</td>
             <td> 
-                <asp:TextBox ID="txtDataLancamento" runat="server" Width="200px" 
+                <asp:TextBox ID="txtDataLancamento" runat="server" Width="195px" 
                     CssClass="mask-data"></asp:TextBox>
+            &nbsp;<asp:CompareValidator ID="validatorDtLancamento" runat="server" 
+                    ControlToValidate="txtDataLancamento" 
+                    ErrorMessage="Preencha a Data Lançamento com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
             </td>
             <td> &nbsp;</td>
         </tr>
@@ -146,13 +150,6 @@
             <td> &nbsp;</td>
         </tr>
         
-        <tr>
-            <td class="style7"> &nbsp;</td>    
-            <td style="text-align: right" class="style12"> &nbsp;</td>
-            <td> 
-                &nbsp;</td>
-            <td> &nbsp;</td>
-        </tr>
         </table>
  
     <br />
@@ -166,12 +163,13 @@
     <br />
     <br />
     <br />
-    <p></p>
+    <p></p> 
+      <br />
 
     <table width="850px" align="left" style="font-size: medium">
          <tr>
             <td colspan="4">  
-                
+                <br />
                 <asp:GridView ID="gridFinancas" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
@@ -219,8 +217,17 @@
 
                 </td>    
          </tr>
+            <tr align="center">
+                <td colspan="4">  
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderColor="#0066FF" 
+                            BorderStyle="Double" BorderWidth="1px" ForeColor="Red" HeaderText="Validação:" 
+                            Height="135px" style="font-size: small; text-align: center" 
+                    Width="365px" />
+
+                    <br />
+                </td>
+            </tr>
        </table> 
 
-      
 
 </asp:Content>

@@ -144,6 +144,10 @@
                     <asp:RequiredFieldValidator ID="requeridDaTaFundacao" runat="server" 
                         ControlToValidate="txtDataFundacao" ErrorMessage="Preencha o campo Data de Fundação" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="validatorDtFundacao" runat="server" 
+                    ControlToValidate="txtDataFundacao" 
+                    ErrorMessage="Preencha a Data Fundação com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
                 </td>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">

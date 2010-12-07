@@ -125,6 +125,10 @@
             <td class="style22"> 
                 <asp:TextBox ID="txtInicioVigencia" runat="server" Width="189px" 
                     CssClass="mask-data"></asp:TextBox>
+                <asp:CompareValidator ID="validatorDtInicio" runat="server" 
+                    ControlToValidate="txtInicioVigencia" 
+                    ErrorMessage="Preencha a Data Início Vigência com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
             </td>
             </tr>
         <tr>
@@ -132,6 +136,17 @@
             <td class="style22"> 
                 <asp:TextBox ID="txtFimVigencia" runat="server" Width="189px" 
                     CssClass="mask-data"></asp:TextBox>
+
+                <asp:CompareValidator ID="validatorDtFim" runat="server" 
+                    ControlToValidate="txtFimVigencia" Display="Dynamic" 
+                    ErrorMessage="Preencha a Data Fim Vigência com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
+                <asp:CompareValidator ID="validatorDtFimLancMaiorInicio" runat="server" 
+                    ControlToCompare="txtInicioVigencia" ControlToValidate="txtFimVigencia" 
+                    Display="Dynamic" 
+                    ErrorMessage="Preencha a Data Fim com uma data maior do que a Data Início" 
+                    ForeColor="Red" Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
+
             </td>
             </tr>
         <tr>
@@ -194,6 +209,17 @@
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 </asp:GridView>
                 </td>    
+        </tr>
+        <tr align="center">
+            <td colspan="2">  
+                   &nbsp;
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderColor="#0066FF" 
+                            BorderStyle="Double" BorderWidth="1px" ForeColor="Red" HeaderText="Validação:" 
+                            Height="135px" style="font-size: small; text-align: center" 
+                    Width="365px" />
+                        <br />
+                        <br />    
+            </td>
         </tr>
         <tr>
             <td class="style21"> &nbsp;</td>

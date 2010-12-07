@@ -2,10 +2,28 @@
 
 <!-- Importa todos os script JavaScript-->
         <style type="text/css">
-            .style1
+             .style1
             {
-                width: 73px;
+                width: 21px;
             }
+            .style2
+            {
+                height: 50px;
+            }
+            .style3
+            {
+                width: 21px;
+                height: 50px;
+            }
+            .style4
+            {
+                width: 75px;
+            }
+            .style5
+            {
+                height: 50px;
+                width: 75px;
+            } 
             </style>
         <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
         <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
@@ -22,6 +40,7 @@
                 //Para usuar as máscaras abaixo coloque a descrição após o . na Propriedade CssClass de cada controle.
                 //Exemplo: asp:TextBox ID="txtNome2" runat="server" Width="330px" MaxLength="50" CssClass="mask-real" 
 
+                $('.mask-irmao').mask('9'); //número
                 $('.mask-numero').mask('99999'); //número
                 $('.mask-numero2').maskMoney({ precision: 6 }); //número
                 $('.mask-peso').mask('999'); //número
@@ -72,7 +91,7 @@
                 ControlToValidate="ddlStatusAssistido" ErrorMessage="Escolha o Status do Assistido" 
                 ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
         </td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td>
             &nbsp;</td>
@@ -86,12 +105,26 @@
         &nbsp;<asp:RequiredFieldValidator ID="validatorDataEntrada" runat="server" 
                 ControlToValidate="txtDataEntrada" ErrorMessage="Preencha a Data de Entrada" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="validatorDtEntrada" runat="server" 
+                    ControlToValidate="txtDataEntrada" 
+                    ErrorMessage="Preencha a Data Entrada com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
         </td>
-        <td>
+        <td class="style4">
             Data Saída</td>
         <td>
             <asp:TextBox ID="txtDataSaida" runat="server" MaxLength="10" 
                 CssClass="mask-data" Width="147px"></asp:TextBox>
+            <asp:CompareValidator ID="validatorDtSaida" runat="server" 
+                    ControlToValidate="txtDataSaida" 
+                    ErrorMessage="Preencha a Data Saída com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
+                <asp:CompareValidator ID="validatorDtFimLancMaiorInicio" runat="server" 
+                    ControlToCompare="txtDataEntrada" ControlToValidate="txtDataSaida" 
+                    Display="Dynamic" 
+                    ErrorMessage="Preencha a Data Saída com uma data maior do que a Data Entrada" 
+                    ForeColor="Red" Operator="GreaterThanEqual" Type="Date">*</asp:CompareValidator>
+
         </td>
     </tr>
     <tr>
@@ -106,13 +139,17 @@
                 ControlToValidate="ddlEstadoSaude" ErrorMessage="Escolha o Estado de Saúde" 
                 ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
         </td>
-        <td>
+        <td class="style4">
             Peso(Kg)</td>
         <td style="margin-left: 40px">
-            <asp:TextBox ID="txtPeso" runat="server" MaxLength="3" Width="147px"></asp:TextBox>
+            <asp:TextBox ID="txtPeso" runat="server" Width="147px" MaxLength="6"></asp:TextBox>
         &nbsp;<asp:RequiredFieldValidator ID="validatorPeso" runat="server" 
                 ControlToValidate="txtPeso" ErrorMessage="Preencha o Peso" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="validatorPesoValido" runat="server" 
+                    ControlToValidate="txtPeso" 
+                    ErrorMessage="Preencha o Peso com um valor válido" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Double">*</asp:CompareValidator>
         </td>
     </tr>
     <tr>
@@ -132,13 +169,17 @@
                 ControlToValidate="ddlCor" ErrorMessage="Escolha a Etnia" 
                 ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
         </td>
-        <td>
+        <td class="style4">
             Altura</td>
         <td style="margin-left: 40px">
-            <asp:TextBox ID="txtAltura" runat="server" MaxLength="6" Width="147px"></asp:TextBox>
+            <asp:TextBox ID="txtAltura" runat="server" Width="147px" MaxLength="4"></asp:TextBox>
         &nbsp;<asp:RequiredFieldValidator ID="validatorAltura" runat="server" 
                 ControlToValidate="txtAltura" ErrorMessage="Preencha a Altura" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="validatorAlturaValido" runat="server" 
+                    ControlToValidate="txtAltura" 
+                    ErrorMessage="Preencha a Altura com um valor válido" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Double">*</asp:CompareValidator>
         </td>
     </tr>
     <tr>
@@ -158,7 +199,7 @@
                 ControlToValidate="ddlTamanhoCamisa" ErrorMessage="Escolha o Tamanho da Camisa" 
                 ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
         </td>
-        <td>
+        <td class="style4">
             Tam. Calça</td>
         <td style="margin-left: 40px">
             <asp:DropDownList ID="ddlTamanhoCalca" runat="server" Width="155px">
@@ -184,29 +225,29 @@
                 ControlToValidate="txtTamanhoCalcado" ErrorMessage="Preencha o Tamanho do Calçado" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
-        <td>
+        <td class="style4">
             Dormitório</td>
         <td style="margin-left: 40px">
             <asp:TextBox ID="txtDormitorio" runat="server" MaxLength="20" Width="147px"></asp:TextBox>
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="style2">
             Deficiente</td>
-        <td class="style1">
+        <td class="style3">
             <asp:RadioButtonList ID="rblDeficiente" runat="server" 
-                RepeatDirection="Horizontal">
-                <asp:ListItem>Sim</asp:ListItem>
+                RepeatDirection="Horizontal" RepeatLayout="Flow">
+                <asp:ListItem Value="S">Sim</asp:ListItem>
                 <asp:ListItem Value="N">Não</asp:ListItem>
             </asp:RadioButtonList>
-            <asp:RequiredFieldValidator ID="validatorDeficiente" runat="server" 
+            &nbsp;<asp:RequiredFieldValidator ID="validatorDeficiente" runat="server" 
                 ControlToValidate="rblDeficiente" ErrorMessage="Informe se o Assistido é Deficiente" 
                 ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
-        <td>
-            &nbsp;</td>
-        <td style="margin-left: 40px">
-            &nbsp;</td>
+        <td class="style5">
+            </td>
+        <td style="margin-left: 40px" class="style2">
+            </td>
     </tr>
     <tr>
         <td>
@@ -229,7 +270,7 @@
             &nbsp;</td>
         <td class="style1">
             &nbsp;</td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -237,7 +278,7 @@
     <tr>
         <td style="color: #003499" colspan="2">
             <strong><u>Dados Família</u></strong></td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -257,7 +298,7 @@
         <td class="style1">
             <asp:TextBox ID="txtMae" runat="server" MaxLength="80" Width="400px"></asp:TextBox>
             </td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -272,7 +313,7 @@
                 <asp:ListItem Value="N">Não</asp:ListItem>
             </asp:RadioButtonList>
         </td>
-        <td>
+        <td class="style4">
             Mãe Viva</td>
         <td style="margin-left: 40px">
             <asp:RadioButtonList ID="rblMaeViva" runat="server" 
@@ -289,7 +330,7 @@
             <asp:TextBox ID="txtCPFPai" runat="server" MaxLength="14" CssClass="mask-cpf" 
                 Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             CPF Mãe</td>
         <td style="margin-left: 40px">
             <asp:TextBox ID="txtCPFMae" runat="server" MaxLength="14" CssClass="mask-cpf" 
@@ -303,7 +344,7 @@
             <asp:TextBox ID="txtRGPai" runat="server" MaxLength="12" CssClass="mask-rg" 
                 Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             RG Mãe</td>
         <td style="margin-left: 40px">
             <asp:TextBox ID="txtRGMae" runat="server" MaxLength="12" CssClass="mask-rg" 
@@ -317,7 +358,7 @@
             <asp:TextBox ID="txtTelPai" runat="server" MaxLength="14" CssClass="mask-fone" 
                 Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             Tel.Mãe</td>
         <td style="margin-left: 40px">
             <asp:TextBox ID="txtTelMae" runat="server" MaxLength="14" CssClass="mask-fone" 
@@ -328,9 +369,10 @@
         <td>
             Qtd. Irmãos</td>
         <td class="style1">
-            <asp:TextBox ID="txtQtdIrmaos" runat="server" MaxLength="2" Width="147px"></asp:TextBox>
+            <asp:TextBox ID="txtQtdIrmaos" runat="server" MaxLength="1" Width="147px" 
+                CssClass="mask-irmao"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -340,7 +382,7 @@
             &nbsp;</td>
         <td class="style1">
             &nbsp;</td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -348,7 +390,7 @@
     <tr>
         <td colspan="2" style="color: #003499">
             <strong><u>Dados do Responsável</u></strong></td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -369,7 +411,7 @@
                 CssClass="mask-cpf" Width="147px"></asp:TextBox>
         </td>
 
-          <td>
+          <td class="style4">
             Tel. Reponsável
             </td>
         <td>
@@ -386,7 +428,7 @@
             <asp:TextBox ID="txtEmailResponsavel" runat="server" MaxLength="50" 
                 Width="250px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -398,7 +440,7 @@
             <asp:TextBox ID="txtCEPResponsavel" runat="server" MaxLength="20" 
                 CssClass="mask-cep" Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
@@ -410,11 +452,15 @@
             <asp:TextBox ID="txtLogradouroResponsavel" runat="server" MaxLength="50" 
                 Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             Número</td>
         <td style="margin-left: 40px">
             <asp:TextBox ID="txtNumeroResponsavel" runat="server" MaxLength="6" 
                 Width="147px"></asp:TextBox>
+            <asp:CompareValidator ID="validatorNumeroResp" runat="server" 
+                    ControlToValidate="txtNumeroResponsavel" 
+                    ErrorMessage="Preencha o Número do Responsável com número válido" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Integer">*</asp:CompareValidator>
         </td>
     </tr>
     <tr>
@@ -424,7 +470,7 @@
             <asp:TextBox ID="txtBairroResponsavel" runat="server" MaxLength="25" 
                 Width="147px"></asp:TextBox>
         </td>
-        <td>
+        <td class="style4">
             Cidade</td>
         <td style="margin-left: 40px">
             <asp:TextBox ID="txtCidadeResponsavel" runat="server" MaxLength="20" 
@@ -467,7 +513,7 @@
                         <asp:ListItem>TO</asp:ListItem>
                     </asp:DropDownList>
         </td>
-        <td>
+        <td class="style4">
             País</td>
         <td style="margin-left: 40px">
                     <asp:DropDownList ID="ddlPaisResponsavel" runat="server" Width="155px">
@@ -481,7 +527,7 @@
             &nbsp;</td>
         <td class="style1">
             &nbsp;</td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td style="margin-left: 40px">
             &nbsp;</td>
