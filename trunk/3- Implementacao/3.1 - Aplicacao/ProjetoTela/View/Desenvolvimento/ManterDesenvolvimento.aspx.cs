@@ -124,7 +124,7 @@ namespace SGS.View.Desenvolvimento
             }
             else
             {
-                lblTitulo.Text = "Cadastrar Desenvolvimento";
+                lblTitulo.Text = " Cadastrar Desenvolvimento";
                 lblDescricao.Text = "<b>Descrição:</b> Permite cadastrar o Desenvolvimento Profissional do assistido.";
                 btnExcluir.Visible = false;
             }

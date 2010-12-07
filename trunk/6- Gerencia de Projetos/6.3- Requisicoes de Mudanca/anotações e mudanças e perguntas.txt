@@ -16,7 +16,7 @@ Na tela de cadastro de assistido o titulo dados familia está sendo repetido 2 ve
 
 Na tela de cadastro de assistido quando deixo o campo qtd de irmao em branco da erro ao salvar. = ok
 
-Na tela de consulta de procedimento o campo data marcada. vc digia uma data e clica em localizar e ele trás todas as datas.
+Na tela de consulta de procedimento o campo data marcada. vc digia uma data e clica em localizar e ele trás todas as datas. = ok
 
 Tem que ter 1 stattus = realizado no desenviolvimento. = OK
 
