@@ -150,6 +150,7 @@
                         <asp:ListItem>Agendado</asp:ListItem>
                         <asp:ListItem>Em Execução</asp:ListItem>
                         <asp:ListItem>Cancelado</asp:ListItem>
+                        <asp:ListItem>Realizado</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="requeridStatus" runat="server" 
                         ControlToValidate="ddlStatus" ErrorMessage="Escolha o Status" 
