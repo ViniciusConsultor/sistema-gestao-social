@@ -131,7 +131,10 @@ namespace SGS.View.Escolar
 
             objSGSEscolarDTO.Escolar.Assistido_CodigoAssistido = Convert.ToInt32(ddlAssistido.SelectedValue);
             objSGSEscolarDTO.Escolar.DataMatricula = Convert.ToDateTime(txtDataMatricula.Text);
-            objSGSEscolarDTO.Escolar.DataSaida = Convert.ToDateTime(txtDataSaida.Text);
+            if (!String.IsNullOrEmpty(txtDataSaida.Text))
+                objSGSEscolarDTO.Escolar.DataSaida = Convert.ToDateTime(txtDataSaida.Text);
+            else
+                objSGSEscolarDTO.Escolar.DataSaida = null;
             objSGSEscolarDTO.Escolar.GrauEscolaridade = ddlGrauEscolaridade.SelectedValue;
             objSGSEscolarDTO.Escolar.Instituicao = txtInstituicaoEnsino.Text;
             objSGSEscolarDTO.Escolar.MediaEscola = Convert.ToInt32(txtMediaEscolar.Text);
