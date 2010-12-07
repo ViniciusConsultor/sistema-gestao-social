@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="RelAssistidos.aspx.cs" Inherits="SGS.View.Relatorio.RelAssistidos" %>
+﻿<%@ Page Title=".:: SGS - Relatório Assistidos ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="RelAssistidos.aspx.cs" Inherits="SGS.View.Relatorio.RelAssistidos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <style type="text/css">
@@ -168,7 +168,7 @@
                 
                 
                 style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA; margin-left: 40px;"> 
-                <asp:TextBox ID="txtDataEntrada" runat="server" Width="196px" 
+                <asp:TextBox ID="txtDataEntrada" runat="server" Width="192px" 
                     CssClass="mask-data"></asp:TextBox>
                 <asp:CompareValidator ID="CompareValidator2" runat="server" 
                     ErrorMessage="Preencha a Data Entrada com uma data válida" 
@@ -180,7 +180,7 @@
             <td class="style17" 
                 
                 style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA; margin-left: 40px;">  
-                <asp:TextBox ID="txtDataSaída" runat="server" Width="196px" 
+                <asp:TextBox ID="txtDataSaída" runat="server" Width="192px" 
                     CssClass="mask-data"></asp:TextBox>
 
                 <asp:CompareValidator ID="CompareValidator3" runat="server" 

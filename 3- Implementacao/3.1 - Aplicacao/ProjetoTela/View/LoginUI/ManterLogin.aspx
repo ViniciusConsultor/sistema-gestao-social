@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true"
+﻿<%@ Page Title=".:: SGS - Manter Login ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true"
     CodeBehind="ManterLogin.aspx.cs" Inherits="SGS.View.LoginUI.ManterLogin" %>
 
 <%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>

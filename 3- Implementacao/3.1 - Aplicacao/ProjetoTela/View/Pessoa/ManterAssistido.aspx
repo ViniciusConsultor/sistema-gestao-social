@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterAssistido.aspx.cs" Inherits="SGS.View.Pessoa.ManterPessoa" %>
+﻿<%@ Page Title=".:: SGS - Manter Assistido ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterAssistido.aspx.cs" Inherits="SGS.View.Pessoa.ManterPessoa" %>
 <%@ Register src="PessoaDadosBasico.ascx" tagname="PessoaDadosBasico" tagprefix="uc1" %>
 <%@ Register src="PessoaAssistido.ascx" tagname="PessoaAssistido" tagprefix="uc2" %>
 

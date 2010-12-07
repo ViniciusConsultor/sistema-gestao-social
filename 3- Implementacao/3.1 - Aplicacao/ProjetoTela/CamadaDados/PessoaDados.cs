@@ -237,8 +237,6 @@ namespace SGS.CamadaDados
             return objPessoa;
         }
 
-
-
         /// <summary>
         /// Exclui uma Pessoa pelo seu código
         /// </summary>
@@ -305,6 +303,7 @@ namespace SGS.CamadaDados
 
             return pessoaLista;
         }
+
 
     }
 }

@@ -93,6 +93,7 @@ namespace ProjetoTela.View.CasaLar
                
                 //Preencha a propriedade Casa Lar
                 SGSCasaLar = objSGSServico.ObterCasaLar();
+                SGSCasaLar.QtdAssistidos = objSGSServico.ObterQtdAssistidos(true);
 
                 if (SGSCasaLar != null)
                     this.PreencherDadosView();
@@ -111,6 +112,7 @@ namespace ProjetoTela.View.CasaLar
 
                 //Preencha a propriedade Casa Lar
                 SGSCasaLar = objSGSServico.ObterCasaLar();
+                SGSCasaLar.QtdAssistidos = objSGSServico.ObterQtdAssistidos(true);
 
                 if (SGSCasaLar != null)
                 {

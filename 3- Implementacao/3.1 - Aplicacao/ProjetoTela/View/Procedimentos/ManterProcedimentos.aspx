@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterProcedimentos.aspx.cs" Inherits="SGS.View.Procedimentos.ManterProcedimentos" %>
+﻿<%@ Page Title=".:: SGS - Manter Procedimentos ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterProcedimentos.aspx.cs" Inherits="SGS.View.Procedimentos.ManterProcedimentos" %>
 <%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 

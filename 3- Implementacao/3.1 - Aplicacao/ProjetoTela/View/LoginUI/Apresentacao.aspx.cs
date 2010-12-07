@@ -17,7 +17,7 @@ namespace ProjetoTela.Telas
             //Verifica se o usuário possui acesso a esta tela
             if (DadosAcesso.SessaoDTO == null)
             {
-                Response.Redirect("../View/LoginUI/Login.aspx");
+                Response.Redirect(Request.ApplicationPath + "View/LoginUI/Login.aspx");
             }
         }
     }

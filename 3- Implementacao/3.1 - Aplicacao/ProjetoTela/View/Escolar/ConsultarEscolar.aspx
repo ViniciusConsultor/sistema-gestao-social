@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarEscolar.aspx.cs" Inherits="SGS.View.Escolar.ConsultarEscolar" %>
+﻿<%@ Page Title=".:: SGS - Consultar Escolar ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarEscolar.aspx.cs" Inherits="SGS.View.Escolar.ConsultarEscolar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="Apresentacao.aspx.cs" Inherits="ProjetoTela.Telas.Apresentacao" %>
+﻿<%@ Page Title=".:: SGS - Apresentação ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="Apresentacao.aspx.cs" Inherits="ProjetoTela.Telas.Apresentacao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style6

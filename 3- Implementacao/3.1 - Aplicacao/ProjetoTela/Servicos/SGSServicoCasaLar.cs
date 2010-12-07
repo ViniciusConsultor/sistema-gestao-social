@@ -63,5 +63,17 @@ namespace SGS.Servicos
             return objCasaLarDados.Excluir(codigoCasaLar,codigoContato);
         }
 
+        /// <summary>
+        /// Retorna a quantidade asssistidos que uma Casa Lar possui
+        /// </summary>
+        /// <param name="statusAssistidos"></param>
+        /// <returns></returns>
+        public int ObterQtdAssistidos(bool? statusAssistidos)
+        {
+            AssistidoDados objAssistidoDados = new AssistidoDados();
+
+            return objAssistidoDados.ObterQtdAssistidos(statusAssistidos);
+        }
+
     }
 }
