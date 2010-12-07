@@ -8,7 +8,7 @@
     <style type="text/css">
         .style6
         {
-            width: 148px;
+            /* width: 148px; */
             font-size: small;
             text-align: left;
         }

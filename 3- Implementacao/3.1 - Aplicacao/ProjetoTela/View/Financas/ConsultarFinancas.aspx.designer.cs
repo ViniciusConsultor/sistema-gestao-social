@@ -49,6 +49,15 @@ namespace SGS.View.Financas {
         protected global::System.Web.UI.WebControls.TextBox txtDataLancamento;
         
         /// <summary>
+        /// validatorDtLancamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtLancamento;
+        
+        /// <summary>
         /// txtDescricao control.
         /// </summary>
         /// <remarks>
@@ -83,5 +92,14 @@ namespace SGS.View.Financas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridFinancas;
+        
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
     }
 }

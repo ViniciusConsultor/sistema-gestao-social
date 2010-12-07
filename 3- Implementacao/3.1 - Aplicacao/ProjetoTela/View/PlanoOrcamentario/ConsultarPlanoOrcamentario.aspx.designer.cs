@@ -49,6 +49,15 @@ namespace SGS.View.PlanoOrcamentario {
         protected global::System.Web.UI.WebControls.TextBox txtInicioVigencia;
         
         /// <summary>
+        /// validatorDtInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtInicio;
+        
+        /// <summary>
         /// txtFimVigencia control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,24 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFimVigencia;
+        
+        /// <summary>
+        /// validatorDtFim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtFim;
+        
+        /// <summary>
+        /// validatorDtFimLancMaiorInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator validatorDtFimLancMaiorInicio;
         
         /// <summary>
         /// btnLocalizar control.
@@ -83,5 +110,14 @@ namespace SGS.View.PlanoOrcamentario {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridOrcamento;
+        
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
     }
 }

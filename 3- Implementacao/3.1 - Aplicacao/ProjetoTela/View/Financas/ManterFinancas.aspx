@@ -146,6 +146,10 @@
                     <asp:RequiredFieldValidator ID="validatorDataLancamento" runat="server" 
                         ControlToValidate="txtDataLancamento" 
                         ErrorMessage="Informe a Data de Lançamento" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="validatorDtLancamento" runat="server" 
+                    ControlToValidate="txtDataLancamento" 
+                    ErrorMessage="Preencha a Data Lançamento com uma data válida" 
+                    ForeColor="Red" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
                 </td>
                 <td>
                     &nbsp;</td>
