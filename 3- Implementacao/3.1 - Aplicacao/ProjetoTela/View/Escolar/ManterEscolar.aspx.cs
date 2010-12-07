@@ -94,6 +94,7 @@ namespace SGS.View.Escolar
                 lblTitulo.Text = "Alterar Dados Escolares";
                 lblDescricao.Text = "<b>Descrição:</b> Permite alterar os dados escolares dos assistidos.";
                 btnExcluir.Visible = true;
+                ddlAssistido.Enabled = false;
 
                 int codigoEscolar = Convert.ToInt32(Request.QueryString["cod"]);
 
