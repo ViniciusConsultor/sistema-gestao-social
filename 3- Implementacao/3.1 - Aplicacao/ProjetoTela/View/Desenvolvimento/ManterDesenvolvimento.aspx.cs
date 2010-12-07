@@ -165,7 +165,7 @@ namespace SGS.View.Desenvolvimento
             ddlTipoAtividade.SelectedValue = SGSDesenvolvimento.TipoAtividade;
             txtAtividade.Text = SGSDesenvolvimento.Atividade;
             txtDescricao.Text = SGSDesenvolvimento.DescricaoAtividade;
-            txtValor.Text = SGSDesenvolvimento.Valor.ToString();
+            txtValor.Text = String.Format("{0:F2}", SGSDesenvolvimento.Valor);
             ddlStatus.SelectedValue = SGSDesenvolvimento.StatusAtividade;
             txtCargaHoraria.Text = SGSDesenvolvimento.CargaHoraria;
 
