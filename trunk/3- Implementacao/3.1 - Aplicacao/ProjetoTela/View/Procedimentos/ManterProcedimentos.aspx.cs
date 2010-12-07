@@ -111,6 +111,7 @@ namespace SGS.View.Procedimentos
                 lblTitulo.Text = "Alterar Procedimentos";
                 lblDescricao.Text = "<b>Descrição:</b> Permite Alterar os procedimentos dos assistidos.";
                 btnExcluir.Visible = true;
+                ddlAssistido.Enabled = false;
 
                 SGSProcedimentos.CodigoProcedimento = Convert.ToInt32(Request.QueryString["cod"]);
 
