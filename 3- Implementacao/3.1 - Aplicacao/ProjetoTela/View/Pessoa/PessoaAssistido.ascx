@@ -6,11 +6,7 @@
             {
                 width: 73px;
             }
-            .style2
-            {
-                text-decoration: underline;
-            }
-        </style>
+            </style>
         <script type="text/javascript" src="../../Scripts/jquery-1.3.2.min.js"> </script>
         <script type="text/javascript" src="../../Scripts/jquery.maskedinput-1.2.1.js"> </script>
         <script type="text/javascript" src="../../Scripts/jquery.maskMoney.js"> </script>
@@ -116,7 +112,7 @@
             <asp:TextBox ID="txtPeso" runat="server" MaxLength="3" Width="147px"></asp:TextBox>
         &nbsp;<asp:RequiredFieldValidator ID="validatorPeso" runat="server" 
                 ControlToValidate="txtPeso" ErrorMessage="Preencha o Peso" 
-                ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -142,7 +138,7 @@
             <asp:TextBox ID="txtAltura" runat="server" MaxLength="6" Width="147px"></asp:TextBox>
         &nbsp;<asp:RequiredFieldValidator ID="validatorAltura" runat="server" 
                 ControlToValidate="txtAltura" ErrorMessage="Preencha a Altura" 
-                ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -205,7 +201,7 @@
             </asp:RadioButtonList>
             <asp:RequiredFieldValidator ID="validatorDeficiente" runat="server" 
                 ControlToValidate="rblDeficiente" ErrorMessage="Informe se o Assistido é Deficiente" 
-                ForeColor="Red" InitialValue="Selecione">*</asp:RequiredFieldValidator>
+                ForeColor="Red">*</asp:RequiredFieldValidator>
         </td>
         <td>
             &nbsp;</td>
@@ -240,7 +236,7 @@
     </tr>
     <tr>
         <td style="color: #003499" colspan="2">
-            <strong><u>Dados FamíliaDados Família</u></strong></td>
+            <strong><u>Dados Família</u></strong></td>
         <td>
             &nbsp;</td>
         <td style="margin-left: 40px">
