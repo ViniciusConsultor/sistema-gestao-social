@@ -38,7 +38,7 @@ namespace SGS.CamadaDados
                              CodigoContato = @contato_CodigoContato, Instituicao = @instituicao,
                              NumInscricaoInstituicao = @numInscricaoInstituicao, MediaEscola = @mediaEscola, 
                              GrauEscolaridade = @grauEscolaridade, SerieCursada = @serieCursada, DataMatricula = @dataMatricula,
-                             DataSaida  = @dataSaida, StatusSerie = @statusSerie where CodigoAssistido = @assistido_CodigoAssistido";
+                             DataSaida  = @dataSaida, StatusSerie = @statusSerie where CodigoEscolar = @codigoEscolar";
             }
 
             comando.CommandType = System.Data.CommandType.Text;
