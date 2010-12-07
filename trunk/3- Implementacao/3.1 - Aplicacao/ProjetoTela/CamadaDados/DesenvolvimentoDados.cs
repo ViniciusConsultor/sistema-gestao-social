@@ -66,8 +66,11 @@ namespace SGS.CamadaDados
             SqlParameter parametroDescricaoAtividade = new SqlParameter("@descricaoAtividade", objDesenvolvimento.DescricaoAtividade);
             parametroDescricaoAtividade.DbType = System.Data.DbType.String;
 
-            SqlParameter parametroValor = new SqlParameter("@valor", objDesenvolvimento.Valor);
-            parametroValor.DbType = System.Data.DbType.Decimal;
+            SqlParameter parametroValor = new SqlParameter("@valor", System.Data.DbType.Decimal);
+            if (objDesenvolvimento.Valor.HasValue)
+                parametroValor.Value = objDesenvolvimento.Valor;
+            else
+                parametroValor.Value = DBNull.Value;
 
 
             SqlParameter parametroDataInicio = new SqlParameter();
@@ -153,7 +156,8 @@ namespace SGS.CamadaDados
                 objDesenvolvimento.Atividade = leitorDados["Atividade"].ToString();
                 objDesenvolvimento.TipoAtividade = leitorDados["TipoAtividade"].ToString();
                 objDesenvolvimento.DescricaoAtividade = leitorDados["DescricaoAtividade"].ToString();
-                objDesenvolvimento.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                if (leitorDados["Valor"] != DBNull.Value)
+                    objDesenvolvimento.Valor = Convert.ToDecimal(leitorDados["Valor"]);
                 if (leitorDados["DataInicio"] != DBNull.Value)
                     objDesenvolvimento.DataInicio = Convert.ToDateTime(leitorDados["DataInicio"]); ;
                 if (leitorDados["DataFim"] != DBNull.Value)
@@ -184,7 +188,10 @@ namespace SGS.CamadaDados
                 objDesenvolvimento.Atividade = leitorDados["Atividade"].ToString();
                 objDesenvolvimento.TipoAtividade = leitorDados["TipoAtividade"].ToString();
                 objDesenvolvimento.DescricaoAtividade = leitorDados["DescricaoAtividade"].ToString();
-                objDesenvolvimento.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                
+                if (leitorDados["Valor"] != DBNull.Value)
+                    objDesenvolvimento.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                
                 objDesenvolvimento.CargaHoraria = leitorDados["CargaHoraria"].ToString();
                 objDesenvolvimento.StatusAtividade = leitorDados["StatusAtividade"].ToString();
 
@@ -323,7 +330,9 @@ namespace SGS.CamadaDados
                 objDesenvolvimentoAssistidoDTO.Atividade = leitorDados["Atividade"].ToString();
                 objDesenvolvimentoAssistidoDTO.DescricaoAtividade = leitorDados["DescricaoAtividade"].ToString();
                 objDesenvolvimentoAssistidoDTO.StatusAtividade = leitorDados["StatusAtividade"].ToString();
-                objDesenvolvimentoAssistidoDTO.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                if (leitorDados["Valor"] != DBNull.Value) 
+                    objDesenvolvimentoAssistidoDTO.Valor = Convert.ToDecimal(leitorDados["Valor"]);
+                
                 objDesenvolvimentoAssistidoDTO.CargaHoraria = leitorDados["CargaHoraria"].ToString();
 
                 if (leitorDados["DataInicio"] != DBNull.Value)
@@ -331,7 +340,6 @@ namespace SGS.CamadaDados
 
                 if (leitorDados["DataFim"] != DBNull.Value)
                     objDesenvolvimentoAssistidoDTO.DataFim = Convert.ToDateTime(leitorDados["DataFim"]);
-
 
                 procedimentosAssistidoDTOLista.Add(objDesenvolvimentoAssistidoDTO);
             }

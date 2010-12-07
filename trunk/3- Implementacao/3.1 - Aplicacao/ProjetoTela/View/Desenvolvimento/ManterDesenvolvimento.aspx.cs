@@ -141,15 +141,22 @@ namespace SGS.View.Desenvolvimento
             objDesenvolvimento.TipoAtividade = ddlTipoAtividade.SelectedValue;
             objDesenvolvimento.Atividade = txtAtividade.Text;
             objDesenvolvimento.DescricaoAtividade = txtDescricao.Text;
-            objDesenvolvimento.Valor = Convert.ToDecimal(txtValor.Text);
+            if (!String.IsNullOrEmpty(txtValor.Text))
+                objDesenvolvimento.Valor = Convert.ToDecimal(txtValor.Text);
+            else
+                objDesenvolvimento.Valor = null;
             objDesenvolvimento.StatusAtividade = ddlStatus.SelectedValue;
             objDesenvolvimento.CargaHoraria = txtCargaHoraria.Text;
-            
+
             if (txtDataInicio.Text != "")
                 objDesenvolvimento.DataInicio = Convert.ToDateTime(txtDataInicio.Text);
+            else
+                objDesenvolvimento.DataInicio = null;
 
             if (txtDataFim.Text != "")
                 objDesenvolvimento.DataFim = Convert.ToDateTime(txtDataFim.Text);
+            else
+                objDesenvolvimento.DataFim = null;
 
 
 
@@ -181,7 +188,7 @@ namespace SGS.View.Desenvolvimento
             SGSServico objSGSServico = new SGSServico();
 
             if (objSGSServico.ExcluirDesenvolvimento(SGSDesenvolvimento.CodigoDesenvolvimento.Value))
-                MessageBox1.ShowMessage("Login excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+                MessageBox1.ShowMessage("Desenvolvimento excluído com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
 
             HiddenField1.Value = "Exclusao";
             

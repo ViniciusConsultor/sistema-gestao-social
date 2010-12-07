@@ -14,10 +14,10 @@ os campos desabilitados dos planos orçamentatios serao carregados na forma de al
 
 Na tela de cadastro de assistido o titulo dados familia está sendo repetido 2 vezes. = OK
 
-Na tela de cadastro de assistido quando deixo o campo qtd de irmao em branco da erro ao salvar.
+Na tela de cadastro de assistido quando deixo o campo qtd de irmao em branco da erro ao salvar. = ok
 
 Na tela de consulta de procedimento o campo data marcada. vc digia uma data e clica em localizar e ele trás todas as datas.
 
 Tem que ter 1 stattus = realizado no desenviolvimento. = OK
 
-Erro na carga horaria de desenvolvimento.
+Erro na carga horaria de desenvolvimento. ok

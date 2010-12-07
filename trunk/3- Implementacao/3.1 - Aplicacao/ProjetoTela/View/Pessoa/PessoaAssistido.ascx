@@ -470,10 +470,9 @@
         <td>
             País</td>
         <td style="margin-left: 40px">
-                    <asp:DropDownList ID="ddlPaisResponsavel" runat="server" Width="155px" 
-                Enabled="False">
+                    <asp:DropDownList ID="ddlPaisResponsavel" runat="server" Width="155px">
                         <asp:ListItem>Selecione</asp:ListItem>
-                        <asp:ListItem>Brasil</asp:ListItem>
+                        <asp:ListItem Value="Brasil    ">Brasil      </asp:ListItem>
                     </asp:DropDownList>
         </td>
     </tr>
