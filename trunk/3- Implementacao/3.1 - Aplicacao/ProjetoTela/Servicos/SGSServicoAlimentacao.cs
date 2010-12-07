@@ -107,6 +107,12 @@ namespace SGS.Servicos
                     objPeriodoDTO.Horario = itemAlimentacao.Horario;
                     objPeriodoDTO.NomePeriodo = itemAlimentacao.Periodo;
 
+                    if (objPeriodoDTO.NomePeriodo == "Colacao")
+                        objPeriodoDTO.NomePeriodo = "Colação";
+                    else if (objPeriodoDTO.NomePeriodo == "Almoco")
+                        objPeriodoDTO.NomePeriodo = "Almoço";
+
+
                     //Concatena os alimentos da alimentação
                     foreach (AlimentacaoAlimento itemAlimentacaoAlimento in itemAlimentacao.AlimentacaoAlimentoLista)
                     {

@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarProcedimentos.aspx.cs" Inherits="SGS.View.Procedimentos.ConsultarProcedimentos" %>
+﻿<%@ Page Title=".:: SGS - Consultar Procedimentos ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarProcedimentos.aspx.cs" Inherits="SGS.View.Procedimentos.ConsultarProcedimentos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">
         .style11
     {
-        width: 174px;
+        width: 228px;
         text-align: right;
         font-size: smaller;
     }
@@ -21,14 +21,14 @@
     }
     .style17
     {
-        width: 174px;
+        width: 228px;
         text-align: right;
         text-decoration: underline;
         font-size: small;
     }
     .style18
     {
-        width: 174px;
+        width: 228px;
         text-align: right;
         font-size: small;
     }

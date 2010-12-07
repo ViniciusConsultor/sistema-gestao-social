@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarFinancas.aspx.cs" Inherits="SGS.View.Financas.ConsultarFinancas" %>
+﻿<%@ Page Title=".:: SGS - Consultar Finanças ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarFinancas.aspx.cs" Inherits="SGS.View.Financas.ConsultarFinancas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">
@@ -145,6 +145,7 @@
             </td>
             <td> &nbsp;</td>
         </tr>
+        
         <tr>
             <td class="style7"> &nbsp;</td>    
             <td style="text-align: right" class="style12"> &nbsp;</td>
@@ -152,8 +153,25 @@
                 &nbsp;</td>
             <td> &nbsp;</td>
         </tr>
-        <tr>
+        </table>
+ 
+    <br />
+
+       <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <p></p>
+
+    <table width="850px" align="left" style="font-size: medium">
+         <tr>
             <td colspan="4">  
+                
                 <asp:GridView ID="gridFinancas" runat="server" CellPadding="4" 
                     EmptyDataText="Nenhum dado foi encontrado." ForeColor="#333333" 
                     GridLines="Horizontal" Width="90%" AutoGenerateColumns="False" 
@@ -196,31 +214,13 @@
                     <RowStyle BackColor="#EFF3FB" Font-Size="Small" BorderColor="#003399" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 </asp:GridView>
-                </td>    
-        </tr>
-        <tr>
-            <td class="style7"> &nbsp;</td>    
-            <td style="text-align: right" class="style12"> &nbsp;</td>
-            <td> 
-                &nbsp;</td>
-            <td> &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style7"> &nbsp;</td>    
-            <td style="text-align: right" class="style12"> &nbsp;</td>
-            <td> 
-                &nbsp;</td>
-            <td> &nbsp;</td>
-        </tr>
-    </table>
-    <br />
 
-     
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+                 <br />
+
+                </td>    
+         </tr>
+       </table> 
+
+      
 
 </asp:Content>

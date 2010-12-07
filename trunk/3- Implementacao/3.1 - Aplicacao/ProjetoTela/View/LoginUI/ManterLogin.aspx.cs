@@ -55,9 +55,22 @@ namespace SGS.View.LoginUI
         {
             SGSServico sgsServico = new SGSServico();
 
-            SGSLogin = sgsServico.SalvarLogin(PegarDadosView());
-            MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
-            HiddenField1.Value = "Retorno";
+            SGSLogin = PegarDadosView();
+
+            bool loginExiste = false;
+            if (Request.QueryString["tipo"] != "alt")
+                loginExiste = sgsServico.VerificarLoginExistente(SGSLogin.LoginUsuario);
+
+            if (!loginExiste)
+            {
+                SGSLogin = sgsServico.SalvarLogin(PegarDadosView());
+                MessageBox1.ShowMessage("Dados salvos com sucesso!", BRQ.SI.SCB.UI.Web.UserControls.MessageBoxType.Success);
+                HiddenField1.Value = "Retorno";
+            }
+            else
+            {
+                ExibirCritica("O Login informado já existe, por favor informe outro!");
+            }
         }
 
         /// <summary>
@@ -113,6 +126,7 @@ namespace SGS.View.LoginUI
                 lblDescricao.Text = "<b>Descrição:</b> Permite alterar os logins de acesso ao sistema.";
                 btnExcluir.Visible = true;
                 validatorSenha.Enabled = false;
+                txtLogin.Enabled = false;
                 SGSLogin.CodigoLogin = Convert.ToInt32(Request.QueryString["cod"]);
 
                 SGSLogin = objSGSServico.ObterLogin(SGSLogin.CodigoLogin.Value);
@@ -169,7 +183,16 @@ namespace SGS.View.LoginUI
             
             HiddenField1.Value = "Exclusao";
         }
-        
+
+        public void ExibirCritica(string critica)
+        {
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            validator.ErrorMessage = critica;
+            validator.IsValid = false;
+
+            Page.Validators.Add(validator);
+        }
+
         #endregion
 
         #region Propriedades

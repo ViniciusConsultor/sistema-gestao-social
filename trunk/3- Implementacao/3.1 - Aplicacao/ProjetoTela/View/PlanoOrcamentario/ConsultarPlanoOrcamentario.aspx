@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarPlanoOrcamentario.aspx.cs" Inherits="SGS.View.PlanoOrcamentario.ConsultarPlanoOrcamentario" %>
+﻿<%@ Page Title=".:: SGS - Consultar Plano Orçamentário ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ConsultarPlanoOrcamentario.aspx.cs" Inherits="SGS.View.PlanoOrcamentario.ConsultarPlanoOrcamentario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 <style type="text/css">

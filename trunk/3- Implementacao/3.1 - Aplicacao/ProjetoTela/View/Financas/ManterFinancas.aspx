@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterFinancas.aspx.cs" Inherits="SGS.View.Financas.ManterFinancas" %>
+﻿<%@ Page Title=".:: SGS - Manter Finanças ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterFinancas.aspx.cs" Inherits="SGS.View.Financas.ManterFinancas" %>
 <%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -15,8 +15,8 @@
     }
         .style9
         {
-            width: 243px;
-        }
+        width: 257px;
+    }
     </style>
 
 
@@ -191,14 +191,14 @@
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Lançado Por</td>
                 <td class="style9">
-                    <asp:TextBox ID="txtLancadoPor" runat="server" Height="22px" Width="148px" 
+                    <asp:TextBox ID="txtLancadoPor" runat="server" Height="22px" Width="297px" 
                         MaxLength="50" Rows="20" Enabled="False"></asp:TextBox>
+                </td>
+                <td>
                     <asp:RequiredFieldValidator ID="validatorLancadoPor" runat="server" 
                         ControlToValidate="txtLancadoPor" ErrorMessage="Preencha o campo Lançado Por" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
-                <td>
-                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>

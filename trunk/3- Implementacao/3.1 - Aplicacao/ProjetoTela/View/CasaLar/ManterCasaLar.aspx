@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterCasaLar.aspx.cs" Inherits="ProjetoTela.View.CasaLar.ManterCasaLar" %>
+﻿<%@ Page Title=".:: SGS - Manter Casa Lar ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="ManterCasaLar.aspx.cs" Inherits="ProjetoTela.View.CasaLar.ManterCasaLar" %>
 <%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -330,7 +330,7 @@
                     Qtd. Assistidos</td>
                 <td>
                     <asp:TextBox ID="txtQtdAssistidos" runat="server" 
-                        MaxLength="3" Height="22px" Width="148px"></asp:TextBox>
+                        MaxLength="3" Height="22px" Width="148px" Enabled="False"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="requeridQtdAssistidos" runat="server" 
                         ControlToValidate="txtQtdAssistidos" ErrorMessage="Preencha o campo Qtd. Assistidos" 
                         ForeColor="Red">*</asp:RequiredFieldValidator>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="MsgCasaLar.aspx.cs" Inherits="SGS.View.CasaLar.MsgCasaLar" %>
+﻿<%@ Page Title=".:: SGS - Messagem Casa Lar ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="MsgCasaLar.aspx.cs" Inherits="SGS.View.CasaLar.MsgCasaLar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 

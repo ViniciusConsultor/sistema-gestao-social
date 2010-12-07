@@ -261,5 +261,30 @@ namespace SGS.CamadaDados
             return loginLista;
         }
 
+        /// <summary>
+        /// Verifica se um Login existe
+        /// </summary>
+        public bool VerificarLoginExistente(string login)
+        {
+            SqlCommand comando = new SqlCommand("select * from Login where Login = @login", base.Conectar());
+            SqlParameter parametroLogin = new SqlParameter("@login", login);
+            parametroLogin.DbType = System.Data.DbType.String;
+            comando.Parameters.Add(parametroLogin);
+
+            SqlDataReader leitorDados = comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            Login objLogin = null;
+
+            bool loginExiste = false;
+            if (leitorDados.Read())
+            {
+                loginExiste = true;
+            }
+
+            leitorDados.Close();
+            leitorDados.Dispose();
+
+            return loginExiste;
+        }
+
     }
 }

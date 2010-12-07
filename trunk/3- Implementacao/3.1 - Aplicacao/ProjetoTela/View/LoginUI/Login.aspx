@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="ProjetoTela.Telas.WebForm1" %>
+﻿<%@ Page Title=".:: SGS - Login ::." Language="C#" MasterPageFile="~/Master/SGS.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="ProjetoTela.Telas.WebForm1" %>
 <%@ Register assembly="msgBox" namespace="BunnyBear" tagprefix="cc1" %>
 <%@ Register src="../UserControls/MessageBox.ascx" tagname="MessageBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

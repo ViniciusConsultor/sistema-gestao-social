@@ -1,14 +1,14 @@
-﻿BODY		{ background: #F8F8F8; color: #333333; margin: 0px; font-size: 70%; font-family: Verdana, Geneva, Arial, Helvetica, Sans-serif; }
-TABLE		{ font-size:100%; }
+﻿BODY		{ background: #F8F8F8; color: #333333; margin: 0px; font-size: medium; font-family: Verdana, Geneva, Arial, Helvetica, Sans-serif; }
+TABLE		{ font-size:medium; }
 H1			{ font-size: 200%; font-weight: normal; font-family: Trebuchet MS, Arial, Helvetica, Sans-serif; }
 H2			{ font-size: 160%; font-weight: normal; font-family: Trebuchet MS, Arial, Helvetica, Sans-serif; }
 H3			{ color: #000000; font-size: 130%; margin-bottom: 0px; font-weight: bold; font-family: Trebuchet MS, Arial, Helvetica, Sans-serif; }
 H4			{ font-family: Verdana, Arial, Helvetica, Sans-serif; color: #555555; font-size: 100%; margin-bottom: 0px; font-weight: bold; }
 A			{color: #004E98; text-decoration: none;}
 A:hover		{color: #003261; text-decoration: underline;}
-INPUT		{ font-size: 100%; font-family: Verdana, Arial, Sans-serif; }
-SELECT		{ font-size: 100%; font-family: Verdana, Arial, Sans-serif; }
-TEXTAREA	{ font-size: 100%; font-family: Verdana, Arial, Sans-serif; border: 1px solid #7F9DB9; }
+INPUT		{ font-size: small; font-family: Verdana, Arial, Sans-serif; }
+SELECT		{ font-size: small; font-family: Verdana, Arial, Sans-serif; }
+TEXTAREA	{ font-size: small; font-family: Verdana, Arial, Sans-serif; border: 1px solid #7F9DB9; }
 FIELDSET	{ border: 1px solid #C7D4E0; padding:2px; }
 LEGEND		{ font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 8pt; color: #555555; height: 18px; font-weight: bold; }
 

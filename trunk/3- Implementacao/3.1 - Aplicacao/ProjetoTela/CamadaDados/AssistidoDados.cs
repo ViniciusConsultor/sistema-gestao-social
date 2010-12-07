@@ -635,5 +635,16 @@ namespace SGS.CamadaDados
         }
 
 
+
+        /// <summary>
+        /// Obtém uma Pessoa pelo Código da Pessoa
+        /// </summary>
+        /// <param name="codigoPessoa"></param>
+        /// <returns></returns>
+        public int ObterQtdAssistidos(bool? statusAssistido)
+        {
+            return this.Listar(statusAssistido).Count;
+        }
+
     }
 }

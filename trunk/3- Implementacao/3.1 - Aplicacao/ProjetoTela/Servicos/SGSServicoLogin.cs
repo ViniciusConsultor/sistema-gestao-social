@@ -14,7 +14,7 @@ namespace SGS.Servicos
         public Login ValidarLogin(Login objLogin)
         {
             LoginDados objLoginDados = new LoginDados();
-            
+
             return objLoginDados.Validar(objLogin);
         }
 
@@ -51,6 +51,16 @@ namespace SGS.Servicos
 
             return objLoginDTO;
 
+        }
+
+        /// <summary>
+        /// Verifica se um Login existe
+        /// </summary>
+        public bool VerificarLoginExistente(string login)
+        {
+            LoginDados objLoginDados = new LoginDados();
+
+            return objLoginDados.VerificarLoginExistente(login);
         }
 
     }
