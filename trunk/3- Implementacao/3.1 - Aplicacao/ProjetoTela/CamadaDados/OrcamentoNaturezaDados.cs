@@ -217,16 +217,26 @@ namespace SGS.CamadaDados
         /// <param name="codigoOrcamento"></param>
         public List<OrcamentoNatureza> ListarPorCodigo(int codigoOrcamento)
         {
-            string sql = @"SELECT OrcNat.CodigoNatureza, NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.Valor AS ValorOrcamento, SUM(IsNull(F.Valor,0)) AS BalancoFinancas, 
-                     OrcNat.Valor + SUM(IsNull(F.Valor,0)) AS SaldoOrcamento
-              FROM OrcamentoNatureza AS OrcNat 
-                        INNER JOIN Orcamento AS O ON O.CodigoOrcamento = OrcNat.CodigoOrcamento                     
-                        LEFT JOIN Financas AS F ON F.CodigoNatureza = OrcNat.CodigoNatureza 
-                        INNER JOIN NaturezaLancamento AS NL ON NL.CodigoNatureza = OrcNat.CodigoNatureza 
-                         
-              WHERE ((F.DataLancamento BETWEEN O.InicioVigencia AND O.FimVigencia) OR F.DataLancamento IS NULL) 
-                AND O.CodigoOrcamento = @codigoOrcamento
-              GROUP BY NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.CodigoNatureza, OrcNat.Valor";
+//            string sql = @"SELECT OrcNat.CodigoNatureza, NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.Valor AS ValorOrcamento, SUM(IsNull(F.Valor,0)) AS BalancoFinancas, 
+//                     OrcNat.Valor + SUM(IsNull(F.Valor,0)) AS SaldoOrcamento
+//              FROM OrcamentoNatureza AS OrcNat 
+//                        INNER JOIN Orcamento AS O ON O.CodigoOrcamento = OrcNat.CodigoOrcamento                     
+//                        LEFT JOIN Financas AS F ON F.CodigoNatureza = OrcNat.CodigoNatureza 
+//                        INNER JOIN NaturezaLancamento AS NL ON NL.CodigoNatureza = OrcNat.CodigoNatureza 
+//                         
+//              WHERE ((F.DataLancamento BETWEEN O.InicioVigencia AND O.FimVigencia) OR F.DataLancamento IS NULL) 
+//                AND O.CodigoOrcamento = @codigoOrcamento
+//              GROUP BY NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.CodigoNatureza, OrcNat.Valor";
+
+            string sql = @"SELECT OrcNat.CodigoNatureza, NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.Valor AS ValorOrcamento, SUM(ISNULL(F.Valor, 0)) AS BalancoFinancas, 
+                                  OrcNat.Valor + SUM(ISNULL(F.Valor, 0)) AS SaldoOrcamento
+                            FROM OrcamentoNatureza AS OrcNat 
+                                 INNER JOIN Orcamento AS O ON O.CodigoOrcamento = OrcNat.CodigoOrcamento 
+                                 LEFT OUTER JOIN Financas AS F ON F.CodigoNatureza = OrcNat.CodigoNatureza AND (F.DataLancamento BETWEEN O.InicioVigencia AND O.FimVigencia OR
+                                 F.DataLancamento IS NULL) 
+                                 INNER JOIN NaturezaLancamento AS NL ON NL.CodigoNatureza = OrcNat.CodigoNatureza
+                            WHERE        (O.CodigoOrcamento = @codigoOrcamento)
+                            GROUP BY NL.NomeNatureza, OrcNat.CodigoOrcamento, OrcNat.CodigoNatureza, OrcNat.Valor";
 
             SqlCommand comando = new SqlCommand(sql, base.Conectar());
             SqlParameter paramentoCodigoOrcamento = new SqlParameter("@codigoOrcamento", System.Data.DbType.Int32);
