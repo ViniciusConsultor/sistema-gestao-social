@@ -311,16 +311,6 @@
             <tr>
                 <td class="style9" 
                     style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
-                    Foto</td>
-                <td colspan="2">
-                    <asp:FileUpload ID="uploadFoto" runat="server" Width="156px" Height="22px" />
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style9" 
-                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
                     Qtd. Máxima Assistidos</td>
                 <td>
                     <asp:TextBox ID="txtQtdMaximo" runat="server" MaxLength="3" Height="22px" 
@@ -386,6 +376,15 @@
                 <td colspan="3">
                     <asp:TextBox ID="txtHistoria" runat="server" Height="107px" TextMode="MultiLine" 
                         Width="554px" MaxLength="2000" ReadOnly="True"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style9" 
+                    style="mso-fareast-font-family: &quot;Lucida Sans Unicode&quot;; mso-bidi-font-family: Arial; mso-font-kerning: .5pt; mso-ansi-language: PT-BR; mso-fareast-language: AR-SA; mso-bidi-language: AR-SA">
+                    &nbsp;</td>
+                <td colspan="3">
+                    <asp:FileUpload ID="uploadFoto" runat="server" Width="156px" Height="22px" 
+                        Visible="False" />
                 </td>
             </tr>
             </table>

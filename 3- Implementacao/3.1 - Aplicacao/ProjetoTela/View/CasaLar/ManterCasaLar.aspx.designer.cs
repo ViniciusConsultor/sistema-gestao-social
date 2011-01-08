@@ -319,15 +319,6 @@ namespace ProjetoTela.View.CasaLar {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridBairro;
         
         /// <summary>
-        /// uploadFoto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uploadFoto;
-        
-        /// <summary>
         /// txtQtdMaximo control.
         /// </summary>
         /// <remarks>
@@ -425,6 +416,15 @@ namespace ProjetoTela.View.CasaLar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHistoria;
+        
+        /// <summary>
+        /// uploadFoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uploadFoto;
         
         /// <summary>
         /// btnSalvar control.
