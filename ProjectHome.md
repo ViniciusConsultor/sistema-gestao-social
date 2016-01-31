@@ -1,0 +1,1 @@
+É um projeto que tem por objetivo apoiar a gestão de uma Casa Lar (Orfanato) por meio de Sistemas de Informação.
